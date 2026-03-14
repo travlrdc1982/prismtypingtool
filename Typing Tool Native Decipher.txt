@@ -2928,23 +2928,36 @@ form#primary { background: transparent !important; border: none !important; box-
 ]]></style>
 
 <style mode="after" name="respview.client.js" with="QMD6" wrap="ready"><![CDATA[
-var defined = function(s,c){ return (c||document).querySelector(s); };
-var definedAll = function(s,c){ return [].slice.call((c||document).querySelectorAll(s)); };
-
 var INF_CARDS = [‘inf-card-intro’,’inf-card-qmd6’,’inf-card-qmd7’,’inf-card-qmd88’,’inf-card-qmd89’,’inf-card-qmd90’];
 var infCur = 0;
 var infTotal = INF_CARDS.length - 1;
 
 function infFindQ(q){
-  return document.getElementById(‘q_’+q)
+  var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+q+’"]’)
     || document.getElementById(‘question_’+q)
+    || document.getElementById(‘q_’+q)
     || document.getElementById(q)
     || document.querySelector(‘[id$="_’+q+’"]’);
+  if(!el){
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
+  }
+  return el;
 }
 
-[‘QMD6’,’QMD7’,’QMD88’,’QMD89’,’QMD90’].forEach(function(q){
+var infMap = {QMD6:’inf-card-qmd6’,QMD7:’inf-card-qmd7’,QMD88:’inf-card-qmd88’,QMD89:’inf-card-qmd89’,QMD90:’inf-card-qmd90’};
+Object.keys(infMap).forEach(function(q){
   var el = infFindQ(q);
-  if(el) el.classList.add(‘sc-inf-hidden’);
+  var card = document.getElementById(infMap[q]);
+  if(el && card){
+    card.appendChild(el);
+    el.style.border = ‘none’;
+    el.style.boxShadow = ‘none’;
+    el.style.padding = ‘0’;
+    el.style.margin = ‘0’;
+    el.style.background = ‘transparent’;
+  }
 });
 
 function infShowCard(idx){
@@ -2983,24 +2996,15 @@ infShowCard(0);
 jQuery(‘#inf-start-btn’).on(‘click’, function(){ infAdvance(); });
 
 jQuery(‘#inf-card-qmd6’).on(‘change’, ‘input[type="checkbox"]’, function(){
-  var q = infFindQ(‘QMD6’);
-  if(!q) return;
-  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
-  if(checked.length > 0) setTimeout(infAdvance, 400);
+  setTimeout(infAdvance, 400);
 });
 
 jQuery(‘#inf-card-qmd7’).on(‘change’, ‘input[type="checkbox"]’, function(){
-  var q = infFindQ(‘QMD7’);
-  if(!q) return;
-  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
-  if(checked.length > 0) setTimeout(infAdvance, 400);
+  setTimeout(infAdvance, 400);
 });
 
 jQuery(‘#inf-card-qmd88’).on(‘change’, ‘input[type="checkbox"]’, function(){
-  var q = infFindQ(‘QMD88’);
-  if(!q) return;
-  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
-  if(checked.length > 0) setTimeout(infAdvance, 400);
+  setTimeout(infAdvance, 400);
 });
 
 jQuery(‘#inf-card-qmd89’).on(‘change’, ‘input[type="radio"]’, function(){
@@ -3009,11 +3013,7 @@ jQuery(‘#inf-card-qmd89’).on(‘change’, ‘input[type="radio"]’, functi
 
 jQuery(‘#inf-card-qmd90’).on(‘change’, ‘input[type="radio"]’, function(){
   setTimeout(function(){
-    var q = infFindQ(‘QMD90’);
-    if(!q) return;
-    var allRows = q.querySelectorAll(‘.sq-cardrating-card’);
-    var answered = q.querySelectorAll(‘.sq-cardrating-card[data-answered]’);
-    if(answered.length >= allRows.length) infEnableNext();
+    infEnableNext();
   }, 500);
 });
 
@@ -3035,14 +3035,14 @@ jQuery(‘#sc-inf-continue-btn’).on(‘click’, function(){
 <div id="sc-inf-progress-wrap"><div id="sc-inf-progress-track"><div id="sc-inf-progress-fill"></div></div><div id="sc-inf-progress-label"></div></div>
 <div class="sc-inf-card sc-intro" id="inf-card-intro">
 <p class="intro-body">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</p>
-&lt;button id="inf-start-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 48px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;"&gt;LET’S GO&lt;/button&gt;
+<button id="inf-start-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 48px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;">LET’S GO</button>
 </div>
 <div class="sc-inf-card" id="inf-card-qmd6"><div class="sc-q-label">1 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd7"><div class="sc-q-label">2 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd88"><div class="sc-q-label">3 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd89"><div class="sc-q-label">4 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd90"><div class="sc-q-label">5 of 5 Questions</div></div>
-<div id="sc-inf-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-inf-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-inf-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-inf-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
 <div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
 </div></html>
 
@@ -3098,6 +3098,9 @@ form#primary { background: transparent !important; border: none !important; box-
 
 #sc-maha-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
 #sc-maha-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+
+[class*="MAHA1x99"] .question-text, [class*="MAHA1x99"] .comment,
+[id*="MAHA1x99"] .question-text, [id*="MAHA1x99"] .comment { display: none !important; }
 </style>
 ]]></style>
 
@@ -3106,12 +3109,31 @@ var MAHA_CARDS = [‘maha-card-1’,’maha-card-2’];
 var mahaCur = 0;
 
 function mahaFindQ(q){
-  return document.getElementById(‘q_’+q) || document.getElementById(‘question_’+q) || document.getElementById(q) || document.querySelector(‘[id$="_’+q+’"]’);
+  var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+q+’"]’)
+    || document.getElementById(‘question_’+q)
+    || document.getElementById(‘q_’+q)
+    || document.getElementById(q)
+    || document.querySelector(‘[id$="_’+q+’"]’);
+  if(!el){
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
+  }
+  return el;
 }
 
-[‘MAHA1’,’MAHA1x99’,’MAHA2’].forEach(function(q){
+var mahaMap = {MAHA1:’maha-card-1’,MAHA1x99:’maha-card-1’,MAHA2:’maha-card-2’};
+Object.keys(mahaMap).forEach(function(q){
   var el = mahaFindQ(q);
-  if(el) el.classList.add(‘sc-maha-hidden’);
+  var card = document.getElementById(mahaMap[q]);
+  if(el && card){
+    card.appendChild(el);
+    el.style.border = ‘none’;
+    el.style.boxShadow = ‘none’;
+    el.style.padding = ‘0’;
+    el.style.margin = ‘0’;
+    el.style.background = ‘transparent’;
+  }
 });
 
 function mahaShowCard(idx){
@@ -3189,7 +3211,7 @@ jQuery(‘#sc-maha-continue-btn’).on(‘click’, function(){
 <div id="sc-maha-progress-wrap"><div id="sc-maha-progress-track"><div id="sc-maha-progress-fill"></div></div><div id="sc-maha-progress-label"></div></div>
 <div class="sc-maha-card sc-visible" id="maha-card-1"><div class="sc-q-label">1 of 4 Questions</div></div>
 <div class="sc-maha-card" id="maha-card-2"><div class="sc-q-label">2 of 4 Questions</div></div>
-<div id="sc-maha-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-maha-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-maha-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
 </div></html>
 
 <suspend/>
@@ -3251,6 +3273,9 @@ form#primary { background: transparent !important; border: none !important; box-
 
 #sc-maha2-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
 #sc-maha2-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+
+[class*="MAHA4x99"] .question-text, [class*="MAHA4x99"] .comment,
+[id*="MAHA4x99"] .question-text, [id*="MAHA4x99"] .comment { display: none !important; }
 </style>
 ]]></style>
 
@@ -3259,12 +3284,31 @@ var MAHA2_CARDS = [‘maha2-card-1’,’maha2-card-2’];
 var maha2Cur = 0;
 
 function maha2FindQ(q){
-  return document.getElementById(‘q_’+q) || document.getElementById(‘question_’+q) || document.getElementById(q) || document.querySelector(‘[id$="_’+q+’"]’);
+  var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+q+’"]’)
+    || document.getElementById(‘question_’+q)
+    || document.getElementById(‘q_’+q)
+    || document.getElementById(q)
+    || document.querySelector(‘[id$="_’+q+’"]’);
+  if(!el){
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
+  }
+  return el;
 }
 
-[‘MAHA3’,’MAHA4’,’MAHA4x99’].forEach(function(q){
+var maha2Map = {MAHA3:’maha2-card-1’,MAHA4:’maha2-card-2’,MAHA4x99:’maha2-card-2’};
+Object.keys(maha2Map).forEach(function(q){
   var el = maha2FindQ(q);
-  if(el) el.classList.add(‘sc-maha2-hidden’);
+  var card = document.getElementById(maha2Map[q]);
+  if(el && card){
+    card.appendChild(el);
+    el.style.border = ‘none’;
+    el.style.boxShadow = ‘none’;
+    el.style.padding = ‘0’;
+    el.style.margin = ‘0’;
+    el.style.background = ‘transparent’;
+  }
 });
 
 function maha2ShowCard(idx){
@@ -3314,7 +3358,7 @@ jQuery(‘#sc-maha2-continue-btn’).on(‘click’, function(){
 <div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
 <div class="sc-maha2-card sc-visible" id="maha2-card-1"><div class="sc-q-label">3 of 4 Questions</div></div>
 <div class="sc-maha2-card" id="maha2-card-2"><div class="sc-q-label">4 of 4 Questions</div></div>
-<div id="sc-maha2-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha2-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-maha2-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-maha2-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
 </div></html>
 
 <suspend/>
@@ -3344,6 +3388,9 @@ form#primary { background: transparent !important; border: none !important; box-
 
 #sc-demo-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
 #sc-demo-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+
+[class*="x99"] .question-text, [class*="x99"] .comment,
+[id*="x99"] .question-text, [id*="x99"] .comment { display: none !important; }
 </style>
 ]]></style>
 
@@ -3356,15 +3403,31 @@ var demoCur = 0;
 var demoTotal = DEMO_CARDS.length;
 
 function demoFindQ(q){
-  return document.getElementById('q_'+q)
+  var el = document.querySelector('.question[id*="'+q+'"]')
+    || document.querySelector('fieldset[id*="'+q+'"]')
     || document.getElementById('question_'+q)
+    || document.getElementById('q_'+q)
     || document.getElementById(q)
     || document.querySelector('[id$="_'+q+'"]');
+  if(!el){
+    var inputs = document.querySelectorAll('input[name*="'+q+'"], select[name*="'+q+'"]');
+    if(inputs.length>0){ el = inputs[0].closest('.question') || inputs[0].closest('fieldset') || inputs[0].parentNode; }
+  }
+  return el;
 }
 
-['ETHNIC','ETHNICx99','RACE','VET','VETx99','UNION','UNIONx99','EDUCATION','EDUCATIONx99','REL','RELx99','HHI','HHIX99'].forEach(function(q){
+var demoMap = {ETHNIC:'demo-card-ethnic',ETHNICx99:'demo-card-ethnic',RACE:'demo-card-race',VET:'demo-card-vet',VETx99:'demo-card-vet',UNION:'demo-card-union',UNIONx99:'demo-card-union',EDUCATION:'demo-card-edu',EDUCATIONx99:'demo-card-edu',REL:'demo-card-rel',RELx99:'demo-card-rel',HHI:'demo-card-hhi',HHIX99:'demo-card-hhi'};
+Object.keys(demoMap).forEach(function(q){
   var el = demoFindQ(q);
-  if(el) el.classList.add('sc-demo-hidden');
+  var card = document.getElementById(demoMap[q]);
+  if(el && card){
+    card.appendChild(el);
+    el.style.border = 'none';
+    el.style.boxShadow = 'none';
+    el.style.padding = '0';
+    el.style.margin = '0';
+    el.style.background = 'transparent';
+  }
 });
 
 function demoShowCard(idx){
@@ -3752,7 +3815,7 @@ input[type="radio"]:checked + .showInputParent_0 label {
 <div class="sc-demo-card" id="demo-card-edu"><div class="sc-q-label">5 of 7 Questions</div></div>
 <div class="sc-demo-card" id="demo-card-rel"><div class="sc-q-label">6 of 7 Questions</div></div>
 <div class="sc-demo-card" id="demo-card-hhi"><div class="sc-q-label">7 of 7 Questions</div></div>
-<div id="sc-demo-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-demo-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-demo-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-demo-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
 <div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
 </div></html>
 
