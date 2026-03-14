@@ -3844,67 +3844,10 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 <suspend/>
 
-<block label="SRC_BLOCK">
 <loop label="SRC_LOOP" vars="topicName">
   <title>Source Rating Loop</title>
 
-  <note>Loop rows: one per topic, conditioned on HHIX101 topic selection</note>
-  <looprow label="1" cond="HHIX101.r1">
-    <loopvar name="topicIdx">1</loopvar>
-    <loopvar name="topicName">Political news and commentary</loopvar>
-  </looprow>
-  <looprow label="2" cond="HHIX101.r2">
-    <loopvar name="topicIdx">2</loopvar>
-    <loopvar name="topicName">Health policy</loopvar>
-  </looprow>
-  <looprow label="3" cond="HHIX101.r3">
-    <loopvar name="topicIdx">3</loopvar>
-    <loopvar name="topicName">Medicare and senior health</loopvar>
-  </looprow>
-  <looprow label="4" cond="HHIX101.r4">
-    <loopvar name="topicIdx">4</loopvar>
-    <loopvar name="topicName">Natural and alternative health</loopvar>
-  </looprow>
-  <looprow label="5" cond="HHIX101.r5">
-    <loopvar name="topicIdx">5</loopvar>
-    <loopvar name="topicName">Nutrition and diet</loopvar>
-  </looprow>
-  <looprow label="6" cond="HHIX101.r6">
-    <loopvar name="topicIdx">6</loopvar>
-    <loopvar name="topicName">Supplements and vitamins</loopvar>
-  </looprow>
-  <looprow label="7" cond="HHIX101.r7">
-    <loopvar name="topicIdx">7</loopvar>
-    <loopvar name="topicName">Vaccines and immunization</loopvar>
-  </looprow>
-  <looprow label="8" cond="HHIX101.r8">
-    <loopvar name="topicIdx">8</loopvar>
-    <loopvar name="topicName">Fitness and physical performance</loopvar>
-  </looprow>
-  <looprow label="9" cond="HHIX101.r9">
-    <loopvar name="topicIdx">9</loopvar>
-    <loopvar name="topicName">Longevity and anti-aging</loopvar>
-  </looprow>
-  <looprow label="10" cond="HHIX101.r10">
-    <loopvar name="topicIdx">10</loopvar>
-    <loopvar name="topicName">Science and medical research</loopvar>
-  </looprow>
-  <looprow label="11" cond="HHIX101.r11">
-    <loopvar name="topicIdx">11</loopvar>
-    <loopvar name="topicName">Faith and values</loopvar>
-  </looprow>
-  <looprow label="12" cond="HHIX101.r12">
-    <loopvar name="topicIdx">12</loopvar>
-    <loopvar name="topicName">Worker and economic issues</loopvar>
-  </looprow>
-  <looprow label="13" cond="HHIX101.r13">
-    <loopvar name="topicIdx">13</loopvar>
-    <loopvar name="topicName">Health technology and innovation</loopvar>
-  </looprow>
-  <looprow label="14" cond="HHIX101.r14">
-    <loopvar name="topicIdx">14</loopvar>
-    <loopvar name="topicName">Environmental and climate health</loopvar>
-  </looprow>
+  <block label="SRC_BLOCK">
 
   <style mode="after" name="respview.client.css" with="SRC_LOOP"><![CDATA[
 <style>
@@ -3925,9 +3868,6 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 }
 </style>
 ]]></style>
-
-  <note>Loop content: exec block to cap sources at 25 items</note>
-
   <exec>
 <![CDATA[
 import random
@@ -4471,8 +4411,67 @@ for r in eligible[25:]:
 
 <suspend/>
 
+  </block>
+
+
+  <looprow label="1" cond="HHIX101.r1">
+    <loopvar name="topicIdx">1</loopvar>
+    <loopvar name="topicName">Political news and commentary</loopvar>
+  </looprow>
+  <looprow label="2" cond="HHIX101.r2">
+    <loopvar name="topicIdx">2</loopvar>
+    <loopvar name="topicName">Health policy</loopvar>
+  </looprow>
+  <looprow label="3" cond="HHIX101.r3">
+    <loopvar name="topicIdx">3</loopvar>
+    <loopvar name="topicName">Medicare and senior health</loopvar>
+  </looprow>
+  <looprow label="4" cond="HHIX101.r4">
+    <loopvar name="topicIdx">4</loopvar>
+    <loopvar name="topicName">Natural and alternative health</loopvar>
+  </looprow>
+  <looprow label="5" cond="HHIX101.r5">
+    <loopvar name="topicIdx">5</loopvar>
+    <loopvar name="topicName">Nutrition and diet</loopvar>
+  </looprow>
+  <looprow label="6" cond="HHIX101.r6">
+    <loopvar name="topicIdx">6</loopvar>
+    <loopvar name="topicName">Supplements and vitamins</loopvar>
+  </looprow>
+  <looprow label="7" cond="HHIX101.r7">
+    <loopvar name="topicIdx">7</loopvar>
+    <loopvar name="topicName">Vaccines and immunization</loopvar>
+  </looprow>
+  <looprow label="8" cond="HHIX101.r8">
+    <loopvar name="topicIdx">8</loopvar>
+    <loopvar name="topicName">Fitness and physical performance</loopvar>
+  </looprow>
+  <looprow label="9" cond="HHIX101.r9">
+    <loopvar name="topicIdx">9</loopvar>
+    <loopvar name="topicName">Longevity and anti-aging</loopvar>
+  </looprow>
+  <looprow label="10" cond="HHIX101.r10">
+    <loopvar name="topicIdx">10</loopvar>
+    <loopvar name="topicName">Science and medical research</loopvar>
+  </looprow>
+  <looprow label="11" cond="HHIX101.r11">
+    <loopvar name="topicIdx">11</loopvar>
+    <loopvar name="topicName">Faith and values</loopvar>
+  </looprow>
+  <looprow label="12" cond="HHIX101.r12">
+    <loopvar name="topicIdx">12</loopvar>
+    <loopvar name="topicName">Worker and economic issues</loopvar>
+  </looprow>
+  <looprow label="13" cond="HHIX101.r13">
+    <loopvar name="topicIdx">13</loopvar>
+    <loopvar name="topicName">Health technology and innovation</loopvar>
+  </looprow>
+  <looprow label="14" cond="HHIX101.r14">
+    <loopvar name="topicIdx">14</loopvar>
+    <loopvar name="topicName">Environmental and climate health</loopvar>
+  </looprow>
+
 </loop>
-</block>
 
 <suspend/>
 
