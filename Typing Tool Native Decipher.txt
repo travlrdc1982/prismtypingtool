@@ -809,6 +809,22 @@ body, .survey-body, .main-content {
     background: #5A6B42;
     transform: translateY(-1px);
 }
+
+[data-label="c1"] { background-color: #D0D0D0 !important; }
+[data-label="c2"] { background-color: #E5E5E5 !important; }
+[data-label="c3"] { background-color: #F2F2ED !important; }
+[data-label="c4"] { background-color: #DBEBC7 !important; }
+[data-label="c5"] { background-color: #C6E2A3 !important; }
+[data-label="c6"] { background-color: #2E7D32 !important; color: #fff !important; }
+.sq-cardrating-btn {
+  flex: 1 1 0 !important;
+  border-radius: 20px !important;
+  padding: 10px 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  border: none !important;
+}
 </style>
 ]]></style>
 <style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
@@ -3848,26 +3864,6 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
   <title>Source Rating Loop</title>
 
   <block label="SRC_BLOCK">
-
-  <style mode="after" name="respview.client.css" with="SRC_LOOP"><![CDATA[
-<style>
-[data-label="c1"] { background-color: #D0D0D0 !important; }
-[data-label="c2"] { background-color: #E5E5E5 !important; }
-[data-label="c3"] { background-color: #F2F2ED !important; }
-[data-label="c4"] { background-color: #DBEBC7 !important; }
-[data-label="c5"] { background-color: #C6E2A3 !important; }
-[data-label="c6"] { background-color: #2E7D32 !important; color: #fff !important; }
-.sq-cardrating-btn {
-  flex: 1 1 0 !important;
-  border-radius: 20px !important;
-  padding: 10px 6px !important;
-  font-size: 12px !important;
-  font-weight: 600 !important;
-  text-align: center !important;
-  border: none !important;
-}
-</style>
-]]></style>
   <exec>
 <![CDATA[
 import random
