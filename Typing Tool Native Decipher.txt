@@ -1185,7 +1185,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="sc-card sc-intro" id="card-intro">
 <div class="intro-logo-wrap"></div>
 <p class="intro-body">Thanks for taking part. This survey helps us understand how people think about health&amp;nbsp;care and public policy today. There are no right or wrong answers — we’re interested in&amp;nbsp;<em>your</em>&amp;nbsp;point of view.<br/><br/>Let’s begin.</p>
-&lt;button id="sc-start-btn" type="button"&gt;READY, SET, GO!&lt;/button&gt;</div>
+<button id="sc-start-btn" type="button">READY, SET, GO!</button></div>
 <div class="sc-card" id="card-qs1">
 <div class="sc-q-label">1 of 6 Questions</div>
 <div class="sc-q-text">Are you registered to vote?</div>
@@ -1205,19 +1205,19 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="sc-q-label">2 of 6 Questions</div>
 <div class="sc-q-text">Please enter your 5-digit Zip Code</div>
 <p style="font-size: 13px; color: #888888; margin: -12px 0 14px; font-family: Inter,sans-serif;">(the Zip Code of your primary residence where you are registered to vote)</p>
-<div class="zip-digits-row">&lt;input class="zip-digit" id="sc-zip-1" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 1"&gt; &lt;input class="zip-digit" id="sc-zip-2" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 2"&gt; &lt;input class="zip-digit" id="sc-zip-3" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 3"&gt; &lt;input class="zip-digit" id="sc-zip-4" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 4"&gt; &lt;input class="zip-digit" id="sc-zip-5" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 5"&gt;</div>
+<div class="zip-digits-row"><input class="zip-digit" id="sc-zip-1" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 1"> <input class="zip-digit" id="sc-zip-2" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 2"> <input class="zip-digit" id="sc-zip-3" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 3"> <input class="zip-digit" id="sc-zip-4" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 4"> <input class="zip-digit" id="sc-zip-5" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="ZIP digit 5"></div>
 <div class="sc-field-error" id="zip-error"></div>
-<div class="zip-why-row">&lt;button class="zip-why-trigger" type="button"&gt; <span class="zip-why-icon">?</span> <span style="font-size: 12px; letter-spacing: .05em; text-transform: uppercase; font-weight: 600;"> WHY DO WE ASK THIS? </span> &lt;/button&gt;
+<div class="zip-why-row"><button class="zip-why-trigger" type="button"> <span class="zip-why-icon">?</span> <span style="font-size: 12px; letter-spacing: .05em; text-transform: uppercase; font-weight: 600;"> WHY DO WE ASK THIS? </span> </button>
 <div class="zip-why-body">Your ZIP code helps us ensure we’re hearing from people across different parts of the country, building a representative sample. <strong>FUN FACT:</strong> ZIP codes tie you to your congressional district, so we can ask follow‑up questions about your community — they never reveal your name or exact address.</div>
 </div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="zip-pna" type="checkbox"&gt; <span>Prefer not to answer</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="zip-pna" type="checkbox"> <span>Prefer not to answer</span> </label></div>
 <div class="sc-card" id="card-qage">
 <div class="sc-q-label">3 of 6 Questions</div>
 <div class="sc-q-text">Tell us how old you are.</div>
 <div class="age-instruction">Enter two digits — e.g., “4” then “5” for age 45</div>
-<div class="age-digits-row">&lt;input class="age-digit" id="sc-age-1" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="Age tens digit"&gt; &lt;input class="age-digit" id="sc-age-2" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="Age units digit"&gt;</div>
+<div class="age-digits-row"><input class="age-digit" id="sc-age-1" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="Age tens digit"> <input class="age-digit" id="sc-age-2" type="tel" maxlength="1" inputmode="numeric" autocomplete="off" aria-label="Age units digit"></div>
 <div class="sc-field-error" id="age-error"></div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="age-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="age-pna" type="checkbox"> <span>Prefer not to respond</span> </label></div>
 <div class="sc-card" id="card-qgender">
 <div class="sc-q-label">4 of 6 Questions</div>
 <div class="sc-q-text">What is your gender?</div>
@@ -1226,7 +1226,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="gender-pill" data-val="2">FEMALE</div>
 <div class="gender-pill" data-val="3">OTHER</div>
 </div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="gender-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="gender-pna" type="checkbox"> <span>Prefer not to respond</span> </label></div>
 <div class="sc-card" id="card-qvote24">
 <div class="sc-q-label">5 of 6 Questions</div>
 <div class="sc-q-text">Who did you vote for in the latest (2024) Presidential election?</div>
@@ -1252,7 +1252,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <span class="ballot-label">Another Candidate</span></div>
 <div class="ballot-bottom-row" data-val="4"><span class="ballot-label">I didn’t have the chance to vote in this election</span></div>
 </div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="vote-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="vote-pna" type="checkbox"> <span>Prefer not to respond</span> </label></div>
 <div class="sc-card" id="card-party">
 <div class="sc-q-label">6 of 6 Questions</div>
 <div class="sc-q-text">In politics today, do you consider yourself a…?</div>
@@ -1261,7 +1261,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="party-btn party-main-btn" data-val="2" role="radio" aria-label="Democrat" tabindex="0"><img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM"/> <span>Democrat</span></div>
 <div class="party-btn party-main-btn" data-val="3" role="radio" aria-label="Independent / Other" tabindex="0"><span class="party-ind-badge">IND</span> <span>Independent/<br/>Other</span></div>
 </div>
-&lt;label class="sc-pna-row" id="party-pna-main"&gt; &lt;input class="sc-pna-chk" id="party-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;
+<label class="sc-pna-row" id="party-pna-main"> <input class="sc-pna-chk" id="party-pna" type="checkbox"> <span>Prefer not to respond</span> </label>
 <div class="party-sub" id="party-sub-a">
 <div class="sc-q-text">Would you say you are a strong or not-so-strong <span id="qs5a-pipe">Republican</span>?</div>
 <div class="party-sub-radios">
@@ -1272,7 +1272,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="party-sub-icon-pill" id="pill-gop"><img class="party-icon" src="/survey/selfserve/21a7/260129/GOP_Icon.svg" alt="GOP"/> <span>Republican</span></div>
 <div class="party-sub-icon-pill" id="pill-dem"><img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM"/> <span>Democrat</span></div>
 </div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="party2-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="party2-pna" type="checkbox"> <span>Prefer not to respond</span> </label></div>
 <div class="party-sub" id="party-sub-b">
 <div class="sc-q-text">Do you <strong>lean</strong> toward the…</div>
 <div class="party-lean-btns">
@@ -1280,9 +1280,9 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div class="party-lean-btn" data-val="2"><img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM"/> <span>Democrats</span></div>
 <div class="party-lean-btn" data-val="3"><span class="party-lean-no-badge">NO</span> <span>I do not lean toward either</span></div>
 </div>
-&lt;label class="sc-pna-row"&gt; &lt;input class="sc-pna-chk" id="party3-pna" type="checkbox"&gt; <span>Prefer not to respond</span> &lt;/label&gt;</div>
+<label class="sc-pna-row"> <input class="sc-pna-chk" id="party3-pna" type="checkbox"> <span>Prefer not to respond</span> </label></div>
 </div>
-<div id="sc-continue-wrap" style="display: none; text-align: center; padding: 24px 0 16px;">&lt;button id="sc-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-continue-wrap" style="display: none; text-align: center; padding: 24px 0 16px;"><button id="sc-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
 </div>
 <p></p>
 <p></p>
@@ -2933,14 +2933,21 @@ var infCur = 0;
 var infTotal = INF_CARDS.length - 1;
 
 function infFindQ(q){
+  var ql = q.toLowerCase();
   var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘.question[id*="’+ql+’"]’)
     || document.querySelector(‘fieldset[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+ql+’"]’)
     || document.getElementById(‘question_’+q)
+    || document.getElementById(‘question_’+ql)
     || document.getElementById(‘q_’+q)
+    || document.getElementById(‘q_’+ql)
     || document.getElementById(q)
-    || document.querySelector(‘[id$="_’+q+’"]’);
+    || document.getElementById(ql)
+    || document.querySelector(‘[id$="_’+q+’"]’)
+    || document.querySelector(‘[id$="_’+ql+’"]’);
   if(!el){
-    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"], input[name*="’+ql+’"], select[name*="’+ql+’"]’);
     if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
   }
   return el;
@@ -3109,14 +3116,21 @@ var MAHA_CARDS = [‘maha-card-1’,’maha-card-2’];
 var mahaCur = 0;
 
 function mahaFindQ(q){
+  var ql = q.toLowerCase();
   var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘.question[id*="’+ql+’"]’)
     || document.querySelector(‘fieldset[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+ql+’"]’)
     || document.getElementById(‘question_’+q)
+    || document.getElementById(‘question_’+ql)
     || document.getElementById(‘q_’+q)
+    || document.getElementById(‘q_’+ql)
     || document.getElementById(q)
-    || document.querySelector(‘[id$="_’+q+’"]’);
+    || document.getElementById(ql)
+    || document.querySelector(‘[id$="_’+q+’"]’)
+    || document.querySelector(‘[id$="_’+ql+’"]’);
   if(!el){
-    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"], input[name*="’+ql+’"], select[name*="’+ql+’"]’);
     if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
   }
   return el;
@@ -3284,14 +3298,21 @@ var MAHA2_CARDS = [‘maha2-card-1’,’maha2-card-2’];
 var maha2Cur = 0;
 
 function maha2FindQ(q){
+  var ql = q.toLowerCase();
   var el = document.querySelector(‘.question[id*="’+q+’"]’)
+    || document.querySelector(‘.question[id*="’+ql+’"]’)
     || document.querySelector(‘fieldset[id*="’+q+’"]’)
+    || document.querySelector(‘fieldset[id*="’+ql+’"]’)
     || document.getElementById(‘question_’+q)
+    || document.getElementById(‘question_’+ql)
     || document.getElementById(‘q_’+q)
+    || document.getElementById(‘q_’+ql)
     || document.getElementById(q)
-    || document.querySelector(‘[id$="_’+q+’"]’);
+    || document.getElementById(ql)
+    || document.querySelector(‘[id$="_’+q+’"]’)
+    || document.querySelector(‘[id$="_’+ql+’"]’);
   if(!el){
-    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"]’);
+    var inputs = document.querySelectorAll(‘input[name*="’+q+’"], select[name*="’+q+’"], input[name*="’+ql+’"], select[name*="’+ql+’"]’);
     if(inputs.length>0){ el = inputs[0].closest(‘.question’) || inputs[0].closest(‘fieldset’) || inputs[0].parentNode; }
   }
   return el;
@@ -3403,14 +3424,21 @@ var demoCur = 0;
 var demoTotal = DEMO_CARDS.length;
 
 function demoFindQ(q){
+  var ql = q.toLowerCase();
   var el = document.querySelector('.question[id*="'+q+'"]')
+    || document.querySelector('.question[id*="'+ql+'"]')
     || document.querySelector('fieldset[id*="'+q+'"]')
+    || document.querySelector('fieldset[id*="'+ql+'"]')
     || document.getElementById('question_'+q)
+    || document.getElementById('question_'+ql)
     || document.getElementById('q_'+q)
+    || document.getElementById('q_'+ql)
     || document.getElementById(q)
-    || document.querySelector('[id$="_'+q+'"]');
+    || document.getElementById(ql)
+    || document.querySelector('[id$="_'+q+'"]')
+    || document.querySelector('[id$="_'+ql+'"]');
   if(!el){
-    var inputs = document.querySelectorAll('input[name*="'+q+'"], select[name*="'+q+'"]');
+    var inputs = document.querySelectorAll('input[name*="'+q+'"], select[name*="'+q+'"], input[name*="'+ql+'"], select[name*="'+ql+'"]');
     if(inputs.length>0){ el = inputs[0].closest('.question') || inputs[0].closest('fieldset') || inputs[0].parentNode; }
   }
   return el;
