@@ -3844,7 +3844,7 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 <suspend/>
 
-<loop label="SRC_LOOP" vars="topicName">
+<loop label="SRC_LOOP" vars="topicIdx,topicName">
   <title>Source Rating Loop</title>
 
   <block label="SRC_BLOCK">
@@ -3902,8 +3902,6 @@ for r in eligible[25:]:
     <col label="c5">Past month</col>
     <col label="c6">Past week</col>
 
-    <note>Source rows with topic and party conditions</note>
-    <note>Topic 1: Political news and commentary</note>
     <row label="r1" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Fox News</row>
     <row label="r2" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>MSNBC</row>
     <row label="r3" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CNN</row>
@@ -3986,7 +3984,6 @@ for r in eligible[25:]:
     <row label="r80" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Bad Faith  (Briahna Joy Gray)</row>
     <row label="r81" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Rural Blog</row>
     <row label="r82" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Policy News</row>
-    <note>Topic 2: Health policy</note>
     <row label="r83" cond='SRC_LOOP.loopvar.topicIdx=="2"'>KFF Health News</row>
     <row label="r84" cond='SRC_LOOP.loopvar.topicIdx=="2"'>STAT News</row>
     <row label="r85" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Affairs</row>
@@ -4105,7 +4102,6 @@ for r in eligible[25:]:
     <row label="r198" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for Social Responsibility</row>
     <row label="r199" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Beat</row>
     <row label="r200" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Prescription Drug Watch</row>
-    <note>Topic 3: Medicare and senior health</note>
     <row label="r201" cond='SRC_LOOP.loopvar.topicIdx=="3"'>The Medicare Podcast</row>
     <row label="r202" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Interactive</row>
     <row label="r203" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Senior Planet  (OATS)</row>
@@ -4140,7 +4136,6 @@ for r in eligible[25:]:
     <row label="r232" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Decoded</row>
     <row label="r233" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior Report</row>
     <row label="r234" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aging Well  (Dr. Leslie Kernisan)</row>
-    <note>Topic 4: Natural and alternative health</note>
     <row label="r235" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Doctor's Farmacy)</row>
     <row label="r236" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Josh Axe</row>
     <row label="r237" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wellness Mama</row>
@@ -4181,7 +4176,6 @@ for r in eligible[25:]:
     <row label="r272" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Food Fix)</row>
     <row label="r273" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Will Cole  (Inflammation Fix)</row>
     <row label="r274" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Metabolic Mind  (Baszucki Group)</row>
-    <note>Topic 5: Nutrition and diet</note>
     <row label="r275" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Paul Saladino  (Carnivore MD)</row>
     <row label="r276" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Shawn Baker  (Revero)</row>
     <row label="r277" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mikhaila Peterson</row>
@@ -4218,7 +4212,6 @@ for r in eligible[25:]:
     <row label="r308" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Food Politics  (Marion Nestle)</row>
     <row label="r309" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Grain Brain  (David Perlmutter)</row>
     <row label="r310" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Carnivore Bar</row>
-    <note>Topic 6: Supplements and vitamins</note>
     <row label="r311" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Huberman Lab</row>
     <row label="r312" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Examine.com</row>
     <row label="r313" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nootropics Depot</row>
@@ -4229,7 +4222,6 @@ for r in eligible[25:]:
     <row label="r318" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Supplement Review Podcast</row>
     <row label="r319" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Designs for Health Podcast</row>
     <row label="r320" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Fullscript Insights</row>
-    <note>Topic 7: Vaccines and immunization</note>
     <row label="r321" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist</row>
     <row label="r322" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CHOP Vaccine Education Center</row>
     <row label="r323" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Immunize.org</row>
@@ -4264,7 +4256,6 @@ for r in eligible[25:]:
     <row label="r352" cond='SRC_LOOP.loopvar.topicIdx=="7"'>Courageous Discourse  (Bhattacharya)</row>
     <row label="r353" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Karl Denninger  (Market Ticker Health)</row>
     <row label="r354" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist  (Jetelina)</row>
-    <note>Topic 8: Fitness and physical performance</note>
     <row label="r355" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mark Bell's Power Project</row>
     <row label="r356" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ben Greenfield Life</row>
     <row label="r357" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Barbell Medicine</row>
@@ -4275,7 +4266,6 @@ for r in eligible[25:]:
     <row label="r362" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Functional Patterns</row>
     <row label="r363" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Garage Gym Reviews</row>
     <row label="r364" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NSCA  (Journal of Strength Research)</row>
-    <note>Topic 9: Longevity and anti-aging</note>
     <row label="r365" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (The Drive)</row>
     <row label="r366" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Bryan Johnson  (Blueprint)</row>
     <row label="r367" cond='SRC_LOOP.loopvar.topicIdx=="9"'>David Sinclair  (Lifespan)</row>
@@ -4288,7 +4278,6 @@ for r in eligible[25:]:
     <row label="r374" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (Outlive)</row>
     <row label="r375" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Nir Eyal  (Indistractable Health)</row>
     <row label="r376" cond='SRC_LOOP.loopvar.topicIdx=="9"'>LifeOmic  (Longevity Science)</row>
-    <note>Topic 10: Science and medical research</note>
     <row label="r377" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Ground Truths  (Eric Topol)</row>
     <row label="r378" cond='SRC_LOOP.loopvar.topicIdx=="10"'>MedPage Today</row>
     <row label="r379" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Medscape</row>
@@ -4310,7 +4299,6 @@ for r in eligible[25:]:
     <row label="r395" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Tomas Pueyo  (Uncharted Territories)</row>
     <row label="r396" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Incubator  (Neonatal Research)</row>
     <row label="r397" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Absolutely Maybe  (Lisa Bero)</row>
-    <note>Topic 11: Faith and values</note>
     <row label="r398" cond='SRC_LOOP.loopvar.topicIdx=="11"'>EWTN</row>
     <row label="r399" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Focus on the Family Podcast</row>
     <row label="r400" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Christianity Today</row>
@@ -4342,7 +4330,6 @@ for r in eligible[25:]:
     <row label="r426" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Comment Magazine  (Cardus)</row>
     <row label="r427" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Plough Quarterly</row>
     <row label="r428" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Faithful Politics</row>
-    <note>Topic 12: Worker and economic issues</note>
     <row label="r429" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Working People Podcast</row>
     <row label="r430" cond='SRC_LOOP.loopvar.topicIdx=="12"'>AFL-CIO Now</row>
     <row label="r431" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Labor Notes</row>
@@ -4370,7 +4357,6 @@ for r in eligible[25:]:
     <row label="r453" cond='SRC_LOOP.loopvar.topicIdx=="12"'>The Lever  (David Sirota)</row>
     <row label="r454" cond='SRC_LOOP.loopvar.topicIdx=="12"'>More Perfect Union</row>
     <row label="r455" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare Worker Stories</row>
-    <note>Topic 13: Health technology and innovation</note>
     <row label="r456" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NEJM Catalyst</row>
     <row label="r457" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Fierce Healthcare</row>
     <row label="r458" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare IT News</row>
@@ -4388,7 +4374,6 @@ for r in eligible[25:]:
     <row label="r470" cond='SRC_LOOP.loopvar.topicIdx=="13"'>The Prism  (Health Innovation)</row>
     <row label="r471" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Heartbeat Health AI</row>
     <row label="r472" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Rock Health  (Weekly Briefing)</row>
-    <note>Topic 14: Environmental and climate health</note>
     <row label="r473" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Grist</row>
     <row label="r474" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Yale Climate Connections</row>
     <row label="r475" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Environmental Health News</row>
