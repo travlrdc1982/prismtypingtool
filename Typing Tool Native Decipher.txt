@@ -2780,7 +2780,7 @@ elif XDEM_SEG_FINAL_1.any:
 <suspend/>
 
 <note>===================== INFLUENCER SECTION — Progressive Cards =====================</note>
-<html label="cm1" where="survey" keepWith="QMD6">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
+<html label="cm1" where="survey">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
 
 <checkbox
   label="QMD6"
@@ -3319,7 +3319,7 @@ jQuery(‘#sc-maha2-continue-btn’).on(‘click’, function(){
 
 <suspend/>
 
-<html label="cm2" where="survey" keepWith="ETHNIC">We promise this is the last stretch. <br /><br />Just a few background questions so we can see how different walks of life connect with different ways of thinking.</html>
+<html label="cm2" where="survey">We promise this is the last stretch. <br /><br />Just a few background questions so we can see how different walks of life connect with different ways of thinking.</html>
 
 <note>===================== DEMOGRAPHICS — Progressive Cards (ETHNIC → RACE → VET → UNION → EDUCATION → REL → HHI) =====================</note>
 
