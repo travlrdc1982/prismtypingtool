@@ -1,0 +1,172 @@
+<exec>
+import random
+eligible = [r for r in HHIX104.rows if not r.disabled and r.o.label != 'r999']
+random.shuffle(eligible)
+for r in eligible[25:]:
+    r.disabled = True
+</exec>
+
+<checkbox
+  label="HHIX104"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  shuffle="rows"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of the following voices or creators do you follow on topics you selected?</title>
+  <comment>Scan the list and tap on any that you know and follow, no matter how often</comment>
+  <row label="r1" cond="HHIX101.r10">Dr. CÃ©line Gounder</row>
+  <row label="r2" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Rural Health Voices</row>
+  <row label="r3" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">American Farm Bureau</row>
+  <row label="r4" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r10">Dr. Howard Luks</row>
+  <row label="r5" cond="HHIX101.r10">Dr. Danielle Jones  (Mama Doctor Jones)</row>
+  <row label="r6" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Dave Chase  (Health Rosetta)</row>
+  <row label="r7" cond="HHIX101.r2">Wendell Potter</row>
+  <row label="r8" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Marshall Allen  (ProPublica Health)</row>
+  <row label="r9" cond="HHIX101.r2">Ge Bai  (Hopkins Health Economics)</row>
+  <row label="r10" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Marty Makary  (Johns Hopkins)</row>
+  <row label="r11" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Leah Binder  (Leapfrog Group)</row>
+  <row label="r12" cond="HHIX101.r2">Elisabeth Rosenthal</row>
+  <row label="r13" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Matt Walsh</row>
+  <row label="r14" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Lila Rose</row>
+  <row label="r15" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Kirk Cameron</row>
+  <row label="r16" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Dr. Sebastian Gorka</row>
+  <row label="r17" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Allie Beth Stuckey</row>
+  <row label="r18" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Abby Johnson</row>
+  <row label="r19" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Jeff Barke</row>
+  <row label="r20" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Kelly Brogan MD</row>
+  <row label="r21" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Mama Natural  (Genevieve Howland)</row>
+  <row label="r22" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">The Feeding Doctor  (Katja Rowell)</row>
+  <row label="r23" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Feeding Littles</row>
+  <row label="r24" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r8">Steph Gaudreau  (Harder to Kill)</row>
+  <row label="r25" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Lily Nichols  (Real Food for Pregnancy)</row>
+  <row label="r26" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Clean Label Project</row>
+  <row label="r27" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Moms Across America  (Zen Honeycutt)</row>
+  <row label="r28" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Robb Wolf</row>
+  <row label="r29" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Tenpenny</row>
+  <row label="r30" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Naturally Nourished  (Ali Miller)</row>
+  <row label="r31" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">MAHA Mom  (Rebecca Kleefisch)</row>
+  <row label="r32" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Balanced Bites  (Diane Sanfilippo)</row>
+  <row label="r33" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Well Fed  (Melissa Joulwan)</row>
+  <row label="r34" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Homesteaders of America</row>
+  <row label="r35" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">The Paleo Mom  (Sarah Ballantyne)</row>
+  <row label="r36" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Katie Wells  (Wellness Mama)</row>
+  <row label="r37" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Robyn Openshaw  (Green Smoothie Girl)</row>
+  <row label="r38" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Trina Holden  (Real Food Living)</row>
+  <row label="r39" cond="HHIX101.r2">Alex Lawson  (Social Security Works)</row>
+  <row label="r40" cond="HHIX101.r1">Bernie Sanders</row>
+  <row label="r41" cond="HHIX101.r2">Ro Khanna</row>
+  <row label="r42" cond="HHIX101.r12">AFSCME</row>
+  <row label="r43" cond="HHIX101.r12">SEIU</row>
+  <row label="r44" cond="HHIX101.r2">Patient Rights Advocate</row>
+  <row label="r45" cond="HHIX101.r9">Bryan Johnson</row>
+  <row label="r46" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r13">Balaji Srinivasan</row>
+  <row label="r47" cond="HHIX101.r10">Michael Levin</row>
+  <row label="r48" cond="HHIX101.r10">George Church</row>
+  <row label="r49" cond="HHIX101.r9">Aubrey de Grey</row>
+  <row label="r50" cond="HHIX101.r13">Lex Fridman</row>
+  <row label="r51" cond="HHIX101.r13">Sam Altman</row>
+  <row label="r52" cond="HHIX101.r13">Vinod Khosla</row>
+  <row label="r53" cond="HHIX101.r9">Casey Means</row>
+  <row label="r54" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Calley Means</row>
+  <row label="r55" cond="HHIX101.r13">Marc Andreessen</row>
+  <row label="r56" cond="HHIX101.r13">Garry Tan</row>
+  <row label="r57" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Bart Kay</row>
+  <row label="r58" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Anthony Chaffee MD</row>
+  <row label="r59" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Carnivore Aurelius</row>
+  <row label="r60" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Steak and Butter Gal</row>
+  <row label="r61" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Ken Berry MD  (Keep it Simple)</row>
+  <row label="r62" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Dr. Eric Berg</row>
+  <row label="r63" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Frank Tufano</row>
+  <row label="r64" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Amy Myers</row>
+  <row label="r65" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Jolene Brighten</row>
+  <row label="r66" cond="HHIX101.r4">Aviva Romm MD</row>
+  <row label="r67" cond="HHIX101.r4">The Holistic Psychologist  (Dr. Nicole LePera)</row>
+  <row label="r68" cond="HHIX101.r4">MindBodyGreen</row>
+  <row label="r69" cond="HHIX101.r5">Sakara Life</row>
+  <row label="r70" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Essential Oils</row>
+  <row label="r71" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Young Living</row>
+  <row label="r72" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Herbal Academy</row>
+  <row label="r73" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Organic Olivia</row>
+  <row label="r74" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Fully Raw Kristina</row>
+  <row label="r75" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Sebi Community</row>
+  <row label="r76" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">The Herbal Spoon</row>
+  <row label="r77" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Essentially Elana</row>
+  <row label="r78" cond="HHIX101.r5">Plant Based News</row>
+  <row label="r79" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Zach Bush</row>
+  <row label="r80" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Kitchen Witch</row>
+  <row label="r81" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Aaron Siri  (ICAN)</row>
+  <row label="r82" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Mary Holland  (CHD)</row>
+  <row label="r83" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Meryl Nass MD</row>
+  <row label="r84" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Harvey Risch</row>
+  <row label="r85" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Rand Paul</row>
+  <row label="r86" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Thomas Massie</row>
+  <row label="r87" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Sherri Tenpenny</row>
+  <row label="r88" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Stephanie Seneff</row>
+  <row label="r89" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Carrie Madej</row>
+  <row label="r90" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Liz Wheeler</row>
+  <row label="r91" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Health Freedom Defense Fund</row>
+  <row label="r92" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Vaccine Safety Research Foundation</row>
+  <row label="r93" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Ady Barkan  (Be a Hero)</row>
+  <row label="r94" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Nina Turner</row>
+  <row label="r95" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">AOC</row>
+  <row label="r96" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Abdul El-Sayed</row>
+  <row label="r97" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Physicians for a National Health Program</row>
+  <row label="r98" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Briahna Joy Gray</row>
+  <row label="r99" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Ryan Grim  (The Intercept)</row>
+  <row label="r100" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Healthcare-NOW</row>
+  <row label="r101" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Rev. William Barber II</row>
+  <row label="r102" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Lisa Sharon Harper  (Freedom Road )</row>
+  <row label="r103" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Latasha Morrison (Be the Bridge)</row>
+  <row label="r104" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Christina Edmondson</row>
+  <row label="r105" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Jemar Tisby</row>
+  <row label="r106" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Black Girl Health</row>
+  <row label="r107" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. UchÃ© Blackstock</row>
+  <row label="r108" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Oni Blackstock</row>
+  <row label="r109" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Unwell Network</row>
+  <row label="r110" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Chika Stacy Oriuwa</row>
+  <row label="r111" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">The Movement for Black Lives Health</row>
+  <row label="r112" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bettina Judd</row>
+  <row label="r113" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">National Birth Equity Collaborative</row>
+  <row label="r114" cond="HHIX101.r12">Sara Nelson (AFA Union)</row>
+  <row label="r115" cond="HHIX101.r12">Shawn Fain (UAW)</row>
+  <row label="r116" cond="HHIX101.r12">Liz Shuler (AFL-CIO)</row>
+  <row label="r117" cond="HHIX101.r12">Harold Schaitberger (IAFF)</row>
+  <row label="r118" cond="HHIX101.r12">UFCW</row>
+  <row label="r119" cond="HHIX101.r12">Teamsters</row>
+  <row label="r120" cond="HHIX101.r12">Jobs with Justice</row>
+  <row label="r121" cond="HHIX101.r1">Working Families Party</row>
+  <row label="r122" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Ashish Jha</row>
+  <row label="r123" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bob Wachter</row>
+  <row label="r124" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Vivek Murthy</row>
+  <row label="r125" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Mandy Cohen</row>
+  <row label="r126" cond="HHIX101.r13">Hala Mazur</row>
+  <row label="r127" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Atul Gawande</row>
+  <row label="r128" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Andy Slavitt</row>
+  <row label="r129" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r13">Farzad Mostashari</row>
+  <row label="r130" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Zeke Emanuel</row>
+  <row label="r131" cond="HHIX101.r2">Dave deBronkart</row>
+  <row label="r132" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">AARP</row>
+  <row label="r133" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Medicare Rights Center</row>
+  <row label="r134" cond="HHIX101.r3">Social Security Works</row>
+  <row label="r135" cond="HHIX101.r3">Nancy Altman</row>
+  <row label="r136" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Protect Our Care</row>
+  <row label="r137" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Dr. Howard Fillit</row>
+  <row label="r138" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Next Avenue</row>
+  <row label="r139" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Kaiser Health News</row>
+  <row label="r140" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Tedros (WHO)</row>
+  <row label="r141" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Tom Frieden (&quot;Resolve to Save Lives&quot;)</row>
+  <row label="r142" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Dr. Peter Hotez</row>
+  <row label="r143" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Richard Besser (Robert Wood Johnson Foundation)</row>
+  <row label="r144" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Paul Farmer legacy</row>
+  <row label="r145" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Laurie Garrett</row>
+  <row label="r146" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Seth Berkley</row>
+  <row label="r147" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bill Gates</row>
+  <row label="r148" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Chelsea Clinton</row>
+  <row label="r149" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Gregg Gonsalves</row>
+  <row label="r150" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Saad Omer</row>
+  <row label="r151" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Amy Maxmen</row>
+  <row label="r999" exclusive="1" randomize="0"><span class="NoneOfThese">None of these</span></row>
+</checkbox>

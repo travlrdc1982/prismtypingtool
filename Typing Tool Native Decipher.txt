@@ -42,7 +42,7 @@
 
 <suspend/>
 
-<style mode="after" name="respview.client.css" with="QMD1_intro2,cm1,QMD4,QMD4x99,QMD6,QMD7,QMD88,QMD89,QMD90,MAHA1,MAHA1x99,MAHA2,MAHA3,MAHA4,MAHA4x99,cm2,ETHNICx99,RACE,VET,VETx99,UNION,UNIONx99,EDUCATION,REL,RELx99,REL2,HHI,HHIX99,cm3,HHIX100,HHIX101,HHIX102,HHIX103,HHIX103x99,HHIX104,HHIX105"><![CDATA[
+<style mode="after" name="respview.client.css" with="QMD1_intro2,cm1,QMD4,QMD4x99,QMD6,QMD7,QMD88,QMD89,QMD90,MAHA1,MAHA1x99,MAHA2,MAHA3,MAHA4,MAHA4x99,cm2,ETHNICx99,RACE,VET,VETx99,UNION,UNIONx99,EDUCATION,REL,RELx99,HHI,HHIX99,cm3,HHIX100,HHIX101,SRC_LOOP,HHIX103,HHIX103x99,HHIX104,HHIX105"><![CDATA[
 <style>
 
 h1#question_text_QMD4x99, h1#question_text_MAHA1x99, h1#question_text_ETHNICx99, h1#question_text_VETx99, h1#question_text_UNIONx99, h1#question_text_EDUCATIONx99, h1#question_text_RELx99, h1#question_text_HHIX99, h1#question_text_HHIX103x99, h1#question_text_MAHA4x99, h1#question_text_HHIX104x99 {
@@ -2779,31 +2779,32 @@ elif XDEM_SEG_FINAL_1.any:
 
 <suspend/>
 
-<html label="cm1" where="survey">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
+<note>===================== INFLUENCER SECTION — Progressive Cards =====================</note>
+<html label="cm1" where="survey" keepWith="QMD6">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
 
-<checkbox 
+<checkbox
   label="QMD6"
-  atleast="1">
+  atleast="1"
+  keepWith="QMD7">
   <title>How have you made your voice heard?</title>
-  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
-  <row label="r1" groups="g1">I've worked inside government, held office, or staffed those who do</row>
-  <row label="r2" groups="g1">I've helped decide who runs for office or who gets hired in political or government roles</row>
+  <comment>Select all that apply. At the end, you’ll see your Influence Compass.</comment>
+  <row label="r1" groups="g1">I’ve worked inside government, held office, or staffed those who do</row>
+  <row label="r2" groups="g1">I’ve helped decide who runs for office or who gets hired in political or government roles</row>
   <row label="r3" groups="g1">I advise organizations, sit on boards, or have testified on policy matters</row>
-  <row label="r4" groups="g1">I've written, spoken publicly, or published on issues</row>
-  <row label="r5" groups="g1">I've organized people, worked campaigns, or rallied others to action</row>
+  <row label="r4" groups="g1">I’ve written, spoken publicly, or published on issues</row>
+  <row label="r5" groups="g1">I’ve organized people, worked campaigns, or rallied others to action</row>
   <row label="r6" groups="g1">I vote, follow current events, and stay involved in my community</row>
   <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
-<suspend/>
-
-<checkbox 
+<checkbox
   label="QMD7"
-  atleast="1">
+  atleast="1"
+  keepWith="QMD88">
   <title>Which of these have you done?</title>
-  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <comment>Select all that apply. At the end, you’ll see your Influence Compass.</comment>
   <row label="r1" groups="g1">Met (in person or video) with congressional, agency, or state legislative staff</row>
   <row label="r2" groups="g1">Sat on the board or executive committee of any health, policy, or business association?</row>
   <row label="r3" groups="g1">Worked with or advised a Washington-based organization (think tank, patient advocacy group, trade association)</row>
@@ -2813,13 +2814,12 @@ elif XDEM_SEG_FINAL_1.any:
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
-<suspend/>
-
-<checkbox 
+<checkbox
   label="QMD88"
-  atleast="1">
+  atleast="1"
+  keepWith="QMD89">
   <title>In the past 12 months, have you taken any of the following actions related to a public policy issue?</title>
-  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <comment>Select all that apply. At the end, you’ll see your Influence Compass.</comment>
   <row label="r1" groups="g1">Signed a petition</row>
   <row label="r2" groups="g1">Attended a meeting</row>
   <row label="r3" groups="g1">Donated money</row>
@@ -2828,12 +2828,11 @@ elif XDEM_SEG_FINAL_1.any:
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
-<suspend/>
-
-<radio 
+<radio
   label="QMD89"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
+  keepWith="QMD90"
   ss:listDisplay="1"
   uses="atm1d.11">
   <title>Across all your public social-media accounts about how many followers or subscribers do you have in total?</title>
@@ -2846,11 +2845,46 @@ elif XDEM_SEG_FINAL_1.any:
   <row label="r6"><strong>50,000 +</strong></row>
 </radio>
 
-<suspend/>
+<style mode="after" name="respview.client.css" with="QMD90"><![CDATA[
+<style>
+[data-label="c1"] {
+  background-color: #D0D0D0 !important;
+}
+[data-label="c2"] {
+  background-color: #E5E5E5 !important;
+}
+[data-label="c3"] {
+  background-color: #DBEBC7 !important;
+}
+[data-label="c4"] {
+  background-color: #C6E2A3 !important;
+}
+[data-label="c5"] {
+  background-color: #2E7D32 !important;
+  color: #fff !important;
+}
 
-<radio 
+.sq-cardrating-btn {
+  flex: 1 1 0 !important;
+  border-radius: 20px !important;
+  padding: 10px 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  border: none !important;
+}
+</style>
+]]></style>
+
+<radio
   label="QMD90"
   cardrating:btnlayout="tiled"
+  cardrating:progress="1"
+  cardrating:animation="medium"
+  cardrating:themename="hpush"
+  cardrating:lrg_minwidth="18%"
+  cardrating:sml_minwidth="30%"
+  cardrating:lrg_btnalign="Center"
   fir="off"
   grouping="rows"
   uses="cardrating.1">
@@ -2866,9 +2900,156 @@ elif XDEM_SEG_FINAL_1.any:
   <row label="r3"><b>Commented or replied to posts</b></row>
 </radio>
 
+<style mode="after" name="respview.client.css" with="QMD6"><![CDATA[
+<style>
+body, .survey-body, .main-content { background: #F5F2ED !important; }
+.logo-middle { display: none; }
+form#primary { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.survey-buttons { display: none !important; }
+
+.sc-inf-hidden { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; overflow: visible !important; }
+.sc-inf-hidden .question-text, .sc-inf-hidden .comment, .sc-inf-hidden .instruction-text, .sc-inf-hidden .answers-list, .sc-inf-hidden .fir-row, .sc-inf-hidden .row-elements, .sc-inf-hidden .noanswer-row, .sc-inf-hidden .error { display: none !important; }
+
+#sc-inf-root { max-width: 640px; margin: 0 auto; padding: 24px 16px 120px; font-family: Inter, sans-serif; color: #333; }
+.sc-inf-card { background: #fff; border: 1px solid #E0DCD6; border-radius: 10px; padding: 22px 24px 20px; margin-bottom: 28px; display: none; }
+.sc-inf-card.sc-visible { display: block; }
+.sc-inf-card.sc-intro { display: block; background: #F8F5F0; padding: 28px 28px 26px; text-align: center; }
+.sc-inf-card .sc-q-label { font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+.sc-inf-card .sc-q-text { font-family: Fraunces, Georgia, serif; font-size: 19px; font-weight: 700; color: #333; line-height: 1.42; margin-bottom: 20px; }
+
+#sc-inf-progress-wrap { position: sticky; top: 0; z-index: 200; background: #F5F2ED; padding: 8px 0 12px; display: none; }
+#sc-inf-progress-track { height: 5px; background: #E0E0E0; border-radius: 3px; }
+#sc-inf-progress-fill { height: 100%; width: 0%; background: #6B7F4E; border-radius: 3px; transition: width .45s cubic-bezier(.4,0,.2,1); }
+#sc-inf-progress-label { margin-top: 4px; text-align: right; font-size: 11px; letter-spacing: .05em; color: #888; font-weight: 600; text-transform: uppercase; }
+
+#sc-inf-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+#sc-inf-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+</style>
+]]></style>
+
+<style mode="after" name="respview.client.js" with="QMD6" wrap="ready"><![CDATA[
+var defined = function(s,c){ return (c||document).querySelector(s); };
+var definedAll = function(s,c){ return [].slice.call((c||document).querySelectorAll(s)); };
+
+var INF_CARDS = [‘inf-card-intro’,’inf-card-qmd6’,’inf-card-qmd7’,’inf-card-qmd88’,’inf-card-qmd89’,’inf-card-qmd90’];
+var infCur = 0;
+var infTotal = INF_CARDS.length - 1;
+
+function infFindQ(q){
+  return document.getElementById(‘q_’+q)
+    || document.getElementById(‘question_’+q)
+    || document.getElementById(q)
+    || document.querySelector(‘[id$="_’+q+’"]’);
+}
+
+[‘QMD6’,’QMD7’,’QMD88’,’QMD89’,’QMD90’].forEach(function(q){
+  var el = infFindQ(q);
+  if(el) el.classList.add(‘sc-inf-hidden’);
+});
+
+function infShowCard(idx){
+  INF_CARDS.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if(!el) return;
+    if(i===0) el.style.display = idx===0 ? ‘block’ : ‘none’;
+    else el.style.display = i<=idx ? ‘block’ : ‘none’;
+  });
+  infUpdateProgress();
+}
+function infAdvance(){
+  if(infCur < INF_CARDS.length-1){ infCur++; infShowCard(infCur); }
+  var last = document.getElementById(INF_CARDS[infCur]);
+  if(last) last.scrollIntoView({behavior:’smooth’,block:’start’});
+}
+function infUpdateProgress(){
+  var wrap = document.getElementById(‘sc-inf-progress-wrap’);
+  var fill = document.getElementById(‘sc-inf-progress-fill’);
+  var lbl = document.getElementById(‘sc-inf-progress-label’);
+  if(!wrap||!fill) return;
+  if(infCur>0){
+    wrap.style.display=’block’;
+    var pct = Math.round((infCur/infTotal)*100);
+    fill.style.width = pct+’%’;
+    if(lbl) lbl.textContent = pct+’% COMPLETE’;
+  }
+}
+function infEnableNext(){
+  var wrap = document.getElementById(‘sc-inf-continue-wrap’);
+  if(wrap){ wrap.style.display=’block’; wrap.scrollIntoView({behavior:’smooth’,block:’center’}); }
+}
+
+infShowCard(0);
+
+jQuery(‘#inf-start-btn’).on(‘click’, function(){ infAdvance(); });
+
+jQuery(‘#inf-card-qmd6’).on(‘change’, ‘input[type="checkbox"]’, function(){
+  var q = infFindQ(‘QMD6’);
+  if(!q) return;
+  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
+  if(checked.length > 0) setTimeout(infAdvance, 400);
+});
+
+jQuery(‘#inf-card-qmd7’).on(‘change’, ‘input[type="checkbox"]’, function(){
+  var q = infFindQ(‘QMD7’);
+  if(!q) return;
+  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
+  if(checked.length > 0) setTimeout(infAdvance, 400);
+});
+
+jQuery(‘#inf-card-qmd88’).on(‘change’, ‘input[type="checkbox"]’, function(){
+  var q = infFindQ(‘QMD88’);
+  if(!q) return;
+  var checked = q.querySelectorAll(‘input[type="checkbox"]:checked’);
+  if(checked.length > 0) setTimeout(infAdvance, 400);
+});
+
+jQuery(‘#inf-card-qmd89’).on(‘change’, ‘input[type="radio"]’, function(){
+  setTimeout(infAdvance, 350);
+});
+
+jQuery(‘#inf-card-qmd90’).on(‘change’, ‘input[type="radio"]’, function(){
+  setTimeout(function(){
+    var q = infFindQ(‘QMD90’);
+    if(!q) return;
+    var allRows = q.querySelectorAll(‘.sq-cardrating-card’);
+    var answered = q.querySelectorAll(‘.sq-cardrating-card[data-answered]’);
+    if(answered.length >= allRows.length) infEnableNext();
+  }, 500);
+});
+
+jQuery(‘#sc-inf-continue-btn’).on(‘click’, function(){
+  var nxt = document.querySelector(‘.nextPage, .button[type="submit"], input[type="submit"]’);
+  if(!nxt) nxt = document.querySelector(‘.button, input.button’);
+  if(nxt){
+    nxt.setAttribute(‘style’,’display:block !important;visibility:hidden;position:absolute;left:-9999px;’);
+    nxt.click();
+  } else {
+    var form = document.querySelector(‘form’);
+    if(form) form.submit();
+  }
+});
+]]></style>
+
+<html label="sc_inf_ui"><div id="sc-inf-root">
+<div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
+<div id="sc-inf-progress-wrap"><div id="sc-inf-progress-track"><div id="sc-inf-progress-fill"></div></div><div id="sc-inf-progress-label"></div></div>
+<div class="sc-inf-card sc-intro" id="inf-card-intro">
+<p class="intro-body">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</p>
+&lt;button id="inf-start-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 48px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;"&gt;LET’S GO&lt;/button&gt;
+</div>
+<div class="sc-inf-card" id="inf-card-qmd6"><div class="sc-q-label">1 of 5 Questions</div></div>
+<div class="sc-inf-card" id="inf-card-qmd7"><div class="sc-q-label">2 of 5 Questions</div></div>
+<div class="sc-inf-card" id="inf-card-qmd88"><div class="sc-q-label">3 of 5 Questions</div></div>
+<div class="sc-inf-card" id="inf-card-qmd89"><div class="sc-q-label">4 of 5 Questions</div></div>
+<div class="sc-inf-card" id="inf-card-qmd90"><div class="sc-q-label">5 of 5 Questions</div></div>
+<div id="sc-inf-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-inf-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
+</div></html>
+
 <suspend/>
 
-<radio 
+<note>===================== MAHA PAGE 1 — Progressive Cards (MAHA1 + MAHA2) =====================</note>
+<radio
   label="MAHA1"
   atm1d:large_minWidth="100px"
   atm1d:showInput="0"
@@ -2885,30 +3066,107 @@ elif XDEM_SEG_FINAL_1.any:
   <row label="r5">Never heard<br />of it</row>
 </radio>
 
-<checkbox 
+<checkbox
   label="MAHA1x99"
-  keepWith="MAHA1">
+  keepWith="MAHA2">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
-<suspend/>
-
-<style mode="after" name="respview.client.css" with="MAHA2"><![CDATA[
+<style mode="after" name="respview.client.css" with="MAHA1"><![CDATA[
 <style>
+#ans18927\.0\.9 + .fir-icon { visibility: hidden !important; }
 
+body, .survey-body, .main-content { background: #F5F2ED !important; }
+.logo-middle { display: none; }
+form#primary { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.survey-buttons { display: none !important; }
 
+.sc-maha-hidden { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; overflow: visible !important; }
+.sc-maha-hidden .question-text, .sc-maha-hidden .comment, .sc-maha-hidden .instruction-text, .sc-maha-hidden .answers-list, .sc-maha-hidden .fir-row, .sc-maha-hidden .row-elements, .sc-maha-hidden .noanswer-row, .sc-maha-hidden .error { display: none !important; }
 
+#sc-maha-root { max-width: 640px; margin: 0 auto; padding: 24px 16px 120px; font-family: Inter, sans-serif; color: #333; }
+.sc-maha-card { background: #fff; border: 1px solid #E0DCD6; border-radius: 10px; padding: 22px 24px 20px; margin-bottom: 28px; display: none; }
+.sc-maha-card.sc-visible { display: block; }
+.sc-maha-card .sc-q-label { font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+.sc-maha-card .sc-q-text { font-family: Fraunces, Georgia, serif; font-size: 19px; font-weight: 700; color: #333; line-height: 1.42; margin-bottom: 20px; }
 
-#ans18927\.0\.9 + .fir-icon {
-  visibility: hidden !important;
+#sc-maha-progress-wrap { position: sticky; top: 0; z-index: 200; background: #F5F2ED; padding: 8px 0 12px; display: none; }
+#sc-maha-progress-track { height: 5px; background: #E0E0E0; border-radius: 3px; }
+#sc-maha-progress-fill { height: 100%; width: 0%; background: #6B7F4E; border-radius: 3px; transition: width .45s cubic-bezier(.4,0,.2,1); }
+#sc-maha-progress-label { margin-top: 4px; text-align: right; font-size: 11px; letter-spacing: .05em; color: #888; font-weight: 600; text-transform: uppercase; }
+
+#sc-maha-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+#sc-maha-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+</style>
+]]></style>
+
+<style mode="after" name="respview.client.js" with="MAHA1" wrap="ready"><![CDATA[
+var MAHA_CARDS = [‘maha-card-1’,’maha-card-2’];
+var mahaCur = 0;
+
+function mahaFindQ(q){
+  return document.getElementById(‘q_’+q) || document.getElementById(‘question_’+q) || document.getElementById(q) || document.querySelector(‘[id$="_’+q+’"]’);
 }
 
+[‘MAHA1’,’MAHA1x99’,’MAHA2’].forEach(function(q){
+  var el = mahaFindQ(q);
+  if(el) el.classList.add(‘sc-maha-hidden’);
+});
 
+function mahaShowCard(idx){
+  MAHA_CARDS.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = i<=idx ? ‘block’ : ‘none’;
+  });
+  var wrap = document.getElementById(‘sc-maha-progress-wrap’);
+  var fill = document.getElementById(‘sc-maha-progress-fill’);
+  var lbl = document.getElementById(‘sc-maha-progress-label’);
+  if(wrap && fill && mahaCur>0){
+    wrap.style.display=’block’;
+    var pct = Math.round((mahaCur/(MAHA_CARDS.length))*100);
+    fill.style.width = pct+’%’;
+    if(lbl) lbl.textContent = pct+’% COMPLETE’;
+  }
+}
+function mahaAdvance(){
+  if(mahaCur < MAHA_CARDS.length-1){ mahaCur++; mahaShowCard(mahaCur); }
+  else {
+    var wrap = document.getElementById(‘sc-maha-continue-wrap’);
+    if(wrap){ wrap.style.display=’block’; wrap.scrollIntoView({behavior:’smooth’,block:’center’}); }
+  }
+  var last = document.getElementById(MAHA_CARDS[mahaCur]);
+  if(last) last.scrollIntoView({behavior:’smooth’,block:’start’});
+}
 
-    </style>
+mahaShowCard(0);
+
+jQuery(‘#maha-card-1’).on(‘change’, ‘input[type="radio"]’, function(){
+  setTimeout(mahaAdvance, 350);
+});
+
+jQuery(‘#maha-card-2’).on(‘change’, ‘input[type="radio"]’, function(){
+  setTimeout(function(){
+    var wrap = document.getElementById(‘sc-maha-continue-wrap’);
+    if(wrap){ wrap.style.display=’block’; wrap.scrollIntoView({behavior:’smooth’,block:’center’}); }
+  }, 350);
+});
+
+jQuery(‘#sc-maha-continue-btn’).on(‘click’, function(){
+  var nxt = document.querySelector(‘.nextPage, .button[type="submit"], input[type="submit"]’);
+  if(!nxt) nxt = document.querySelector(‘.button, input.button’);
+  if(nxt){
+    nxt.setAttribute(‘style’,’display:block !important;visibility:hidden;position:absolute;left:-9999px;’);
+    nxt.click();
+  } else {
+    var form = document.querySelector(‘form’);
+    if(form) form.submit();
+  }
+});
 ]]></style>
-<radio 
+
+<radio
   label="MAHA2">
   <title>When you hear the term MAHA, what does it most closely represent to you?</title>
   <comment>Select one</comment>
@@ -2926,11 +3184,21 @@ elif XDEM_SEG_FINAL_1.any:
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </radio>
 
+<html label="sc_maha1_ui"><div id="sc-maha-root">
+<div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
+<div id="sc-maha-progress-wrap"><div id="sc-maha-progress-track"><div id="sc-maha-progress-fill"></div></div><div id="sc-maha-progress-label"></div></div>
+<div class="sc-maha-card sc-visible" id="maha-card-1"><div class="sc-q-label">1 of 4 Questions</div></div>
+<div class="sc-maha-card" id="maha-card-2"><div class="sc-q-label">2 of 4 Questions</div></div>
+<div id="sc-maha-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+</div></html>
+
 <suspend/>
 
-<select 
+<note>===================== MAHA PAGE 2 — Progressive Cards (MAHA3 + MAHA4, cond on MAHA1) =====================</note>
+<select
   label="MAHA3"
   cond="(MAHA1.r1 or MAHA1.r2 or MAHA1.r3)"
+  keepWith="MAHA4"
   ss:questionClassNames="sq-sliderpoints"
   uses="sliderpoints.4">
   <title>Overall, what is your impression of the MAHA movement or idea?</title>
@@ -2943,9 +3211,7 @@ elif XDEM_SEG_FINAL_1.any:
   <choice label="ch5"><span style="font-weight: 400; font-style: normal; color: #40921e;">VERY Favorable</span></choice>
 </select>
 
-<suspend/>
-
-<radio 
+<radio
   label="MAHA4"
   cond="(MAHA1.r1 or MAHA1.r2 or MAHA1.r3)"
   keepWith="MAHA4x99">
@@ -2960,7 +3226,7 @@ elif XDEM_SEG_FINAL_1.any:
   <row label="r7">I’m unfamiliar with it</row>
 </radio>
 
-<checkbox 
+<checkbox
   label="MAHA4x99"
   cond="(MAHA1.r1 or MAHA1.r2 or MAHA1.r3)"
   keepWith="MAHA4">
@@ -2968,11 +3234,212 @@ elif XDEM_SEG_FINAL_1.any:
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
+<style mode="after" name="respview.client.css" with="MAHA3"><![CDATA[
+<style>
+body, .survey-body, .main-content { background: #F5F2ED !important; }
+.logo-middle { display: none; }
+form#primary { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.survey-buttons { display: none !important; }
+
+.sc-maha2-hidden { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; overflow: visible !important; }
+.sc-maha2-hidden .question-text, .sc-maha2-hidden .comment, .sc-maha2-hidden .instruction-text, .sc-maha2-hidden .answers-list, .sc-maha2-hidden .fir-row, .sc-maha2-hidden .row-elements, .sc-maha2-hidden .noanswer-row, .sc-maha2-hidden .error { display: none !important; }
+
+#sc-maha2-root { max-width: 640px; margin: 0 auto; padding: 24px 16px 120px; font-family: Inter, sans-serif; color: #333; }
+.sc-maha2-card { background: #fff; border: 1px solid #E0DCD6; border-radius: 10px; padding: 22px 24px 20px; margin-bottom: 28px; display: none; }
+.sc-maha2-card.sc-visible { display: block; }
+.sc-maha2-card .sc-q-label { font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888; margin-bottom: 6px; }
+
+#sc-maha2-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+#sc-maha2-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+</style>
+]]></style>
+
+<style mode="after" name="respview.client.js" with="MAHA3" wrap="ready"><![CDATA[
+var MAHA2_CARDS = [‘maha2-card-1’,’maha2-card-2’];
+var maha2Cur = 0;
+
+function maha2FindQ(q){
+  return document.getElementById(‘q_’+q) || document.getElementById(‘question_’+q) || document.getElementById(q) || document.querySelector(‘[id$="_’+q+’"]’);
+}
+
+[‘MAHA3’,’MAHA4’,’MAHA4x99’].forEach(function(q){
+  var el = maha2FindQ(q);
+  if(el) el.classList.add(‘sc-maha2-hidden’);
+});
+
+function maha2ShowCard(idx){
+  MAHA2_CARDS.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = i<=idx ? ‘block’ : ‘none’;
+  });
+}
+function maha2Advance(){
+  if(maha2Cur < MAHA2_CARDS.length-1){ maha2Cur++; maha2ShowCard(maha2Cur); }
+  else {
+    var wrap = document.getElementById(‘sc-maha2-continue-wrap’);
+    if(wrap){ wrap.style.display=’block’; wrap.scrollIntoView({behavior:’smooth’,block:’center’}); }
+  }
+  var last = document.getElementById(MAHA2_CARDS[maha2Cur]);
+  if(last) last.scrollIntoView({behavior:’smooth’,block:’start’});
+}
+
+maha2ShowCard(0);
+
+jQuery(‘#maha2-card-1’).on(‘change’, ‘input’, function(){
+  setTimeout(maha2Advance, 350);
+});
+
+jQuery(‘#maha2-card-2’).on(‘change’, ‘input[type="radio"]’, function(){
+  setTimeout(function(){
+    var wrap = document.getElementById(‘sc-maha2-continue-wrap’);
+    if(wrap){ wrap.style.display=’block’; wrap.scrollIntoView({behavior:’smooth’,block:’center’}); }
+  }, 350);
+});
+
+jQuery(‘#sc-maha2-continue-btn’).on(‘click’, function(){
+  var nxt = document.querySelector(‘.nextPage, .button[type="submit"], input[type="submit"]’);
+  if(!nxt) nxt = document.querySelector(‘.button, input.button’);
+  if(nxt){
+    nxt.setAttribute(‘style’,’display:block !important;visibility:hidden;position:absolute;left:-9999px;’);
+    nxt.click();
+  } else {
+    var form = document.querySelector(‘form’);
+    if(form) form.submit();
+  }
+});
+]]></style>
+
+<html label="sc_maha2_ui"><div id="sc-maha2-root">
+<div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
+<div class="sc-maha2-card sc-visible" id="maha2-card-1"><div class="sc-q-label">3 of 4 Questions</div></div>
+<div class="sc-maha2-card" id="maha2-card-2"><div class="sc-q-label">4 of 4 Questions</div></div>
+<div id="sc-maha2-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha2-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+</div></html>
+
 <suspend/>
 
-<html label="cm2" where="survey">We promise this is the last stretch. <br /><br />Just a few background questions so we can see how different walks of life connect with different ways of thinking.</html>
+<html label="cm2" where="survey" keepWith="ETHNIC">We promise this is the last stretch. <br /><br />Just a few background questions so we can see how different walks of life connect with different ways of thinking.</html>
 
-<suspend/>
+<note>===================== DEMOGRAPHICS — Progressive Cards (ETHNIC → RACE → VET → UNION → EDUCATION → REL → HHI) =====================</note>
+
+<style mode="after" name="respview.client.css" with="ETHNIC" label="demo_prog_css"><![CDATA[
+<style>
+body, .survey-body, .main-content { background: #F5F2ED !important; }
+.logo-middle { display: none; }
+form#primary { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; }
+.survey-buttons { display: none !important; }
+
+.sc-demo-hidden { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; overflow: visible !important; }
+.sc-demo-hidden .question-text, .sc-demo-hidden .comment, .sc-demo-hidden .instruction-text, .sc-demo-hidden .answers-list, .sc-demo-hidden .fir-row, .sc-demo-hidden .row-elements, .sc-demo-hidden .noanswer-row, .sc-demo-hidden .error { display: none !important; }
+
+#sc-demo-root { max-width: 640px; margin: 0 auto; padding: 24px 16px 120px; font-family: Inter, sans-serif; color: #333; }
+.sc-demo-card { background: #fff; border: 1px solid #E0DCD6; border-radius: 10px; padding: 22px 24px 20px; margin-bottom: 28px; display: none; }
+.sc-demo-card.sc-visible { display: block; }
+
+#sc-demo-progress-wrap { position: sticky; top: 0; z-index: 200; background: #F5F2ED; padding: 8px 0 12px; display: none; }
+#sc-demo-progress-track { height: 5px; background: #E0E0E0; border-radius: 3px; }
+#sc-demo-progress-fill { height: 100%; width: 0%; background: #6B7F4E; border-radius: 3px; transition: width .45s cubic-bezier(.4,0,.2,1); }
+#sc-demo-progress-label { margin-top: 4px; text-align: right; font-size: 11px; letter-spacing: .05em; color: #888; font-weight: 600; text-transform: uppercase; }
+
+#sc-demo-continue-btn { background: #6B7F4E; color: #fff; border: none; border-radius: 24px; padding: 14px 36px; font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; letter-spacing: .08em; text-transform: uppercase; cursor: pointer; transition: background .2s, transform .15s; }
+#sc-demo-continue-btn:hover { background: #5A6B42; transform: translateY(-1px); }
+</style>
+]]></style>
+
+<style mode="after" name="respview.client.js" with="ETHNIC" wrap="ready" label="demo_prog_js"><![CDATA[
+var defined = function(s,c){ return (c||document).querySelector(s); };
+var definedAll = function(s,c){ return [].slice.call((c||document).querySelectorAll(s)); };
+
+var DEMO_CARDS = ['demo-card-ethnic','demo-card-race','demo-card-vet','demo-card-union','demo-card-edu','demo-card-rel','demo-card-hhi'];
+var demoCur = 0;
+var demoTotal = DEMO_CARDS.length;
+
+function demoFindQ(q){
+  return document.getElementById('q_'+q)
+    || document.getElementById('question_'+q)
+    || document.getElementById(q)
+    || document.querySelector('[id$="_'+q+'"]');
+}
+
+['ETHNIC','ETHNICx99','RACE','VET','VETx99','UNION','UNIONx99','EDUCATION','EDUCATIONx99','REL','RELx99','HHI','HHIX99'].forEach(function(q){
+  var el = demoFindQ(q);
+  if(el) el.classList.add('sc-demo-hidden');
+});
+
+function demoShowCard(idx){
+  DEMO_CARDS.forEach(function(id,i){
+    var el = document.getElementById(id);
+    if(!el) return;
+    el.style.display = i<=idx ? 'block' : 'none';
+  });
+  demoUpdateProgress();
+}
+
+function demoAdvance(){
+  if(demoCur < DEMO_CARDS.length-1){ demoCur++; demoShowCard(demoCur); }
+  var last = document.getElementById(DEMO_CARDS[demoCur]);
+  if(last) last.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function demoUpdateProgress(){
+  var wrap = document.getElementById('sc-demo-progress-wrap');
+  var fill = document.getElementById('sc-demo-progress-fill');
+  var lbl = document.getElementById('sc-demo-progress-label');
+  if(!wrap||!fill) return;
+  wrap.style.display='block';
+  var pct = Math.round((demoCur/demoTotal)*100);
+  fill.style.width = pct+'%';
+  if(lbl) lbl.textContent = pct+'% COMPLETE';
+}
+
+function demoEnableNext(){
+  var wrap = document.getElementById('sc-demo-continue-wrap');
+  if(wrap){ wrap.style.display='block'; wrap.scrollIntoView({behavior:'smooth',block:'center'}); }
+}
+
+demoShowCard(0);
+
+jQuery('#demo-card-ethnic').on('change', 'input[type="radio"], input[type="checkbox"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-race').on('change', 'input[type="radio"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-vet').on('change', 'input[type="radio"], input[type="checkbox"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-union').on('change', 'input[type="radio"], input[type="checkbox"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-edu').on('change', 'input[type="radio"], input[type="checkbox"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-rel').on('change', 'select, input[type="checkbox"]', function(){
+  setTimeout(demoAdvance, 350);
+});
+
+jQuery('#demo-card-hhi').on('change', 'select, input[type="checkbox"]', function(){
+  setTimeout(demoEnableNext, 350);
+});
+
+jQuery('#sc-demo-continue-btn').on('click', function(){
+  var nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
+  if(!nxt) nxt = document.querySelector('.button, input.button');
+  if(nxt){
+    nxt.setAttribute('style','display:block !important;visibility:hidden;position:absolute;left:-9999px;');
+    nxt.click();
+  } else {
+    var form = document.querySelector('form');
+    if(form) form.submit();
+  }
+});
+]]></style>
 
 <style mode="after" name="respview.client.css" with="ETHNIC"><![CDATA[
 <style>
@@ -3031,17 +3498,16 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r2">✕</row>
 </radio>
 
-<checkbox 
+<checkbox
   label="ETHNICx99"
-  keepWith="ETHNIC">
+  keepWith="RACE">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
-<suspend/>
-
-<radio 
-  label="RACE">
+<radio
+  label="RACE"
+  keepWith="VET">
   <title>Which of the following best describes your race?</title>
   <comment>Select one</comment>
   <row label="r1">White</row>
@@ -3049,8 +3515,6 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r3">Asian</row>
   <row label="r4" open="1" openSize="25" randomize="0">Other</row>
 </radio>
-
-<suspend/>
 
 <style mode="after" name="respview.client.css" with="VET"><![CDATA[
 <style>
@@ -3065,11 +3529,12 @@ fieldset.atm1d .answers > div > div {
 
 
 fieldset.atm1d .answers > div label[for="ans19043.0.0"] {
-    width: 7px;
-    height: 7px;
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
     background-image: url("https://emea.focusvision.com/survey/selfserve/21a7/260129/Salute.png");
-    //background: #2E7D32 !important;
+    background-size: cover;
+    background-position: center;
     color: #fff !important;
     font-size: 10px;
 }
@@ -3122,14 +3587,12 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r3">NO</row>
 </radio>
 
-<checkbox 
+<checkbox
   label="VETx99"
-  keepWith="VET">
+  keepWith="UNION">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
-
-<suspend/>
 
 <style mode="after" name="respview.client.css" with="UNION"><![CDATA[
 <style>
@@ -3142,11 +3605,12 @@ fieldset.atm1d .answers > div > div {
 
 
 fieldset.atm1d .answers > div label[for="ans19057.0.0"] {
-    width: 7px;
-    height: 7px;
+    width: 78px;
+    height: 78px;
     border-radius: 50%;
     background-image: url("https://emea.focusvision.com/survey/selfserve/21a7/260129/SettingYes.png");
-    //background: #2E7D32 !important;
+    background-size: cover;
+    background-position: center;
     color: #FFF !important;
     font-size: 15px;
 }
@@ -3189,16 +3653,14 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r3">NO</row>
 </radio>
 
-<checkbox 
+<checkbox
   label="UNIONx99"
-  keepWith="UNION">
+  keepWith="EDUCATION">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
-<suspend/>
-
-<radio 
+<radio
   label="EDUCATION"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
@@ -3218,16 +3680,14 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r9"><b>Doctorate<br /> degree (PhD)</b></row>
 </radio>
 
-<checkbox 
+<checkbox
   label="EDUCATIONx99"
-  keepWith="EDUCATION">
+  keepWith="REL">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
-<suspend/>
-
-<select 
+<select
   label="REL"
   keepWith="RELx99">
   <title>What is your present religion, if any?</title>
@@ -3246,74 +3706,14 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <choice label="ch12">Nothing in particular</choice>
 </select>
 
-<checkbox 
+<checkbox
   label="RELx99"
-  keepWith="REL">
+  keepWith="HHI">
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
 
-<suspend/>
-
-<style mode="after" name="respview.client.css" with="REL2"><![CDATA[
-<style>
-
-
-fieldset.atm1d .answers > div > div {
-  border: unset !important;
-    margin: 10px 10px;
-}
-
-
-fieldset.atm1d .answers > div label[for="ans19133.0.0"] {
-    width: 78px;
-    height: 78px;
-    border-radius: 50%;
-    background: #2E7D32 !important;
-    color: #FFF !important;
-    font-size: 15px;
-}
-
-
-fieldset.atm1d .answers > div label[for="ans19133.0.1"] {
-	width: 78px;
-    height: 78px;
-    border-radius: 50%;
-    background: #C62828 !important;
-    color: #FFF !important;
-    font-size: 15px;
-}
-
-
-.showInput_0:hover {
-    transform: scale(1.06);
-    box-shadow: 0 5px 16px rgba(0,0,0,.18);
-}
-
-
-/* Apply box-shadow ONLY when the radio is selected */
-input[type="radio"]:checked + .showInputParent_0 label {
-  box-shadow: 0 0 0 4px rgba(107, 127, 78, .35), 
-              0 3px 10px rgba(0, 0, 0, .15);
-}
-
-    </style>
-]]></style>
-<radio 
-  label="REL2"
-  atm1d:showInput="0"
-  atm1d:viewMode="tiled"
-  ss:listDisplay="1"
-  uses="atm1d.11">
-  <title>Would you describe yourself a born-again or evangelical Christian, or not?</title>
-  <comment>Select one</comment>
-  <row label="r1">YES</row>
-  <row label="r2">NO</row>
-</radio>
-
-<suspend/>
-
-<select 
+<select
   label="HHI"
   keepWith="HHIX99">
   <title>Last year – that is, in 2025 – what was your total family income from all sources, before taxes…</title>
@@ -3341,6 +3741,20 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <title>New Multi-Select Question</title>
   <row label="r1">Prefer not to respond</row>
 </checkbox>
+
+<html label="sc_demo_ui"><div id="sc-demo-root">
+<div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
+<div id="sc-demo-progress-wrap"><div id="sc-demo-progress-track"><div id="sc-demo-progress-fill"></div></div><div id="sc-demo-progress-label"></div></div>
+<div class="sc-demo-card sc-visible" id="demo-card-ethnic"><div class="sc-q-label">1 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-race"><div class="sc-q-label">2 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-vet"><div class="sc-q-label">3 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-union"><div class="sc-q-label">4 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-edu"><div class="sc-q-label">5 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-rel"><div class="sc-q-label">6 of 7 Questions</div></div>
+<div class="sc-demo-card" id="demo-card-hhi"><div class="sc-q-label">7 of 7 Questions</div></div>
+<div id="sc-demo-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-demo-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
+<div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
+</div></html>
 
 <suspend/>
 
@@ -3430,7 +3844,7 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 <suspend/>
 
-<style mode="after" name="respview.client.css" with="HHIX102"><![CDATA[
+<style mode="after" name="respview.client.css" with="SRC_LOOP"><![CDATA[
 <style>
 
 [data-label="c1"] {
@@ -3455,27 +3869,633 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 [data-label="c6"] {
   background-color: #2E7D32 !important;
+  color: #fff !important;
+}
+
+.sq-cardrating-btn {
+  flex: 1 1 0 !important;
+  border-radius: 20px !important;
+  padding: 10px 6px !important;
+  font-size: 12px !important;
+  font-weight: 600 !important;
+  text-align: center !important;
+  border: none !important;
 }
 
     </style>
 ]]></style>
-<radio 
-  label="HHIX102"
-  cardrating:btnlayout="tiled"
-  fir="off"
-  grouping="rows"
-  uses="cardrating.1">
-  <title>When was the last time you used this source for news and information on this topic?</title>
-  <comment>if you’ve never heard of it before, don’t worry – you’re definitely not alone. The next source slides in as soon as you answer. No time to waste - keep swiping!</comment>
-  <col label="c1">Never<br /> heard of it</col>
-  <col label="c2">Never<br /> used it</col>
-  <col label="c3">Over a<br /> year ago</col>
-  <col label="c4">Past<br /> year</col>
-  <col label="c5">Past<br /> month</col>
-  <col label="c6">Past<br /> week</col>
-  <row label="r1">CHOP Vaccine Education Center</row>
-  <row label="r2">Functional Medicine for Life</row>
-</radio>
+<note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
+
+<loop label="SRC_LOOP" vars="">
+  <title>Source Rating Loop</title>
+
+  <note>Loop rows: one per topic, conditioned on HHIX101 topic selection</note>
+  <looprow label="1" cond="HHIX101.r1">
+    <loopvar name="topicIdx">1</loopvar>
+  </looprow>
+  <looprow label="2" cond="HHIX101.r2">
+    <loopvar name="topicIdx">2</loopvar>
+  </looprow>
+  <looprow label="3" cond="HHIX101.r3">
+    <loopvar name="topicIdx">3</loopvar>
+  </looprow>
+  <looprow label="4" cond="HHIX101.r4">
+    <loopvar name="topicIdx">4</loopvar>
+  </looprow>
+  <looprow label="5" cond="HHIX101.r5">
+    <loopvar name="topicIdx">5</loopvar>
+  </looprow>
+  <looprow label="6" cond="HHIX101.r6">
+    <loopvar name="topicIdx">6</loopvar>
+  </looprow>
+  <looprow label="7" cond="HHIX101.r7">
+    <loopvar name="topicIdx">7</loopvar>
+  </looprow>
+  <looprow label="8" cond="HHIX101.r8">
+    <loopvar name="topicIdx">8</loopvar>
+  </looprow>
+  <looprow label="9" cond="HHIX101.r9">
+    <loopvar name="topicIdx">9</loopvar>
+  </looprow>
+  <looprow label="10" cond="HHIX101.r10">
+    <loopvar name="topicIdx">10</loopvar>
+  </looprow>
+  <looprow label="11" cond="HHIX101.r11">
+    <loopvar name="topicIdx">11</loopvar>
+  </looprow>
+  <looprow label="12" cond="HHIX101.r12">
+    <loopvar name="topicIdx">12</loopvar>
+  </looprow>
+  <looprow label="13" cond="HHIX101.r13">
+    <loopvar name="topicIdx">13</loopvar>
+  </looprow>
+  <looprow label="14" cond="HHIX101.r14">
+    <loopvar name="topicIdx">14</loopvar>
+  </looprow>
+
+  <note>Loop content: exec block to cap sources at 25 items</note>
+
+  <exec>
+<![CDATA[
+import random
+eligible = [r for r in SRC_[loopvar: topicIdx].rows if not r.disabled]
+random.shuffle(eligible)
+for r in eligible[25:]:
+    r.disabled = True
+]]>
+  </exec>
+
+  <note>Card rating question: sources filtered by topic and party</note>
+  <radio label="SRC_[loopvar: topicIdx]"
+    uses="cardrating.1"
+    fir="off"
+    grouping="rows"
+    shuffle="rows"
+    cardrating:btnlayout="tiled"
+    cardrating:progress="1"
+    cardrating:animation="medium"
+    cardrating:themename="hpush"
+    cardrating:lrg_minwidth="16%"
+    cardrating:sml_minwidth="30%"
+    cardrating:lrg_btnalign="Center"
+    cardrating:completion="All done!">
+    <title>
+      When was the last time you used this source for news and information on
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='1'" text=" &lt;b&gt;Political news and commentary&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='2'" text=" &lt;b&gt;Health policy&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='3'" text=" &lt;b&gt;Medicare and senior health&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='4'" text=" &lt;b&gt;Natural and alternative health&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='5'" text=" &lt;b&gt;Nutrition and diet&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='6'" text=" &lt;b&gt;Supplements and vitamins&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='7'" text=" &lt;b&gt;Vaccines and immunization&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='8'" text=" &lt;b&gt;Fitness and physical performance&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='9'" text=" &lt;b&gt;Longevity and anti-aging&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='10'" text=" &lt;b&gt;Science and medical research&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='11'" text=" &lt;b&gt;Faith and values&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='12'" text=" &lt;b&gt;Worker and economic issues&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='13'" text=" &lt;b&gt;Health technology and innovation&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='14'" text=" &lt;b&gt;Environmental and climate health&lt;/b&gt;"/>
+      ?
+    </title>
+    <comment>If you've never heard of it before, don't worry &amp;ndash; you're definitely not alone. The next source slides in as soon as you answer.</comment>
+
+    <col label="c1">Never heard of it</col>
+    <col label="c2">Never used it</col>
+    <col label="c3">Over a year ago</col>
+    <col label="c4">Past year</col>
+    <col label="c5">Past month</col>
+    <col label="c6">Past week</col>
+
+    <note>Source rows with topic and party conditions</note>
+    <note>Topic 1: Political news and commentary</note>
+    <row label="r1" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Fox News</row>
+    <row label="r2" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>MSNBC</row>
+    <row label="r3" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CNN</row>
+    <row label="r4" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NPR</row>
+    <row label="r5" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>New York Times</row>
+    <row label="r6" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Washington Post</row>
+    <row label="r7" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wall Street Journal</row>
+    <row label="r8" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Joe Rogan Experience</row>
+    <row label="r9" cond='SRC_LOOP.loopvar.topicIdx=="1"'>USA Today</row>
+    <row label="r10" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>National Review</row>
+    <row label="r11" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Dispatch</row>
+    <row label="r12" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Bulwark</row>
+    <row label="r13" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Hill</row>
+    <row label="r14" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>RealClearPolitics</row>
+    <row label="r15" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Washington Examiner</row>
+    <row label="r16" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Townhall</row>
+    <row label="r17" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Federalist</row>
+    <row label="r18" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Conservative</row>
+    <row label="r19" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Compact Magazine</row>
+    <row label="r20" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Greatness</row>
+    <row label="r21" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Daily Wire</row>
+    <row label="r22" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Dan Bongino Show</row>
+    <row label="r23" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Tucker Carlson Network</row>
+    <row label="r24" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>War Room with Steve Bannon</row>
+    <row label="r25" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Breitbart News</row>
+    <row label="r26" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Epoch Times</row>
+    <row label="r27" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Glenn Beck  (Blaze Media)</row>
+    <row label="r28" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Turning Point USA</row>
+    <row label="r29" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Megyn Kelly Show</row>
+    <row label="r30" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real America's Voice</row>
+    <row label="r31" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Newsmax</row>
+    <row label="r32" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Salem Radio Network</row>
+    <row label="r33" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Hugh Hewitt Show</row>
+    <row label="r34" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ben Shapiro Show</row>
+    <row label="r35" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reason Magazine</row>
+    <row label="r36" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ron Paul Liberty Report</row>
+    <row label="r37" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Racket News  (Matt Taibbi)</row>
+    <row label="r38" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Free Press  (Bari Weiss)</row>
+    <row label="r39" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Unherd</row>
+    <row label="r40" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Cato Daily Podcast</row>
+    <row label="r41" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jordan Peterson Podcast</row>
+    <row label="r42" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Pod Save America</row>
+    <row label="r43" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Young Turks</row>
+    <row label="r44" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Democracy Now</row>
+    <row label="r45" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Intercept</row>
+    <row label="r46" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Jacobin</row>
+    <row label="r47" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Nation</row>
+    <row label="r48" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Mehdi Hasan Show</row>
+    <row label="r49" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Zeteo  (Mehdi Hasan)</row>
+    <row label="r50" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Bad Faith Podcast</row>
+    <row label="r51" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>American Prospect</row>
+    <row label="r52" cond='SRC_LOOP.loopvar.topicIdx=="1"'>In These Times</row>
+    <row label="r53" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Politico</row>
+    <row label="r54" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Axios</row>
+    <row label="r55" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Atlantic</row>
+    <row label="r56" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Vox</row>
+    <row label="r57" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch TV</row>
+    <row label="r58" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Crowder  (Louder with Crowder)</row>
+    <row label="r59" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>One America News</row>
+    <row label="r60" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>AgriTalk Radio</row>
+    <row label="r61" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Bureau News  (AFBF)</row>
+    <row label="r62" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brownfield Ag News</row>
+    <row label="r63" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Successful Farming</row>
+    <row label="r64" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Journal</row>
+    <row label="r65" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sinclair Broadcast Health Coverage</row>
+    <row label="r66" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nexstar Media Health Coverage</row>
+    <row label="r67" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Talk Radio</row>
+    <row label="r68" cond='SRC_LOOP.loopvar.topicIdx=="1"'>100 Days in Appalachia</row>
+    <row label="r69" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Dig Podcast</row>
+    <row label="r70" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heartland Signal</row>
+    <row label="r71" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Progressive Magazine</row>
+    <row label="r72" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Moms for America</row>
+    <row label="r73" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Moms for Liberty</row>
+    <row label="r74" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Emerald Robinson  (The Absolute Truth)</row>
+    <row label="r75" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Public  (Michael Shellenberger)</row>
+    <row label="r76" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Dispatch Newsletter</row>
+    <row label="r77" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Unherd  (Freddie deBoer)</row>
+    <row label="r78" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Nate Silver  (Silver Bulletin)</row>
+    <row label="r79" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Daily Poster  (David Sirota)</row>
+    <row label="r80" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Bad Faith  (Briahna Joy Gray)</row>
+    <row label="r81" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Rural Blog</row>
+    <row label="r82" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Policy News</row>
+    <note>Topic 2: Health policy</note>
+    <row label="r83" cond='SRC_LOOP.loopvar.topicIdx=="2"'>KFF Health News</row>
+    <row label="r84" cond='SRC_LOOP.loopvar.topicIdx=="2"'>STAT News</row>
+    <row label="r85" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Affairs</row>
+    <row label="r86" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Axios Health</row>
+    <row label="r87" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Politico Health Care</row>
+    <row label="r88" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Commonwealth Fund</row>
+    <row label="r89" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care Dive</row>
+    <row label="r90" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Modern Healthcare</row>
+    <row label="r91" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Benefits Pro</row>
+    <row label="r92" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Employee Benefit News</row>
+    <row label="r93" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Peterson-KFF Health Tracker</row>
+    <row label="r94" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Urban Institute Health Policy</row>
+    <row label="r95" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Center on Budget and Policy</row>
+    <row label="r96" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Families USA</row>
+    <row label="r97" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heritage Foundation Health</row>
+    <row label="r98" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Enterprise Institute Health</row>
+    <row label="r99" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mercatus Center Health Policy</row>
+    <row label="r100" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Health Care Blog</row>
+    <row label="r101" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for National Health</row>
+    <row label="r102" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Catalyst</row>
+    <row label="r103" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Center for American Progress Health</row>
+    <row label="r104" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brownstone Institute</row>
+    <row label="r105" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>AIER Health</row>
+    <row label="r106" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Information Hub</row>
+    <row label="r107" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Rural Monitor  (NRHA)</row>
+    <row label="r108" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>National Rural Health Association</row>
+    <row label="r109" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Voices Podcast</row>
+    <row label="r110" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Quarterly</row>
+    <row label="r111" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Chartis Center for Rural Health</row>
+    <row label="r112" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Flex Monitoring Team</row>
+    <row label="r113" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heartland Institute Health Care News</row>
+    <row label="r114" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Care News</row>
+    <row label="r115" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pacific Research Institute Health</row>
+    <row label="r116" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NCPA Health Policy</row>
+    <row label="r117" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pioneer Institute Health</row>
+    <row label="r118" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Right to Try Foundation</row>
+    <row label="r119" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Alliance for Patient Access</row>
+    <row label="r120" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Patient Rising Podcast</row>
+    <row label="r121" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>21st Century Cures Advocacy</row>
+    <row label="r122" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Rosetta  (Dave Chase)</row>
+    <row label="r123" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Catalyst for Payment Reform</row>
+    <row label="r124" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Clear Health Costs</row>
+    <row label="r125" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Healthcare Transparency Initiative</row>
+    <row label="r126" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reframe Health Lab</row>
+    <row label="r127" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Center for Health Care Strategies</row>
+    <row label="r128" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>DPC Frontier</row>
+    <row label="r129" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Direct Primary Care Journal</row>
+    <row label="r130" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>DPC Alliance Podcast</row>
+    <row label="r131" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Self-Insurance Institute of America</row>
+    <row label="r132" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Employee Benefits Adviser</row>
+    <row label="r133" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>HR Dive Health Benefits</row>
+    <row label="r134" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Business Group on Health</row>
+    <row label="r135" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>ERIC</row>
+    <row label="r136" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Manhattan Institute Health</row>
+    <row label="r137" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Competitive Enterprise Institute</row>
+    <row label="r138" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Texas Public Policy Foundation</row>
+    <row label="r139" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Forbes Health</row>
+    <row label="r140" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Health Affairs Forefront</row>
+    <row label="r141" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Second Opinion  (Lanhee Chen)</row>
+    <row label="r142" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Gist  (Advisory Board)</row>
+    <row label="r143" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Consumer Reports Health</row>
+    <row label="r144" cond='SRC_LOOP.loopvar.topicIdx=="2"'>PatientEngagementHIT</row>
+    <row label="r145" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Patients for Affordable Drugs</row>
+    <row label="r146" cond='SRC_LOOP.loopvar.topicIdx=="2"'>AARP Drug Pricing Coverage</row>
+    <row label="r147" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Prescription Justice</row>
+    <row label="r148" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Accountable.US Health</row>
+    <row label="r149" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Public Citizen Health Research</row>
+    <row label="r150" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Becker's Rural Health</row>
+    <row label="r151" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Hospital Closures Tracker</row>
+    <row label="r152" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Doctor  (BlackDoctor.org)</row>
+    <row label="r153" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Essence Health</row>
+    <row label="r154" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Root Health Coverage</row>
+    <row label="r155" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Women's Health Imperative</row>
+    <row label="r156" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Shondaland Health</row>
+    <row label="r157" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Mogul Millennial Health</row>
+    <row label="r158" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Salud America</row>
+    <row label="r159" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Hispanic Medical Association</row>
+    <row label="r160" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Latino Health Access</row>
+    <row label="r161" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health and Human Rights Journal</row>
+    <row label="r162" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Health Worker Network</row>
+    <row label="r163" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Trust for America's Health</row>
+    <row label="r164" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Robert Wood Johnson Foundation</row>
+    <row label="r165" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CommonHealth  (WBUR)</row>
+    <row label="r166" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Dose Podcast  (Commonwealth Fund)</row>
+    <row label="r167" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Equity News</row>
+    <row label="r168" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>UnidosUS Health</row>
+    <row label="r169" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NAACP Health Program</row>
+    <row label="r170" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Urban League Health</row>
+    <row label="r171" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Advantage Oversight</row>
+    <row label="r172" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for a National Health Program</row>
+    <row label="r173" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care for America Now</row>
+    <row label="r174" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Coalition Against Insurance Abuse</row>
+    <row label="r175" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Health Association Community</row>
+    <row label="r176" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Association of Community Health Centers</row>
+    <row label="r177" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Health Center Voices</row>
+    <row label="r178" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The American Prospect Health</row>
+    <row label="r179" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Truthout Health</row>
+    <row label="r180" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Covering Health  (AHCJ Podcast)</row>
+    <row label="r181" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Policy Hub  (Brookings)</row>
+    <row label="r182" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Alliance for Health Policy</row>
+    <row label="r183" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Prescription Drug Policy  (IHPI)</row>
+    <row label="r184" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Wonk Review</row>
+    <row label="r185" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Drew Altman  (KFF Perspective)</row>
+    <row label="r186" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Margot Sanger-Katz  (NYT Health)</row>
+    <row label="r187" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Larry Levitt  (Health Policy Notes)</row>
+    <row label="r188" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sarah Kliff  (Health Costs)</row>
+    <row label="r189" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Bob Herman  (Health Business)</row>
+    <row label="r190" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Dylan Scott  (Vox Health)</row>
+    <row label="r191" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care Upside Down  (Uwe Reinhardt legacy)</row>
+    <row label="r192" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Health Care Blog  (Matthew Holt)</row>
+    <row label="r193" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Covering Health  (AHCJ)</row>
+    <row label="r194" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reframe Health  (Dave Chase)</row>
+    <row label="r195" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Do No Harm  (Stanley Goldfarb)</row>
+    <row label="r196" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>People's Action Health</row>
+    <row label="r197" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Justice Monitor</row>
+    <row label="r198" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for Social Responsibility</row>
+    <row label="r199" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Beat</row>
+    <row label="r200" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Prescription Drug Watch</row>
+    <note>Topic 3: Medicare and senior health</note>
+    <row label="r201" cond='SRC_LOOP.loopvar.topicIdx=="3"'>The Medicare Podcast</row>
+    <row label="r202" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Interactive</row>
+    <row label="r203" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Senior Planet  (OATS)</row>
+    <row label="r204" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sixty and Me</row>
+    <row label="r205" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Council on Aging</row>
+    <row label="r206" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>LeadingAge</row>
+    <row label="r207" cond='SRC_LOOP.loopvar.topicIdx=="3"'>Alliance for Retired Americans</row>
+    <row label="r208" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Gray Panthers</row>
+    <row label="r209" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Caregiver Action Network</row>
+    <row label="r210" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior List Podcast</row>
+    <row label="r211" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sixty and Me Podcast</row>
+    <row label="r212" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aging Today  (ASA)</row>
+    <row label="r213" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Generations Journal  (ASA)</row>
+    <row label="r214" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Elder Law Answers</row>
+    <row label="r215" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>SeniorLiving.org</row>
+    <row label="r216" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior Times</row>
+    <row label="r217" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>AMAC  (Association Mature Americans)</row>
+    <row label="r218" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Kiplinger Retirement Health</row>
+    <row label="r219" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>MarketWatch Retirement Health</row>
+    <row label="r220" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Forbes Retirement Health</row>
+    <row label="r221" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>US News Best Medicare Plans</row>
+    <row label="r222" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Plan Finder  (CMS)</row>
+    <row label="r223" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Interactive Podcast</row>
+    <row label="r224" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Medicare Advisor</row>
+    <row label="r225" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare on Video</row>
+    <row label="r226" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Boomer Benefits Podcast</row>
+    <row label="r227" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health in Aging Foundation</row>
+    <row label="r228" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>American Geriatrics Society</row>
+    <row label="r229" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Gerontological Society of America</row>
+    <row label="r230" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>John A. Hartford Foundation</row>
+    <row label="r231" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>LeadingAge Podcast</row>
+    <row label="r232" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Decoded</row>
+    <row label="r233" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior Report</row>
+    <row label="r234" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aging Well  (Dr. Leslie Kernisan)</row>
+    <note>Topic 4: Natural and alternative health</note>
+    <row label="r235" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Doctor's Farmacy)</row>
+    <row label="r236" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Josh Axe</row>
+    <row label="r237" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wellness Mama</row>
+    <row label="r238" cond='SRC_LOOP.loopvar.topicIdx=="4"'>mindbodygreen</row>
+    <row label="r239" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Goop  (Gwyneth Paltrow)</row>
+    <row label="r240" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Model Health Show</row>
+    <row label="r241" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Functional Medicine for Life</row>
+    <row label="r242" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Natural Health 365</row>
+    <row label="r243" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>GreenMedInfo</row>
+    <row label="r244" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Weston A. Price Foundation</row>
+    <row label="r245" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Anthony William  (Medical Medium)</row>
+    <row label="r246" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Terry Wahls</row>
+    <row label="r247" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Chris Kresser</row>
+    <row label="r248" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Will Cole</row>
+    <row label="r249" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Aviva Romm  (Natural MD Radio)</row>
+    <row label="r250" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sacred Science</row>
+    <row label="r251" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NaturalNews  (Mike Adams)</row>
+    <row label="r252" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Herbs &amp; Oils World</row>
+    <row label="r253" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Oil Testimonials</row>
+    <row label="r254" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch Health Telegram</row>
+    <row label="r255" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Make America Healthy Again</row>
+    <row label="r256" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Wellness Mama Podcast</row>
+    <row label="r257" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>MAHA Moms Facebook Community</row>
+    <row label="r258" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Organic Consumers Association</row>
+    <row label="r259" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Babes and Babies</row>
+    <row label="r260" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Homeschool Health Summit</row>
+    <row label="r261" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Home School Mom</row>
+    <row label="r262" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wellness Wednesday Homeschool FB</row>
+    <row label="r263" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Wellness Way  (Patrick Flynn)</row>
+    <row label="r264" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Ranger Report  (Mike Adams)</row>
+    <row label="r265" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brighteon</row>
+    <row label="r266" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Natural Living Family</row>
+    <row label="r267" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Healthy Home Economist</row>
+    <row label="r268" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ashley Evelyn</row>
+    <row label="r269" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Live Blessed or Stressed</row>
+    <row label="r270" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Mamas Network</row>
+    <row label="r271" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>A Midwestern Doctor</row>
+    <row label="r272" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Food Fix)</row>
+    <row label="r273" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Will Cole  (Inflammation Fix)</row>
+    <row label="r274" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Metabolic Mind  (Baszucki Group)</row>
+    <note>Topic 5: Nutrition and diet</note>
+    <row label="r275" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Paul Saladino  (Carnivore MD)</row>
+    <row label="r276" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Shawn Baker  (Revero)</row>
+    <row label="r277" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mikhaila Peterson</row>
+    <row label="r278" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Liver King  (Brian Johnson)</row>
+    <row label="r279" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Diet Doctor</row>
+    <row label="r280" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nutrition with Judy</row>
+    <row label="r281" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Thomas DeLauer</row>
+    <row label="r282" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>What I've Learned</row>
+    <row label="r283" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Layne Norton  (BioLayne)</row>
+    <row label="r284" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Whole30  (Melissa Urban)</row>
+    <row label="r285" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Gabrielle Lyon</row>
+    <row label="r286" cond='SRC_LOOP.loopvar.topicIdx=="5"'>Nutrition Made Simple  (Gil Carvalho)</row>
+    <row label="r287" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Exam Room  (PCRM)</row>
+    <row label="r288" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nourishing Traditions  (Sally Fallon)</row>
+    <row label="r289" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Peak Human Podcast</row>
+    <row label="r290" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ancestral Health Society</row>
+    <row label="r291" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Food Democracy Now</row>
+    <row label="r292" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sustainable Pulse</row>
+    <row label="r293" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Fed Up with School Lunch</row>
+    <row label="r294" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Food Babe  (Vani Hari)</row>
+    <row label="r295" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Organic Authority</row>
+    <row label="r296" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nourished Kitchen</row>
+    <row label="r297" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Weston A. Price Foundation FB</row>
+    <row label="r298" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Non-GMO Project</row>
+    <row label="r299" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Kitchen Stewardship</row>
+    <row label="r300" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>100 Days of Real Food</row>
+    <row label="r301" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real Food For Real Kids</row>
+    <row label="r302" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Trim Healthy Mama</row>
+    <row label="r303" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Homesteading Family</row>
+    <row label="r304" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real Food RD  (Rylee Hackley)</row>
+    <row label="r305" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Nourished Child  (Jill Castle)</row>
+    <row label="r306" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nutrition with Judy  (Judy Cho)</row>
+    <row label="r307" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Gabrielle Lyon  (Protein Matters)</row>
+    <row label="r308" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Food Politics  (Marion Nestle)</row>
+    <row label="r309" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Grain Brain  (David Perlmutter)</row>
+    <row label="r310" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Carnivore Bar</row>
+    <note>Topic 6: Supplements and vitamins</note>
+    <row label="r311" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Huberman Lab</row>
+    <row label="r312" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Examine.com</row>
+    <row label="r313" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nootropics Depot</row>
+    <row label="r314" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Life Extension Foundation</row>
+    <row label="r315" cond='SRC_LOOP.loopvar.topicIdx=="6"'>ConsumerLab</row>
+    <row label="r316" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>LabDoor</row>
+    <row label="r317" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Tim Ferriss Show</row>
+    <row label="r318" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Supplement Review Podcast</row>
+    <row label="r319" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Designs for Health Podcast</row>
+    <row label="r320" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Fullscript Insights</row>
+    <note>Topic 7: Vaccines and immunization</note>
+    <row label="r321" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist</row>
+    <row label="r322" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CHOP Vaccine Education Center</row>
+    <row label="r323" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Immunize.org</row>
+    <row label="r324" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Paul Offit</row>
+    <row label="r325" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Vax Populi Substack</row>
+    <row label="r326" cond='SRC_LOOP.loopvar.topicIdx=="7"'>CDC Vaccine Communications</row>
+    <row label="r327" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Highwire  (Del Bigtree)</row>
+    <row label="r328" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Children's Health Defense</row>
+    <row label="r329" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Sherri Tenpenny</row>
+    <row label="r330" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>America's Frontline Doctors</row>
+    <row label="r331" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Mercola</row>
+    <row label="r332" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Steve Kirsch Substack</row>
+    <row label="r333" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch Health</row>
+    <row label="r334" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Impact News</row>
+    <row label="r335" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Informed Consent Action Network</row>
+    <row label="r336" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>World Council for Health</row>
+    <row label="r337" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Paul Thomas  (Integrative Pediatrics)</row>
+    <row label="r338" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Vaccine Choice Canada</row>
+    <row label="r339" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Stew Peters Network Telegram</row>
+    <row label="r340" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Freedom Telegram</row>
+    <row label="r341" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Generation Rescue  (Jenny McCarthy)</row>
+    <row label="r342" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Robert Malone  (Who is Robert Malone)</row>
+    <row label="r343" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Alex Berenson  (Unreported Truths)</row>
+    <row label="r344" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pierre Kory  (Fight the System)</row>
+    <row label="r345" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Paul Marik  (FLCCC Alliance)</row>
+    <row label="r346" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jessica Rose  (Unacceptable Jessica)</row>
+    <row label="r347" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Igor Chudov  (Igor's Newsletter)</row>
+    <row label="r348" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Naomi Wolf  (DailyClout)</row>
+    <row label="r349" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Matthew Crawford  (Rounding the Earth)</row>
+    <row label="r350" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>David Zweig</row>
+    <row label="r351" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sage Hana</row>
+    <row label="r352" cond='SRC_LOOP.loopvar.topicIdx=="7"'>Courageous Discourse  (Bhattacharya)</row>
+    <row label="r353" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Karl Denninger  (Market Ticker Health)</row>
+    <row label="r354" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist  (Jetelina)</row>
+    <note>Topic 8: Fitness and physical performance</note>
+    <row label="r355" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mark Bell's Power Project</row>
+    <row label="r356" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ben Greenfield Life</row>
+    <row label="r357" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Barbell Medicine</row>
+    <row label="r358" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jocko Podcast</row>
+    <row label="r359" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mike Israetel  (Renaissance Periodization)</row>
+    <row label="r360" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mind Pump Podcast</row>
+    <row label="r361" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Starting Strength  (Mark Rippetoe)</row>
+    <row label="r362" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Functional Patterns</row>
+    <row label="r363" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Garage Gym Reviews</row>
+    <row label="r364" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NSCA  (Journal of Strength Research)</row>
+    <note>Topic 9: Longevity and anti-aging</note>
+    <row label="r365" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (The Drive)</row>
+    <row label="r366" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Bryan Johnson  (Blueprint)</row>
+    <row label="r367" cond='SRC_LOOP.loopvar.topicIdx=="9"'>David Sinclair  (Lifespan)</row>
+    <row label="r368" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Fight Aging</row>
+    <row label="r369" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Lifespan.io</row>
+    <row label="r370" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Longevity.Technology</row>
+    <row label="r371" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Sergey Young  (Longevity Vision)</row>
+    <row label="r372" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Nir Barzilai  (Age Later)</row>
+    <row label="r373" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Elysium Health Insights</row>
+    <row label="r374" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (Outlive)</row>
+    <row label="r375" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Nir Eyal  (Indistractable Health)</row>
+    <row label="r376" cond='SRC_LOOP.loopvar.topicIdx=="9"'>LifeOmic  (Longevity Science)</row>
+    <note>Topic 10: Science and medical research</note>
+    <row label="r377" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Ground Truths  (Eric Topol)</row>
+    <row label="r378" cond='SRC_LOOP.loopvar.topicIdx=="10"'>MedPage Today</row>
+    <row label="r379" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Medscape</row>
+    <row label="r380" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Science Friday</row>
+    <row label="r381" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Endpoints News</row>
+    <row label="r382" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>BioPharma Dive</row>
+    <row label="r383" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>FierceBiotech</row>
+    <row label="r384" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Scientist</row>
+    <row label="r385" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>New England Journal of Medicine (JAMA)</row>
+    <row label="r386" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Ars Technica Health</row>
+    <row label="r387" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Retraction Watch</row>
+    <row label="r388" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The SGIM Forum</row>
+    <row label="r389" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Offside  (Adam Cifu)</row>
+    <row label="r390" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Nature Medicine</row>
+    <row label="r391" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>FDA Voice</row>
+    <row label="r392" cond='SRC_LOOP.loopvar.topicIdx=="10"'>NIH News in Health</row>
+    <row label="r393" cond='SRC_LOOP.loopvar.topicIdx=="10"'>CDC Health Matters Podcast</row>
+    <row label="r394" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Stat of the Week  (Bob Wachter)</row>
+    <row label="r395" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Tomas Pueyo  (Uncharted Territories)</row>
+    <row label="r396" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Incubator  (Neonatal Research)</row>
+    <row label="r397" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Absolutely Maybe  (Lisa Bero)</row>
+    <note>Topic 11: Faith and values</note>
+    <row label="r398" cond='SRC_LOOP.loopvar.topicIdx=="11"'>EWTN</row>
+    <row label="r399" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Focus on the Family Podcast</row>
+    <row label="r400" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Christianity Today</row>
+    <row label="r401" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Gospel Coalition</row>
+    <row label="r402" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Relevant Podcast</row>
+    <row label="r403" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Catholic Vote</row>
+    <row label="r404" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Catholic Thing</row>
+    <row label="r405" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Crisis Magazine</row>
+    <row label="r406" cond='SRC_LOOP.loopvar.topicIdx=="11"'>First Things</row>
+    <row label="r407" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sojourners</row>
+    <row label="r408" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Catholic Reporter</row>
+    <row label="r409" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>America Magazine</row>
+    <row label="r410" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Religion News Service</row>
+    <row label="r411" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>CBN Health</row>
+    <row label="r412" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Christian Post</row>
+    <row label="r413" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Christian News</row>
+    <row label="r414" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Word in Black</row>
+    <row label="r415" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Witness BCC</row>
+    <row label="r416" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Black Church Initiative</row>
+    <row label="r417" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Word Network Health Content</row>
+    <row label="r418" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Health Association</row>
+    <row label="r419" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Charities Health</row>
+    <row label="r420" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Ignatian Solidarity Network</row>
+    <row label="r421" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Interfaith Public Health Network</row>
+    <row label="r422" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Konos</row>
+    <row label="r423" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Dispatches from Exile  (Rod Dreher)</row>
+    <row label="r424" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Mere Orthodoxy</row>
+    <row label="r425" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Pillar</row>
+    <row label="r426" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Comment Magazine  (Cardus)</row>
+    <row label="r427" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Plough Quarterly</row>
+    <row label="r428" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Faithful Politics</row>
+    <note>Topic 12: Worker and economic issues</note>
+    <row label="r429" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Working People Podcast</row>
+    <row label="r430" cond='SRC_LOOP.loopvar.topicIdx=="12"'>AFL-CIO Now</row>
+    <row label="r431" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Labor Notes</row>
+    <row label="r432" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Economic Policy Institute</row>
+    <row label="r433" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Century Foundation</row>
+    <row label="r434" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Teamster Nation</row>
+    <row label="r435" cond='SRC_LOOP.loopvar.topicIdx=="12"'>National Nurses United</row>
+    <row label="r436" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Solidarity  (DSA Labor)</row>
+    <row label="r437" cond='SRC_LOOP.loopvar.topicIdx=="12"'>SEIU  (Service Workers)</row>
+    <row label="r438" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Majority Report</row>
+    <row label="r439" cond='SRC_LOOP.loopvar.topicIdx=="12"'>UFCW  (United Food Workers Health)</row>
+    <row label="r440" cond='SRC_LOOP.loopvar.topicIdx=="12"'>UAW Health and Benefits</row>
+    <row label="r441" cond='SRC_LOOP.loopvar.topicIdx=="12"'>IBEW Health Benefits</row>
+    <row label="r442" cond='SRC_LOOP.loopvar.topicIdx=="12"'>USW  (United Steelworkers Health)</row>
+    <row label="r443" cond='SRC_LOOP.loopvar.topicIdx=="12"'>AFSCME Healthcare Coverage</row>
+    <row label="r444" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Union Plus Benefits Podcast</row>
+    <row label="r445" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Capital and Main</row>
+    <row label="r446" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Ohio Valley ReSource</row>
+    <row label="r447" cond='SRC_LOOP.loopvar.topicIdx=="12"'>National COSH</row>
+    <row label="r448" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Occupational Health &amp; Safety News</row>
+    <row label="r449" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Jobs with Justice Health</row>
+    <row label="r450" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Partnership Women Families</row>
+    <row label="r451" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Working Families Party Health</row>
+    <row label="r452" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Portside Health Labor</row>
+    <row label="r453" cond='SRC_LOOP.loopvar.topicIdx=="12"'>The Lever  (David Sirota)</row>
+    <row label="r454" cond='SRC_LOOP.loopvar.topicIdx=="12"'>More Perfect Union</row>
+    <row label="r455" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare Worker Stories</row>
+    <note>Topic 13: Health technology and innovation</note>
+    <row label="r456" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NEJM Catalyst</row>
+    <row label="r457" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Fierce Healthcare</row>
+    <row label="r458" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare IT News</row>
+    <row label="r459" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>HIMSS Media</row>
+    <row label="r460" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Digital Health Today</row>
+    <row label="r461" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Becker's Health IT</row>
+    <row label="r462" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Forbes Healthcare</row>
+    <row label="r463" cond='SRC_LOOP.loopvar.topicIdx=="13"'>CB Insights Health</row>
+    <row label="r464" cond='SRC_LOOP.loopvar.topicIdx=="13"'>A16z Health</row>
+    <row label="r465" cond='SRC_LOOP.loopvar.topicIdx=="13"'>The Health Innovation Podcast</row>
+    <row label="r466" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Omada Health Insights</row>
+    <row label="r467" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aidoc AI Health</row>
+    <row label="r468" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Not Boring Health  (Packy McCormick)</row>
+    <row label="r469" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Elemental Health  (Elad Gil)</row>
+    <row label="r470" cond='SRC_LOOP.loopvar.topicIdx=="13"'>The Prism  (Health Innovation)</row>
+    <row label="r471" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Heartbeat Health AI</row>
+    <row label="r472" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Rock Health  (Weekly Briefing)</row>
+    <note>Topic 14: Environmental and climate health</note>
+    <row label="r473" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Grist</row>
+    <row label="r474" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Yale Climate Connections</row>
+    <row label="r475" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Environmental Health News</row>
+    <row label="r476" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Climate Now Podcast</row>
+    <row label="r477" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Inside Climate News</row>
+    <row label="r478" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Global Health Now  (JHSPH)</row>
+    <row label="r479" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Lancet Countdown on Health &amp; Climate</row>
+    <row label="r480" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NRDC Health</row>
+    <row label="r481" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sierra Club Health</row>
+    <row label="r482" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health and Environment Alliance</row>
+    <row label="r483" cond='SRC_LOOP.loopvar.topicIdx=="14"'>EWG  (Environmental Working Group)</row>
+    <row label="r484" cond='SRC_LOOP.loopvar.topicIdx=="14"'>Safer Chemicals Healthy Families</row>
+    <row label="r485" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Climate and Health Council</row>
+    <row label="r486" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Hot Take  (Mary Heglar &amp; Amy Westervelt)</row>
+    <row label="r487" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Heated  (Emily Atkin)</row>
+    <row label="r488" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Climate Crisis  (Bill McKibben)</row>
+    <row label="r489" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Drilled  (Amy Westervelt)</row>
+    <row label="r490" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health &amp; Climate  (Medical Society)</row>
+  </radio>
+
+<suspend/>
+
+</loop>
 
 <suspend/>
 
@@ -3507,65 +4527,177 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 <suspend/>
 
-<style mode="after" name="respview.client.css" with="HHIX104"><![CDATA[
-<style>
+<exec>
+import random
+eligible = [r for r in HHIX104.rows if not r.disabled and r.o.label != 'r999']
+random.shuffle(eligible)
+for r in eligible[25:]:
+    r.disabled = True
+</exec>
 
-[for="ans19320.0.30"] {
-  border: unset !important;
-}
-
-
-/* applied when checkbox is checked */
-label[for="ans19320.0.30"].is-checked {
-  border-color: #6B7F4E !important;
-  background: #6B7F4E !important;
-  color: #fff !important;
-}
-
-
-    </style>
-]]></style>
-<checkbox 
+<checkbox
   label="HHIX104"
   atleast="1"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
   fir="off"
+  shuffle="rows"
   ss:listDisplay="1"
   uses="atm1d.11">
-  <title>Which of the following voices or creators do you follow on this topic?</title>
+  <title>Which of the following voices or creators do you follow on topics you selected?</title>
   <comment>Scan the list and tap on any that you know and follow, no matter how often</comment>
-  <row label="r1">Andy Slavitt</row>
-  <row label="r2">Farzad Mostashari</row>
-  <row label="r3">Zeke Emanuel</row>
-  <row label="r4">Dave deBronkart (ePatient)</row>
-  <row label="r5">AARP</row>
-  <row label="r6">Andy Slavitt</row>
-  <row label="r7">Andy Slavitt</row>
-  <row label="r8">Andy Slavitt</row>
-  <row label="r9">Andy Slavitt</row>
-  <row label="r10">Andy Slavitt</row>
-  <row label="r11">Andy Slavitt</row>
-  <row label="r12">Andy Slavitt</row>
-  <row label="r13">Andy Slavitt</row>
-  <row label="r14">Andy Slavitt</row>
-  <row label="r15">Andy Slavitt</row>
-  <row label="r16">Andy Slavitt</row>
-  <row label="r17">Andy Slavitt</row>
-  <row label="r18">Andy Slavitt</row>
-  <row label="r19">Andy Slavitt</row>
-  <row label="r20">Andy Slavitt</row>
-  <row label="r21">Andy Slavitt</row>
-  <row label="r22">Andy Slavitt</row>
-  <row label="r23">Andy Slavitt</row>
-  <row label="r24">Andy Slavitt</row>
-  <row label="r25">Andy Slavitt</row>
-  <row label="r26">Andy Slavitt</row>
-  <row label="r27">Andy Slavitt</row>
-  <row label="r28">Andy Slavitt</row>
-  <row label="r29">Andy Slavitt</row>
-  <row label="r30">Andy Slavitt</row>
-  <row label="r31" exclusive="1" randomize="0">&lt;row label="r99" exclusive="1" randomize="0"&gt;<span class="NoneOfThese">None of these</span>&lt;/row&gt;</row>
+  <row label="r1" cond="HHIX101.r10">Dr. CÃ©line Gounder</row>
+  <row label="r2" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Rural Health Voices</row>
+  <row label="r3" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">American Farm Bureau</row>
+  <row label="r4" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r10">Dr. Howard Luks</row>
+  <row label="r5" cond="HHIX101.r10">Dr. Danielle Jones  (Mama Doctor Jones)</row>
+  <row label="r6" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Dave Chase  (Health Rosetta)</row>
+  <row label="r7" cond="HHIX101.r2">Wendell Potter</row>
+  <row label="r8" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Marshall Allen  (ProPublica Health)</row>
+  <row label="r9" cond="HHIX101.r2">Ge Bai  (Hopkins Health Economics)</row>
+  <row label="r10" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Marty Makary  (Johns Hopkins)</row>
+  <row label="r11" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Leah Binder  (Leapfrog Group)</row>
+  <row label="r12" cond="HHIX101.r2">Elisabeth Rosenthal</row>
+  <row label="r13" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Matt Walsh</row>
+  <row label="r14" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Lila Rose</row>
+  <row label="r15" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Kirk Cameron</row>
+  <row label="r16" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Dr. Sebastian Gorka</row>
+  <row label="r17" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Allie Beth Stuckey</row>
+  <row label="r18" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r11">Abby Johnson</row>
+  <row label="r19" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Jeff Barke</row>
+  <row label="r20" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Kelly Brogan MD</row>
+  <row label="r21" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Mama Natural  (Genevieve Howland)</row>
+  <row label="r22" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">The Feeding Doctor  (Katja Rowell)</row>
+  <row label="r23" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Feeding Littles</row>
+  <row label="r24" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r8">Steph Gaudreau  (Harder to Kill)</row>
+  <row label="r25" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Lily Nichols  (Real Food for Pregnancy)</row>
+  <row label="r26" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Clean Label Project</row>
+  <row label="r27" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Moms Across America  (Zen Honeycutt)</row>
+  <row label="r28" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Robb Wolf</row>
+  <row label="r29" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Tenpenny</row>
+  <row label="r30" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Naturally Nourished  (Ali Miller)</row>
+  <row label="r31" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">MAHA Mom  (Rebecca Kleefisch)</row>
+  <row label="r32" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Balanced Bites  (Diane Sanfilippo)</row>
+  <row label="r33" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Well Fed  (Melissa Joulwan)</row>
+  <row label="r34" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Homesteaders of America</row>
+  <row label="r35" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">The Paleo Mom  (Sarah Ballantyne)</row>
+  <row label="r36" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Katie Wells  (Wellness Mama)</row>
+  <row label="r37" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Robyn Openshaw  (Green Smoothie Girl)</row>
+  <row label="r38" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Trina Holden  (Real Food Living)</row>
+  <row label="r39" cond="HHIX101.r2">Alex Lawson  (Social Security Works)</row>
+  <row label="r40" cond="HHIX101.r1">Bernie Sanders</row>
+  <row label="r41" cond="HHIX101.r2">Ro Khanna</row>
+  <row label="r42" cond="HHIX101.r12">AFSCME</row>
+  <row label="r43" cond="HHIX101.r12">SEIU</row>
+  <row label="r44" cond="HHIX101.r2">Patient Rights Advocate</row>
+  <row label="r45" cond="HHIX101.r9">Bryan Johnson</row>
+  <row label="r46" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r13">Balaji Srinivasan</row>
+  <row label="r47" cond="HHIX101.r10">Michael Levin</row>
+  <row label="r48" cond="HHIX101.r10">George Church</row>
+  <row label="r49" cond="HHIX101.r9">Aubrey de Grey</row>
+  <row label="r50" cond="HHIX101.r13">Lex Fridman</row>
+  <row label="r51" cond="HHIX101.r13">Sam Altman</row>
+  <row label="r52" cond="HHIX101.r13">Vinod Khosla</row>
+  <row label="r53" cond="HHIX101.r9">Casey Means</row>
+  <row label="r54" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r2">Calley Means</row>
+  <row label="r55" cond="HHIX101.r13">Marc Andreessen</row>
+  <row label="r56" cond="HHIX101.r13">Garry Tan</row>
+  <row label="r57" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Bart Kay</row>
+  <row label="r58" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Anthony Chaffee MD</row>
+  <row label="r59" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Carnivore Aurelius</row>
+  <row label="r60" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Steak and Butter Gal</row>
+  <row label="r61" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Ken Berry MD  (Keep it Simple)</row>
+  <row label="r62" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Dr. Eric Berg</row>
+  <row label="r63" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Frank Tufano</row>
+  <row label="r64" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Amy Myers</row>
+  <row label="r65" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Jolene Brighten</row>
+  <row label="r66" cond="HHIX101.r4">Aviva Romm MD</row>
+  <row label="r67" cond="HHIX101.r4">The Holistic Psychologist  (Dr. Nicole LePera)</row>
+  <row label="r68" cond="HHIX101.r4">MindBodyGreen</row>
+  <row label="r69" cond="HHIX101.r5">Sakara Life</row>
+  <row label="r70" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Essential Oils</row>
+  <row label="r71" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Young Living</row>
+  <row label="r72" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Herbal Academy</row>
+  <row label="r73" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Organic Olivia</row>
+  <row label="r74" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r5">Fully Raw Kristina</row>
+  <row label="r75" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Sebi Community</row>
+  <row label="r76" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">The Herbal Spoon</row>
+  <row label="r77" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Essentially Elana</row>
+  <row label="r78" cond="HHIX101.r5">Plant Based News</row>
+  <row label="r79" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Dr. Zach Bush</row>
+  <row label="r80" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r4">Kitchen Witch</row>
+  <row label="r81" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Aaron Siri  (ICAN)</row>
+  <row label="r82" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Mary Holland  (CHD)</row>
+  <row label="r83" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Meryl Nass MD</row>
+  <row label="r84" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Harvey Risch</row>
+  <row label="r85" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Rand Paul</row>
+  <row label="r86" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Thomas Massie</row>
+  <row label="r87" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Sherri Tenpenny</row>
+  <row label="r88" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Stephanie Seneff</row>
+  <row label="r89" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Dr. Carrie Madej</row>
+  <row label="r90" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r1">Liz Wheeler</row>
+  <row label="r91" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Health Freedom Defense Fund</row>
+  <row label="r92" cond="(TYPING_MODULE.r1 or TYPING_MODULE.r3) and HHIX101.r7">Vaccine Safety Research Foundation</row>
+  <row label="r93" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Ady Barkan  (Be a Hero)</row>
+  <row label="r94" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Nina Turner</row>
+  <row label="r95" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">AOC</row>
+  <row label="r96" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Abdul El-Sayed</row>
+  <row label="r97" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Physicians for a National Health Program</row>
+  <row label="r98" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Briahna Joy Gray</row>
+  <row label="r99" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r1">Ryan Grim  (The Intercept)</row>
+  <row label="r100" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Healthcare-NOW</row>
+  <row label="r101" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Rev. William Barber II</row>
+  <row label="r102" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Lisa Sharon Harper  (Freedom Road )</row>
+  <row label="r103" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Latasha Morrison (Be the Bridge)</row>
+  <row label="r104" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Christina Edmondson</row>
+  <row label="r105" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r11">Jemar Tisby</row>
+  <row label="r106" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Black Girl Health</row>
+  <row label="r107" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. UchÃ© Blackstock</row>
+  <row label="r108" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Oni Blackstock</row>
+  <row label="r109" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Unwell Network</row>
+  <row label="r110" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Chika Stacy Oriuwa</row>
+  <row label="r111" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">The Movement for Black Lives Health</row>
+  <row label="r112" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bettina Judd</row>
+  <row label="r113" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">National Birth Equity Collaborative</row>
+  <row label="r114" cond="HHIX101.r12">Sara Nelson (AFA Union)</row>
+  <row label="r115" cond="HHIX101.r12">Shawn Fain (UAW)</row>
+  <row label="r116" cond="HHIX101.r12">Liz Shuler (AFL-CIO)</row>
+  <row label="r117" cond="HHIX101.r12">Harold Schaitberger (IAFF)</row>
+  <row label="r118" cond="HHIX101.r12">UFCW</row>
+  <row label="r119" cond="HHIX101.r12">Teamsters</row>
+  <row label="r120" cond="HHIX101.r12">Jobs with Justice</row>
+  <row label="r121" cond="HHIX101.r1">Working Families Party</row>
+  <row label="r122" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Ashish Jha</row>
+  <row label="r123" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bob Wachter</row>
+  <row label="r124" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Vivek Murthy</row>
+  <row label="r125" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Mandy Cohen</row>
+  <row label="r126" cond="HHIX101.r13">Hala Mazur</row>
+  <row label="r127" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Atul Gawande</row>
+  <row label="r128" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Andy Slavitt</row>
+  <row label="r129" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r13">Farzad Mostashari</row>
+  <row label="r130" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Zeke Emanuel</row>
+  <row label="r131" cond="HHIX101.r2">Dave deBronkart</row>
+  <row label="r132" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">AARP</row>
+  <row label="r133" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Medicare Rights Center</row>
+  <row label="r134" cond="HHIX101.r3">Social Security Works</row>
+  <row label="r135" cond="HHIX101.r3">Nancy Altman</row>
+  <row label="r136" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Protect Our Care</row>
+  <row label="r137" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Dr. Howard Fillit</row>
+  <row label="r138" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r3">Next Avenue</row>
+  <row label="r139" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Kaiser Health News</row>
+  <row label="r140" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Tedros (WHO)</row>
+  <row label="r141" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Tom Frieden (&quot;Resolve to Save Lives&quot;)</row>
+  <row label="r142" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Dr. Peter Hotez</row>
+  <row label="r143" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Richard Besser (Robert Wood Johnson Foundation)</row>
+  <row label="r144" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Dr. Paul Farmer legacy</row>
+  <row label="r145" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Laurie Garrett</row>
+  <row label="r146" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Seth Berkley</row>
+  <row label="r147" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Bill Gates</row>
+  <row label="r148" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Chelsea Clinton</row>
+  <row label="r149" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r2">Gregg Gonsalves</row>
+  <row label="r150" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Saad Omer</row>
+  <row label="r151" cond="(TYPING_MODULE.r2 or TYPING_MODULE.r3) and HHIX101.r10">Amy Maxmen</row>
+  <row label="r999" exclusive="1" randomize="0"><span class="NoneOfThese">None of these</span></row>
 </checkbox>
 
 <suspend/>

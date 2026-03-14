@@ -1,0 +1,612 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
+
+<loop label="SRC_LOOP" vars="">
+  <title>Source Rating Loop</title>
+
+  <note>Loop rows: one per topic, conditioned on HHIX101 topic selection</note>
+  <looprow label="1" cond="HHIX101.r1">
+    <loopvar name="topicIdx">1</loopvar>
+  </looprow>
+  <looprow label="2" cond="HHIX101.r2">
+    <loopvar name="topicIdx">2</loopvar>
+  </looprow>
+  <looprow label="3" cond="HHIX101.r3">
+    <loopvar name="topicIdx">3</loopvar>
+  </looprow>
+  <looprow label="4" cond="HHIX101.r4">
+    <loopvar name="topicIdx">4</loopvar>
+  </looprow>
+  <looprow label="5" cond="HHIX101.r5">
+    <loopvar name="topicIdx">5</loopvar>
+  </looprow>
+  <looprow label="6" cond="HHIX101.r6">
+    <loopvar name="topicIdx">6</loopvar>
+  </looprow>
+  <looprow label="7" cond="HHIX101.r7">
+    <loopvar name="topicIdx">7</loopvar>
+  </looprow>
+  <looprow label="8" cond="HHIX101.r8">
+    <loopvar name="topicIdx">8</loopvar>
+  </looprow>
+  <looprow label="9" cond="HHIX101.r9">
+    <loopvar name="topicIdx">9</loopvar>
+  </looprow>
+  <looprow label="10" cond="HHIX101.r10">
+    <loopvar name="topicIdx">10</loopvar>
+  </looprow>
+  <looprow label="11" cond="HHIX101.r11">
+    <loopvar name="topicIdx">11</loopvar>
+  </looprow>
+  <looprow label="12" cond="HHIX101.r12">
+    <loopvar name="topicIdx">12</loopvar>
+  </looprow>
+  <looprow label="13" cond="HHIX101.r13">
+    <loopvar name="topicIdx">13</loopvar>
+  </looprow>
+  <looprow label="14" cond="HHIX101.r14">
+    <loopvar name="topicIdx">14</loopvar>
+  </looprow>
+
+  <note>Loop content: exec block to cap sources at 25 items</note>
+
+  <exec>
+<![CDATA[
+import random
+eligible = [r for r in SRC_[loopvar: topicIdx].rows if not r.disabled]
+random.shuffle(eligible)
+for r in eligible[25:]:
+    r.disabled = True
+]]>
+  </exec>
+
+  <note>Card rating question: sources filtered by topic and party</note>
+  <radio label="SRC_[loopvar: topicIdx]"
+    uses="cardrating.1"
+    fir="off"
+    grouping="rows"
+    shuffle="rows"
+    cardrating:btnlayout="tiled"
+    cardrating:progress="1"
+    cardrating:animation="medium"
+    cardrating:themename="hpush"
+    cardrating:lrg_minwidth="16%"
+    cardrating:sml_minwidth="30%"
+    cardrating:lrg_btnalign="Center"
+    cardrating:completion="All done!">
+    <title>
+      When was the last time you used this source for news and information on
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='1'" text=" &lt;b&gt;Political news and commentary&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='2'" text=" &lt;b&gt;Health policy&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='3'" text=" &lt;b&gt;Medicare and senior health&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='4'" text=" &lt;b&gt;Natural and alternative health&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='5'" text=" &lt;b&gt;Nutrition and diet&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='6'" text=" &lt;b&gt;Supplements and vitamins&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='7'" text=" &lt;b&gt;Vaccines and immunization&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='8'" text=" &lt;b&gt;Fitness and physical performance&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='9'" text=" &lt;b&gt;Longevity and anti-aging&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='10'" text=" &lt;b&gt;Science and medical research&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='11'" text=" &lt;b&gt;Faith and values&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='12'" text=" &lt;b&gt;Worker and economic issues&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='13'" text=" &lt;b&gt;Health technology and innovation&lt;/b&gt;"/>
+      <insert cond="SRC_LOOP.loopvar.topicIdx=='14'" text=" &lt;b&gt;Environmental and climate health&lt;/b&gt;"/>
+      ?
+    </title>
+    <comment>If you've never heard of it before, don't worry &amp;ndash; you're definitely not alone. The next source slides in as soon as you answer.</comment>
+
+    <col label="c1">Never heard of it</col>
+    <col label="c2">Never used it</col>
+    <col label="c3">Over a year ago</col>
+    <col label="c4">Past year</col>
+    <col label="c5">Past month</col>
+    <col label="c6">Past week</col>
+
+    <note>Source rows with topic and party conditions</note>
+    <note>Topic 1: Political news and commentary</note>
+    <row label="r1" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Fox News</row>
+    <row label="r2" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>MSNBC</row>
+    <row label="r3" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CNN</row>
+    <row label="r4" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NPR</row>
+    <row label="r5" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>New York Times</row>
+    <row label="r6" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Washington Post</row>
+    <row label="r7" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wall Street Journal</row>
+    <row label="r8" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Joe Rogan Experience</row>
+    <row label="r9" cond='SRC_LOOP.loopvar.topicIdx=="1"'>USA Today</row>
+    <row label="r10" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>National Review</row>
+    <row label="r11" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Dispatch</row>
+    <row label="r12" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Bulwark</row>
+    <row label="r13" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Hill</row>
+    <row label="r14" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>RealClearPolitics</row>
+    <row label="r15" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Washington Examiner</row>
+    <row label="r16" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Townhall</row>
+    <row label="r17" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Federalist</row>
+    <row label="r18" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Conservative</row>
+    <row label="r19" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Compact Magazine</row>
+    <row label="r20" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Greatness</row>
+    <row label="r21" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Daily Wire</row>
+    <row label="r22" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Dan Bongino Show</row>
+    <row label="r23" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Tucker Carlson Network</row>
+    <row label="r24" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>War Room with Steve Bannon</row>
+    <row label="r25" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Breitbart News</row>
+    <row label="r26" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Epoch Times</row>
+    <row label="r27" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Glenn Beck  (Blaze Media)</row>
+    <row label="r28" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Turning Point USA</row>
+    <row label="r29" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Megyn Kelly Show</row>
+    <row label="r30" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real America's Voice</row>
+    <row label="r31" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Newsmax</row>
+    <row label="r32" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Salem Radio Network</row>
+    <row label="r33" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Hugh Hewitt Show</row>
+    <row label="r34" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ben Shapiro Show</row>
+    <row label="r35" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reason Magazine</row>
+    <row label="r36" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ron Paul Liberty Report</row>
+    <row label="r37" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Racket News  (Matt Taibbi)</row>
+    <row label="r38" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Free Press  (Bari Weiss)</row>
+    <row label="r39" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Unherd</row>
+    <row label="r40" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Cato Daily Podcast</row>
+    <row label="r41" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jordan Peterson Podcast</row>
+    <row label="r42" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Pod Save America</row>
+    <row label="r43" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Young Turks</row>
+    <row label="r44" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Democracy Now</row>
+    <row label="r45" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Intercept</row>
+    <row label="r46" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Jacobin</row>
+    <row label="r47" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Nation</row>
+    <row label="r48" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Mehdi Hasan Show</row>
+    <row label="r49" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Zeteo  (Mehdi Hasan)</row>
+    <row label="r50" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Bad Faith Podcast</row>
+    <row label="r51" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>American Prospect</row>
+    <row label="r52" cond='SRC_LOOP.loopvar.topicIdx=="1"'>In These Times</row>
+    <row label="r53" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Politico</row>
+    <row label="r54" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Axios</row>
+    <row label="r55" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Atlantic</row>
+    <row label="r56" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Vox</row>
+    <row label="r57" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch TV</row>
+    <row label="r58" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Crowder  (Louder with Crowder)</row>
+    <row label="r59" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>One America News</row>
+    <row label="r60" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>AgriTalk Radio</row>
+    <row label="r61" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Bureau News  (AFBF)</row>
+    <row label="r62" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brownfield Ag News</row>
+    <row label="r63" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Successful Farming</row>
+    <row label="r64" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Journal</row>
+    <row label="r65" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sinclair Broadcast Health Coverage</row>
+    <row label="r66" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nexstar Media Health Coverage</row>
+    <row label="r67" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Talk Radio</row>
+    <row label="r68" cond='SRC_LOOP.loopvar.topicIdx=="1"'>100 Days in Appalachia</row>
+    <row label="r69" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Dig Podcast</row>
+    <row label="r70" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heartland Signal</row>
+    <row label="r71" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Progressive Magazine</row>
+    <row label="r72" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Moms for America</row>
+    <row label="r73" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Moms for Liberty</row>
+    <row label="r74" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Emerald Robinson  (The Absolute Truth)</row>
+    <row label="r75" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Public  (Michael Shellenberger)</row>
+    <row label="r76" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Dispatch Newsletter</row>
+    <row label="r77" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Unherd  (Freddie deBoer)</row>
+    <row label="r78" cond='SRC_LOOP.loopvar.topicIdx=="1"'>Nate Silver  (Silver Bulletin)</row>
+    <row label="r79" cond='SRC_LOOP.loopvar.topicIdx=="1"'>The Daily Poster  (David Sirota)</row>
+    <row label="r80" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Bad Faith  (Briahna Joy Gray)</row>
+    <row label="r81" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Rural Blog</row>
+    <row label="r82" cond='SRC_LOOP.loopvar.topicIdx=="1" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Farm Policy News</row>
+    <note>Topic 2: Health policy</note>
+    <row label="r83" cond='SRC_LOOP.loopvar.topicIdx=="2"'>KFF Health News</row>
+    <row label="r84" cond='SRC_LOOP.loopvar.topicIdx=="2"'>STAT News</row>
+    <row label="r85" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Affairs</row>
+    <row label="r86" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Axios Health</row>
+    <row label="r87" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Politico Health Care</row>
+    <row label="r88" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Commonwealth Fund</row>
+    <row label="r89" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care Dive</row>
+    <row label="r90" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Modern Healthcare</row>
+    <row label="r91" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Benefits Pro</row>
+    <row label="r92" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Employee Benefit News</row>
+    <row label="r93" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Peterson-KFF Health Tracker</row>
+    <row label="r94" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Urban Institute Health Policy</row>
+    <row label="r95" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Center on Budget and Policy</row>
+    <row label="r96" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Families USA</row>
+    <row label="r97" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heritage Foundation Health</row>
+    <row label="r98" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>American Enterprise Institute Health</row>
+    <row label="r99" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mercatus Center Health Policy</row>
+    <row label="r100" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Health Care Blog</row>
+    <row label="r101" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for National Health</row>
+    <row label="r102" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Catalyst</row>
+    <row label="r103" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Center for American Progress Health</row>
+    <row label="r104" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brownstone Institute</row>
+    <row label="r105" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>AIER Health</row>
+    <row label="r106" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Information Hub</row>
+    <row label="r107" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Rural Monitor  (NRHA)</row>
+    <row label="r108" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>National Rural Health Association</row>
+    <row label="r109" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Voices Podcast</row>
+    <row label="r110" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Quarterly</row>
+    <row label="r111" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Chartis Center for Rural Health</row>
+    <row label="r112" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Flex Monitoring Team</row>
+    <row label="r113" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Heartland Institute Health Care News</row>
+    <row label="r114" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Care News</row>
+    <row label="r115" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pacific Research Institute Health</row>
+    <row label="r116" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NCPA Health Policy</row>
+    <row label="r117" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pioneer Institute Health</row>
+    <row label="r118" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Right to Try Foundation</row>
+    <row label="r119" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Alliance for Patient Access</row>
+    <row label="r120" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Patient Rising Podcast</row>
+    <row label="r121" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>21st Century Cures Advocacy</row>
+    <row label="r122" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Rosetta  (Dave Chase)</row>
+    <row label="r123" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Catalyst for Payment Reform</row>
+    <row label="r124" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Clear Health Costs</row>
+    <row label="r125" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Healthcare Transparency Initiative</row>
+    <row label="r126" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reframe Health Lab</row>
+    <row label="r127" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Center for Health Care Strategies</row>
+    <row label="r128" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>DPC Frontier</row>
+    <row label="r129" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Direct Primary Care Journal</row>
+    <row label="r130" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>DPC Alliance Podcast</row>
+    <row label="r131" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Self-Insurance Institute of America</row>
+    <row label="r132" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Employee Benefits Adviser</row>
+    <row label="r133" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>HR Dive Health Benefits</row>
+    <row label="r134" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Business Group on Health</row>
+    <row label="r135" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>ERIC</row>
+    <row label="r136" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Manhattan Institute Health</row>
+    <row label="r137" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Competitive Enterprise Institute</row>
+    <row label="r138" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Texas Public Policy Foundation</row>
+    <row label="r139" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Forbes Health</row>
+    <row label="r140" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Health Affairs Forefront</row>
+    <row label="r141" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Second Opinion  (Lanhee Chen)</row>
+    <row label="r142" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Gist  (Advisory Board)</row>
+    <row label="r143" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Consumer Reports Health</row>
+    <row label="r144" cond='SRC_LOOP.loopvar.topicIdx=="2"'>PatientEngagementHIT</row>
+    <row label="r145" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Patients for Affordable Drugs</row>
+    <row label="r146" cond='SRC_LOOP.loopvar.topicIdx=="2"'>AARP Drug Pricing Coverage</row>
+    <row label="r147" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Prescription Justice</row>
+    <row label="r148" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Accountable.US Health</row>
+    <row label="r149" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Public Citizen Health Research</row>
+    <row label="r150" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Becker's Rural Health</row>
+    <row label="r151" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Hospital Closures Tracker</row>
+    <row label="r152" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Doctor  (BlackDoctor.org)</row>
+    <row label="r153" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Essence Health</row>
+    <row label="r154" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Root Health Coverage</row>
+    <row label="r155" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Women's Health Imperative</row>
+    <row label="r156" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Shondaland Health</row>
+    <row label="r157" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Mogul Millennial Health</row>
+    <row label="r158" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Salud America</row>
+    <row label="r159" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Hispanic Medical Association</row>
+    <row label="r160" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Latino Health Access</row>
+    <row label="r161" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health and Human Rights Journal</row>
+    <row label="r162" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Health Worker Network</row>
+    <row label="r163" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Trust for America's Health</row>
+    <row label="r164" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Robert Wood Johnson Foundation</row>
+    <row label="r165" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CommonHealth  (WBUR)</row>
+    <row label="r166" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Dose Podcast  (Commonwealth Fund)</row>
+    <row label="r167" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Equity News</row>
+    <row label="r168" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>UnidosUS Health</row>
+    <row label="r169" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NAACP Health Program</row>
+    <row label="r170" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Urban League Health</row>
+    <row label="r171" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Advantage Oversight</row>
+    <row label="r172" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for a National Health Program</row>
+    <row label="r173" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care for America Now</row>
+    <row label="r174" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Coalition Against Insurance Abuse</row>
+    <row label="r175" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Health Association Community</row>
+    <row label="r176" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Association of Community Health Centers</row>
+    <row label="r177" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Community Health Center Voices</row>
+    <row label="r178" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The American Prospect Health</row>
+    <row label="r179" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Truthout Health</row>
+    <row label="r180" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Covering Health  (AHCJ Podcast)</row>
+    <row label="r181" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Policy Hub  (Brookings)</row>
+    <row label="r182" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Alliance for Health Policy</row>
+    <row label="r183" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Prescription Drug Policy  (IHPI)</row>
+    <row label="r184" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Wonk Review</row>
+    <row label="r185" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Drew Altman  (KFF Perspective)</row>
+    <row label="r186" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Margot Sanger-Katz  (NYT Health)</row>
+    <row label="r187" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Larry Levitt  (Health Policy Notes)</row>
+    <row label="r188" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sarah Kliff  (Health Costs)</row>
+    <row label="r189" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Bob Herman  (Health Business)</row>
+    <row label="r190" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Dylan Scott  (Vox Health)</row>
+    <row label="r191" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Care Upside Down  (Uwe Reinhardt legacy)</row>
+    <row label="r192" cond='SRC_LOOP.loopvar.topicIdx=="2"'>The Health Care Blog  (Matthew Holt)</row>
+    <row label="r193" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Covering Health  (AHCJ)</row>
+    <row label="r194" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Reframe Health  (Dave Chase)</row>
+    <row label="r195" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Do No Harm  (Stanley Goldfarb)</row>
+    <row label="r196" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>People's Action Health</row>
+    <row label="r197" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health Justice Monitor</row>
+    <row label="r198" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Physicians for Social Responsibility</row>
+    <row label="r199" cond='SRC_LOOP.loopvar.topicIdx=="2" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Rural Health Beat</row>
+    <row label="r200" cond='SRC_LOOP.loopvar.topicIdx=="2"'>Prescription Drug Watch</row>
+    <note>Topic 3: Medicare and senior health</note>
+    <row label="r201" cond='SRC_LOOP.loopvar.topicIdx=="3"'>The Medicare Podcast</row>
+    <row label="r202" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Interactive</row>
+    <row label="r203" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Senior Planet  (OATS)</row>
+    <row label="r204" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sixty and Me</row>
+    <row label="r205" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Council on Aging</row>
+    <row label="r206" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>LeadingAge</row>
+    <row label="r207" cond='SRC_LOOP.loopvar.topicIdx=="3"'>Alliance for Retired Americans</row>
+    <row label="r208" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Gray Panthers</row>
+    <row label="r209" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Caregiver Action Network</row>
+    <row label="r210" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior List Podcast</row>
+    <row label="r211" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sixty and Me Podcast</row>
+    <row label="r212" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aging Today  (ASA)</row>
+    <row label="r213" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Generations Journal  (ASA)</row>
+    <row label="r214" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Elder Law Answers</row>
+    <row label="r215" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>SeniorLiving.org</row>
+    <row label="r216" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior Times</row>
+    <row label="r217" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>AMAC  (Association Mature Americans)</row>
+    <row label="r218" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Kiplinger Retirement Health</row>
+    <row label="r219" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>MarketWatch Retirement Health</row>
+    <row label="r220" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Forbes Retirement Health</row>
+    <row label="r221" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>US News Best Medicare Plans</row>
+    <row label="r222" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Plan Finder  (CMS)</row>
+    <row label="r223" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Interactive Podcast</row>
+    <row label="r224" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Medicare Advisor</row>
+    <row label="r225" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare on Video</row>
+    <row label="r226" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Boomer Benefits Podcast</row>
+    <row label="r227" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health in Aging Foundation</row>
+    <row label="r228" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>American Geriatrics Society</row>
+    <row label="r229" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Gerontological Society of America</row>
+    <row label="r230" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>John A. Hartford Foundation</row>
+    <row label="r231" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>LeadingAge Podcast</row>
+    <row label="r232" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Medicare Decoded</row>
+    <row label="r233" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Senior Report</row>
+    <row label="r234" cond='SRC_LOOP.loopvar.topicIdx=="3" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aging Well  (Dr. Leslie Kernisan)</row>
+    <note>Topic 4: Natural and alternative health</note>
+    <row label="r235" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Doctor's Farmacy)</row>
+    <row label="r236" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Josh Axe</row>
+    <row label="r237" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wellness Mama</row>
+    <row label="r238" cond='SRC_LOOP.loopvar.topicIdx=="4"'>mindbodygreen</row>
+    <row label="r239" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Goop  (Gwyneth Paltrow)</row>
+    <row label="r240" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Model Health Show</row>
+    <row label="r241" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Functional Medicine for Life</row>
+    <row label="r242" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Natural Health 365</row>
+    <row label="r243" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>GreenMedInfo</row>
+    <row label="r244" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Weston A. Price Foundation</row>
+    <row label="r245" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Anthony William  (Medical Medium)</row>
+    <row label="r246" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Terry Wahls</row>
+    <row label="r247" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Chris Kresser</row>
+    <row label="r248" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Will Cole</row>
+    <row label="r249" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Aviva Romm  (Natural MD Radio)</row>
+    <row label="r250" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sacred Science</row>
+    <row label="r251" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NaturalNews  (Mike Adams)</row>
+    <row label="r252" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Herbs &amp; Oils World</row>
+    <row label="r253" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Oil Testimonials</row>
+    <row label="r254" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch Health Telegram</row>
+    <row label="r255" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Make America Healthy Again</row>
+    <row label="r256" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Wellness Mama Podcast</row>
+    <row label="r257" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>MAHA Moms Facebook Community</row>
+    <row label="r258" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Organic Consumers Association</row>
+    <row label="r259" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Babes and Babies</row>
+    <row label="r260" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Homeschool Health Summit</row>
+    <row label="r261" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Home School Mom</row>
+    <row label="r262" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Wellness Wednesday Homeschool FB</row>
+    <row label="r263" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Wellness Way  (Patrick Flynn)</row>
+    <row label="r264" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Ranger Report  (Mike Adams)</row>
+    <row label="r265" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Brighteon</row>
+    <row label="r266" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Natural Living Family</row>
+    <row label="r267" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Healthy Home Economist</row>
+    <row label="r268" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ashley Evelyn</row>
+    <row label="r269" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Live Blessed or Stressed</row>
+    <row label="r270" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Mamas Network</row>
+    <row label="r271" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>A Midwestern Doctor</row>
+    <row label="r272" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Mark Hyman  (Food Fix)</row>
+    <row label="r273" cond='SRC_LOOP.loopvar.topicIdx=="4" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Will Cole  (Inflammation Fix)</row>
+    <row label="r274" cond='SRC_LOOP.loopvar.topicIdx=="4"'>Metabolic Mind  (Baszucki Group)</row>
+    <note>Topic 5: Nutrition and diet</note>
+    <row label="r275" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Paul Saladino  (Carnivore MD)</row>
+    <row label="r276" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Shawn Baker  (Revero)</row>
+    <row label="r277" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mikhaila Peterson</row>
+    <row label="r278" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Liver King  (Brian Johnson)</row>
+    <row label="r279" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Diet Doctor</row>
+    <row label="r280" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nutrition with Judy</row>
+    <row label="r281" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Thomas DeLauer</row>
+    <row label="r282" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>What I've Learned</row>
+    <row label="r283" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Layne Norton  (BioLayne)</row>
+    <row label="r284" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Whole30  (Melissa Urban)</row>
+    <row label="r285" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Gabrielle Lyon</row>
+    <row label="r286" cond='SRC_LOOP.loopvar.topicIdx=="5"'>Nutrition Made Simple  (Gil Carvalho)</row>
+    <row label="r287" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Exam Room  (PCRM)</row>
+    <row label="r288" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nourishing Traditions  (Sally Fallon)</row>
+    <row label="r289" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Peak Human Podcast</row>
+    <row label="r290" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ancestral Health Society</row>
+    <row label="r291" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Food Democracy Now</row>
+    <row label="r292" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sustainable Pulse</row>
+    <row label="r293" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Fed Up with School Lunch</row>
+    <row label="r294" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Food Babe  (Vani Hari)</row>
+    <row label="r295" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Organic Authority</row>
+    <row label="r296" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nourished Kitchen</row>
+    <row label="r297" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Weston A. Price Foundation FB</row>
+    <row label="r298" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Non-GMO Project</row>
+    <row label="r299" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Kitchen Stewardship</row>
+    <row label="r300" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>100 Days of Real Food</row>
+    <row label="r301" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real Food For Real Kids</row>
+    <row label="r302" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Trim Healthy Mama</row>
+    <row label="r303" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Homesteading Family</row>
+    <row label="r304" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Real Food RD  (Rylee Hackley)</row>
+    <row label="r305" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Nourished Child  (Jill Castle)</row>
+    <row label="r306" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nutrition with Judy  (Judy Cho)</row>
+    <row label="r307" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Gabrielle Lyon  (Protein Matters)</row>
+    <row label="r308" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Food Politics  (Marion Nestle)</row>
+    <row label="r309" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Grain Brain  (David Perlmutter)</row>
+    <row label="r310" cond='SRC_LOOP.loopvar.topicIdx=="5" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Carnivore Bar</row>
+    <note>Topic 6: Supplements and vitamins</note>
+    <row label="r311" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Huberman Lab</row>
+    <row label="r312" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Examine.com</row>
+    <row label="r313" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Nootropics Depot</row>
+    <row label="r314" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Life Extension Foundation</row>
+    <row label="r315" cond='SRC_LOOP.loopvar.topicIdx=="6"'>ConsumerLab</row>
+    <row label="r316" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>LabDoor</row>
+    <row label="r317" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Tim Ferriss Show</row>
+    <row label="r318" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Supplement Review Podcast</row>
+    <row label="r319" cond='SRC_LOOP.loopvar.topicIdx=="6" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Designs for Health Podcast</row>
+    <row label="r320" cond='SRC_LOOP.loopvar.topicIdx=="6"'>Fullscript Insights</row>
+    <note>Topic 7: Vaccines and immunization</note>
+    <row label="r321" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist</row>
+    <row label="r322" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>CHOP Vaccine Education Center</row>
+    <row label="r323" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Immunize.org</row>
+    <row label="r324" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Paul Offit</row>
+    <row label="r325" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Vax Populi Substack</row>
+    <row label="r326" cond='SRC_LOOP.loopvar.topicIdx=="7"'>CDC Vaccine Communications</row>
+    <row label="r327" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>The Highwire  (Del Bigtree)</row>
+    <row label="r328" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Children's Health Defense</row>
+    <row label="r329" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Sherri Tenpenny</row>
+    <row label="r330" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>America's Frontline Doctors</row>
+    <row label="r331" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Mercola</row>
+    <row label="r332" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Steve Kirsch Substack</row>
+    <row label="r333" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Epoch Health</row>
+    <row label="r334" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Impact News</row>
+    <row label="r335" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Informed Consent Action Network</row>
+    <row label="r336" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>World Council for Health</row>
+    <row label="r337" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Dr. Paul Thomas  (Integrative Pediatrics)</row>
+    <row label="r338" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Vaccine Choice Canada</row>
+    <row label="r339" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Stew Peters Network Telegram</row>
+    <row label="r340" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Health Freedom Telegram</row>
+    <row label="r341" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Generation Rescue  (Jenny McCarthy)</row>
+    <row label="r342" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Robert Malone  (Who is Robert Malone)</row>
+    <row label="r343" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Alex Berenson  (Unreported Truths)</row>
+    <row label="r344" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Pierre Kory  (Fight the System)</row>
+    <row label="r345" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Paul Marik  (FLCCC Alliance)</row>
+    <row label="r346" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jessica Rose  (Unacceptable Jessica)</row>
+    <row label="r347" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Igor Chudov  (Igor's Newsletter)</row>
+    <row label="r348" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Naomi Wolf  (DailyClout)</row>
+    <row label="r349" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Matthew Crawford  (Rounding the Earth)</row>
+    <row label="r350" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>David Zweig</row>
+    <row label="r351" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Sage Hana</row>
+    <row label="r352" cond='SRC_LOOP.loopvar.topicIdx=="7"'>Courageous Discourse  (Bhattacharya)</row>
+    <row label="r353" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Karl Denninger  (Market Ticker Health)</row>
+    <row label="r354" cond='SRC_LOOP.loopvar.topicIdx=="7" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Your Local Epidemiologist  (Jetelina)</row>
+    <note>Topic 8: Fitness and physical performance</note>
+    <row label="r355" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mark Bell's Power Project</row>
+    <row label="r356" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Ben Greenfield Life</row>
+    <row label="r357" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Barbell Medicine</row>
+    <row label="r358" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Jocko Podcast</row>
+    <row label="r359" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mike Israetel  (Renaissance Periodization)</row>
+    <row label="r360" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Mind Pump Podcast</row>
+    <row label="r361" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Starting Strength  (Mark Rippetoe)</row>
+    <row label="r362" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Functional Patterns</row>
+    <row label="r363" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Garage Gym Reviews</row>
+    <row label="r364" cond='SRC_LOOP.loopvar.topicIdx=="8" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>NSCA  (Journal of Strength Research)</row>
+    <note>Topic 9: Longevity and anti-aging</note>
+    <row label="r365" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (The Drive)</row>
+    <row label="r366" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Bryan Johnson  (Blueprint)</row>
+    <row label="r367" cond='SRC_LOOP.loopvar.topicIdx=="9"'>David Sinclair  (Lifespan)</row>
+    <row label="r368" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Fight Aging</row>
+    <row label="r369" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Lifespan.io</row>
+    <row label="r370" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Longevity.Technology</row>
+    <row label="r371" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Sergey Young  (Longevity Vision)</row>
+    <row label="r372" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Nir Barzilai  (Age Later)</row>
+    <row label="r373" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Elysium Health Insights</row>
+    <row label="r374" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Peter Attia  (Outlive)</row>
+    <row label="r375" cond='SRC_LOOP.loopvar.topicIdx=="9"'>Nir Eyal  (Indistractable Health)</row>
+    <row label="r376" cond='SRC_LOOP.loopvar.topicIdx=="9"'>LifeOmic  (Longevity Science)</row>
+    <note>Topic 10: Science and medical research</note>
+    <row label="r377" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Ground Truths  (Eric Topol)</row>
+    <row label="r378" cond='SRC_LOOP.loopvar.topicIdx=="10"'>MedPage Today</row>
+    <row label="r379" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Medscape</row>
+    <row label="r380" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Science Friday</row>
+    <row label="r381" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Endpoints News</row>
+    <row label="r382" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>BioPharma Dive</row>
+    <row label="r383" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>FierceBiotech</row>
+    <row label="r384" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Scientist</row>
+    <row label="r385" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>New England Journal of Medicine (JAMA)</row>
+    <row label="r386" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Ars Technica Health</row>
+    <row label="r387" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Retraction Watch</row>
+    <row label="r388" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The SGIM Forum</row>
+    <row label="r389" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Offside  (Adam Cifu)</row>
+    <row label="r390" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Nature Medicine</row>
+    <row label="r391" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>FDA Voice</row>
+    <row label="r392" cond='SRC_LOOP.loopvar.topicIdx=="10"'>NIH News in Health</row>
+    <row label="r393" cond='SRC_LOOP.loopvar.topicIdx=="10"'>CDC Health Matters Podcast</row>
+    <row label="r394" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Stat of the Week  (Bob Wachter)</row>
+    <row label="r395" cond='SRC_LOOP.loopvar.topicIdx=="10"'>Tomas Pueyo  (Uncharted Territories)</row>
+    <row label="r396" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Incubator  (Neonatal Research)</row>
+    <row label="r397" cond='SRC_LOOP.loopvar.topicIdx=="10" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Absolutely Maybe  (Lisa Bero)</row>
+    <note>Topic 11: Faith and values</note>
+    <row label="r398" cond='SRC_LOOP.loopvar.topicIdx=="11"'>EWTN</row>
+    <row label="r399" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Focus on the Family Podcast</row>
+    <row label="r400" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Christianity Today</row>
+    <row label="r401" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Gospel Coalition</row>
+    <row label="r402" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Relevant Podcast</row>
+    <row label="r403" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Catholic Vote</row>
+    <row label="r404" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Catholic Thing</row>
+    <row label="r405" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Crisis Magazine</row>
+    <row label="r406" cond='SRC_LOOP.loopvar.topicIdx=="11"'>First Things</row>
+    <row label="r407" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sojourners</row>
+    <row label="r408" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Catholic Reporter</row>
+    <row label="r409" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>America Magazine</row>
+    <row label="r410" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Religion News Service</row>
+    <row label="r411" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>CBN Health</row>
+    <row label="r412" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Christian Post</row>
+    <row label="r413" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Black Christian News</row>
+    <row label="r414" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Word in Black</row>
+    <row label="r415" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Witness BCC</row>
+    <row label="r416" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Black Church Initiative</row>
+    <row label="r417" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Word Network Health Content</row>
+    <row label="r418" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Health Association</row>
+    <row label="r419" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Catholic Charities Health</row>
+    <row label="r420" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Ignatian Solidarity Network</row>
+    <row label="r421" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Interfaith Public Health Network</row>
+    <row label="r422" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r1 or TYPING_MODULE.r3)'>Konos</row>
+    <row label="r423" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Dispatches from Exile  (Rod Dreher)</row>
+    <row label="r424" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Mere Orthodoxy</row>
+    <row label="r425" cond='SRC_LOOP.loopvar.topicIdx=="11"'>The Pillar</row>
+    <row label="r426" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Comment Magazine  (Cardus)</row>
+    <row label="r427" cond='SRC_LOOP.loopvar.topicIdx=="11" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Plough Quarterly</row>
+    <row label="r428" cond='SRC_LOOP.loopvar.topicIdx=="11"'>Faithful Politics</row>
+    <note>Topic 12: Worker and economic issues</note>
+    <row label="r429" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Working People Podcast</row>
+    <row label="r430" cond='SRC_LOOP.loopvar.topicIdx=="12"'>AFL-CIO Now</row>
+    <row label="r431" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Labor Notes</row>
+    <row label="r432" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Economic Policy Institute</row>
+    <row label="r433" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Century Foundation</row>
+    <row label="r434" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Teamster Nation</row>
+    <row label="r435" cond='SRC_LOOP.loopvar.topicIdx=="12"'>National Nurses United</row>
+    <row label="r436" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Solidarity  (DSA Labor)</row>
+    <row label="r437" cond='SRC_LOOP.loopvar.topicIdx=="12"'>SEIU  (Service Workers)</row>
+    <row label="r438" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Majority Report</row>
+    <row label="r439" cond='SRC_LOOP.loopvar.topicIdx=="12"'>UFCW  (United Food Workers Health)</row>
+    <row label="r440" cond='SRC_LOOP.loopvar.topicIdx=="12"'>UAW Health and Benefits</row>
+    <row label="r441" cond='SRC_LOOP.loopvar.topicIdx=="12"'>IBEW Health Benefits</row>
+    <row label="r442" cond='SRC_LOOP.loopvar.topicIdx=="12"'>USW  (United Steelworkers Health)</row>
+    <row label="r443" cond='SRC_LOOP.loopvar.topicIdx=="12"'>AFSCME Healthcare Coverage</row>
+    <row label="r444" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Union Plus Benefits Podcast</row>
+    <row label="r445" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Capital and Main</row>
+    <row label="r446" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Ohio Valley ReSource</row>
+    <row label="r447" cond='SRC_LOOP.loopvar.topicIdx=="12"'>National COSH</row>
+    <row label="r448" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Occupational Health &amp; Safety News</row>
+    <row label="r449" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Jobs with Justice Health</row>
+    <row label="r450" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>National Partnership Women Families</row>
+    <row label="r451" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Working Families Party Health</row>
+    <row label="r452" cond='SRC_LOOP.loopvar.topicIdx=="12"'>Portside Health Labor</row>
+    <row label="r453" cond='SRC_LOOP.loopvar.topicIdx=="12"'>The Lever  (David Sirota)</row>
+    <row label="r454" cond='SRC_LOOP.loopvar.topicIdx=="12"'>More Perfect Union</row>
+    <row label="r455" cond='SRC_LOOP.loopvar.topicIdx=="12" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare Worker Stories</row>
+    <note>Topic 13: Health technology and innovation</note>
+    <row label="r456" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NEJM Catalyst</row>
+    <row label="r457" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Fierce Healthcare</row>
+    <row label="r458" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Healthcare IT News</row>
+    <row label="r459" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>HIMSS Media</row>
+    <row label="r460" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Digital Health Today</row>
+    <row label="r461" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Becker's Health IT</row>
+    <row label="r462" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Forbes Healthcare</row>
+    <row label="r463" cond='SRC_LOOP.loopvar.topicIdx=="13"'>CB Insights Health</row>
+    <row label="r464" cond='SRC_LOOP.loopvar.topicIdx=="13"'>A16z Health</row>
+    <row label="r465" cond='SRC_LOOP.loopvar.topicIdx=="13"'>The Health Innovation Podcast</row>
+    <row label="r466" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Omada Health Insights</row>
+    <row label="r467" cond='SRC_LOOP.loopvar.topicIdx=="13" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Aidoc AI Health</row>
+    <row label="r468" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Not Boring Health  (Packy McCormick)</row>
+    <row label="r469" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Elemental Health  (Elad Gil)</row>
+    <row label="r470" cond='SRC_LOOP.loopvar.topicIdx=="13"'>The Prism  (Health Innovation)</row>
+    <row label="r471" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Heartbeat Health AI</row>
+    <row label="r472" cond='SRC_LOOP.loopvar.topicIdx=="13"'>Rock Health  (Weekly Briefing)</row>
+    <note>Topic 14: Environmental and climate health</note>
+    <row label="r473" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Grist</row>
+    <row label="r474" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Yale Climate Connections</row>
+    <row label="r475" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Environmental Health News</row>
+    <row label="r476" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Climate Now Podcast</row>
+    <row label="r477" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Inside Climate News</row>
+    <row label="r478" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Global Health Now  (JHSPH)</row>
+    <row label="r479" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Lancet Countdown on Health &amp; Climate</row>
+    <row label="r480" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>NRDC Health</row>
+    <row label="r481" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Sierra Club Health</row>
+    <row label="r482" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health and Environment Alliance</row>
+    <row label="r483" cond='SRC_LOOP.loopvar.topicIdx=="14"'>EWG  (Environmental Working Group)</row>
+    <row label="r484" cond='SRC_LOOP.loopvar.topicIdx=="14"'>Safer Chemicals Healthy Families</row>
+    <row label="r485" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Climate and Health Council</row>
+    <row label="r486" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Hot Take  (Mary Heglar &amp; Amy Westervelt)</row>
+    <row label="r487" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Heated  (Emily Atkin)</row>
+    <row label="r488" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>The Climate Crisis  (Bill McKibben)</row>
+    <row label="r489" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Drilled  (Amy Westervelt)</row>
+    <row label="r490" cond='SRC_LOOP.loopvar.topicIdx=="14" and (TYPING_MODULE.r2 or TYPING_MODULE.r3)'>Health &amp; Climate  (Medical Society)</row>
+  </radio>
+
+</loop>
