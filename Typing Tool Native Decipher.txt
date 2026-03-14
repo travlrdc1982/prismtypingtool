@@ -3886,51 +3886,65 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 ]]></style>
 <note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
 
-<loop label="SRC_LOOP" vars="">
+<loop label="SRC_LOOP" vars="topicName">
   <title>Source Rating Loop</title>
 
   <note>Loop rows: one per topic, conditioned on HHIX101 topic selection</note>
   <looprow label="1" cond="HHIX101.r1">
     <loopvar name="topicIdx">1</loopvar>
+    <loopvar name="topicName">Political news and commentary</loopvar>
   </looprow>
   <looprow label="2" cond="HHIX101.r2">
     <loopvar name="topicIdx">2</loopvar>
+    <loopvar name="topicName">Health policy</loopvar>
   </looprow>
   <looprow label="3" cond="HHIX101.r3">
     <loopvar name="topicIdx">3</loopvar>
+    <loopvar name="topicName">Medicare and senior health</loopvar>
   </looprow>
   <looprow label="4" cond="HHIX101.r4">
     <loopvar name="topicIdx">4</loopvar>
+    <loopvar name="topicName">Natural and alternative health</loopvar>
   </looprow>
   <looprow label="5" cond="HHIX101.r5">
     <loopvar name="topicIdx">5</loopvar>
+    <loopvar name="topicName">Nutrition and diet</loopvar>
   </looprow>
   <looprow label="6" cond="HHIX101.r6">
     <loopvar name="topicIdx">6</loopvar>
+    <loopvar name="topicName">Supplements and vitamins</loopvar>
   </looprow>
   <looprow label="7" cond="HHIX101.r7">
     <loopvar name="topicIdx">7</loopvar>
+    <loopvar name="topicName">Vaccines and immunization</loopvar>
   </looprow>
   <looprow label="8" cond="HHIX101.r8">
     <loopvar name="topicIdx">8</loopvar>
+    <loopvar name="topicName">Fitness and physical performance</loopvar>
   </looprow>
   <looprow label="9" cond="HHIX101.r9">
     <loopvar name="topicIdx">9</loopvar>
+    <loopvar name="topicName">Longevity and anti-aging</loopvar>
   </looprow>
   <looprow label="10" cond="HHIX101.r10">
     <loopvar name="topicIdx">10</loopvar>
+    <loopvar name="topicName">Science and medical research</loopvar>
   </looprow>
   <looprow label="11" cond="HHIX101.r11">
     <loopvar name="topicIdx">11</loopvar>
+    <loopvar name="topicName">Faith and values</loopvar>
   </looprow>
   <looprow label="12" cond="HHIX101.r12">
     <loopvar name="topicIdx">12</loopvar>
+    <loopvar name="topicName">Worker and economic issues</loopvar>
   </looprow>
   <looprow label="13" cond="HHIX101.r13">
     <loopvar name="topicIdx">13</loopvar>
+    <loopvar name="topicName">Health technology and innovation</loopvar>
   </looprow>
   <looprow label="14" cond="HHIX101.r14">
     <loopvar name="topicIdx">14</loopvar>
+    <loopvar name="topicName">Environmental and climate health</loopvar>
   </looprow>
 
   <note>Loop content: exec block to cap sources at 25 items</note>
@@ -3959,24 +3973,7 @@ for r in eligible[25:]:
     cardrating:sml_minwidth="30%"
     cardrating:lrg_btnalign="Center"
     cardrating:completion="All done!">
-    <title>
-      When was the last time you used this source for news and information on
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='1'" text=" &lt;b&gt;Political news and commentary&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='2'" text=" &lt;b&gt;Health policy&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='3'" text=" &lt;b&gt;Medicare and senior health&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='4'" text=" &lt;b&gt;Natural and alternative health&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='5'" text=" &lt;b&gt;Nutrition and diet&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='6'" text=" &lt;b&gt;Supplements and vitamins&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='7'" text=" &lt;b&gt;Vaccines and immunization&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='8'" text=" &lt;b&gt;Fitness and physical performance&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='9'" text=" &lt;b&gt;Longevity and anti-aging&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='10'" text=" &lt;b&gt;Science and medical research&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='11'" text=" &lt;b&gt;Faith and values&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='12'" text=" &lt;b&gt;Worker and economic issues&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='13'" text=" &lt;b&gt;Health technology and innovation&lt;/b&gt;"/>
-      <insert cond="SRC_LOOP.loopvar.topicIdx=='14'" text=" &lt;b&gt;Environmental and climate health&lt;/b&gt;"/>
-      ?
-    </title>
+    <title>When was the last time you used this source for news and information on <b>[loopvar: topicName]</b>?</title>
     <comment>If you've never heard of it before, don't worry &amp;ndash; you're definitely not alone. The next source slides in as soon as you answer.</comment>
 
     <col label="c1">Never heard of it</col>
