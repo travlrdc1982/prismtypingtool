@@ -2954,13 +2954,9 @@ function infFindQ(q){
 }
 
 var infMap = {QMD6:’inf-card-qmd6’,QMD7:’inf-card-qmd7’,QMD88:’inf-card-qmd88’,QMD89:’inf-card-qmd89’,QMD90:’inf-card-qmd90’};
-var infDebug = [];
-var infRoot = document.getElementById(‘sc-inf-root’);
-infDebug.push(‘ROOT: ‘+(infRoot ? ‘FOUND’ : ‘NOT FOUND’));
 Object.keys(infMap).forEach(function(q){
   var el = infFindQ(q);
   var card = document.getElementById(infMap[q]);
-  infDebug.push(q+’: el=’+(el ? (el.id||el.className||’found’).substring(0,30) : ‘NULL’)+’ card=’+(card?’OK’:’NULL’));
   if(el && card){
     card.appendChild(el);
     el.style.border = ‘none’;
@@ -2970,10 +2966,6 @@ Object.keys(infMap).forEach(function(q){
     el.style.background = ‘transparent’;
   }
 });
-var dbgDiv = document.createElement(‘div’);
-dbgDiv.style.cssText = ‘background:#FFEB3B;color:#000;padding:12px 16px;font-size:13px;font-family:monospace;position:fixed;top:0;left:0;right:0;z-index:99999;white-space:pre-wrap;border-bottom:3px solid #F44336;’;
-dbgDiv.textContent = ‘INF DEBUG: ‘+infDebug.join(‘ | ‘);
-document.body.insertBefore(dbgDiv, document.body.firstChild);
 
 function infShowCard(idx){
   INF_CARDS.forEach(function(id,i){
@@ -3050,14 +3042,14 @@ jQuery(‘#sc-inf-continue-btn’).on(‘click’, function(){
 <div id="sc-inf-progress-wrap"><div id="sc-inf-progress-track"><div id="sc-inf-progress-fill"></div></div><div id="sc-inf-progress-label"></div></div>
 <div class="sc-inf-card sc-intro" id="inf-card-intro">
 <p class="intro-body">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</p>
-<button id="inf-start-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 48px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;">LET’S GO</button>
+&lt;button id="inf-start-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 48px;font-size:14px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;font-family:Inter,sans-serif;"&gt;LET’S GO&lt;/button&gt;
 </div>
 <div class="sc-inf-card" id="inf-card-qmd6"><div class="sc-q-label">1 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd7"><div class="sc-q-label">2 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd88"><div class="sc-q-label">3 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd89"><div class="sc-q-label">4 of 5 Questions</div></div>
 <div class="sc-inf-card" id="inf-card-qmd90"><div class="sc-q-label">5 of 5 Questions</div></div>
-<div id="sc-inf-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-inf-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
+<div id="sc-inf-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-inf-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
 <div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
 </div></html>
 
@@ -3233,7 +3225,7 @@ jQuery(‘#sc-maha-continue-btn’).on(‘click’, function(){
 <div id="sc-maha-progress-wrap"><div id="sc-maha-progress-track"><div id="sc-maha-progress-fill"></div></div><div id="sc-maha-progress-label"></div></div>
 <div class="sc-maha-card sc-visible" id="maha-card-1"><div class="sc-q-label">1 of 4 Questions</div></div>
 <div class="sc-maha-card" id="maha-card-2"><div class="sc-q-label">2 of 4 Questions</div></div>
-<div id="sc-maha-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-maha-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
+<div id="sc-maha-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
 </div></html>
 
 <suspend/>
@@ -3387,7 +3379,7 @@ jQuery(‘#sc-maha2-continue-btn’).on(‘click’, function(){
 <div class="sc-logo-bar"><img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM"/></div>
 <div class="sc-maha2-card sc-visible" id="maha2-card-1"><div class="sc-q-label">3 of 4 Questions</div></div>
 <div class="sc-maha2-card" id="maha2-card-2"><div class="sc-q-label">4 of 4 Questions</div></div>
-<div id="sc-maha2-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-maha2-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
+<div id="sc-maha2-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-maha2-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
 </div></html>
 
 <suspend/>
@@ -3851,7 +3843,7 @@ input[type="radio"]:checked + .showInputParent_0 label {
 <div class="sc-demo-card" id="demo-card-edu"><div class="sc-q-label">5 of 7 Questions</div></div>
 <div class="sc-demo-card" id="demo-card-rel"><div class="sc-q-label">6 of 7 Questions</div></div>
 <div class="sc-demo-card" id="demo-card-hhi"><div class="sc-q-label">7 of 7 Questions</div></div>
-<div id="sc-demo-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;"><button id="sc-demo-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;">CONTINUE &gt;</button></div>
+<div id="sc-demo-continue-wrap" style="display:none;text-align:center;padding:24px 0 16px;">&lt;button id="sc-demo-continue-btn" type="button" style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;"&gt;CONTINUE &amp;gt;&lt;/button&gt;</div>
 <div id="sc-footer">Your responses are held strictly confidential. See our <a href="#">Privacy Policy</a> and commitment to research ethics and integrity.</div>
 </div></html>
 
