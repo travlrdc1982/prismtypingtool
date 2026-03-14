@@ -3886,6 +3886,7 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 ]]></style>
 <note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
 
+<block label="SRC_BLOCK">
 <loop label="SRC_LOOP" vars="topicName">
   <title>Source Rating Loop</title>
 
@@ -4493,10 +4494,11 @@ for r in eligible[25:]:
 <suspend/>
 
 </loop>
+</block>
 
 <suspend/>
 
-<radio 
+<radio
   label="HHIX103"
   cardrating:btnlayout="tiled"
   fir="off"
