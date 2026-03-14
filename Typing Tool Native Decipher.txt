@@ -3844,6 +3844,10 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
 <suspend/>
 
+<note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
+
+<block label="SRC_BLOCK">
+
 <style mode="after" name="respview.client.css" with="SRC_LOOP"><![CDATA[
 <style>
 
@@ -3884,9 +3888,7 @@ div.None:has(> input.input.checkbox:checked) .showInput_0 {
 
     </style>
 ]]></style>
-<note>Source Loop: Card rating questions for 14 topics, filtered by party targeting</note>
 
-<block label="SRC_BLOCK">
 <loop label="SRC_LOOP" vars="topicName">
   <title>Source Rating Loop</title>
 
