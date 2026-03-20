@@ -417,6 +417,7 @@ body, .survey-body, .main-content {
     margin-bottom: 28px;
     box-shadow: none;
     display: none;
+    text-align: left;
 }
 .sc-card.sc-visible { display: block; }
 .sc-card.sc-intro {
@@ -429,6 +430,7 @@ body, .survey-body, .main-content {
     font-size: 11px; font-weight: 600;
     letter-spacing: .08em; text-transform: uppercase;
     color: #888888; margin-bottom: 6px;
+    text-align: right;
 }
 .sc-card .sc-q-text {
     font-family: Fraunces, Georgia, serif;
