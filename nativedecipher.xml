@@ -102,8 +102,10 @@ input[type="text"], input[type="number"], input[type="password"], textarea {
 }
 
 .NoneOfThese {
+  display: block;
   background-color: #F5F2ED;
-  padding: 5px 15px;
+  padding: 10px 15px;
+  border-radius: 6px;
 }
 
 
