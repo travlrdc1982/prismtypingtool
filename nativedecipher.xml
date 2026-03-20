@@ -52,7 +52,7 @@
 <style>
 
 .logo-image {
-  display: none !important;
+  margin-bottom: 20px;
 }
 
 h1#question_text_QMD4x99, h1#question_text_MAHA1x99, h1#question_text_ETHNICx99, h1#question_text_VETx99, h1#question_text_UNIONx99, h1#question_text_EDUCATIONx99, h1#question_text_RELx99, h1#question_text_HHIX99, h1#question_text_HHIX103x99, h1#question_text_MAHA4x99, h1#question_text_HHIX104x99 {
@@ -119,10 +119,6 @@ input[type="text"], input[type="number"], input[type="password"], textarea {
 
 .survey-header {
     margin-bottom: unset;
-}
-
-.logo-middle {
-    display: none !important;
 }
 
 .survey-body {
@@ -339,16 +335,8 @@ padding-left: 16px
 
 /* --- page-level overrides --- */
 
-.logo-middle {
-    display: none !important;
-}
-
 .intro-logo-wrap {
   display: none;
-}
-
-form#primary > img[src*="logo"], form#primary > img[src*="svg"] {
-    display: none !important;
 }
 
 
@@ -1150,7 +1138,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     }
   });
 ]]></style>
-<html label="sc_page_ui" where="survey"><![CDATA[<style>.nextPage, .button { display: none !important; } .logo-middle, .logo-image { display: none !important; }</style>
+<html label="sc_page_ui" where="survey"><![CDATA[<style>.nextPage, .button { display: none !important; }</style>
 
 <div id="sc-footer">
   Your responses are held strictly confidential.
