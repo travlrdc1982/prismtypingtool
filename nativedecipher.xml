@@ -347,11 +347,6 @@ padding-left: 16px
   display: none;
 }
 
-/* Kill any Decipher loading overlays/spinners */
-.survey-loading, .page-loading, .loading-overlay, .loading,
-.survey-progress, [class*="loading"], [class*="spinner"] {
-    display: none !important;
-}
 form#primary > img[src*="logo"], form#primary > img[src*="svg"] {
     display: none !important;
 }
@@ -1155,7 +1150,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     }
   });
 ]]></style>
-<html label="sc_page_ui" where="survey"><![CDATA[<style>.nextPage, .button { display: none !important; }</style>
+<html label="sc_page_ui" where="survey"><![CDATA[<style>.nextPage, .button { display: none !important; } .logo-middle, .logo-image { display: none !important; }</style>
 
 <div id="sc-footer">
   Your responses are held strictly confidential.
