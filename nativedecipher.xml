@@ -388,7 +388,6 @@ document.getElementById('btn_continue').setAttribute('value', 'READY, SET, GO!')
 
 .logo-middle img {
     transform: scale(0.75);
-    transform-origin: center center;
 }
 
 
@@ -1193,15 +1192,12 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 
 <div id="sc-root">
 
-  <div class="sc-logo-bar"></div>
-
   <div id="sc-progress-wrap">
     <div id="sc-progress-track"><div id="sc-progress-fill"></div></div>
     <div id="sc-progress-label"></div>
   </div>
 
   <div class="sc-card sc-intro" id="card-intro">
-    <div class="intro-logo-wrap"></div>
     <p class="intro-body">
       Thanks for taking part. This survey helps us understand how people
       think about health&amp;nbsp;care and public policy today. There are no
