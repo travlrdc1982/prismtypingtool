@@ -52,7 +52,7 @@
 <style>
 
 .logo-image {
-  margin-bottom: 20px;
+  display: none !important;
 }
 
 h1#question_text_QMD4x99, h1#question_text_MAHA1x99, h1#question_text_ETHNICx99, h1#question_text_VETx99, h1#question_text_UNIONx99, h1#question_text_EDUCATIONx99, h1#question_text_RELx99, h1#question_text_HHIX99, h1#question_text_HHIX103x99, h1#question_text_MAHA4x99, h1#question_text_HHIX104x99 {
@@ -122,7 +122,7 @@ input[type="text"], input[type="number"], input[type="password"], textarea {
 }
 
 .logo-middle {
-    display: inline;
+    display: none !important;
 }
 
 .survey-body {
@@ -397,6 +397,7 @@ body, .survey-body, .main-content {
     text-align: center;
     padding: 12px 0 20px;
 }
+.sc-logo-bar img { height: 40px; width: auto; }
 
 /* --- progress bar --- */
 #sc-progress-wrap {
