@@ -1160,10 +1160,6 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 
 <div id="sc-root">
 
-  <div class="sc-logo-bar">
-    <img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM">
-  </div>
-
   <div id="sc-progress-wrap">
     <div id="sc-progress-track"><div id="sc-progress-fill"></div></div>
     <div id="sc-progress-label"></div>
