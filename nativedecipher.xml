@@ -126,7 +126,7 @@ input[type="text"], input[type="number"], input[type="password"], textarea {
 }
 
 form#primary {
-    width: 700px !important;
+    max-width: 640px;
 }
 
 .comment-text {
@@ -285,6 +285,7 @@ background: rgb(107, 127, 78);
         color:#333;
         line-height:1.55;
         margin:0 0 16px;
+        padding: 0 25%;
         }
         .dv1
         {
@@ -421,7 +422,7 @@ body, .survey-body, .main-content {
 .sc-card.sc-intro {
     display: block;
     background: #fff;
-    padding: 28px 28px 26px;
+    padding: 28px 25% 26px;
 }
 .sc-card .sc-q-label {
     font-family: Inter, sans-serif;
@@ -2969,6 +2970,13 @@ setInterval(function () {
 
 <suspend/>
 
+<style name="respview.client.css" mode="after" with="cm1,cm2,cm3,QMD1_intro2"><![CDATA[
+<style>
+.question-text, .ParaText {
+    padding: 0 25%;
+}
+</style>
+]]></style>
 <html label="cm1" where="survey">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
 
 <suspend/>
