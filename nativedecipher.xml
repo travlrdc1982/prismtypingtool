@@ -1629,12 +1629,12 @@ elif QVOTE24.r2:
     else:
         TYPING_MODULE.val = TYPING_MODULE.r3.index
 elif QVOTE24.r3:
-    if QS5B.r1:
+    if party &lt;= 3:
         TYPING_MODULE.val = TYPING_MODULE.r1.index
-    elif QS5B.r2:
+    elif party &gt;= 5:
         TYPING_MODULE.val = TYPING_MODULE.r2.index
     else:
-        TYPING_MODULE.val = TYPING_MODULE.r2.index
+        TYPING_MODULE.val = TYPING_MODULE.r3.index
   </exec>
 
   <row label="r1">GOP</row>
@@ -1989,42 +1989,6 @@ QMD1_Timer.val = (timeSpent() - p.startTime) / 60.0
 
   <suspend/>
 
-  <note>===================== PAGE GROUP 4 -- DEM Vectors =====================</note>
-  <radio 
-   label="VECTOR_JUSTICE"
-   cond="1==2"
-   averages="cols"
-   type="rating"
-   values="order">
-    <title>Tell us how much you agree or disagree with these statements</title>
-    <comment>Tap where you fall on each statement...</comment>
-    <col label="c1" value="1">Strongly Disagree</col>
-    <col label="c2" value="2">2</col>
-    <col label="c3" value="3">3</col>
-    <col label="c4" value="4">Neutral</col>
-    <col label="c5" value="5">5</col>
-    <col label="c6" value="6">6</col>
-    <col label="c7" value="7">Strongly Agree</col>
-    <row label="r1">The federal government should invest extra funds in communities of color that have suffered historic health injustices, even if it means higher taxes</row>
-  </radio>
-
-  <radio 
-   label="VECTOR_INDUSTRY"
-   cond="1==2"
-   averages="cols"
-   type="rating"
-   values="order">
-    <title>Tell us how much you agree or disagree with these statements</title>
-    <col label="c1" value="1">Strongly Disagree</col>
-    <col label="c2" value="2">2</col>
-    <col label="c3" value="3">3</col>
-    <col label="c4" value="4">Neutral</col>
-    <col label="c5" value="5">5</col>
-    <col label="c6" value="6">6</col>
-    <col label="c7" value="7">Strongly Agree</col>
-    <row label="r1">Big corporations have too much influence over public health policies</row>
-  </radio>
-
   <suspend/>
 
   <note>===================== DEM B-W SCORING =====================</note>
@@ -2110,8 +2074,8 @@ JUSTICE_S = 1.515216
 INDUSTRY_U = 5.495869
 INDUSTRY_S = 1.315719
 
-justice_raw = float(VECTOR_JUSTICE.r1.val) if VECTOR_JUSTICE.r1.val else 4.0
-industry_raw = float(VECTOR_INDUSTRY.r1.val) if VECTOR_INDUSTRY.r1.val else 4.0
+justice_raw = float(QMD4.r1.val) if QMD4.r1.val else 4.0
+industry_raw = float(QMD4.r2.val) if QMD4.r2.val else 4.0
 
 XDEM_SEG.r13.c1.val = justice_raw
 XDEM_SEG.r13.c2.val = JUSTICE_U
@@ -2273,6 +2237,10 @@ XDEM_CONFIDENCE.r4.val = round(entropy_val, 4)
   <note>MaxDiff Indices Template --Start GOP--</note>
   <exec when="init">
 QMD3_md = setupMaxDiffFile("GOPDesign.dat")
+  </exec>
+
+  <exec>
+p.maxdiff1 = []
   </exec>
 
   <suspend/>
@@ -3036,12 +3004,12 @@ setInterval(function () {
   <title>Tell us how much you agree or disagree with these statements</title>
   <comment>Tap where you fall on each statement...</comment>
   <choice label="c1"><span style="color: #cc0000;">Strongly<br /> Disagree<br /></span></choice>
+  <choice label="c2">&amp;nbsp;</choice>
   <choice label="c3">&amp;nbsp;</choice>
-  <choice label="c4">&amp;nbsp;</choice>
-  <choice label="c5"><span style="color: #737374;">Neutral/<br /> Unsure<br /></span></choice>
+  <choice label="c4"><span style="color: #737374;">Neutral/<br /> Unsure<br /></span></choice>
+  <choice label="c5">&amp;nbsp;</choice>
   <choice label="c6">&amp;nbsp;</choice>
-  <choice label="c7">&amp;nbsp;</choice>
-  <choice label="c8"><span style="color: #40921e;">Strongly<br /> Agree<br /></span></choice>
+  <choice label="c7"><span style="color: #40921e;">Strongly<br /> Agree<br /></span></choice>
   <row label="r1">The federal government should invest extra funds in communities of color that have suffered historic health injustices, even if it means higher taxes</row>
   <row label="r2">Big corporations have too much influence over public health policies</row>
 </select>
@@ -3839,7 +3807,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfTh
   <row label="r12" groups="g1">Worker and<br /> economic issues</row>
   <row label="r13" groups="g1">Health technology<br /> and innovation</row>
   <row label="r14" groups="g1">Environmental and<br /> climate health</row>
-  <row label="rr99" exclusive="1" groups="g2" randomize="0">&lt;row label="r99" exclusive="1" randomize="0"&gt;<span class="NoneOfThese">None of these</span>&lt;/row&gt;</row>
+  <row label="r99" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -4030,7 +3998,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfTh
   <row label="r28" groups="g1">Andy Slavitt</row>
   <row label="r29" groups="g1">Andy Slavitt</row>
   <row label="r30" groups="g1">Andy Slavitt</row>
-  <row label="r31" exclusive="1" groups="g2" randomize="0">&lt;row label="r99" exclusive="1" randomize="0"&gt;<span class="NoneOfThese">None of these</span>&lt;/row&gt;</row>
+  <row label="r31" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
