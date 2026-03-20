@@ -343,12 +343,12 @@ body, .survey-body, .main-content {
 }
 
 .question:not(.sc-native-hidden) {
-    background: #FFFFFF;
-    border-radius: 12px;
+    background-color: #F5F2ED;
+    border: 2px solid #E0DCD6;
+    border-radius: 50px;
     padding: 28px 24px;
     margin: 16px auto;
     max-width: 640px;
-    box-shadow: 0 1px 4px rgba(0,0,0,.06);
 }
 
 .sc-native-hidden {
