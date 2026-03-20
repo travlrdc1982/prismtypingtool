@@ -387,11 +387,20 @@ document.getElementById('btn_continue').setAttribute('value', 'READY, SET, GO!')
 /* --- page-level overrides --- */
 
 .logo-middle {
-    display: none;
+    display: none !important;
 }
 
 .intro-logo-wrap {
   display: none;
+}
+
+/* Kill any Decipher loading overlays/spinners */
+.survey-loading, .page-loading, .loading-overlay, .loading,
+.survey-progress, [class*="loading"], [class*="spinner"] {
+    display: none !important;
+}
+form#primary > img[src*="logo"], form#primary > img[src*="svg"] {
+    display: none !important;
 }
 
 
@@ -940,9 +949,25 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
   /* DEBUG: verify custom HTML elements exist */
   console.log('[debug] sc-root:', !!document.getElementById('sc-root'));
   console.log('[debug] card-intro:', !!document.getElementById('card-intro'));
-  console.log('[debug] sc-logo-bar:', !!document.querySelector('.sc-logo-bar'));
-  console.log('[debug] sc-start-btn:', !!document.getElementById('sc-start-btn'));
-  console.log('[debug] sc_page_ui HTML in DOM:', document.getElementById('sc-root') ? document.getElementById('sc-root').innerHTML.substring(0,200) : 'NOT FOUND');
+  var cardIntro = document.getElementById('card-intro');
+  if(cardIntro){
+    console.log('[debug] card-intro display:', cardIntro.style.display, 'computed:', window.getComputedStyle(cardIntro).display);
+    console.log('[debug] card-intro visibility:', window.getComputedStyle(cardIntro).visibility);
+    console.log('[debug] card-intro opacity:', window.getComputedStyle(cardIntro).opacity);
+    console.log('[debug] card-intro offsetHeight:', cardIntro.offsetHeight);
+    console.log('[debug] card-intro children:', cardIntro.children.length, [].map.call(cardIntro.children, function(c){return c.tagName+'.'+c.className;}));
+  }
+  /* DEBUG: find any loading/spinner/overlay elements */
+  var form = document.getElementById('primary');
+  if(form){
+    console.log('[debug] form#primary children:', form.children.length);
+    [].forEach.call(form.children, function(c,i){
+      console.log('[debug] form child['+i+']:', c.tagName, 'id='+c.id, 'class='+c.className, 'display='+window.getComputedStyle(c).display, 'position='+window.getComputedStyle(c).position);
+    });
+  }
+  /* DEBUG: check for overlays */
+  var overlays = document.querySelectorAll('[class*="load"], [class*="spin"], [class*="overlay"], [class*="progress"]');
+  [].forEach.call(overlays, function(o){ console.log('[debug] possible overlay:', o.tagName, o.className, o.id, 'display='+window.getComputedStyle(o).display); });
 
   showCard(0);
 
