@@ -342,7 +342,7 @@ body, .survey-body, .main-content {
     background: #F5F2ED !important;
 }
 
-.question:not(.sc-native-hidden) {
+.question:not(.sc-native-hidden):not(:has(.sq-cardrating-widget)) {
     background-color: #F5F2ED;
     border: 2px solid #E0DCD6;
     border-radius: 50px;
