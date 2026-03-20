@@ -2979,50 +2979,111 @@ setInterval(function () {
 
 <suspend/>
 
-<checkbox 
-  label="QMD6"
-  atleast="1">
+<checkbox
+  label="qinf360"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
   <title>How have you made your voice heard?</title>
   <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
-  <row label="r1" groups="g1">I've worked inside government, held office, or staffed those who do</row>
-  <row label="r2" groups="g1">I've helped decide who runs for office or who gets hired in political or government roles</row>
-  <row label="r3" groups="g1">I advise organizations, sit on boards, or have testified on policy matters</row>
-  <row label="r4" groups="g1">I've written, spoken publicly, or published on issues</row>
-  <row label="r5" groups="g1">I've organized people, worked campaigns, or rallied others to action</row>
-  <row label="r6" groups="g1">I vote, follow current events, and stay involved in my community</row>
-  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
-  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
-  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+  <row label="r1">I've worked inside government, held office, or staffed those who do</row>
+  <row label="r2">I've helped decide who runs for office or who gets hired in political or government roles</row>
+  <row label="r3">I advise organizations, sit on boards, or have testified on policy matters</row>
+  <row label="r4">I've written, spoken publicly, or published on issues</row>
+  <row label="r5">I've organized people, worked campaigns, or rallied others to action</row>
+  <row label="r6">I vote, follow current events, and stay involved in my community</row>
 </checkbox>
 
 <suspend/>
 
-<checkbox 
-  label="QMD7"
-  atleast="1">
+<checkbox
+  label="qinf360_eliteup"
+  cond="qinf360.r1"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
   <title>Which of these have you done?</title>
   <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
-  <row label="r1" groups="g1">Met (in person or video) with congressional, agency, or state legislative staff</row>
-  <row label="r2" groups="g1">Sat on the board or executive committee of any health, policy, or business association?</row>
-  <row label="r3" groups="g1">Worked with or advised a Washington-based organization (think tank, patient advocacy group, trade association)</row>
-  <row label="r4" groups="g1">Testified or submitted written comments to a state legislative or Congressional committee</row>
-  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
-  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
-  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+  <row label="r1">Held elected office</row>
+  <row label="r2">Been a paid staffer or advisor to an elected official or gov't agency</row>
+  <row label="r3">Held an elected or appointed role in a party committee</row>
+  <row label="r4">Contacted an elected official or their staff</row>
 </checkbox>
 
 <suspend/>
 
-<checkbox 
-  label="QMD88"
-  atleast="1">
-  <title>In the past 12 months, have you taken any of the following actions related to a public policy issue?</title>
-  <row label="r1" groups="g1">Signed a petition</row>
-  <row label="r2" groups="g1">Attended a meeting</row>
-  <row label="r3" groups="g1">Donated money</row>
-  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
-  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
-  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+<checkbox
+  label="qinf360_recruitup"
+  cond="qinf360.r2"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1">Helped recruit a candidate to run for public office</row>
+  <row label="r2">Helped recruit staff for a political campaign, office of an elected official, or other political appointee</row>
+</checkbox>
+
+<suspend/>
+
+<checkbox
+  label="qinf360_orglat"
+  cond="qinf360.r3"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1">Met (in person or video) with congressional, agency, or state legislative staff</row>
+  <row label="r2">Sat on the board or executive committee of any health, policy, or business association?</row>
+  <row label="r3">Worked with or advised a Washington-based organization (think tank, patient advocacy group, trade association)</row>
+  <row label="r4">Testified or submitted written comments to a state legislative or Congressional committee</row>
+</checkbox>
+
+<suspend/>
+
+<checkbox
+  label="qinf360_medialat"
+  cond="qinf360.r4"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1">Spoke at a public meeting, podcast, webinar, church or civic group on a health topic</row>
+  <row label="r2">Wrote an article, blog post, Substack, or op-ed on an issue</row>
+</checkbox>
+
+<suspend/>
+
+<checkbox
+  label="qinf360_down"
+  cond="qinf360.r5"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1">Volunteered on a political campaign</row>
+  <row label="r2">Organized an event or rally on any issue</row>
 </checkbox>
 
 <suspend/>
