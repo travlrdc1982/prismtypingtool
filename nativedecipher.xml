@@ -342,27 +342,6 @@ body, .survey-body, .main-content {
     background: #F5F2ED !important;
 }
 
-.question:not(.sc-native-hidden) {
-    background-color: #F5F2ED;
-    border: 2px solid #E0DCD6;
-    border-radius: 50px;
-    padding: 28px 24px;
-    margin: 16px auto;
-    max-width: 640px;
-}
-
-#question_QMD90,
-#question_HHIX102,
-#question_HHIX103,
-#question_HHIX103x99 {
-    background-color: transparent;
-    border: none;
-    border-radius: 0;
-    padding: 0;
-    margin: 0 auto;
-    max-width: none;
-    box-shadow: none;
-}
 
 .sc-native-hidden {
     border: none !important;
