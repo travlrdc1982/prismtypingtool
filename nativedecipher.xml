@@ -3012,6 +3012,8 @@ setInterval(function () {
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
+<suspend/>
+
 <checkbox
   label="QMD7b"
   cond="QMD6.r2"
@@ -3024,6 +3026,8 @@ setInterval(function () {
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
+
+<suspend/>
 
 <checkbox
   label="QMD7"
@@ -3040,6 +3044,8 @@ setInterval(function () {
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
+<suspend/>
+
 <checkbox
   label="QMD7c"
   cond="QMD6.r4"
@@ -3052,6 +3058,8 @@ setInterval(function () {
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
+
+<suspend/>
 
 <checkbox
   label="QMD7d"
