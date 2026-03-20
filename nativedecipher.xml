@@ -153,7 +153,7 @@ form#primary {
 
 .question-text, .instruction-text, .question-error, .answers.answers-list {
     text-align: left;
-    max-width: 660px;
+    max-width: 480px;
 	padding: 0 8px;
 	line-height: 1.2 !important;
 }
@@ -420,7 +420,7 @@ body, .survey-body, .main-content {
 
 /* --- root container --- */
 #sc-root {
-    max-width: 640px;
+    max-width: 480px;
     margin: 0 auto;
     padding: 24px 16px 120px;
     font-family: Inter, sans-serif;
@@ -477,7 +477,7 @@ body, .survey-body, .main-content {
 .sc-card.sc-intro {
     display: block;
     background: #fff;
-    padding: 28px 28px 26px;
+    padding: 28px 40px 26px;
 }
 .sc-card .sc-q-label {
     font-family: Inter, sans-serif;
@@ -500,6 +500,9 @@ body, .survey-body, .main-content {
     font-size: 15px; color: #333333;
     text-align: center; line-height: 1.65;
     margin-bottom: 26px;
+    max-width: 50%;
+    margin-left: auto;
+    margin-right: auto;
 }
 .intro-body em { font-style: italic; color: #6B7F4E; }
 
@@ -1726,7 +1729,7 @@ p.MDcount = str(QMD1_md_loop_expanded.order.index([loopvar: task]-1)+1)
     .QMD1_maxdiff .grouping-box { visibility: hidden; height: 0; overflow: hidden; }
     .QMD1_maxdiff .md-custom-ui { visibility: visible; height: auto; overflow: visible; }
 
-    .md-custom-ui { max-width: 640px; margin: 0 auto; }
+    .md-custom-ui { max-width: 480px; margin: 0 auto; }
     .md-header-row { display: flex; justify-content: space-between; padding: 0 8px 8px; }
     .md-header-row span { font-family: Inter,sans-serif; font-size: 10px; font-weight: 800;
         letter-spacing: .06em; text-transform: uppercase; }
@@ -1759,7 +1762,7 @@ p.MDcount = str(QMD1_md_loop_expanded.order.index([loopvar: task]-1)+1)
         border-color: #A01E1E;
         box-shadow: 0 3px 10px rgba(198,40,40,.4), inset 0 1px 3px rgba(255,255,255,.3); }
 </style>
-<div style="max-width:640px;margin:0 auto;padding:16px;">
+<div style="max-width:480px;margin:0 auto;padding:16px;">
   <div style="text-align:center;padding:12px 0 20px;">
     <img src="[rel PRISM_glyph.svg]" alt="PRISM">
   </div>
@@ -2312,7 +2315,7 @@ p.MDcount = str(QMD3_md_loop_expanded.order.index([loopvar: task]-1)+1)
     .QMD3_maxdiff .md-custom-ui { visibility: visible; height: auto; overflow: visible; }
 
     /* --- custom MaxDiff UI --- */
-    .md-custom-ui { max-width: 640px; margin: 0 auto; }
+    .md-custom-ui { max-width: 480px; margin: 0 auto; }
     .md-header-row { display: flex; justify-content: space-between; padding: 0 8px 8px; }
     .md-header-row span { font-family: Inter,sans-serif; font-size: 10px; font-weight: 800;
         letter-spacing: .06em; text-transform: uppercase; }
@@ -2346,7 +2349,7 @@ p.MDcount = str(QMD3_md_loop_expanded.order.index([loopvar: task]-1)+1)
         border-color: #A01E1E;
         box-shadow: 0 3px 10px rgba(198,40,40,.4), inset 0 1px 3px rgba(255,255,255,.3); }
 </style>
-<div style="max-width:640px;margin:0 auto;padding:16px;">
+<div style="max-width:480px;margin:0 auto;padding:16px;">
   <div style="text-align:center;padding:12px 0 20px;">
     <img src="[rel PRISM_glyph.svg]" alt="PRISM">
   </div>
@@ -2902,7 +2905,7 @@ elif XDEM_SEG_FINAL_1.any:
 /* Right column = slider block */
 .answers .sq-sliderpoints-element {
   flex: 1 1 0;           /* take the remaining space */
-  min-width: 280px;      /* avoid squishing on medium widths */
+  min-width: 200px;      /* avoid squishing on medium widths */
 }
 
 /* Ensure inner legends don’t add extra height above the slider */
