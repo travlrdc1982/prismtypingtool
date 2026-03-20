@@ -47,7 +47,7 @@
 
 <suspend/>
 
-<style mode="after" name="respview.client.css" with="Start_Info,QMD1_intro2,cm1,QMD4,QMD4x99,QMD6,QMD7,QMD88,QMD89,QMD90,MAHA1,MAHA1x99,MAHA2,MAHA3,MAHA4,MAHA4x99,cm2,ETHNICx99,RACE,VET,VETx99,UNION,UNIONx99,EDUCATION,REL,RELx99,REL2,HHI,HHIX99,cm3,HHIX100,HHIX101,HHIX102,HHIX103,HHIX103x99,HHIX104,HHIX105,HHIXEMAIL"><![CDATA[
+<style mode="after" name="respview.client.css"><![CDATA[
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 
@@ -170,6 +170,7 @@ fieldset.atm1d .answers>div label {
     border-radius: 40px;
     border: 2px solid #E0DCD6;
     display: flex;
+    /* width: 200px !important; */
     font-weight: bold;
 }
 
@@ -188,6 +189,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label, fieldset.atm
 .instruction-text {
   font-size: 13px;
   color: #555;
+  /* text-align: center; */
   margin-bottom: 14px;
   line-height: 1.5;
 }
@@ -323,6 +325,14 @@ padding-left: 16px
   transform: translateY(-1px);
 }       
         
+.sq-cardrating-prev, .sq-cardrating-next {
+    background: rgb(107, 127, 78);
+    color: rgb(255, 255, 255);
+    border-radius: 34px;
+    padding: 9px 14px;
+    opacity: 1;
+}
+
 /* --- page-level overrides --- */
 
 .intro-logo-wrap {
@@ -364,6 +374,13 @@ body, .survey-body, .main-content {
     font-family: Inter, sans-serif;
     color: #333333;
 }
+
+/* --- PRISM logo top bar --- */
+.sc-logo-bar {
+    text-align: center;
+    padding: 12px 0 20px;
+}
+.sc-logo-bar img { height: 40px; width: auto; }
 
 /* --- progress bar --- */
 #sc-progress-wrap {
@@ -425,6 +442,8 @@ body, .survey-body, .main-content {
 }
 
 /* --- intro card --- */
+.intro-logo-wrap { text-align: center; margin-bottom: 16px; }
+.intro-logo-wrap img { height: 48px; width: auto; }
 .intro-body {
     font-family: Fraunces, Georgia, serif;
     font-size: 15px; color: #333333;
