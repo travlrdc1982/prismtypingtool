@@ -48,6 +48,7 @@
 <suspend/>
 
 <style mode="after" name="respview.client.css"><![CDATA[
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
 <style>
 
 .logo-image {
@@ -173,7 +174,7 @@ fieldset.atm1d .answers>div label {
     border-radius: 40px;
     border: 2px solid #E0DCD6;
     display: flex;
-    //width: 200px !important;
+    /* width: 200px !important; */
     font-weight: bold;
 }
 
@@ -192,7 +193,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label, fieldset.atm
 .instruction-text {
   font-size: 13px;
   color: #555;
-  //text-align: center;
+  /* text-align: center; */
   margin-bottom: 14px;
   line-height: 1.5;
 }
@@ -336,54 +337,6 @@ padding-left: 16px
     opacity: 1;
 }
 
- 
-    </style>
-]]></style>
-<style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
-jQuery('[type="text"]').attr('placeholder', '>>  Specify');
-]]></style>
-<style name="respview.client.js" with="MAHA1,MAHA4,ETHNIC,EDUCATION" wrap="ready"><![CDATA[
-setInterval(function () {
-  const isChecked = jQuery("input[type='checkbox']").is(":checked");
-
-  if (isChecked) {
-    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
-    jQuery('input[type="radio"]').prop("disabled", true);
-  } else {
-    jQuery('input[type="radio"]').prop("disabled", false);
-  }
-}, 100);
-]]></style>
-<style name="respview.client.js" with="REL,HHI" wrap="ready"><![CDATA[
-jQuery(document).on("change", "input[type='checkbox']", function () {
-const anyChecked = jQuery("input[type='checkbox']").is(":checked");
-  if (anyChecked) 
-  {
-    // reset to default (-1) and disable
-    jQuery('[class="input dropdown"]').val('-1').trigger('change');
-    jQuery('[class="input dropdown"]').prop('disabled', true).attr('aria-disabled', 'true');
-  } 
-  else {
-    // enable again
-    jQuery('[class="input dropdown"]').prop('disabled', false).attr('aria-disabled', 'false');
-  }
-  });
-]]></style>
-<style name="respview.client.js" with="QMD90,HHIX102" wrap="ready"><![CDATA[
-setInterval(function(){
-            if($ ("div[class*='sq-cardrating-widget']").attr("data-atend") == "true")
-              $ ("#btn_continue").click();
-      },100);
-]]></style>
-<style mode="after" name="respview.client.js" with="QMD1_intro2" wrap="ready"><![CDATA[
-document.getElementById('btn_continue').setAttribute('value', 'ENJOY!');
-]]></style>
-<style mode="after" name="respview.client.js" with="Start_Info" wrap="ready"><![CDATA[
-document.getElementById('btn_continue').setAttribute('value', 'READY, SET, GO!');
-]]></style>
-<style mode="after" name="respview.client.css"><![CDATA[
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
-<style>
 /* --- page-level overrides --- */
 
 .logo-middle {
@@ -828,7 +781,50 @@ body, .survey-body, .main-content {
     background: #5A6B42;
     transform: translateY(-1px);
 }
-</style>
+
+    </style>
+]]></style>
+<style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
+jQuery('[type="text"]').attr('placeholder', '>>  Specify');
+]]></style>
+<style name="respview.client.js" with="MAHA1,MAHA4,ETHNIC,EDUCATION" wrap="ready"><![CDATA[
+setInterval(function () {
+  const isChecked = jQuery("input[type='checkbox']").is(":checked");
+
+  if (isChecked) {
+    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
+    jQuery('input[type="radio"]').prop("disabled", true);
+  } else {
+    jQuery('input[type="radio"]').prop("disabled", false);
+  }
+}, 100);
+]]></style>
+<style name="respview.client.js" with="REL,HHI" wrap="ready"><![CDATA[
+jQuery(document).on("change", "input[type='checkbox']", function () {
+const anyChecked = jQuery("input[type='checkbox']").is(":checked");
+  if (anyChecked) 
+  {
+    // reset to default (-1) and disable
+    jQuery('[class="input dropdown"]').val('-1').trigger('change');
+    jQuery('[class="input dropdown"]').prop('disabled', true).attr('aria-disabled', 'true');
+  } 
+  else {
+    // enable again
+    jQuery('[class="input dropdown"]').prop('disabled', false).attr('aria-disabled', 'false');
+  }
+  });
+]]></style>
+<style name="respview.client.js" with="QMD90,HHIX102" wrap="ready"><![CDATA[
+setInterval(function(){
+            if($ ("div[class*='sq-cardrating-widget']").attr("data-atend") == "true")
+              $ ("#btn_continue").click();
+      },100);
+]]></style>
+<style mode="after" name="respview.client.js" with="QMD1_intro2" wrap="ready"><![CDATA[
+document.getElementById('btn_continue').setAttribute('value', 'ENJOY!');
+]]></style>
+<style mode="after" name="respview.client.js" with="Start_Info" wrap="ready"><![CDATA[
+document.getElementById('btn_continue').setAttribute('value', 'READY, SET, GO!');
 ]]></style>
 <style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
 var defined = function(s,c){ return (c||document).querySelector(s); };
@@ -846,30 +842,20 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
         || document.querySelector('[id$="_'+q+'"]')
         || document.querySelector('.question input[name*="'+q+'"]');
   }
-  /* auto-detect: log all .question elements so we know the ID format */
-  var allQ = document.querySelectorAll('.question');
-  console.log('[init] All .question IDs:', [].map.call(allQ, function(e){return e.id;}));
 
   /* ---- hide native Decipher questions ---- */
   ['QS1','QZIP','QAGE','QGENDER','QVOTE24','QS5','QS5A','QS5B'].forEach(function(q){
     var el = findQ(q);
     if(el){
       el.classList.add('sc-native-hidden');
-      var radios = el.querySelectorAll('input[type="radio"]');
-      var texts  = el.querySelectorAll('input[type="text"],input[type="number"]');
-      console.log('[init] '+q+' → id='+el.id+' — '+radios.length+' radios, '+texts.length+' text inputs');
-      if(radios.length) console.log('[init]   values:', [].map.call(radios, function(r){return r.value+' name='+r.name;}));
-    } else {
-      console.warn('[init] '+q+' NOT FOUND in DOM');
     }
   });
 
   /* ---- write back to native Decipher inputs ---- */
   function setRadio(q, val){
     var box = findQ(q);
-    if(!box){ console.warn('[setRadio] '+q+' NOT FOUND in DOM'); return; }
+    if(!box) return;
     var all = box.querySelectorAll('input[type="radio"]');
-    console.log('[setRadio] '+q+' val='+val+' — found '+all.length+' radios:', [].map.call(all, function(r){return r.value;}));
     /* Position-based first (data-val="1" = 1st radio, etc.), then by value */
     var inp = null;
     var idx = parseInt(val,10);
@@ -877,39 +863,30 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     if(!inp) inp = box.querySelector('input[type="radio"][value="r'+val+'"]');
     if(!inp) inp = box.querySelector('input[type="radio"][value="'+val+'"]');
     if(inp){
-      console.log('[setRadio] '+q+' MATCH → value='+inp.value+' name='+inp.name);
+      [].forEach.call(all, function(r){ r.checked = false; });
       inp.checked = true;
-      try{ jQuery(inp).trigger('click').trigger('change'); }catch(e){}
-      inp.click();
       inp.dispatchEvent(new Event('change', {bubbles:true}));
-    } else {
-      console.warn('[setRadio] '+q+': NO MATCH for val='+val);
+      try{ jQuery(inp).trigger('change'); }catch(e){}
     }
   }
   function setText(q, val){
     var box = findQ(q);
-    if(!box){ console.warn('[setText] '+q+' NOT FOUND'); return; }
+    if(!box) return;
     var inp = box.querySelector('input[type="text"]');
     if(inp){
-      console.log('[setText] '+q+' → "'+val+'"');
       inp.value = val;
       try{ jQuery(inp).trigger('change'); }catch(e){}
       inp.dispatchEvent(new Event('change', {bubbles:true}));
-    } else {
-      console.warn('[setText] '+q+': no text input found');
     }
   }
   function setNumber(q, val){
     var box = findQ(q);
-    if(!box){ console.warn('[setNumber] '+q+' NOT FOUND'); return; }
+    if(!box) return;
     var inp = box.querySelector('input[type="text"],input[type="number"]');
     if(inp){
-      console.log('[setNumber] '+q+' → "'+val+'"');
       inp.value = val;
       try{ jQuery(inp).trigger('change'); }catch(e){}
       inp.dispatchEvent(new Event('change', {bubbles:true}));
-    } else {
-      console.warn('[setNumber] '+q+': no input found');
     }
   }
 
@@ -945,29 +922,6 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     var wrap = document.getElementById('sc-continue-wrap');
     if(wrap) wrap.scrollIntoView({behavior:'smooth',block:'center'});
   }
-
-  /* DEBUG: walk up from sc-root to find what hides it */
-  var scRoot = document.getElementById('sc-root');
-  if(scRoot){
-    var el = scRoot;
-    while(el && el !== document.body){
-      var d = window.getComputedStyle(el).display;
-      var v = window.getComputedStyle(el).visibility;
-      var o = window.getComputedStyle(el).opacity;
-      console.log('[ancestors] '+el.tagName+'#'+el.id+'.'+el.className+' display='+d+' vis='+v+' opacity='+o);
-      if(d === 'none') console.log('[ancestors] *** HIDDEN HERE ***');
-      el = el.parentElement;
-    }
-    console.log('[ancestors] body display='+window.getComputedStyle(document.body).display);
-  }
-  /* DEBUG: what is the spinner element? Check absolutely/fixed positioned visible elements */
-  var allEls = document.querySelectorAll('*');
-  [].forEach.call(allEls, function(e){
-    var cs = window.getComputedStyle(e);
-    if((cs.position === 'absolute' || cs.position === 'fixed') && cs.display !== 'none' && e.offsetHeight > 20){
-      console.log('[positioned] '+e.tagName+'#'+e.id+'.'+e.className+' pos='+cs.position+' z='+cs.zIndex+' size='+e.offsetWidth+'x'+e.offsetHeight);
-    }
-  });
 
   showCard(0);
 
@@ -1170,27 +1124,12 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
       return;
     }
 
-    console.log('[CONTINUE] clicked — dumping native input states:');
-    ['QS1','QZIP','QAGE','QGENDER','QVOTE24','QS5','QS5A','QS5B'].forEach(function(q){
-      var box = findQ(q);
-      if(!box){ console.log('  '+q+': NOT IN DOM'); return; }
-      var checked = box.querySelector('input[type="radio"]:checked');
-      var text = box.querySelector('input[type="text"],input[type="number"]');
-      if(checked) console.log('  '+q+': radio='+checked.value);
-      else if(text) console.log('  '+q+': text="'+text.value+'"');
-      else console.log('  '+q+': (no selection)');
-    });
-    /* Override !important by adding inline style with !important via setAttribute */
-    var nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
+    var nxt = document.getElementById('btn_continue');
+    if(!nxt) nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
     if(!nxt) nxt = document.querySelector('.button, input.button');
     if(nxt){
       nxt.setAttribute('style','display:block !important;visibility:hidden;position:absolute;left:-9999px;');
-      console.log('[CONTINUE] native button found, clicking:', nxt.tagName, nxt.className);
       nxt.click();
-    } else {
-      console.warn('[CONTINUE] NO native submit button found — trying form submit');
-      var form = document.querySelector('form');
-      if(form) form.submit();
     }
   });
 
@@ -1215,7 +1154,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     }
   });
 ]]></style>
-<html label="sc_page_ui" where="survey">&lt;style&gt;.nextPage, .button { display: none !important; }&lt;/style&gt;
+<html label="sc_page_ui" where="survey"><![CDATA[<style>.nextPage, .button { display: none !important; }</style>
 
 <div id="sc-footer">
   Your responses are held strictly confidential.
@@ -1226,7 +1165,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 <div id="sc-root">
 
   <div class="sc-logo-bar">
-    <img src="[rel PRISM_glyph.svg]" alt="PRISM"/>
+    <img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM">
   </div>
 
   <div id="sc-progress-wrap">
@@ -1236,15 +1175,15 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
 
   <div class="sc-card sc-intro" id="card-intro">
     <div class="intro-logo-wrap">
-      <img src="[rel PRISM_glyph.svg]" alt="PRISM"/>
+      <img src="/survey/selfserve/21a7/260129/PRISM_glyph.svg" alt="PRISM">
     </div>
     <p class="intro-body">
       Thanks for taking part. This survey helps us understand how people
-      think about health&amp;nbsp;care and public policy today. There are no
-      right or wrong answers&amp;thinsp;&amp;mdash;&amp;thinsp;we&amp;rsquo;re interested
-      in&amp;nbsp;<em>your</em>&amp;nbsp;point of view.<br/><br/>Let&amp;rsquo;s begin.
+      think about health&nbsp;care and public policy today. There are no
+      right or wrong answers&thinsp;&mdash;&thinsp;we&rsquo;re interested
+      in&nbsp;<em>your</em>&nbsp;point of view.<br><br>Let&rsquo;s begin.
     </p>
-    &lt;button id="sc-start-btn" type="button"&gt;READY, SET, GO!&lt;/button&gt;
+    <button id="sc-start-btn" type="button">READY, SET, GO!</button>
   </div>
 
   <div class="sc-card" id="card-qs1">
@@ -1254,12 +1193,12 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     <div class="qs1-btn-group">
 
       <div class="qs1-btn qs1-yes" data-val="1" tabindex="0" role="radio" aria-label="Yes">
-        <div class="qs1-shape">&amp;#10003;</div>
+        <div class="qs1-shape">&#10003;</div>
         <span class="qs1-btn-label">YES</span>
       </div>
 
       <div class="qs1-btn qs1-no" data-val="2" tabindex="0" role="radio" aria-label="No">
-        <div class="qs1-shape">&amp;#10005;</div>
+        <div class="qs1-shape">&#10005;</div>
         <span class="qs1-btn-label">NO</span>
       </div>
 
@@ -1278,59 +1217,59 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     </p>
 
     <div class="zip-digits-row">
-      &lt;input class="zip-digit" id="sc-zip-1" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="ZIP digit 1"&gt;
-      &lt;input class="zip-digit" id="sc-zip-2" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="ZIP digit 2"&gt;
-      &lt;input class="zip-digit" id="sc-zip-3" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="ZIP digit 3"&gt;
-      &lt;input class="zip-digit" id="sc-zip-4" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="ZIP digit 4"&gt;
-      &lt;input class="zip-digit" id="sc-zip-5" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="ZIP digit 5"&gt;
+      <input class="zip-digit" id="sc-zip-1" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 1">
+      <input class="zip-digit" id="sc-zip-2" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 2">
+      <input class="zip-digit" id="sc-zip-3" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 3">
+      <input class="zip-digit" id="sc-zip-4" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 4">
+      <input class="zip-digit" id="sc-zip-5" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 5">
     </div>
 
     <div class="sc-field-error" id="zip-error"></div>
 
     <div class="zip-why-row">
-      &lt;button class="zip-why-trigger" type="button"&gt;
+      <button class="zip-why-trigger" type="button">
         <span class="zip-why-icon">?</span>
         <span style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;">
           WHY DO WE ASK THIS?
         </span>
-      &lt;/button&gt;
+      </button>
       <div class="zip-why-body">
-        Your ZIP code helps us ensure we&amp;rsquo;re hearing from people across different parts
+        Your ZIP code helps us ensure we&rsquo;re hearing from people across different parts
         of the country, building a representative sample.
         <strong>FUN FACT:</strong> ZIP codes tie you to your congressional district, so we can ask
-        follow&amp;#x2011;up questions about your community &amp;#x2014; they never reveal your name or exact address.
+        follow&#x2011;up questions about your community &#x2014; they never reveal your name or exact address.
       </div>
     </div>
 
-    &lt;label class="sc-pna-row"&gt;
-      &lt;input class="sc-pna-chk" id="zip-pna" type="checkbox"&gt;
+    <label class="sc-pna-row">
+      <input class="sc-pna-chk" id="zip-pna" type="checkbox">
       <span>Prefer not to answer</span>
-    &lt;/label&gt;
+    </label>
   </div>
 
   <div class="sc-card" id="card-qage">
     <div class="sc-q-label">3 of 6 Questions</div>
     <div class="sc-q-text">Tell us how old you are.</div>
-    <div class="age-instruction">Enter two digits &amp;mdash; e.g., &amp;ldquo;4&amp;rdquo; then &amp;ldquo;5&amp;rdquo; for age 45</div>
+    <div class="age-instruction">Enter two digits &mdash; e.g., &ldquo;4&rdquo; then &ldquo;5&rdquo; for age 45</div>
 
     <div class="age-digits-row">
-      &lt;input class="age-digit" id="sc-age-1" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="Age tens digit"&gt;
-      &lt;input class="age-digit" id="sc-age-2" type="tel" maxlength="1" inputmode="numeric"
-             autocomplete="off" aria-label="Age units digit"&gt;
+      <input class="age-digit" id="sc-age-1" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="Age tens digit">
+      <input class="age-digit" id="sc-age-2" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="Age units digit">
     </div>
 
     <div class="sc-field-error" id="age-error"></div>
 
-    &lt;label class="sc-pna-row"&gt;
-      &lt;input class="sc-pna-chk" id="age-pna" type="checkbox"&gt;
+    <label class="sc-pna-row">
+      <input class="sc-pna-chk" id="age-pna" type="checkbox">
       <span>Prefer not to respond</span>
-    &lt;/label&gt;
+    </label>
   </div>
 
   <div class="sc-card" id="card-qgender">
@@ -1343,10 +1282,10 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
       <div class="gender-pill" data-val="3">OTHER</div>
     </div>
 
-    &lt;label class="sc-pna-row"&gt;
-      &lt;input class="sc-pna-chk" id="gender-pna" type="checkbox"&gt;
+    <label class="sc-pna-row">
+      <input class="sc-pna-chk" id="gender-pna" type="checkbox">
       <span>Prefer not to respond</span>
-    &lt;/label&gt;
+    </label>
   </div>
 
   <div class="sc-card" id="card-qvote24">
@@ -1378,42 +1317,42 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
         <span class="ballot-label">Another Candidate</span>
       </div>
       <div class="ballot-bottom-row" data-val="4">
-        <span class="ballot-label">I didn&amp;rsquo;t have the chance to vote in this election</span>
+        <span class="ballot-label">I didn&rsquo;t have the chance to vote in this election</span>
       </div>
     </div>
 
-    &lt;label class="sc-pna-row"&gt;
-      &lt;input class="sc-pna-chk" id="vote-pna" type="checkbox"&gt;
+    <label class="sc-pna-row">
+      <input class="sc-pna-chk" id="vote-pna" type="checkbox">
       <span>Prefer not to respond</span>
-    &lt;/label&gt;
+    </label>
   </div>
 
   <div class="sc-card" id="card-party">
     <div class="sc-q-label">6 of 6 Questions</div>
-    <div class="sc-q-text">In politics today, do you consider yourself a&amp;hellip;?</div>
+    <div class="sc-q-text">In politics today, do you consider yourself a&hellip;?</div>
 
     <div class="party-main-btns">
       <div class="party-btn party-main-btn" data-val="1"
            tabindex="0" role="radio" aria-label="Republican">
-        <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+        <img class="party-icon" src="/survey/selfserve/21a7/260129/GOP_Icon.svg" alt="GOP">
         <span>Republican</span>
       </div>
       <div class="party-btn party-main-btn" data-val="2"
            tabindex="0" role="radio" aria-label="Democrat">
-        <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+        <img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM">
         <span>Democrat</span>
       </div>
       <div class="party-btn party-main-btn" data-val="3"
            tabindex="0" role="radio" aria-label="Independent / Other">
         <span class="party-ind-badge">IND</span>
-        <span>Independent/<br/>Other</span>
+        <span>Independent/<br>Other</span>
       </div>
     </div>
 
-    &lt;label class="sc-pna-row" id="party-pna-main"&gt;
-      &lt;input class="sc-pna-chk" id="party-pna" type="checkbox"&gt;
+    <label class="sc-pna-row" id="party-pna-main">
+      <input class="sc-pna-chk" id="party-pna" type="checkbox">
       <span>Prefer not to respond</span>
-    &lt;/label&gt;
+    </label>
 
     <div class="party-sub" id="party-sub-a">
       <div class="sc-q-text">
@@ -1431,30 +1370,30 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
       </div>
       <div class="party-sub-icons" id="party-sub-icons">
         <div class="party-sub-icon-pill" id="pill-gop">
-          <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+          <img class="party-icon" src="/survey/selfserve/21a7/260129/GOP_Icon.svg" alt="GOP">
           <span>Republican</span>
         </div>
         <div class="party-sub-icon-pill" id="pill-dem">
-          <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+          <img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM">
           <span>Democrat</span>
         </div>
       </div>
 
-      &lt;label class="sc-pna-row"&gt;
-        &lt;input class="sc-pna-chk" id="party2-pna" type="checkbox"&gt;
+      <label class="sc-pna-row">
+        <input class="sc-pna-chk" id="party2-pna" type="checkbox">
         <span>Prefer not to respond</span>
-      &lt;/label&gt;
+      </label>
     </div>
 
     <div class="party-sub" id="party-sub-b">
-      <div class="sc-q-text">Do you <strong>lean</strong> toward the&amp;hellip;</div>
+      <div class="sc-q-text">Do you <strong>lean</strong> toward the&hellip;</div>
       <div class="party-lean-btns">
         <div class="party-lean-btn" data-val="1">
-          <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+          <img class="party-icon" src="/survey/selfserve/21a7/260129/GOP_Icon.svg" alt="GOP">
           <span>Republicans</span>
         </div>
         <div class="party-lean-btn" data-val="2">
-          <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+          <img class="party-icon" src="/survey/selfserve/21a7/260129/DEM_icon.svg" alt="DEM">
           <span>Democrats</span>
         </div>
         <div class="party-lean-btn" data-val="3">
@@ -1463,19 +1402,19 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
         </div>
       </div>
 
-      &lt;label class="sc-pna-row"&gt;
-        &lt;input class="sc-pna-chk" id="party3-pna" type="checkbox"&gt;
+      <label class="sc-pna-row">
+        <input class="sc-pna-chk" id="party3-pna" type="checkbox">
         <span>Prefer not to respond</span>
-      &lt;/label&gt;
+      </label>
     </div>
 
   </div>
 
   <div id="sc-continue-wrap" style="display:none; text-align:center; padding:24px 0 16px;">
-    &lt;button id="sc-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;
+    <button id="sc-continue-btn" type="button">CONTINUE &gt;</button>
   </div>
 
-</div></html>
+</div>]]></html>
 
 <radio 
   label="QS1"
