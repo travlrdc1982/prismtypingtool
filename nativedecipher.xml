@@ -2997,8 +2997,37 @@ setInterval(function () {
 
 <suspend/>
 
-<checkbox 
+<checkbox
+  label="QMD7a"
+  cond="QMD6.r1"
+  atleast="1">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1" groups="g1">Held elected office</row>
+  <row label="r2" groups="g1">Been a paid staffer or advisor to an elected official or gov't agency</row>
+  <row label="r3" groups="g1">Held an elected or appointed role in a party committee</row>
+  <row label="r4" groups="g1">Contacted an elected official or their staff</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<checkbox
+  label="QMD7b"
+  cond="QMD6.r2"
+  atleast="1">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1" groups="g1">Helped recruit a candidate to run for public office</row>
+  <row label="r2" groups="g1">Helped recruit staff for a political campaign, office of an elected official, or other political appointee</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<checkbox
   label="QMD7"
+  cond="QMD6.r3"
   atleast="1">
   <title>Which of these have you done?</title>
   <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
@@ -3011,9 +3040,35 @@ setInterval(function () {
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
 
+<checkbox
+  label="QMD7c"
+  cond="QMD6.r4"
+  atleast="1">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1" groups="g1">Spoke at a public meeting, podcast, webinar, church or civic group on a health topic</row>
+  <row label="r2" groups="g1">Wrote an article, blog post, Substack, or op-ed on an issue</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<checkbox
+  label="QMD7d"
+  cond="QMD6.r5"
+  atleast="1">
+  <title>Which of these have you done?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <row label="r1" groups="g1">Volunteered on a political campaign</row>
+  <row label="r2" groups="g1">Organized an event or rally on any issue</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
 <suspend/>
 
-<checkbox 
+<checkbox
   label="QMD88"
   atleast="1">
   <title>In the past 12 months, have you taken any of the following actions related to a public policy issue?</title>
