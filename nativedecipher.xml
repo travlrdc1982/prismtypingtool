@@ -2988,7 +2988,7 @@ setInterval(function () {
   <row label="r4" groups="g1">I've written, spoken publicly, or published on issues</row>
   <row label="r5" groups="g1">I've organized people, worked campaigns, or rallied others to action</row>
   <row label="r6" groups="g1">I vote, follow current events, and stay involved in my community</row>
-  <row label="r7" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -3004,7 +3004,7 @@ setInterval(function () {
   <row label="r2" groups="g1">Sat on the board or executive committee of any health, policy, or business association?</row>
   <row label="r3" groups="g1">Worked with or advised a Washington-based organization (think tank, patient advocacy group, trade association)</row>
   <row label="r4" groups="g1">Testified or submitted written comments to a state legislative or Congressional committee</row>
-  <row label="r7" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -3018,7 +3018,7 @@ setInterval(function () {
   <row label="r1" groups="g1">Signed a petition</row>
   <row label="r2" groups="g1">Attended a meeting</row>
   <row label="r3" groups="g1">Donated money</row>
-  <row label="r7" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -3700,7 +3700,7 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <row label="r10" groups="g1"><strong>Telegram or Signal channels</strong><br />Channels or groups on Telegram or Signal Cable or broadcast TV</row>
   <row label="r11" groups="g1"><strong>Cable news or broadcast TV programs</strong></row>
   <row label="r12" groups="g1"><strong>Radio or talk radio</strong><br />AM/FM radio, satellite radio, or talk radio shows</row>
-  <row label="r99" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r99" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -3757,7 +3757,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfTh
   <row label="r12" groups="g1">Worker and<br /> economic issues</row>
   <row label="r13" groups="g1">Health technology<br /> and innovation</row>
   <row label="r14" groups="g1">Environmental and<br /> climate health</row>
-  <row label="r99" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r99" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
@@ -3948,7 +3948,7 @@ fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfTh
   <row label="r28" groups="g1">Andy Slavitt</row>
   <row label="r29" groups="g1">Andy Slavitt</row>
   <row label="r30" groups="g1">Andy Slavitt</row>
-  <row label="r31" exclusive="1" noanswer="1" groups="g2" randomize="0">None of these</row>
+  <row label="r31" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
   <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
   <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
 </checkbox>
