@@ -946,28 +946,28 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     if(wrap) wrap.scrollIntoView({behavior:'smooth',block:'center'});
   }
 
-  /* DEBUG: verify custom HTML elements exist */
-  console.log('[debug] sc-root:', !!document.getElementById('sc-root'));
-  console.log('[debug] card-intro:', !!document.getElementById('card-intro'));
-  var cardIntro = document.getElementById('card-intro');
-  if(cardIntro){
-    console.log('[debug] card-intro display:', cardIntro.style.display, 'computed:', window.getComputedStyle(cardIntro).display);
-    console.log('[debug] card-intro visibility:', window.getComputedStyle(cardIntro).visibility);
-    console.log('[debug] card-intro opacity:', window.getComputedStyle(cardIntro).opacity);
-    console.log('[debug] card-intro offsetHeight:', cardIntro.offsetHeight);
-    console.log('[debug] card-intro children:', cardIntro.children.length, [].map.call(cardIntro.children, function(c){return c.tagName+'.'+c.className;}));
+  /* DEBUG: walk up from sc-root to find what hides it */
+  var scRoot = document.getElementById('sc-root');
+  if(scRoot){
+    var el = scRoot;
+    while(el && el !== document.body){
+      var d = window.getComputedStyle(el).display;
+      var v = window.getComputedStyle(el).visibility;
+      var o = window.getComputedStyle(el).opacity;
+      console.log('[ancestors] '+el.tagName+'#'+el.id+'.'+el.className+' display='+d+' vis='+v+' opacity='+o);
+      if(d === 'none') console.log('[ancestors] *** HIDDEN HERE ***');
+      el = el.parentElement;
+    }
+    console.log('[ancestors] body display='+window.getComputedStyle(document.body).display);
   }
-  /* DEBUG: find any loading/spinner/overlay elements */
-  var form = document.getElementById('primary');
-  if(form){
-    console.log('[debug] form#primary children:', form.children.length);
-    [].forEach.call(form.children, function(c,i){
-      console.log('[debug] form child['+i+']:', c.tagName, 'id='+c.id, 'class='+c.className, 'display='+window.getComputedStyle(c).display, 'position='+window.getComputedStyle(c).position);
-    });
-  }
-  /* DEBUG: check for overlays */
-  var overlays = document.querySelectorAll('[class*="load"], [class*="spin"], [class*="overlay"], [class*="progress"]');
-  [].forEach.call(overlays, function(o){ console.log('[debug] possible overlay:', o.tagName, o.className, o.id, 'display='+window.getComputedStyle(o).display); });
+  /* DEBUG: what is the spinner element? Check absolutely/fixed positioned visible elements */
+  var allEls = document.querySelectorAll('*');
+  [].forEach.call(allEls, function(e){
+    var cs = window.getComputedStyle(e);
+    if((cs.position === 'absolute' || cs.position === 'fixed') && cs.display !== 'none' && e.offsetHeight > 20){
+      console.log('[positioned] '+e.tagName+'#'+e.id+'.'+e.className+' pos='+cs.position+' z='+cs.zIndex+' size='+e.offsetWidth+'x'+e.offsetHeight);
+    }
+  });
 
   showCard(0);
 
