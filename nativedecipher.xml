@@ -937,6 +937,13 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     if(wrap) wrap.scrollIntoView({behavior:'smooth',block:'center'});
   }
 
+  /* DEBUG: verify custom HTML elements exist */
+  console.log('[debug] sc-root:', !!document.getElementById('sc-root'));
+  console.log('[debug] card-intro:', !!document.getElementById('card-intro'));
+  console.log('[debug] sc-logo-bar:', !!document.querySelector('.sc-logo-bar'));
+  console.log('[debug] sc-start-btn:', !!document.getElementById('sc-start-btn'));
+  console.log('[debug] sc_page_ui HTML in DOM:', document.getElementById('sc-root') ? document.getElementById('sc-root').innerHTML.substring(0,200) : 'NOT FOUND');
+
   showCard(0);
 
   /* INTRO */
@@ -1183,7 +1190,7 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     }
   });
 ]]></style>
-<html label="sc_page_ui">&lt;style&gt;.nextPage, .button { display: none !important; }&lt;/style&gt;
+<html label="sc_page_ui" where="survey">&lt;style&gt;.nextPage, .button { display: none !important; }&lt;/style&gt;
 
 <div id="sc-footer">
   Your responses are held strictly confidential.
