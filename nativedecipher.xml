@@ -1215,7 +1215,23 @@ var defined = function(s,c){ return (c||document).querySelector(s); };
     }
   });
 ]]></style>
-<html label="sc_page_ui" where="survey">&lt;style&gt;.nextPage, .button { display: none !important; }&lt;/style&gt;
+<html label="sc_page_ui" where="survey">&lt;style&gt;
+.nextPage, .button { display: none !important; }
+.logo-middle { display: none !important; }
+.comment-text { font-size: inherit !important; font-weight: inherit !important; margin: 0 !important; padding: 0 !important; line-height: inherit !important; display: block !important; }
+body, .survey-body, .main-content { background: #F5F2ED !important; }
+form#primary { background: transparent !important; border: none !important; box-shadow: none !important; padding: 0 !important; width: 100% !important; }
+.sc-native-hidden { border: none !important; box-shadow: none !important; background: transparent !important; padding: 0 !important; margin: 0 !important; min-height: 0 !important; overflow: visible !important; }
+.sc-native-hidden .question-text, .sc-native-hidden .comment, .sc-native-hidden .instruction-text, .sc-native-hidden .answers-list, .sc-native-hidden .fir-row, .sc-native-hidden .row-elements, .sc-native-hidden .text-box-container, .sc-native-hidden .number-box, .sc-native-hidden .noanswer-row, .sc-native-hidden .error { display: none !important; }
+#sc-root { max-width: 640px; margin: 0 auto; padding: 24px 16px 120px; font-family: Inter, sans-serif; color: #333333; }
+.sc-logo-bar { text-align: center; padding: 12px 0 20px; }
+.sc-card { background: #FFFFFF; border: 1px solid #E0DCD6; border-radius: 10px; padding: 22px 24px 20px; margin-bottom: 28px; box-shadow: none; display: none; }
+.sc-card.sc-visible { display: block; }
+.sc-card.sc-intro { display: block; background: #fff; padding: 28px 28px 26px; }
+.intro-logo-wrap { display: none; }
+.sc-card .sc-q-label { font-family: Inter, sans-serif; font-size: 11px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #888888; margin-bottom: 6px; }
+.sc-card .sc-q-text { font-family: Fraunces, Georgia, serif; font-size: 19px; font-weight: 700; color: #333333; line-height: 1.42; margin-bottom: 20px; }
+&lt;/style&gt;
 
 <div id="sc-footer">
   Your responses are held strictly confidential.
