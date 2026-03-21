@@ -8,7 +8,7 @@
 >
 > **COMPLETED (Change 2):** CSS-only visual merge of all 10 `*x99` PNTA fieldsets into parent question tiles. `*x99` questions retained as separate `<checkbox>` elements with `keepWith`.
 >
-> **CORRECTED:** `noanswer="1"` as a question attribute was rejected by Decipher. Per official Forsta docs, the correct syntax is a `<noanswer label="r99">` **child element** inside the question. Re-implemented using this pattern. All 9 `*x99` `<checkbox>` questions replaced with `<noanswer>` child elements. Dead `setInterval` JS and CSS merge hack removed.
+> **Change 2 note:** `<noanswer>` child elements are the correct Forsta mechanism, but the `atm1d.11` design template does not support them. Since MAHA1, ETHNIC, VET, UNION, and EDUCATION all use `atm1d.11`, the `*x99` `<checkbox>` + `keepWith` + CSS visual merge approach remains in place. Any future migration to `<noanswer>` would require removing `uses="atm1d.11"` from those questions first.
 
 ---
 
