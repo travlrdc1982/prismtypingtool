@@ -4,7 +4,11 @@
 > Generated 2026-03-21 from cross-reference of `nativedecipher.xml` against `Master Question Map.xlsx`.
 > **Status: REVIEW ONLY — no changes applied except where noted.**
 >
-> **COMPLETED (Change 2 revision):** Converted 9 `*x99` PNTA `<checkbox>` questions to native `noanswer="1"` on parent questions (QMD4, MAHA1, MAHA4, ETHNIC, VET, UNION, EDUCATION, REL, HHI). Deleted 9 `*x99` elements, 4 dead `setInterval` JS blocks, orphaned slider CSS, and CSS visual merge hack. Only `HHIX103x99` remains (it is a "Not Sure" for cardrating, not PNTA).
+> **COMPLETED (Change 1):** Converted QMD4 and MAHA3 from `<select uses="sliderpoints.4">` to `<radio type="rating" values="order">`. Removed 4 dead slider CSS/JS blocks.
+>
+> **COMPLETED (Change 2):** CSS-only visual merge of all 10 `*x99` PNTA fieldsets into parent question tiles. `*x99` questions retained as separate `<checkbox>` elements with `keepWith`.
+>
+> **REVERTED:** `noanswer="1"` attribute is not recognized by the Decipher platform at compat="154". The `el.noanswer` style template exists but the mechanism to invoke it is undocumented in DECIPHER_RULE.md. Reverted to CSS-only merge (Option B).
 
 ---
 
