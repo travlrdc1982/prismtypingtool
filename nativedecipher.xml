@@ -47,27 +47,18 @@
 
 <suspend/>
 
-<style mode="after" name="respview.client.css" with="Start_Info,QMD1_intro2,cm1,QMD4,QMD4x99,QMD6,QMD7,QMD88,QMD89,QMD90,MAHA1,MAHA1x99,MAHA2,MAHA3,MAHA4,MAHA4x99,cm2,ETHNICx99,RACE,VET,VETx99,UNION,UNIONx99,EDUCATION,REL,RELx99,REL2,HHI,HHIX99,cm3,HHIX100,HHIX101,HHIX102,HHIX103,HHIX103x99,HHIX104,HHIX105,HHIXEMAIL"><![CDATA[
+<style mode="after" name="respview.client.css" with="Start_Info,QMD1_intro2,cm1,QMD4,QMD6,QMD7,QMD88,QMD89,QMD90,MAHA1,MAHA2,MAHA3,MAHA4,cm2,ETHNIC,RACE,VET,UNION,EDUCATION,REL,REL2,HHI,cm3,HHIX100,HHIX101,HHIX102,HHIX103,HHIX103x99,HHIX104,HHIX105,HHIXEMAIL"><![CDATA[
 <style>
 
 .logo-image {
   margin-bottom: 20px;
 }
 
-h1#question_text_QMD4x99, h1#question_text_MAHA1x99, h1#question_text_ETHNICx99, h1#question_text_VETx99, h1#question_text_UNIONx99, h1#question_text_EDUCATIONx99, h1#question_text_RELx99, h1#question_text_HHIX99, h1#question_text_HHIX103x99, h1#question_text_MAHA4x99, h1#question_text_HHIX104x99 {
+h1#question_text_HHIX103x99 {
     display: none;
 }
 
-/* --- PNTA *x99 visual merge: collapse into parent question tile --- */
-#question_QMD4x99,
-#question_MAHA1x99,
-#question_MAHA4x99,
-#question_ETHNICx99,
-#question_VETx99,
-#question_UNIONx99,
-#question_EDUCATIONx99,
-#question_RELx99,
-#question_HHIX99,
+/* --- Visual merge for remaining HHIX103x99 into parent tile --- */
 #question_HHIX103x99 {
     border: none !important;
     box-shadow: none !important;
@@ -86,20 +77,6 @@ h1#question_text_QMD4x99, h1#question_text_MAHA1x99, h1#question_text_ETHNICx99,
   opacity: 1;
 }
 
-.sq-sliderpoints .fa-icon-circle {
-    color: #aca8a3;
-    font-size: 10px;
-    padding: 14px 0px;
-    top: -39px;
-    z-index: 1;
-    border: 2px solid #E0DCD6;
-    border-radius: 20px !important;
-    width: 42px;
-}
-
-.sq-sliderpoints .ui-slider .ui-slider-handle {
-  margin-left: -13px;
-}
 
 input[type="text"], input[type="number"], input[type="password"], textarea {
   background: #E8E4DE;
@@ -360,33 +337,6 @@ padding-left: 16px
 ]]></style>
 <style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
 jQuery('[type="text"]').attr('placeholder', '>>  Specify');
-]]></style>
-<style name="respview.client.js" with="MAHA1,MAHA4,ETHNIC,EDUCATION" wrap="ready"><![CDATA[
-setInterval(function () {
-  const isChecked = jQuery("input[type='checkbox']").is(":checked");
-
-  if (isChecked) {
-    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
-    jQuery('input[type="radio"]').prop("disabled", true);
-  } else {
-    jQuery('input[type="radio"]').prop("disabled", false);
-  }
-}, 100);
-]]></style>
-<style name="respview.client.js" with="REL,HHI" wrap="ready"><![CDATA[
-jQuery(document).on("change", "input[type='checkbox']", function () {
-const anyChecked = jQuery("input[type='checkbox']").is(":checked");
-  if (anyChecked) 
-  {
-    // reset to default (-1) and disable
-    jQuery('[class="input dropdown"]').val('-1').trigger('change');
-    jQuery('[class="input dropdown"]').prop('disabled', true).attr('aria-disabled', 'true');
-  } 
-  else {
-    // enable again
-    jQuery('[class="input dropdown"]').prop('disabled', false).attr('aria-disabled', 'false');
-  }
-  });
 ]]></style>
 <style name="respview.client.js" with="QMD90,HHIX102" wrap="ready"><![CDATA[
 setInterval(function(){
@@ -2933,7 +2883,6 @@ elif XDEM_SEG_FINAL_1.any:
 
 <radio
   label="QMD4"
-  keepWith="QMD4x99"
   type="rating"
   values="order">
   <title>Tell us how much you agree or disagree with these statements</title>
@@ -2947,14 +2896,8 @@ elif XDEM_SEG_FINAL_1.any:
   <col label="c7" value="7">Strongly Agree</col>
   <row label="r1">The federal government should invest extra funds in communities of color that have suffered historic health injustices, even if it means higher taxes</row>
   <row label="r2">Big corporations have too much influence over public health policies</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="QMD4x99"
-  keepWith="QMD4">
-  <title>New Multi-Select Question</title>
-  <row label="r99">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3064,7 +3007,6 @@ fieldset.atm1d .answers>div label {
   atm1d:large_minWidth="100px"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
-  keepWith="MAHA1x99"
   optional="1"
   ss:listDisplay="1"
   uses="atm1d.11">
@@ -3075,14 +3017,8 @@ fieldset.atm1d .answers>div label {
   <row label="r3">Aware, but not <br />sure what it <br />means</row>
   <row label="r4">Heard of it, but <br />know nothing <br />about it</row>
   <row label="r5">Never heard<br />of it</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="MAHA1x99"
-  keepWith="MAHA1">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3146,7 +3082,6 @@ jQuery(document).on("change", "input[type='radio']", function () {
 <radio 
   label="MAHA4"
   cond="(MAHA1.r1 or MAHA1.r2 or MAHA1.r3)"
-  keepWith="MAHA4x99"
   optional="1">
   <title>Which best describes your relationship to the MAHA label?</title>
   <comment>Select one</comment>
@@ -3157,15 +3092,8 @@ jQuery(document).on("change", "input[type='radio']", function () {
   <row label="r5">I’ve heard of it, but don’t relate to it</row>
   <row label="r6">I disagree with it</row>
   <row label="r7">I’m unfamiliar with it</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="MAHA4x99"
-  cond="(MAHA1.r1 or MAHA1.r2 or MAHA1.r3)"
-  keepWith="MAHA4">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3224,21 +3152,14 @@ input[type="radio"]:checked + .showInputParent_0 label {
   label="ETHNIC"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
-  keepWith="ETHNICx99"
   optional="1"
   ss:listDisplay="1"
   uses="atm1d.11">
   <title>Are you, yourself, of Hispanic or Latino background?</title>
   <row label="r1">✓</row>
   <row label="r2">✕</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="ETHNICx99"
-  keepWith="ETHNIC">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3322,24 +3243,11 @@ padding-left: 5px;
 jQuery('label[for="ans19043.0.0"]').parent().after('<div class="appendedx1">YES - <br/>ACTIVE<br/> DUTY</div>');
 jQuery('label[for="ans19043.0.1"]').parent().after('<div class="appendedx1">YES -<br/> VETERAN</div>');
 jQuery('label[for="ans19043.0.2"]').parent().after('<div class="appended">NO</div>');
-
-
-setInterval(function () {
-  const isChecked = jQuery("input[type='checkbox']").is(":checked");
-
-  if (isChecked) {
-    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
-    jQuery('input[type="radio"]').prop("disabled", true);
-  } else {
-    jQuery('input[type="radio"]').prop("disabled", false);
-  }
-}, 100);
 ]]></style>
 <radio 
   label="VET"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
-  keepWith="VETx99"
   optional="1"
   ss:listDisplay="1"
   uses="atm1d.11">
@@ -3347,14 +3255,8 @@ setInterval(function () {
   <row label="r1"/>
   <row label="r2">✓</row>
   <row label="r3">✕</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="VETx99"
-  keepWith="VET">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3410,38 +3312,19 @@ padding-left: 25px;
 <style name="respview.client.js" with="UNION" wrap="ready"><![CDATA[
 jQuery('label[for="ans19057.0.0"]').parent().after('<div class="appended"><center>YES</center></div>');
 jQuery('label[for="ans19057.0.1"]').parent().after('<div class="appended">NO</div>');
-
-
-setInterval(function () {
-  const isChecked = jQuery("input[type='checkbox']").is(":checked");
-
-  if (isChecked) {
-    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
-    jQuery('input[type="radio"]').prop("disabled", true);
-  } else {
-    jQuery('input[type="radio"]').prop("disabled", false);
-  }
-}, 100);
 ]]></style>
 <radio 
   label="UNION"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
-  keepWith="UNIONx99"
   optional="1"
   ss:listDisplay="1"
   uses="atm1d.11">
   <title>Are you currently, or have you ever been, part of a labor union?</title>
   <row label="r1"/>
   <row label="r3">✕</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="UNIONx99"
-  keepWith="UNION">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3458,7 +3341,6 @@ fieldset.atm1d .answers>div label {
   label="EDUCATION"
   atm1d:showInput="0"
   atm1d:viewMode="tiled"
-  keepWith="EDUCATIONx99"
   optional="1"
   ss:listDisplay="1"
   uses="atm1d.11">
@@ -3472,20 +3354,13 @@ fieldset.atm1d .answers>div label {
   <row label="r7">Master’s<br /> degree</row>
   <row label="r8">Professional<br /> degree (JD, MD)</row>
   <row label="r9">Doctorate<br /> degree (PhD)</row>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </radio>
-
-<checkbox 
-  label="EDUCATIONx99"
-  keepWith="EDUCATION">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
-<select 
+<select
   label="REL"
-  keepWith="RELx99"
   optional="1">
   <title>What is your present religion, if any?</title>
   <choice label="ch1">Protestant</choice>
@@ -3500,14 +3375,8 @@ fieldset.atm1d .answers>div label {
   <choice label="ch10">Agnostic</choice>
   <choice label="ch11">Something else</choice>
   <choice label="ch12">Nothing in particular</choice>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </select>
-
-<checkbox 
-  label="RELx99"
-  keepWith="REL">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 
@@ -3569,9 +3438,8 @@ input[type="radio"]:checked + .showInputParent_0 label {
 
 <suspend/>
 
-<select 
+<select
   label="HHI"
-  keepWith="HHIX99"
   optional="1">
   <title>Last year – that is, in 2025 – what was your total family income from all sources, before taxes…</title>
   <choice label="ch1">Less than $10,000</choice>
@@ -3589,14 +3457,8 @@ input[type="radio"]:checked + .showInputParent_0 label {
   <choice label="ch13">$150,000 – $199,999</choice>
   <choice label="ch14">$200,000 – $499,999</choice>
   <choice label="ch15">$500,000 or more</choice>
+  <noanswer label="r99">Prefer not to respond</noanswer>
 </select>
-
-<checkbox 
-  label="HHIX99"
-  keepWith="HHI">
-  <title>New Multi-Select Question</title>
-  <row label="r1">Prefer not to respond</row>
-</checkbox>
 
 <suspend/>
 

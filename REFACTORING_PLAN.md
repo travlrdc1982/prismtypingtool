@@ -8,7 +8,7 @@
 >
 > **COMPLETED (Change 2):** CSS-only visual merge of all 10 `*x99` PNTA fieldsets into parent question tiles. `*x99` questions retained as separate `<checkbox>` elements with `keepWith`.
 >
-> **REVERTED:** `noanswer="1"` attribute is not recognized by the Decipher platform at compat="154". The `el.noanswer` style template exists but the mechanism to invoke it is undocumented in DECIPHER_RULE.md. Reverted to CSS-only merge (Option B).
+> **CORRECTED:** `noanswer="1"` as a question attribute was rejected by Decipher. Per official Forsta docs, the correct syntax is a `<noanswer label="r99">` **child element** inside the question. Re-implemented using this pattern. All 9 `*x99` `<checkbox>` questions replaced with `<noanswer>` child elements. Dead `setInterval` JS and CSS merge hack removed.
 
 ---
 
