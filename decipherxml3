@@ -1,0 +1,4414 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey 
+  alt="Typing Tool"
+  autosaveKey="psid"
+  browserDupes=""
+  builderCompatible="1"
+  compat="154"
+  delphi="1"
+  extraVariables="ipAddress,source,record,decLang,list,userAgent,md,comp_sflag"
+  fir="on"
+  html:showNumber="0"
+  mobile="compat"
+  mobileDevices="smartphone,tablet,desktop"
+  name="Survey"
+  remerged="20260217_01:38"
+  secure="1"
+  setup="term,decLang,quota,time"
+  ss:accordionDisplay="0"
+  ss:accordionDisplayDesktop="0"
+  ss:disableBackButton="1"
+  ss:enableNavigation="0"
+  ss:hideProgressBar="1"
+  ss:listDisplay="1"
+  ss:logoAlt=""
+  ss:logoFile="selfserve/21a7/260129/logo.svg"
+  ss:logoPosition="middle"
+  state="testing"
+  version="19">
+
+<res label="sys_select">Please select one from the dropdown menu</res>
+<res label="sys_check-error-atLeast-sing-column">You have left question(s) unanswered. Please provide an answer.</res>
+<res label="sys_noAnswerSelected">You have left question(s) unanswered. Please provide an answer.</res>
+<res label="sys_survey.has-errors">You have left some questions unanswered. You will find the items that need you attention shown below.</res>
+<res label="PROMPTERROR"><strong>You have left question(s) unanswered.  Are you sure you do not have an opinion?  If not, you can skip to the next question.</strong></res>
+<res label="PROMPTERROR1"><strong>You have left question(s) unanswered.  Are you sure you do not have an opinion?  If not, you can skip to the next question.</strong></res>
+<res label="PROMPTERROR2"><strong>You have left question(s) unanswered.  Are you sure you do not have an opinion?  If not, you can skip to the next question.</strong></res>
+<samplesources default="0">
+  <samplesource list="0">
+    <title>Open Survey</title>
+    <exit cond="qualified"><b>Thank you for completing the survey!</b></exit>
+    <exit cond="terminated"><b>Thank you for your time.</b></exit>
+    <exit cond="overquota"><b>Thank you for your time.</b></exit>
+  </samplesource>
+</samplesources>
+
+<suspend/>
+
+<html label="Start_Info" cond="1==2" where="survey"><p class="intro-body">Thanks for taking part. This survey helps us understand how people think about health&amp;nbsp;care and public policy today. There are no right or wrong answers — we’re interested in&amp;nbsp;<em>your</em>&amp;nbsp;point of view.<br /><br />Let’s begin.</p>
+<p></p></html>
+
+<suspend/>
+
+<style cond="device.smartphone or device.tablet" name="survey.header"><![CDATA[
+<style type="text/css">
+
+  /* Make each LI fit to its content */
+  .sq-cardrating-button {
+    padding: 10 !important;
+    //margin: 10 !important;
+    height: 47.7333px !important;
+    line-height: 1.2 !important;
+  }
+  
+  fieldset.atm1d_tiled .answers > div {
+  margin: 2px;
+}
+
+.answers.answers-list {
+  margin-top: 10px;
+}
+
+</style>
+]]></style>
+<style mode="after" name="respview.client.css"><![CDATA[
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style>
+
+h1#question_text_QMD4x99,#question_text_edux99,#question_text_d2x99, #question_text_incomeX99, h1#question_text_qmaha_awarex99, h1#question_text_ETHNICx99, h1#question_text_VETx99, h1#question_text_UNIONx99, h1#question_text_EDUCATIONx99, h1#question_text_RELx99, h1#question_text_HHIX99, h1#question_text_HHIX103x99, h1#question_text_qmaha_idx99, h1#question_text_HHIX104x99 {
+    display: none;
+}
+
+
+form#primary, div.exit-message {
+  border: 1px solid #E0DCD6;
+  background-color: #FFFFFF;
+  padding: 22px 24px 20px;
+  margin-bottom: 20px;
+  border-radius: 10px;
+  max-width: 640px;
+}
+
+.answers, .fir-select2-dropdown {
+  font-family: Fraunces, Georgia, serif;
+   display: contents;
+}
+
+.sq-cardrating-bar[data-active] {
+  background-color: #2bbdb9;
+  opacity: 1;
+}
+
+.sq-sliderpoints .fa-icon-circle {
+    color: #aca8a3;
+    font-size: 10px;
+    padding: 14px 0px;
+    top: -39px;
+    z-index: 1;
+    border: 2px solid #E0DCD6;
+    border-radius: 20px !important;
+    width: 42px;
+}
+
+.sq-sliderpoints .ui-slider .ui-slider-handle {
+  margin-left: -13px;
+}
+
+input[type="text"], input[type="number"], input[type="password"], textarea {
+  background: #E8E4DE;
+  border-radius: 25px;
+}
+
+
+.answers input.exclusive + .fir-icon {
+  visibility: hidden;
+}
+
+
+.element:has(input.exclusive[type="checkbox"]:checked) .NoneOfThese {
+	border-color: #6B7F4E;
+    background: #6B7F4E;
+    color: #fff;
+	
+}
+
+.NoneOfThese {
+  display: block;
+  background-color: #F5F2ED;
+  padding: 10px 15px;
+  border-radius: 6px;
+}
+
+
+/* Disable parent hover ONLY when hovering the .NoneOfThese child */
+.showInput_0:has(.NoneOfThese:hover):hover, .showInputParent_0:has(.NoneOfThese):hover {
+  background: initial !important;     /* or your non-hover background */
+  border-color: initial !important;   /* or your non-hover border color */
+  box-shadow: none !important;        /* if your hover adds shadows */
+  color: inherit !important;          /* avoid color changes */
+  transform: none !important;         /* if hover scales/moves */
+  cursor: default !important;         /* optional: neutral cursor */
+}
+
+.survey-header {
+    margin-bottom: unset;
+}
+
+.survey-body {
+    text-align: -webkit-center;
+}
+
+.comment-text {
+font-family: Fraunces, Georgia, serif;
+  font-size: 15px;
+  color: #333333;
+  text-align: center;
+  line-height: 1.65;
+  margin-bottom: 26px;
+}
+
+.question-text {
+  font-family: Fraunces,Georgia,serif;
+  font-size: 19px;
+  font-weight: 700;
+  color: #333;
+  line-height: 1.42;
+  margin-bottom: 8px;
+}
+
+.question-text, .instruction-text, .question-error, .answers.answers-list {
+    text-align: left;
+    max-width: 600px;
+	padding: 0 8px;
+	line-height: 1.2 !important;
+}
+
+.indent-2 {
+    padding-left: unset;
+}
+
+
+fieldset.atm1d .answers>div label {
+font-family: Fraunces, Georgia, serif;
+    background-color: #FFF;
+    color: #000 !important;
+    border-radius: 40px;
+    border: 2px solid #E0DCD6;
+    display: flex;
+}
+
+fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label, fieldset.atm1d .answers>div input[type=radio]:checked~div>label {
+    background-color: #555555;
+    border-color: transparent !important;
+    color: #fff !important;
+}
+
+
+/* Remove any border/outline that might be applied on the label */
+.showInput_0 {
+  outline: none !important;
+}
+
+.instruction-text {
+  font-size: 13px;
+  color: #555;
+  /* text-align: center; */
+  margin-bottom: 14px;
+  line-height: 1.5;
+}
+
+
+/* Check box*/
+fir-icon svg, .fir-icon i {
+    font-size: 2.5em !important;
+}
+
+.fir-icon.selected .rounded .fir-selected, .fir-icon.selected .square .fir-selected {
+   fill: #4CAF50;
+}
+
+/*Grid*/
+
+.row-legend {
+    background-color: unset;
+}
+
+.grid {
+    font-size: 13px !important;
+}
+
+.answers.answers-list {
+  flex: 1;
+  font-family: Fraunces,Georgia,serif;
+  font-size: 16px;
+  color: #333;
+  line-height: 1.5;
+  text-align: left;
+  padding: 0 8px;
+}
+
+.sq-cardrating-cards {
+  min-height: 70px !important;
+}
+
+.sq-cardrating-card {
+	font-family: Fraunces, Georgia, serif;
+    background-color: #F5F2ED !important;
+    border-color: #E0DCD6;
+    border-width: 2px;
+    color: #454545;
+    font-size: 1.5rem;
+    overflow: hidden;
+    border-radius: 50px;
+}
+
+.sq-cardrating-button {
+	font-family: Fraunces,Georgia,serif;
+    background-color: #FFF;
+    color: #000;
+    text-align: center;
+    border: 2px solid #E0DCD6;
+  	border-radius: 40px;
+}
+
+.sq-cardrating-prev, .sq-cardrating-next {
+  display: none;
+}
+
+.sq-cardrating-button[data-selected] {
+    background-color: #555555;
+    border-color: transparent;
+    color: #fff;
+}
+
+#md-enjoy-btn, #btn_continue
+        {
+	background: rgb(107, 127, 78);
+  color: rgb(255, 255, 255);
+  border: medium;
+  border-radius: 24px;
+  padding: 14px 36px;
+  font-family: Inter, sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  opacity: 1;
+  pointer-events: auto;
+        }
+              
+ #btn_randomize
+	{
+	display:none;
+	}
+               
+.survey-buttons
+{
+text-align: center;
+}
+ 
+#md-enjoy-btn:hover, #btn_continue:hover {
+  background: #5A6B42;
+  transform: translateY(-1px);
+}       
+        
+.sq-cardrating-prev, .sq-cardrating-next {
+    background: rgb(107, 127, 78);
+    color: rgb(255, 255, 255);
+    border-radius: 34px;
+    padding: 9px 14px;
+    opacity: 1;
+}
+
+/* --- page-level overrides --- */
+
+.intro-logo-wrap {
+  display: none;
+}
+
+
+body, .survey-body, .main-content {
+    background: #F5F2ED !important;
+}
+
+/* --- give every native Decipher question the white card tile look --- */
+.question {
+    background: #FFFFFF;
+    //border: 1px solid #E0DCD6;
+    border-radius: 10px;
+    //padding: 22px 24px 20px;
+    margin-bottom: 28px;
+    box-shadow: none;
+}
+
+.sc-native-hidden {
+    border: none !important;
+    box-shadow: none !important;
+    background: transparent !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+}
+.sc-native-hidden .question-text,
+.sc-native-hidden .comment,
+.sc-native-hidden .instruction-text,
+.sc-native-hidden .answers-list,
+.sc-native-hidden .fir-row,
+.sc-native-hidden .row-elements,
+.sc-native-hidden .text-box-container,
+.sc-native-hidden .number-box,
+.sc-native-hidden .noanswer-row,
+.sc-native-hidden .error {
+    display: none !important;
+}
+
+/* --- root container --- */
+#sc-root {
+    max-width: 640px;
+    margin: 0 auto;
+    //padding: 24px 16px 120px;
+    font-family: Inter, sans-serif;
+    color: #333333;
+}
+
+/* --- PRISM logo top bar --- */
+.sc-logo-bar {
+    text-align: center;
+    padding: 12px 0 20px;
+}
+.sc-logo-bar img { height: 40px; width: auto; }
+
+/* --- progress bar --- */
+#sc-progress-wrap {
+    position: sticky;
+    top: 0; z-index: 200;
+    background: #F5F2ED;
+    padding: 8px 0 12px;
+    display: none;
+}
+#sc-progress-track {
+    height: 5px;
+    background: #E0E0E0;
+    border-radius: 3px;
+}
+#sc-progress-fill {
+    height: 100%;
+    width: 0%;
+    background: #6B7F4E;
+    border-radius: 3px;
+    transition: width .45s cubic-bezier(.4,0,.2,1);
+}
+#sc-progress-label {
+    margin-top: 4px;
+    text-align: right;
+    font-size: 11px;
+    letter-spacing: .05em;
+    color: #888888;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+/* --- cards --- */
+.sc-card {
+    background: #FFFFFF;
+    //border: 1px solid #E0DCD6;
+    border-radius: 10px;
+    padding: 22px 24px 20px;
+    margin-bottom: 28px;
+    box-shadow: none;
+    display: none;
+    text-align: left;
+}
+.sc-card.sc-visible { display: block; }
+.sc-card.sc-intro {
+    display: block;
+    background: #fff;
+    //padding: 28px 15% 26px;
+}
+.sc-card .sc-q-label {
+    font-family: Inter, sans-serif;
+    font-size: 11px; font-weight: 600;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: #888888; margin-bottom: 6px;
+    text-align: right;
+}
+.sc-card .sc-q-text {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 19px; font-weight: 700;
+    color: #333333; line-height: 1.42;
+    margin-bottom: 20px;
+}
+
+/* --- intro card --- */
+.intro-logo-wrap { text-align: center; margin-bottom: 16px; }
+.intro-logo-wrap img { height: 48px; width: auto; }
+.intro-body {
+    font-family: Fraunces, Georgia, serif;
+    font-size: 15px; color: #333333;
+    text-align: center; line-height: 1.65;
+    margin-bottom: 26px;
+}
+.intro-body em { font-style: italic; color: #6B7F4E; }
+
+/* --- CTA / start button --- */
+#sc-start-btn {
+    display: block; margin: 0 auto;
+    background: #6B7F4E; color: #fff;
+    border: none; border-radius: 24px;
+    padding: 14px 48px;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase;
+    cursor: pointer; font-family: Inter, sans-serif;
+    transition: background .2s, transform .15s;
+}
+#sc-start-btn:hover {
+    background: #5A6B42;
+    transform: translateY(-1px);
+}
+#sc-start-btn:disabled { background: #999; cursor: not-allowed; transform: none; }
+
+/* --- QVOTE yes/no/not-sure buttons --- */
+.QVOTE-btn-group {
+    display: flex; gap: 40px;
+    justify-content: left; align-items: flex-start;
+    flex-wrap: wrap; padding-top: 4px;
+}
+.QVOTE-btn {
+    display: flex; flex-direction: column;
+    align-items: center; gap: 7px;
+    cursor: pointer; user-select: none; outline: none;
+}
+.QVOTE-shape {
+    display: flex; align-items: center; justify-content: center;
+    font-weight: 800;
+    transition: transform .18s, box-shadow .18s;
+    box-shadow: 0 3px 10px rgba(0,0,0,.12);
+}
+.QVOTE-yes .QVOTE-shape {
+    width: 78px; height: 78px; border-radius: 50%;
+    background: #2E7D32; color: #fff; font-size: 30px;
+}
+.QVOTE-no .QVOTE-shape {
+    width: 78px; height: 78px; border-radius: 50%;
+    background: #C62828; color: #fff; font-size: 28px;
+}
+.QVOTE-ns .QVOTE-shape {
+    width: 110px; height: 46px; border-radius: 10px;
+    background: #D5D0C8; color: #555;
+    font-size: 13px; font-weight: 600;
+    box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+.QVOTE-btn-label {
+    font-size: 11px; font-weight: 700;
+    letter-spacing: .1em; text-transform: uppercase; color: #888888;
+}
+.QVOTE-btn:hover .QVOTE-shape, .QVOTE-btn:focus .QVOTE-shape {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0,0,0,.18);
+}
+.QVOTE-btn.sc-sel .QVOTE-shape {
+    box-shadow: 0 0 0 4px rgba(107,127,78,.35), 0 3px 10px rgba(0,0,0,.15);
+}
+.QVOTE-btn.sc-sel .QVOTE-btn-label { color: #6B7F4E; }
+
+/* --- ZIP code digits --- */
+.zip-digits-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.zip-digit {
+    width: 54px; height: 66px;
+    border: 2px solid #D5D0C8; border-radius: 8px;
+    font-size: 28px; font-weight: 700;
+    text-align: center; color: #333333;
+    background: #E8E4DE; outline: none;
+    caret-color: #6B7F4E;
+    font-family: Inter, sans-serif;
+    transition: border-color .18s, box-shadow .18s, background .18s;
+}
+.zip-digit:focus {
+    border-color: #6B7F4E; background: #fff;
+    box-shadow: 0 0 0 3px rgba(107,127,78,.18);
+}
+.zip-digit.zip-filled { background: #fff; border-color: #6B7F4E; }
+
+/* --- "Why we ask" callout --- */
+.zip-why-row { margin-bottom: 10px; }
+.zip-why-trigger {
+    background: none; border: none; padding: 0; cursor: pointer;
+    display: flex; align-items: center; gap: 7px;
+    font-size: 12.5px; color: #888888; font-family: Inter, sans-serif;
+}
+.zip-why-icon {
+    width: 20px; height: 20px; background: #D5D0C8; color: #555;
+    border-radius: 50%;
+    display: inline-flex; align-items: center; justify-content: center;
+    font-size: 12px; font-weight: 800; flex-shrink: 0;
+}
+.zip-why-body {
+    display: none; margin-top: 6px; padding: 10px 14px;
+    background: #FFF9C4;
+    border-left: 3px solid #6B7F4E; border-radius: 0 8px 8px 0;
+    font-size: 12.5px; line-height: 1.55; color: #333333;
+    font-family: Inter, sans-serif;
+}
+
+/* --- PNTA row --- */
+.sc-pna-row {
+    display: flex; align-items: center; gap: 9px;
+    margin-top: 12px; cursor: pointer;
+    font-size: 12.5px; color: #999999;
+    font-family: Inter, sans-serif; user-select: none;
+}
+.sc-pna-chk { width: 18px; height: 18px; accent-color: #6B7F4E; cursor: pointer; }
+
+/* --- Age digits --- */
+.age-digits-row { display: flex; gap: 8px; margin-bottom: 14px; }
+.age-digit {
+    width: 58px; height: 70px;
+    border: 2px solid #D5D0C8; border-radius: 8px;
+    font-size: 30px; font-weight: 700;
+    text-align: center; color: #333333;
+    background: #E8E4DE; outline: none;
+    font-family: Inter, sans-serif;
+    transition: border-color .18s, box-shadow .18s, background .18s;
+}
+.age-digit:focus { border-color: #6B7F4E; background: #fff; box-shadow: 0 0 0 3px rgba(107,127,78,.18); }
+.age-digit.age-filled { background: #fff; border-color: #6B7F4E; }
+.sc-field-error {
+  color: #C0392B; font-family: Inter, sans-serif; font-size: 13px;
+  font-weight: 600; margin: -6px 0 12px; display: none;
+}
+.zip-digit.sc-input-err, .age-digit.sc-input-err {
+  border-color: #C0392B !important; background: #FDF2F2 !important;
+}
+.age-instruction {
+    font-size: 13px; color: #888888; margin: -10px 0 12px;
+    font-family: Inter, sans-serif;
+}
+
+/* --- Gender: STYLE.HORIZONTAL.RADIO --- */
+.gender-pills {
+    display: flex; gap: 12px;
+    justify-content: flex-start; flex-wrap: wrap;
+}
+.gender-pill {
+    padding: 10px 24px;
+    border: 2px solid #E0DCD6; border-radius: 24px;
+    background: #fff; cursor: pointer;
+    font-family: Inter, sans-serif; font-size: 13px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    color: #333333; text-align: center;
+    transition: border-color .18s, background .18s;
+    user-select: none;
+}
+.gender-pill:hover { border-color: #6B7F4E; }
+.gender-pill.sc-sel { border-color: #6B7F4E; background: #6B7F4E; color: #fff; }
+
+/* --- Vote24: CUSTOM.BALLOT --- */
+.ballot-card-inner {
+    border: 2px solid #333; border-radius: 3px;
+    padding: 10px 12px 10px 22px;
+    background: #fff; position: relative; overflow: hidden;
+    font-family: 'Courier New', Courier, monospace;
+}
+.ballot-edge-bars {
+    position: absolute; left: 0; top: 0; bottom: 0; width: 14px;
+    display: flex; flex-direction: column;
+    justify-content: space-around; padding: 6px 0;
+    pointer-events: none;
+}
+.ballot-edge-bar { width: 10px; height: 6px; background: #333; border-radius: 1px; margin-left: 2px; }
+.ballot-row {
+    display: flex; align-items: center;
+    padding: 8px 4px; border-bottom: 1px solid #ddd;
+    cursor: pointer; position: relative;
+    transition: background .12s;
+}
+.ballot-row:last-child { border-bottom: none; }
+.ballot-row:hover { background: rgba(0,0,0,.03); }
+.ballot-oval-wrap { width: 48px; flex-shrink: 0; display: flex; justify-content: center; }
+.ballot-oval {
+    width: 38px; height: 19px;
+    border: 2.5px solid #333; border-radius: 50%;
+    background: transparent;
+    transition: background .15s;
+}
+.ballot-row.sc-sel .ballot-oval { background: #6B7F4E; }
+.ballot-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px; color: #333333; font-weight: 600;
+    letter-spacing: .02em; line-height: 1.3; padding-left: 4px; flex: 1;
+}
+.ballot-label .party-tag { font-weight: 400; margin-left: 4px; }
+.ballot-row-muted .ballot-label { color: #999999; }
+.ballot-bottom-row {
+    display: flex; align-items: center;
+    padding: 8px 4px; cursor: pointer;
+    border-top: 1px solid #ddd;
+    transition: background .12s;
+}
+.ballot-bottom-row:hover { background: rgba(0,0,0,.03); }
+.ballot-bottom-row .ballot-label { color: #888888; font-size: 13px; }
+.ballot-bottom-row.sc-sel .ballot-label { color: #333333; }
+.ballot-bottom-row .ballot-oval-wrap { display: none; }
+
+/* --- Party1: CUSTOM.PARTYID --- */
+.party-main-btns {
+    display: flex; gap: 14px;
+    justify-content: flex-start; align-items: center;
+    flex-wrap: wrap; margin-bottom: 6px;
+}
+.party-btn {
+    display: flex; align-items: center; gap: 8px; cursor: pointer;
+    padding: 10px 16px; border: 2px solid #E0DCD6;
+    border-radius: 24px; background: #fff;
+    transition: border-color .2s, background .2s;
+    user-select: none;
+}
+.party-btn:hover { border-color: #6B7F4E; }
+.party-btn.sc-sel { border-color: #6B7F4E; background: #F8F5F0; }
+.party-btn .party-icon { width: 28px; height: 28px; border-radius: 50%; }
+.party-btn > span { font-family: Inter, sans-serif; font-size: 14px; font-weight: 700; color: #333333; }
+.party-ind-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 28px; height: 28px; border-radius: 50%;
+    background: #D5D0C8; color: #555;
+    font-size: 9px; font-weight: 800; letter-spacing: .04em;
+    flex-shrink: 0;
+}
+
+/* --- Party2: strong/not-so-strong (radio circles) --- */
+.party-sub {
+    display: none; margin-top: 18px;
+    padding-top: 16px; border-top: 1px solid #E0DCD6;
+}
+.party-sub .sc-q-text { font-size: 16px; margin-bottom: 14px; }
+.party-sub-radios {
+    display: flex; gap: 28px; align-items: center;
+    flex-wrap: wrap; margin-bottom: 14px;
+}
+.party-sub-radio {
+    display: flex; align-items: center; gap: 8px;
+    cursor: pointer; user-select: none;
+}
+.party-sub-circle {
+    width: 28px; height: 28px;
+    border: 2.5px solid #D5D0C8; border-radius: 50%;
+    background: transparent;
+    transition: background .15s, border-color .15s;
+    flex-shrink: 0;
+}
+.party-sub-radio.sc-sel .party-sub-circle { background: #6B7F4E; border-color: #6B7F4E; }
+.party-sub-radio > span {
+    font-family: Inter, sans-serif; font-size: 15px; font-weight: 500; color: #333333;
+}
+.party-sub-icons {
+    display: flex; gap: 10px; align-items: center; margin-top: 4px;
+}
+.party-sub-icon-pill {
+    display: flex; align-items: center; gap: 6px;
+    padding: 6px 14px; border: 2px solid #E0DCD6;
+    border-radius: 20px; background: #fff;
+}
+.party-sub-icon-pill.sc-active { border-color: #6B7F4E; background: #F8F5F0; }
+.party-sub-icon-pill.sc-dim { opacity: .4; }
+.party-sub-icon-pill .party-icon { width: 22px; height: 22px; }
+.party-sub-icon-pill > span { font-family: Inter, sans-serif; font-size: 13px; font-weight: 600; color: #333333; }
+
+/* --- Party3: lean pills with icons --- */
+.party-lean-btns {
+    display: flex; gap: 10px; flex-wrap: wrap; align-items: center;
+}
+.party-lean-btn {
+    display: flex; align-items: center; gap: 8px;
+    padding: 10px 16px; border: 2px solid #E0DCD6; border-radius: 24px;
+    background: #fff; cursor: pointer;
+    transition: border-color .18s, background .18s;
+    user-select: none;
+}
+.party-lean-btn:hover { border-color: #6B7F4E; }
+.party-lean-btn.sc-sel { border-color: #6B7F4E; background: #F8F5F0; }
+.party-lean-btn .party-icon { width: 24px; height: 24px; flex-shrink: 0; }
+.party-lean-btn > span { font-size: 14px; font-weight: 600; color: #333333; font-family: Inter, sans-serif; }
+.party-lean-no-badge {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 24px; height: 24px; border-radius: 50%;
+    background: #D5D0C8; color: #555;
+    font-size: 9px; font-weight: 800; flex-shrink: 0;
+}
+
+/* --- Footer --- */
+#sc-footer {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 100;
+    background: #F5F2ED;
+    border-top: 1px solid #E0DCD6;
+    padding: 10px 20px;
+    text-align: center;
+    font-size: 10px; color: #AAAAAA; font-family: Inter, sans-serif; line-height: 1.4;
+}
+#sc-footer a { color: #6B7F4E; text-decoration: none; }
+
+/* --- Custom CONTINUE button --- */
+#sc-continue-btn {
+    background: #6B7F4E;
+    color: #fff; border: none;
+    border-radius: 24px;
+    padding: 14px 36px;
+    font-family: Inter, sans-serif;
+    font-size: 14px; font-weight: 700;
+    letter-spacing: .08em; text-transform: uppercase;
+    cursor: pointer;
+    box-shadow: none;
+    transition: background .2s, transform .15s;
+}
+#sc-continue-btn:hover {
+    background: #5A6B42;
+    transform: translateY(-1px);
+}
+
+    </style>
+]]></style>
+<style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
+jQuery('[type="text"]').attr('placeholder', '>>  Specify');
+]]></style>
+<style name="respview.client.js" with="d2,edu" wrap="ready"><![CDATA[
+setInterval(function () {
+  const isChecked = jQuery("input[type='checkbox']").is(":checked");
+
+  if (isChecked) {
+    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
+    jQuery('input[type="radio"]').prop("disabled", true);
+  } else {
+    jQuery('input[type="radio"]').prop("disabled", false);
+  }
+}, 100);
+]]></style>
+<style name="respview.client.js" with="REL,income" wrap="ready"><![CDATA[
+jQuery(document).on("change", "input[type='checkbox']", function () {
+const anyChecked = jQuery("input[type='checkbox']").is(":checked");
+  if (anyChecked) 
+  {
+    // reset to default (-1) and disable
+    jQuery('[class="input dropdown"]').val('-1').trigger('change');
+    jQuery('[class="input dropdown"]').prop('disabled', true).attr('aria-disabled', 'true');
+  } 
+  else {
+    // enable again
+    jQuery('[class="input dropdown"]').prop('disabled', false).attr('aria-disabled', 'false');
+  }
+  });
+]]></style>
+<style name="respview.client.js" with="qsocialinfluence,HHIX102" wrap="ready"><![CDATA[
+setInterval(function(){
+            if($ ("div[class*='sq-cardrating-widget']").attr("data-atend") == "true")
+              $ ("#btn_continue").click();
+      },100);
+]]></style>
+<style mode="after" name="respview.client.js" with="QMD1_intro2" wrap="ready"><![CDATA[
+document.getElementById('btn_continue').setAttribute('value', 'ENJOY!');
+]]></style>
+<style mode="after" name="respview.client.js" with="Start_Info" wrap="ready"><![CDATA[
+document.getElementById('btn_continue').setAttribute('value', 'READY, SET, GO!');
+]]></style>
+<style mode="after" name="respview.client.js" wrap="ready"><![CDATA[
+var defined = function(s,c){ return (c||document).querySelector(s); };
+  var definedAll = function(s,c){ return [].slice.call((c||document).querySelectorAll(s)); };
+
+  var CARDS = ['card-intro','card-QVOTE','card-qzip','card-qage','card-qgender','card-qvote24','card-party'];
+  var cur = 0;
+  var total = CARDS.length - 1;
+
+  /* ---- find Decipher question element by label ---- */
+  function findQ(q){
+    return document.getElementById('q_'+q)
+        || document.getElementById('question_'+q)
+        || document.getElementById(q)
+        || document.querySelector('[id$="_'+q+'"]')
+        || document.querySelector('.question input[name*="'+q+'"]');
+  }
+
+  /* ---- hide native Decipher questions ---- */
+  ['QVOTE','QZIP','QAGE','QGENDER','QVOTE24','QPARTY1','QPARTY2','QS5B'].forEach(function(q){
+    var el = findQ(q);
+    if(el){
+      el.classList.add('sc-native-hidden');
+    }
+  });
+
+  /* ---- write back to native Decipher inputs ---- */
+  function setRadio(q, val){
+    var box = findQ(q);
+    if(!box) return;
+    var all = box.querySelectorAll('input[type="radio"]');
+    /* Position-based first (data-val="1" = 1st radio, etc.), then by value */
+    var inp = null;
+    var idx = parseInt(val,10);
+    if(idx>0 && idx<=all.length) inp = all[idx-1];
+    if(!inp) inp = box.querySelector('input[type="radio"][value="r'+val+'"]');
+    if(!inp) inp = box.querySelector('input[type="radio"][value="'+val+'"]');
+    if(inp){
+      [].forEach.call(all, function(r){ r.checked = false; });
+      inp.checked = true;
+      inp.dispatchEvent(new Event('change', {bubbles:true}));
+      try{ jQuery(inp).trigger('change'); }catch(e){}
+    }
+  }
+  function setText(q, val){
+    var box = findQ(q);
+    if(!box) return;
+    var inp = box.querySelector('input[type="text"]');
+    if(inp){
+      inp.value = val;
+      try{ jQuery(inp).trigger('change'); }catch(e){}
+      inp.dispatchEvent(new Event('change', {bubbles:true}));
+    }
+  }
+  function setNumber(q, val){
+    var box = findQ(q);
+    if(!box) return;
+    var inp = box.querySelector('input[type="text"],input[type="number"]');
+    if(inp){
+      inp.value = val;
+      try{ jQuery(inp).trigger('change'); }catch(e){}
+      inp.dispatchEvent(new Event('change', {bubbles:true}));
+    }
+  }
+
+  /* ---- card navigation ---- */
+  function showCard(idx){
+    CARDS.forEach(function(id,i){
+      var el = document.getElementById(id);
+      if(!el) return;
+      if(i===0){ el.style.display = idx===0 ? 'block' : 'none'; }
+      else { el.style.display = i<=idx ? 'block' : 'none'; }
+    });
+    updateProgress();
+  }
+  function advance(){
+    if(cur < CARDS.length-1){ cur++; showCard(cur); }
+    var last = document.getElementById(CARDS[cur]);
+    if(last) last.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+  function updateProgress(){
+    var wrap = document.getElementById('sc-progress-wrap');
+    var fill = document.getElementById('sc-progress-fill');
+    var lbl  = document.getElementById('sc-progress-label');
+    if(!wrap||!fill) return;
+    if(cur>0){
+      wrap.style.display='block';
+      var pct = Math.round((cur/total)*100);
+      fill.style.width = pct+'%';
+      if(lbl) lbl.textContent = pct+'% COMPLETE';
+    }
+  }
+  function enableNext(){
+    jQuery('#sc-continue-wrap').show();
+    var wrap = document.getElementById('sc-continue-wrap');
+    if(wrap) wrap.scrollIntoView({behavior:'smooth',block:'center'});
+  }
+
+  showCard(0);
+
+  /* INTRO */
+  jQuery('#sc-start-btn').on('click', function(){ advance(); });
+
+  /* QVOTE - registered to vote */
+  jQuery('#card-QVOTE').on('click', '.QVOTE-btn', function(){
+    jQuery('#card-QVOTE .QVOTE-btn').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    setRadio('QVOTE', jQuery(this).attr('data-val'));
+    setTimeout(advance, 350);
+  });
+
+  /* ---- validation helpers ---- */
+  function showFieldError(id, msg){
+    var el = document.getElementById(id);
+    if(el){ el.textContent = msg; el.style.display = 'block'; }
+  }
+  function clearFieldError(id){
+    var el = document.getElementById(id);
+    if(el){ el.textContent = ''; el.style.display = 'none'; }
+  }
+  function validateZip(code){
+    if(!/^\d{5}$/.test(code)) return 'Please enter a valid 5-digit ZIP code.';
+    var pfx = parseInt(code.substring(0,3),10);
+    /* US ZIP prefixes run 005-999; gaps: 000-004, 213, 269, 343, 348, 353, 419,
+       428-432, 517-519, 529-532, 552, 568, 578, 579, 589, 621, 632, 642, 643,
+       659, 663, 731, 732, 742, 771, 817, 818, 819, 839, 848, 849, 854, 858,
+       861, 862, 866-869, 876-884, 890-891, 896-899, 929, 952-959, 987 */
+    var bad = [0,1,2,3,4,213,269,343,348,353,419,517,518,519,552,568,578,579,
+      589,621,632,642,643,659,663,731,732,742,771,817,818,819,839,848,849,
+      854,858,861,862,866,867,868,869,876,877,878,879,880,881,882,883,884,
+      890,891,896,897,898,899,929,952,953,954,955,956,957,958,959,987];
+    if(bad.indexOf(pfx)!==-1) return 'That doesn\u2019t appear to be a valid US ZIP code. Please double-check.';
+    return '';
+  }
+  function validateAge(val){
+    var n = parseInt(val,10);
+    if(isNaN(n) || n<18) return 'You must be at least 18 to participate.';
+    if(n>89) return 'Please enter an age between 18 and 89.';
+    return '';
+  }
+
+  /* QZIP - zip code digits */
+  var zipD = definedAll('#card-qzip .zip-digit');
+  jQuery('#card-qzip').on('input', '.zip-digit', function(){
+    this.value = this.value.replace(/\D/g,'');
+    var idx = zipD.indexOf(this);
+    if(this.value.length===1 && idx<zipD.length-1) zipD[idx+1].focus();
+    jQuery(this).toggleClass('zip-filled', this.value.length>0);
+    clearFieldError('zip-error');
+    jQuery(zipD).removeClass('sc-input-err');
+    var full = jQuery.map(zipD, function(d){return d.value;}).join('');
+    if(full.length===5){
+      var err = validateZip(full);
+      if(err){
+        showFieldError('zip-error', err);
+        jQuery(zipD).addClass('sc-input-err');
+      } else {
+        setText('QZIP', full);
+        setTimeout(advance, 400);
+      }
+    }
+  });
+  jQuery('#card-qzip').on('keydown', '.zip-digit', function(e){
+    var idx = zipD.indexOf(this);
+    if(e.key==='Backspace' && !this.value && idx>0) zipD[idx-1].focus();
+  });
+  jQuery('#zip-pna').on('change', function(){
+    if(this.checked){
+      jQuery(zipD).val('').prop('disabled',true).removeClass('zip-filled sc-input-err');
+      clearFieldError('zip-error');
+      setText('QZIP','');
+      setTimeout(advance, 350);
+    } else { jQuery(zipD).prop('disabled',false); }
+  });
+  jQuery('.zip-why-trigger').on('click', function(){
+    jQuery('.zip-why-body').toggle();
+  });
+
+  /* QAGE - age digits */
+  var ageD = definedAll('#card-qage .age-digit');
+  jQuery('#card-qage').on('input', '.age-digit', function(){
+    this.value = this.value.replace(/\D/g,'');
+    var idx = ageD.indexOf(this);
+    if(this.value.length===1 && idx<ageD.length-1) ageD[idx+1].focus();
+    jQuery(this).toggleClass('age-filled', this.value.length>0);
+    clearFieldError('age-error');
+    jQuery(ageD).removeClass('sc-input-err');
+    var full = jQuery.map(ageD, function(d){return d.value;}).join('');
+    if(full.length===2){
+      var err = validateAge(full);
+      if(err){
+        showFieldError('age-error', err);
+        jQuery(ageD).addClass('sc-input-err');
+      } else {
+        setNumber('QAGE', full);
+        setTimeout(advance, 400);
+      }
+    }
+  });
+  jQuery('#card-qage').on('keydown', '.age-digit', function(e){
+    var idx = ageD.indexOf(this);
+    if(e.key==='Backspace' && !this.value && idx>0) ageD[idx-1].focus();
+  });
+  jQuery('#age-pna').on('change', function(){
+    if(this.checked){
+      jQuery(ageD).val('').prop('disabled',true).removeClass('age-filled sc-input-err');
+      clearFieldError('age-error');
+      setNumber('QAGE','');
+      setTimeout(advance, 350);
+    } else { jQuery(ageD).prop('disabled',false); }
+  });
+
+  /* QGENDER - horizontal pills */
+  jQuery('#gender-pills').on('click', '.gender-pill', function(){
+    jQuery('#gender-pills .gender-pill').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    setRadio('QGENDER', jQuery(this).attr('data-val'));
+    setTimeout(advance, 350);
+  });
+  jQuery('#gender-pna').on('change', function(){
+    if(this.checked){ setTimeout(advance, 350); }
+  });
+
+  /* QVOTE24 - custom ballot */
+  jQuery('#ballot-vote24').on('click', '.ballot-row, .ballot-bottom-row', function(){
+    jQuery('#ballot-vote24 .ballot-row, #ballot-vote24 .ballot-bottom-row').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    setRadio('QVOTE24', jQuery(this).attr('data-val'));
+    setTimeout(advance, 350);
+  });
+  jQuery('#vote-pna').on('change', function(){
+    if(this.checked){ setTimeout(advance, 350); }
+  });
+
+  /* QPARTY1 / QPARTY2 / QS5B - party identification */
+  var partyChoice = '';
+  jQuery('#card-party').on('click', '.party-main-btn', function(){
+    jQuery('#card-party .party-main-btn').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    var v = jQuery(this).attr('data-val');
+    partyChoice = v;
+    setRadio('QPARTY1', v);
+    jQuery('#party-pna-main').hide();
+    if(v==='1'||v==='2'){
+      jQuery('#party-sub-a').show();
+      jQuery('#QPARTY2-pipe').text(v==='1' ? 'Republican' : 'Democrat');
+      jQuery('#pill-gop').removeClass('sc-active sc-dim');
+      jQuery('#pill-dem').removeClass('sc-active sc-dim');
+      if(v==='1'){ jQuery('#pill-gop').addClass('sc-active'); jQuery('#pill-dem').addClass('sc-dim'); }
+      else { jQuery('#pill-dem').addClass('sc-active'); jQuery('#pill-gop').addClass('sc-dim'); }
+      jQuery('#party-sub-b').hide();
+    } else {
+      jQuery('#party-sub-a').hide();
+      jQuery('#party-sub-b').show();
+    }
+  });
+  jQuery('#party-sub-a').on('click', '.party-sub-radio', function(){
+    jQuery('#party-sub-a .party-sub-radio').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    setRadio('QPARTY2', jQuery(this).attr('data-val'));
+    enableNext();
+  });
+  jQuery('#party2-pna').on('change', function(){
+    if(this.checked){ enableNext(); }
+  });
+  jQuery('#party-sub-b').on('click', '.party-lean-btn', function(){
+    jQuery('#party-sub-b .party-lean-btn').removeClass('sc-sel');
+    jQuery(this).addClass('sc-sel');
+    setRadio('QS5B', jQuery(this).attr('data-val'));
+    enableNext();
+  });
+  jQuery('#party3-pna').on('change', function(){
+    if(this.checked){ enableNext(); }
+  });
+  jQuery('#party-pna').on('change', function(){
+    if(this.checked){ enableNext(); }
+  });
+
+  /* CONTINUE button — validate then trigger native Decipher page submit */
+  jQuery('#sc-continue-btn').on('click', function(){
+    /* Re-validate ZIP and age before submitting */
+    var zipVal = jQuery.map(zipD, function(d){return d.value;}).join('');
+    var ageVal = jQuery.map(ageD, function(d){return d.value;}).join('');
+    var blocked = false;
+
+    if(zipVal.length && zipVal.length===5){
+      var ze = validateZip(zipVal);
+      if(ze){ showFieldError('zip-error',ze); jQuery(zipD).addClass('sc-input-err'); blocked=true; }
+    }
+    if(ageVal.length && ageVal.length===2){
+      var ae = validateAge(ageVal);
+      if(ae){ showFieldError('age-error',ae); jQuery(ageD).addClass('sc-input-err'); blocked=true; }
+    }
+    if(blocked){
+      var errEl = document.querySelector('.sc-field-error[style*="block"]');
+      if(errEl) errEl.scrollIntoView({behavior:'smooth',block:'center'});
+      return;
+    }
+
+    var nxt = document.getElementById('btn_continue');
+    if(!nxt) nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
+    if(!nxt) nxt = document.querySelector('.button, input.button');
+    if(nxt){
+      nxt.setAttribute('style','display:block !important;visibility:hidden;position:absolute;left:-9999px;');
+      nxt.click();
+    }
+  });
+
+  /* Surface Decipher server-side validation errors on hidden native questions */
+  jQuery(function(){
+    var nativeErrs = jQuery('.question.sc-native-hidden .error, .question.sc-native-hidden .cell.error');
+    if(nativeErrs.length){
+      nativeErrs.each(function(){
+        var qEl = jQuery(this).closest('.question');
+        var qId = qEl.attr('id') || '';
+        if(qId.indexOf('ZIP')!==-1||qId.indexOf('zip')!==-1){
+          showFieldError('zip-error', jQuery(this).text().trim() || 'Please enter a valid ZIP code.');
+          jQuery(zipD).addClass('sc-input-err');
+        }
+        if(qId.indexOf('AGE')!==-1||qId.indexOf('age')!==-1){
+          showFieldError('age-error', jQuery(this).text().trim() || 'Please enter a valid age.');
+          jQuery(ageD).addClass('sc-input-err');
+        }
+      });
+      var errEl = document.querySelector('.sc-field-error[style*="block"]');
+      if(errEl) errEl.scrollIntoView({behavior:'smooth',block:'center'});
+    }
+  });
+]]></style>
+<html label="sc_page_ui">&lt;style&gt;.nextPage, .button { display: none !important; }
+
+.sc-logo-bar {
+  display: none;
+}
+
+form#primary {
+  padding: unset;
+}
+.comment {
+  margin-top: unset;
+}
+&lt;/style&gt;
+
+<div id="sc-footer">
+  Your responses are held strictly confidential.
+  See our <a href="#">Privacy Policy</a>
+  and commitment to research ethics and integrity.
+</div>
+
+<div id="sc-root">
+
+  <div class="sc-logo-bar">
+    <img src="[rel PRISM_glyph.svg]" alt="PRISM"/>
+  </div>
+
+  <div id="sc-progress-wrap">
+    <div id="sc-progress-track"><div id="sc-progress-fill"></div></div>
+    <div id="sc-progress-label"></div>
+  </div>
+
+  <div class="sc-card sc-intro" id="card-intro">
+    <div class="intro-logo-wrap">
+      <img src="[rel PRISM_glyph.svg]" alt="PRISM"/>
+    </div>
+    <p class="intro-body">
+      Thanks for taking part. This survey helps us understand how people
+      think about health&amp;nbsp;care and public policy today. There are no
+      right or wrong answers&amp;thinsp;&amp;mdash;&amp;thinsp;we&amp;rsquo;re interested
+      in&amp;nbsp;<em>your</em>&amp;nbsp;point of view.<br/><br/>Let&amp;rsquo;s begin.
+    </p>
+    &lt;button id="sc-start-btn" type="button"&gt;READY, SET, GO!&lt;/button&gt;
+  </div>
+
+  <div class="sc-card" id="card-QVOTE">
+    <div class="sc-q-label">1 of 6 Questions</div>
+    <div class="sc-q-text">Are you registered to vote?</div>
+
+    <div class="QVOTE-btn-group">
+
+      <div class="QVOTE-btn QVOTE-yes" data-val="1" tabindex="0" role="radio" aria-label="Yes">
+        <div class="QVOTE-shape">&amp;#10003;</div>
+        <span class="QVOTE-btn-label">YES</span>
+      </div>
+
+      <div class="QVOTE-btn QVOTE-no" data-val="2" tabindex="0" role="radio" aria-label="No">
+        <div class="QVOTE-shape">&amp;#10005;</div>
+        <span class="QVOTE-btn-label">NO</span>
+      </div>
+
+      <div class="QVOTE-btn QVOTE-ns" data-val="99" tabindex="0" role="radio" aria-label="Not Sure">
+        <div class="QVOTE-shape">Not Sure</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="sc-card" id="card-qzip">
+    <div class="sc-q-label">2 of 6 Questions</div>
+    <div class="sc-q-text">Please enter your 5-digit Zip Code</div>
+    <p style="font-size:13px;color:#888888;margin:-12px 0 14px;font-family:Inter,sans-serif;">
+      (the Zip Code of your primary residence where you are registered to vote)
+    </p>
+
+    <div class="zip-digits-row">
+      &lt;input class="zip-digit" id="sc-zip-1" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 1"&gt;
+      &lt;input class="zip-digit" id="sc-zip-2" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 2"&gt;
+      &lt;input class="zip-digit" id="sc-zip-3" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 3"&gt;
+      &lt;input class="zip-digit" id="sc-zip-4" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 4"&gt;
+      &lt;input class="zip-digit" id="sc-zip-5" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="ZIP digit 5"&gt;
+    </div>
+
+    <div class="sc-field-error" id="zip-error"></div>
+
+    <div class="zip-why-row">
+      &lt;button class="zip-why-trigger" type="button"&gt;
+        <span class="zip-why-icon">?</span>
+        <span style="font-size:12px;letter-spacing:.05em;text-transform:uppercase;font-weight:600;">
+          WHY DO WE ASK THIS?
+        </span>
+      &lt;/button&gt;
+      <div class="zip-why-body">
+        Your ZIP code helps us ensure we&amp;rsquo;re hearing from people across different parts
+        of the country, building a representative sample.
+        <strong>FUN FACT:</strong> ZIP codes tie you to your congressional district, so we can ask
+        follow&amp;#x2011;up questions about your community &amp;#x2014; they never reveal your name or exact address.
+      </div>
+    </div>
+
+    &lt;label class="sc-pna-row"&gt;
+      &lt;input class="sc-pna-chk" id="zip-pna" type="checkbox"&gt;
+      <span>Prefer not to answer</span>
+    &lt;/label&gt;
+  </div>
+
+  <div class="sc-card" id="card-qage">
+    <div class="sc-q-label">3 of 6 Questions</div>
+    <div class="sc-q-text">Tell us how old you are.</div>
+    <div class="age-instruction">Enter two digits &amp;mdash; e.g., &amp;ldquo;4&amp;rdquo; then &amp;ldquo;5&amp;rdquo; for age 45</div>
+
+    <div class="age-digits-row">
+      &lt;input class="age-digit" id="sc-age-1" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="Age tens digit"&gt;
+      &lt;input class="age-digit" id="sc-age-2" type="tel" maxlength="1" inputmode="numeric"
+             autocomplete="off" aria-label="Age units digit"&gt;
+    </div>
+
+    <div class="sc-field-error" id="age-error"></div>
+
+    &lt;label class="sc-pna-row"&gt;
+      &lt;input class="sc-pna-chk" id="age-pna" type="checkbox"&gt;
+      <span>Prefer not to respond</span>
+    &lt;/label&gt;
+  </div>
+
+  <div class="sc-card" id="card-qgender">
+    <div class="sc-q-label">4 of 6 Questions</div>
+    <div class="sc-q-text">What is your gender?</div>
+
+    <div class="gender-pills" id="gender-pills">
+      <div class="gender-pill" data-val="1">MALE</div>
+      <div class="gender-pill" data-val="2">FEMALE</div>
+      <div class="gender-pill" data-val="3">OTHER</div>
+    </div>
+
+    &lt;label class="sc-pna-row"&gt;
+      &lt;input class="sc-pna-chk" id="gender-pna" type="checkbox"&gt;
+      <span>Prefer not to respond</span>
+    &lt;/label&gt;
+  </div>
+
+  <div class="sc-card" id="card-qvote24">
+    <div class="sc-q-label">5 of 6 Questions</div>
+    <div class="sc-q-text">Who did you vote for in the latest (2024) Presidential election?</div>
+
+    <div class="ballot-card-inner" id="ballot-vote24">
+      <div class="ballot-edge-bars">
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+        <div class="ballot-edge-bar"></div>
+      </div>
+
+      <div class="ballot-row" data-val="1">
+        <div class="ballot-oval-wrap"><span class="ballot-oval"></span></div>
+        <span class="ballot-label">Donald J Trump <span class="party-tag">(R)</span></span>
+      </div>
+      <div class="ballot-row" data-val="2">
+        <div class="ballot-oval-wrap"><span class="ballot-oval"></span></div>
+        <span class="ballot-label">Kamala Harris <span class="party-tag">(D)</span></span>
+      </div>
+      <div class="ballot-row ballot-row-muted" data-val="3">
+        <div class="ballot-oval-wrap"><span class="ballot-oval"></span></div>
+        <span class="ballot-label">Another Candidate</span>
+      </div>
+      <div class="ballot-bottom-row" data-val="4">
+        <span class="ballot-label">I didn&amp;rsquo;t have the chance to vote in this election</span>
+      </div>
+    </div>
+
+    &lt;label class="sc-pna-row"&gt;
+      &lt;input class="sc-pna-chk" id="vote-pna" type="checkbox"&gt;
+      <span>Prefer not to respond</span>
+    &lt;/label&gt;
+  </div>
+
+  <div class="sc-card" id="card-party">
+    <div class="sc-q-label">6 of 6 Questions</div>
+    <div class="sc-q-text">In politics today, do you consider yourself a&amp;hellip;?</div>
+
+    <div class="party-main-btns">
+      <div class="party-btn party-main-btn" data-val="1"
+           tabindex="0" role="radio" aria-label="Republican">
+        <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+        <span>Republican</span>
+      </div>
+      <div class="party-btn party-main-btn" data-val="2"
+           tabindex="0" role="radio" aria-label="Democrat">
+        <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+        <span>Democrat</span>
+      </div>
+      <div class="party-btn party-main-btn" data-val="3"
+           tabindex="0" role="radio" aria-label="Independent / Other">
+        <span class="party-ind-badge">IND</span>
+        <span>Independent/<br/>Other</span>
+      </div>
+    </div>
+
+    &lt;label class="sc-pna-row" id="party-pna-main"&gt;
+      &lt;input class="sc-pna-chk" id="party-pna" type="checkbox"&gt;
+      <span>Prefer not to respond</span>
+    &lt;/label&gt;
+
+    <div class="party-sub" id="party-sub-a">
+      <div class="sc-q-text">
+        Would you say you are a strong or not-so-strong <span id="QPARTY2-pipe">Republican</span>?
+      </div>
+      <div class="party-sub-radios">
+        <div class="party-sub-radio" data-val="1">
+          <span class="party-sub-circle"></span>
+          <span>Strong</span>
+        </div>
+        <div class="party-sub-radio" data-val="2">
+          <span class="party-sub-circle"></span>
+          <span>Not-so-strong</span>
+        </div>
+      </div>
+      <div class="party-sub-icons" id="party-sub-icons">
+        <div class="party-sub-icon-pill" id="pill-gop">
+          <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+          <span>Republican</span>
+        </div>
+        <div class="party-sub-icon-pill" id="pill-dem">
+          <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+          <span>Democrat</span>
+        </div>
+      </div>
+
+      &lt;label class="sc-pna-row"&gt;
+        &lt;input class="sc-pna-chk" id="party2-pna" type="checkbox"&gt;
+        <span>Prefer not to respond</span>
+      &lt;/label&gt;
+    </div>
+
+    <div class="party-sub" id="party-sub-b">
+      <div class="sc-q-text">Do you <strong>lean</strong> toward the&amp;hellip;</div>
+      <div class="party-lean-btns">
+        <div class="party-lean-btn" data-val="1">
+          <img class="party-icon" src="[rel GOP_Icon.svg]" alt="GOP"/>
+          <span>Republicans</span>
+        </div>
+        <div class="party-lean-btn" data-val="2">
+          <img class="party-icon" src="[rel DEM_icon.svg]" alt="DEM"/>
+          <span>Democrats</span>
+        </div>
+        <div class="party-lean-btn" data-val="3">
+          <span class="party-lean-no-badge">NO</span>
+          <span>I do not lean toward either</span>
+        </div>
+      </div>
+
+      &lt;label class="sc-pna-row"&gt;
+        &lt;input class="sc-pna-chk" id="party3-pna" type="checkbox"&gt;
+        <span>Prefer not to respond</span>
+      &lt;/label&gt;
+    </div>
+
+  </div>
+
+  <div id="sc-continue-wrap" style="display:none; text-align:center; padding:24px 0 16px;">
+    &lt;button id="sc-continue-btn" type="button"&gt;CONTINUE &amp;gt;&lt;/button&gt;
+  </div>
+
+</div></html>
+
+<radio 
+  label="QVOTE"
+  optional="1">
+  <title>Are you registered to vote?</title>
+  <row label="r1" value="1">Yes</row>
+  <row label="r2" value="2">No</row>
+  <row label="r99" value="99">Not Sure</row>
+</radio>
+
+<text 
+  label="QZIP"
+  size="5"
+  verify="zipcode">
+  <title>Please enter your 5-digit ZIP Code</title>
+</text>
+
+<number 
+  label="QAGE"
+  size="3"
+  verify="range(18,89)">
+  <title>What is your age?</title>
+</number>
+
+<radio 
+  label="QGENDER"
+  optional="1">
+  <title>Which of the following best describes your gender?</title>
+  <row label="r1" value="1">Male</row>
+  <row label="r2" value="2">Female</row>
+  <row label="r3" value="3">Other</row>
+  <row label="r99" cond="0" value="99">Prefer not to answer</row>
+</radio>
+
+<radio 
+  label="QVOTE24"
+  optional="1">
+  <title>Who did you vote for in the latest (2024) Presidential election?</title>
+  <row label="r1" value="1">Donald Trump (R)</row>
+  <row label="r2" value="2">Kamala Harris (D)</row>
+  <row label="r3" value="3">Someone else</row>
+  <row label="r4" value="4">I did not have the chance to vote</row>
+</radio>
+
+<radio 
+  label="QPARTY1"
+  optional="1">
+  <title>In politics today, do you consider yourself a…?</title>
+  <row label="r1" value="1">Republican</row>
+  <row label="r2" value="2">Democrat</row>
+  <row label="r3" value="3">Independent</row>
+  <row label="r4" value="4">Other</row>
+</radio>
+
+<radio 
+  label="QPARTY2"
+  optional="1">
+  <title>Would you say you are a strong or not-so strong [pipe: QS5]?</title>
+  <row label="r1" value="1">Strong</row>
+  <row label="r2" value="2">Not so strong</row>
+</radio>
+
+<radio 
+  label="QS5B"
+  optional="1">
+  <title>Do you lean towards the Republican or Democratic Party?</title>
+  <row label="r1" value="1">Lean Republican</row>
+  <row label="r2" value="2">Lean Democrat</row>
+  <row label="r3" value="3">Neither Party</row>
+</radio>
+
+<text 
+  label="vscreenout"
+  cond="0"
+  size="10">
+  <title>Screenout tracker</title>
+</text>
+
+<suspend/>
+
+<exec cond="QVOTE.r2 or QVOTE.r99">
+vscreenout.val = str('QVOTE')
+setMarker('Screened-QVOTE')
+</exec>
+
+<term label="Term_QVOTE" cond="QVOTE.r2 or QVOTE.r99">QVOTE termination</term>
+
+<exec cond="QVOTE24.r4">
+vscreenout.val = str('QVOTE24')
+setMarker('Screened-QVOTE24')
+</exec>
+
+<term label="Term_VOTE24" cond="QVOTE24.r4">Did not vote</term>
+
+<exec cond="QVOTE24.r3 and QS5B.r3">
+vscreenout.val = str('QS5')
+setMarker('Screened-QS5')
+</exec>
+
+<term label="Term_PARTYID" cond="QVOTE24.r3 and QS5B.r3">Voted for someone else and is Independent</term>
+
+<note>===================== MAXDIFF SETUP =====================</note>
+<exec when="init">
+def setupMaxDiffFile(fname, fileDelimiter="\t"):
+    try:
+        f = open("%s/%s" % (gv.survey.path, fname))
+        mdObj = [ line.strip("\r\n").split(fileDelimiter) for line in f.readlines() ]
+        d = dict( ("v%s_t%s" % (row[0], row[1]), row[2:]) for row in mdObj )
+    except IOError:
+        d = {}
+    return d
+def setupMaxDiffItemsI(d, vt, question):
+    item_index = dict( (r.o.label.strip("item"), r.index) for r in question.rows )
+    if vt not in d:
+        raise Exception("MaxDiff design key '%s' not found. Available keys: %s" % (vt, ", ".join(sorted(d.keys())[:20])))
+    items = d[vt]
+    for r in question.rows:
+        if r.o.label.strip("item") not in items:
+            r.disabled = True
+    question.rows.order = [ item_index[i] for i in items ]
+    print "*****STAFF ONLY*****"
+    print "Version_Task: %s" % vt
+    for i in range(len(items)):
+        print "Item %s: %s" % (i+1,items[i])
+        p.maxdiff1.append(items[i])
+</exec>
+
+<suspend/>
+
+<exec>
+p.maxdiff1=[]
+</exec>
+
+<radio 
+  label="XPARTY"
+  optional="1"
+  where="execute,survey,report">
+  <title>Hidden: Derived Party ID (1-7)</title>
+  <exec>
+if QPARTY1.r1:
+    XPARTY.val = XPARTY.r1.index if QPARTY2.r1 else XPARTY.r2.index
+elif QPARTY1.r2:
+    XPARTY.val = XPARTY.r7.index if QPARTY2.r1 else XPARTY.r6.index
+elif QPARTY1.r3 or QPARTY1.r4:
+    if QS5B.r1:   XPARTY.val = XPARTY.r3.index
+    elif QS5B.r2: XPARTY.val = XPARTY.r5.index
+    else:          XPARTY.val = XPARTY.r4.index
+  </exec>
+
+  <row label="r1">Strong Republican</row>
+  <row label="r2">Not-so-strong Republican</row>
+  <row label="r3">Lean Republican</row>
+  <row label="r4">Independent/Other</row>
+  <row label="r5">Lean Democrat</row>
+  <row label="r6">Not-so-strong Democrat</row>
+  <row label="r7">Strong Democrat</row>
+</radio>
+
+<radio 
+  label="TYPING_MODULE"
+  optional="1"
+  where="execute,survey,report">
+  <title>Hidden: Typing Module Assignment</title>
+  <exec>
+party = 4
+if QPARTY1.r1:
+    party = 1 if QPARTY2.r1 else 2
+elif QPARTY1.r2:
+    party = 7 if QPARTY2.r1 else 6
+elif QPARTY1.r3 or QPARTY1.r4:
+    if QS5B.r1:   party = 3
+    elif QS5B.r2: party = 5
+    else:          party = 4
+
+if QVOTE24.r1:
+    if party &lt;= 3:
+        TYPING_MODULE.val = TYPING_MODULE.r1.index
+    else:
+        TYPING_MODULE.val = TYPING_MODULE.r3.index
+elif QVOTE24.r2:
+    if party &gt;= 5:
+        TYPING_MODULE.val = TYPING_MODULE.r2.index
+    else:
+        TYPING_MODULE.val = TYPING_MODULE.r3.index
+elif QVOTE24.r3:
+    if party &lt;= 3:
+        TYPING_MODULE.val = TYPING_MODULE.r1.index
+    elif party &gt;= 5:
+        TYPING_MODULE.val = TYPING_MODULE.r2.index
+    else:
+        TYPING_MODULE.val = TYPING_MODULE.r3.index
+  </exec>
+
+  <row label="r1">GOP</row>
+  <row label="r2">DEM</row>
+  <row label="r3">BOTH</row>
+</radio>
+
+<suspend/>
+
+<html label="QMD1_intro2">In this section we'll ask about a mix of political and social issues. Some questions may feel personal, and some statements you may agree with strongly and others not so much. Always just go with your first, honest reaction.<br /><br />
+You'll see a series of cards, each with four statements. On each card, choose the one that sounds <b>most</b> like you and the one that sounds <b>least</b> like you.<br /><br />
+Some statements may show up again—that's intentional. There are no right or wrong answers. Go with the statement that feels most true—and most familiar—to you.</html>
+
+<suspend/>
+
+<quota label="quo12" cond="TYPING_MODULE.any" overquota="noqual" sheet="TYPING MODULE Quota"/>
+
+<suspend/>
+
+<note>===================== PAGE GROUP 3 -- DEM MaxDiff Block =====================</note>
+<block label="b11" cond="TYPING_MODULE.r2 or TYPING_MODULE.r3">
+  <note>MaxDiff Indices Template --Start DEM--</note>
+  <exec when="init">
+QMD1_md = setupMaxDiffFile("DemDesign.dat")
+  </exec>
+
+  <suspend/>
+
+  <quota label="quo1" overquota="noqual" sheet="Dem Quota"/>
+
+  <suspend/>
+
+  <number 
+   label="QMD1_Version"
+   size="3"
+   verify="range(1,100)"
+   where="execute,survey,report">
+    <title>QMD1 - MaxDiff Version</title>
+    <exec>
+for x in p.markers:
+    if "/Dem Quota/Dem_" in x:
+        QMD1_Version.val = int(x.split("_")[-1])
+        break
+    </exec>
+
+  </number>
+
+  <suspend/>
+
+  <exec>
+p.startTime = timeSpent()
+  </exec>
+
+  <suspend/>
+
+  <note>DEM MaxDiff Loop: 10 items, 4 per task, 10 tasks</note>
+  <loop label="QMD1_md_loop" vars="task">
+    <title>QMD1 - DEM MaxDiff Loop</title>
+    <block label="QMD1_md_block" randomize="1">
+      <radio 
+     label="QDEM_[loopvar: task]"
+     adim="cols"
+     grouping="cols"
+     shuffle="rows"
+     ss:listDisplay="0"
+     ss:questionClassNames="QMD1_maxdiff"
+     unique="1">
+        <title>Select the one statement that sounds MOST like your own point of view (on the left), and the statement that sounds LEAST like you (on the right)</title>
+        <exec>
+setupMaxDiffItemsI( QMD1_md, "v%d_t%d" % (QMD1_Version.val, [loopvar: task]), QDEM_[loopvar: task])
+p.MDcount = str(QMD1_md_loop_expanded.order.index([loopvar: task]-1)+1)
+        </exec>
+
+        <col label="best"><strong>sounds MOST like me</strong></col>
+        <col label="worst"><strong>sounds LEAST like me</strong></col>
+        <row label="item1">TTech and data can improve care, but only if we stop bias, protect privacy, and provide benefits fairly.</row>
+        <row label="item2">II trust mainstream experts and prefer step-by-step fixes—strengthening the ACA, not ripping it up.</row>
+        <row label="item3">Digital tools, AI, and start-ups can universalize care faster than big bureaucracies—let’s remove red tape.</row>
+        <row label="item4">Corporate greed hurts ordinary people. Government must crack down on prices, ads, and junk food.</row>
+        <row label="item5">Healthcare is a human right. We need Medicare-for-All or something very close to it.</row>
+        <row label="item6">Unions fought for good coverage. Policy should protect employer benefits and bargaining power.</row>
+        <row label="item7">Racism and inequality drive poor health. Equity must be built into every health decision and budget.</row>
+        <row label="item8">Reproductive freedom—including abortion access—is non-negotiable and central to health policy.</row>
+        <row label="item9">MMy faith calls me to fight for the poor and for broader access—especially in under-served communities.</row>
+        <row label="item10">Climate change is a public-health emergency. Clean energy and environmental justice are health policy.</row>
+        <style mode="before" name="question.header"><![CDATA[
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style type="text/css">
+    body, .survey-body, .main-content { background: #F5F2ED !important; }
+    .QMD1_maxdiff .question-text { display: none !important; }
+    .QMD1_maxdiff .comment { display: none !important; }
+    .nextPage, .button { display: none !important; }
+    .QMD1_maxdiff .survey-questions-container,
+    .QMD1_maxdiff table,
+    .QMD1_maxdiff .col-legend-group,
+    .QMD1_maxdiff .grouping-box { visibility: hidden; height: 0; overflow: hidden; }
+    .QMD1_maxdiff .md-custom-ui { visibility: visible; height: auto; overflow: visible; }
+
+    .md-custom-ui { max-width: 640px; margin: 0 auto; }
+    .md-header-row { display: flex; justify-content: space-between; padding: 0 8px 8px; }
+    .md-header-row span { font-family: Inter,sans-serif; font-size: 10px; font-weight: 800;
+        letter-spacing: .06em; text-transform: uppercase; }
+    .md-header-most { color: #6B7F4E; }
+    .md-header-least { color: #C62828; }
+    .md-row { display: flex; align-items: center; padding: 12px 4px;
+        border-bottom: 1px solid #EDE9E3; gap: 10px; }
+    .md-row:last-child { border-bottom: none; }
+    .md-row-text { flex: 1; font-family: Fraunces,Georgia,serif; font-size: 16px;
+        color: #333; line-height: 1.5; text-align: center; padding: 0 8px; }
+    .md-row:hover { background: rgba(0,0,0,.03); border-radius: 8px; }
+    .md-row.md-has-best { background: rgba(107,127,78,.08); border-radius: 8px; }
+    .md-row.md-has-worst { background: rgba(198,40,40,.06); border-radius: 8px; }
+
+    .md-radio { -webkit-appearance: none; -moz-appearance: none; appearance: none;
+        width: 44px; height: 44px; min-width: 44px; border-radius: 50%;
+        border: 2px solid #C5C0B8;
+        background: radial-gradient(circle at 35% 35%, #FAFAFA, #E8E4DE);
+        box-shadow: 0 2px 6px rgba(0,0,0,.12), inset 0 1px 2px rgba(255,255,255,.6);
+        cursor: pointer; transition: all .2s ease; outline: none; }
+    .md-radio:hover { border-color: #999;
+        box-shadow: 0 3px 10px rgba(0,0,0,.18), inset 0 1px 2px rgba(255,255,255,.6);
+        transform: scale(1.08); }
+    .md-radio.md-best-checked {
+        background: radial-gradient(circle at 35% 35%, #8CAF6B, #5A7E3A);
+        border-color: #4A6E2A;
+        box-shadow: 0 3px 10px rgba(90,126,58,.4), inset 0 1px 3px rgba(255,255,255,.3); }
+    .md-radio.md-worst-checked {
+        background: radial-gradient(circle at 35% 35%, #E05555, #C62828);
+        border-color: #A01E1E;
+        box-shadow: 0 3px 10px rgba(198,40,40,.4), inset 0 1px 3px rgba(255,255,255,.3); }
+</style>
+<div style="padding:0 16px;">
+  <div style="background:#fff;border:1px solid #E0DCD6;border-radius:10px;padding:22px 24px 20px;margin-bottom:20px;">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:6px;text-align:right;">
+      Card ${p.MDcount} of ${len(QMD1_md_loop_expanded.order)}
+    </div>
+    <div style="font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:700;color:#333;line-height:1.42;margin-bottom:8px;">
+      From the set of short statements expressing different points of view about politics, culture and health.
+    </div>
+    <div style="font-size:13px;color:#555;text-align:center;margin-bottom:14px;line-height:1.5;">
+      <span style="color:#6B7F4E;font-weight:700;">&#x2B05;</span>
+      Select one statement that sounds MOST like your own point of view, and
+      the one statement that sounds LEAST like you
+      <span style="color:#C62828;font-weight:700;">&#x27A1;</span>
+    </div>
+]]></style>
+        <style name="question.top-legend"><![CDATA[
+\@if ec.simpleList
+    $(legends)
+\@elsea
+    <$(tag) class="maxdiff-header-legend row row-col-legends row-col-legends-top ${"mobile-top-row-legend " if mobileOnly else ""}${"GtTenColumns " if ec.colCount > 10 else ""}colCount-$(colCount)">
+        ${"%s%s" % (legends.split("</th>")[0],"</th>")}
+       $(left)
+        ${"%s%s" % (legends.split("</th>")[1],"</th>")}
+    </$(tag)>
+    \@if not simple
+  </tbody>
+  <tbody>
+    \@endif
+\@endif
+]]></style>
+        <style name="question.row"><![CDATA[
+\@if ec.simpleList
+    $(elements)
+\@else
+    <$(tag) class="maxdiff-row row row-elements $(style) colCount-$(colCount)">
+        ${"%s%s" % (elements.split("</td>")[0],"</td>")}
+        $(left)
+        ${"%s%s" % (elements.split("</td>")[1],"</td>")}
+    </$(tag)>
+\@endif
+]]></style>
+        <style mode="after" name="question.footer"><![CDATA[
+</div>
+  <div style="text-align:center;padding:24px 0 16px;">
+    <button type="button" id="md-continue-btn"
+            style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:.4;pointer-events:none;">
+      CONTINUE &gt;
+    </button>
+  </div>
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:100;background:#F5F2ED;border-top:1px solid #E0DCD6;padding:10px 20px;text-align:center;font-size:10px;color:#AAA;font-family:Inter,sans-serif;line-height:1.4;">
+    Your responses are held strictly confidential.
+    See our <a href="#" style="color:#6B7F4E;text-decoration:none;">Privacy Policy</a>
+    and commitment to research ethics and integrity.
+  </div>
+</div>
+<script>
+(function(){
+  var q = document.querySelector('.QMD1_maxdiff');
+  if(!q) return;
+
+  var allRadios = [].slice.call(q.querySelectorAll('input[type="radio"]'));
+  var groups = {};
+  allRadios.forEach(function(r){ (groups[r.name] = groups[r.name]||[]).push(r); });
+  var gnames = Object.keys(groups);
+  console.log('[MD-DEM] radio groups found:', gnames);
+  if(gnames.length < 2){ console.warn('[MD-DEM] need 2+ radio groups'); return; }
+
+  var bestRadios = groups[gnames[0]];
+  var worstRadios = groups[gnames[1]];
+  console.log('[MD-DEM] best:', bestRadios.length, 'worst:', worstRadios.length);
+
+  var items = [];
+  bestRadios.forEach(function(r,i){
+    var row = r.closest('tr, .row-element, .row, label, li, div');
+    var text = '';
+    if(row){
+      var legend = row.querySelector('th.row-legend, .row-legend-text, .row-legend, .text');
+      text = legend ? legend.textContent.trim() : '';
+      if(!text){
+        var clone = row.cloneNode(true);
+        clone.querySelectorAll('input').forEach(function(inp){ inp.remove(); });
+        text = clone.textContent.trim();
+      }
+    }
+    if(!text) text = 'Statement '+(i+1);
+    /* strip Decipher row labels like [item8] */
+    text = text.replace(/^\s*\[item\d+\]\s*/i, '');
+    items.push(text);
+  });
+
+  var wrap = document.createElement('div');
+  wrap.className = 'md-custom-ui';
+  wrap.innerHTML = '<div class="md-header-row">' +
+    '<span class="md-header-most">MOST<br>LIKE ME</span>' +
+    '<span class="md-header-least">LEAST<br>LIKE ME</span></div>';
+
+  var bestSel = -1, worstSel = -1;
+
+  function updateUI(){
+    var rows = wrap.querySelectorAll('.md-row');
+    var allBest = wrap.querySelectorAll('.md-radio-best');
+    var allWorst = wrap.querySelectorAll('.md-radio-worst');
+    for(var i=0;i<rows.length;i++){
+      rows[i].classList.remove('md-has-best','md-has-worst');
+      allBest[i].classList.remove('md-best-checked');
+      allWorst[i].classList.remove('md-worst-checked');
+      if(i===bestSel){ rows[i].classList.add('md-has-best'); allBest[i].classList.add('md-best-checked'); }
+      if(i===worstSel){ rows[i].classList.add('md-has-worst'); allWorst[i].classList.add('md-worst-checked'); }
+    }
+    var btn = document.getElementById('md-continue-btn');
+    if(btn){
+      if(bestSel>=0 && worstSel>=0){ btn.style.opacity='1'; btn.style.pointerEvents='auto'; }
+      else { btn.style.opacity='.4'; btn.style.pointerEvents='none'; }
+    }
+  }
+
+  items.forEach(function(txt,i){
+    var row = document.createElement('div');
+    row.className = 'md-row';
+    row.innerHTML = '<button type="button" class="md-radio md-radio-best" data-idx="'+i+'"></button>' +
+      '<div class="md-row-text">'+txt+'</div>' +
+      '<button type="button" class="md-radio md-radio-worst" data-idx="'+i+'"></button>';
+    wrap.appendChild(row);
+  });
+
+  wrap.addEventListener('click', function(e){
+    var btn = e.target.closest('.md-radio');
+    if(!btn) return;
+    var idx = parseInt(btn.getAttribute('data-idx'),10);
+    if(btn.classList.contains('md-radio-best')){
+      if(idx===worstSel) return;
+      bestSel = (bestSel===idx) ? -1 : idx;
+      if(bestSel>=0 && bestRadios[bestSel]){ bestRadios[bestSel].checked=true; bestRadios[bestSel].click(); }
+    } else {
+      if(idx===bestSel) return;
+      worstSel = (worstSel===idx) ? -1 : idx;
+      if(worstSel>=0 && worstRadios[worstSel]){ worstRadios[worstSel].checked=true; worstRadios[worstSel].click(); }
+    }
+    updateUI();
+  });
+
+  q.insertBefore(wrap, q.firstChild);
+
+  var btn = document.getElementById('md-continue-btn');
+  if(btn){
+    btn.addEventListener('click', function(){
+      if(bestSel<0||worstSel<0) return;
+      var nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
+      if(!nxt) nxt = document.querySelector('.button, input.button');
+      if(nxt){
+        nxt.setAttribute('style','display:block !important;visibility:hidden;position:absolute;left:-9999px;');
+        nxt.click();
+      } else {
+        var form = document.querySelector('form');
+        if(form) form.submit();
+      }
+    });
+  }
+})();
+</script>
+]]></style>
+      </radio>
+
+      <suspend/>
+    </block>
+
+    <looprow label="1">
+      <loopvar name="task">1</loopvar>
+    </looprow>
+
+    <looprow label="2">
+      <loopvar name="task">2</loopvar>
+    </looprow>
+
+    <looprow label="3">
+      <loopvar name="task">3</loopvar>
+    </looprow>
+
+    <looprow label="4">
+      <loopvar name="task">4</loopvar>
+    </looprow>
+
+    <looprow label="5">
+      <loopvar name="task">5</loopvar>
+    </looprow>
+
+    <looprow label="6">
+      <loopvar name="task">6</loopvar>
+    </looprow>
+
+    <looprow label="7">
+      <loopvar name="task">7</loopvar>
+    </looprow>
+
+    <looprow label="8">
+      <loopvar name="task">8</loopvar>
+    </looprow>
+
+    <looprow label="9">
+      <loopvar name="task">9</loopvar>
+    </looprow>
+
+    <looprow label="10">
+      <loopvar name="task">10</loopvar>
+    </looprow>
+  </loop>
+
+  <float 
+   label="QMD1_Timer"
+   size="15"
+   where="execute,survey,report">
+    <title>QMD1 - DEM MaxDiff Timer (Minutes)</title>
+    <exec>
+QMD1_Timer.val = (timeSpent() - p.startTime) / 60.0
+    </exec>
+
+  </float>
+
+  <suspend/>
+
+  <note>===================== DEM B-W SCORING =====================</note>
+  <text 
+   label="QMD1"
+   size="3"
+   where="execute,survey,report">
+    <title>Hidden: DEM MaxDiff B-W Matrix</title>
+    <exec>
+p.sum=[]
+groupSize = 4
+groups = [p.maxdiff1[i:i+groupSize] for i in range(0, len(p.maxdiff1), groupSize)]
+for col in range(0, 10):
+    rowsForColumn = groups[col]
+    for r in rowsForColumn:
+        rowNum = int(r)-1
+        QMD1.rows[rowNum][col].val=0
+for i in range(0,10):
+	best = "QDEM_{}".format(i+1)
+	worst = "QDEM_{}".format(i+1)
+	best1=allQuestions[best].best.val
+	worst1=allQuestions[worst].worst.val
+	QMD1.rows[best1][i].val=1
+	QMD1.rows[worst1][i].val=-1
+for i in QMD1.rows:
+	a=0
+	for j in range(10):
+		if QMD1[i][j].val!=None:
+			a1=QMD1[i][j].val
+			a+=int(a1)
+	QMD1[i].c11.val=a
+    </exec>
+
+    <row label="r1">Item-1</row>
+    <row label="r2">Item-2</row>
+    <row label="r3">Item-3</row>
+    <row label="r4">Item-4</row>
+    <row label="r5">Item-5</row>
+    <row label="r6">Item-6</row>
+    <row label="r7">Item-7</row>
+    <row label="r8">Item-8</row>
+    <row label="r9">Item-9</row>
+    <row label="r10">Item-10</row>
+    <col label="c1">QDEM_1</col>
+    <col label="c2">QDEM_2</col>
+    <col label="c3">QDEM_3</col>
+    <col label="c4">QDEM_4</col>
+    <col label="c5">QDEM_5</col>
+    <col label="c6">QDEM_6</col>
+    <col label="c7">QDEM_7</col>
+    <col label="c8">QDEM_8</col>
+    <col label="c9">QDEM_9</col>
+    <col label="c10">QDEM_10</col>
+    <col label="c11">Row Total</col>
+  </text>
+
+  <note>MaxDiff Indices Template --End DEM BW--</note>
+  <suspend/>
+
+  <note>===================== DEM Z-SCORING =====================</note>
+  <text 
+   label="XDEM_SEG"
+   cond="1==2"
+   ss:listDisplay="0"
+   where="execute,survey,report">
+    <title>HIDDEN: XDEM_SEG (Z-Scores)</title>
+    <exec>
+DEM_U = [-0.60198, -0.31771, -1.69065, 0.128199, 1.596402, 0.095769, 0.370408, 0.965797, -1.03699, 0.490752]
+DEM_S = [1.590145, 1.904432, 1.809285, 1.851639, 1.958779, 1.680348, 1.76441, 1.862097, 2.16036, 1.804034]
+DEM_MAX_F = []
+
+for i in range(10):
+	XDEM_SEG.rows[i].c1.val=QMD1.rows[i].c11.val
+	DEM_MAX_F.append(float(QMD1.rows[i].c11.val))
+for i in range(10):
+	XDEM_SEG.rows[i].c2.val = DEM_U[i]
+for i in range(10):
+	XDEM_SEG.rows[i].c3.val = DEM_S[i]
+for i in range(10):
+	XDEM_SEG.rows[i].c4.val = (DEM_MAX_F[i] - DEM_U[i])/DEM_S[i]
+
+JUSTICE_U = 4.868184
+JUSTICE_S = 1.515216
+INDUSTRY_U = 5.495869
+INDUSTRY_S = 1.315719
+
+justice_raw = float(QMD4.r1.val) if QMD4.r1.val else 4.0
+industry_raw = float(QMD4.r2.val) if QMD4.r2.val else 4.0
+
+XDEM_SEG.r13.c1.val = justice_raw
+XDEM_SEG.r13.c2.val = JUSTICE_U
+XDEM_SEG.r13.c3.val = JUSTICE_S
+XDEM_SEG.r13.c4.val = (justice_raw - JUSTICE_U) / JUSTICE_S
+
+XDEM_SEG.r14.c1.val = industry_raw
+XDEM_SEG.r14.c2.val = INDUSTRY_U
+XDEM_SEG.r14.c3.val = INDUSTRY_S
+XDEM_SEG.r14.c4.val = (industry_raw - INDUSTRY_U) / INDUSTRY_S
+    </exec>
+
+    <row label="r1">Tech and data can improve care, but only if we stop bias, protect privacy, and provide benefits fairly.</row>
+    <row label="r2">I trust mainstream experts and prefer step-by-step fixes—strengthening the ACA, not ripping it up.</row>
+    <row label="r3">Digital tools, AI, and start-ups can universalize care faster than big bureaucracies—let’s remove red tape.</row>
+    <row label="r4">Corporate greed hurts ordinary people. Government must crack down on prices, ads, and junk food.</row>
+    <row label="r5">Healthcare is a human right. We need Medicare-for-All or something very close to it.</row>
+    <row label="r6">Unions fought for good coverage. Policy should protect employer benefits and bargaining power.</row>
+    <row label="r7">Racism and inequality drive poor health. Equity must be built into every health decision and budget.</row>
+    <row label="r8">Reproductive freedom—including abortion access—is non-negotiable and central to health policy.</row>
+    <row label="r9">My faith calls me to fight for the poor and for broader access—especially in under-served communities.</row>
+    <row label="r10">Climate change is a public-health emergency. Clean energy and environmental justice are health policy.</row>
+    <row label="r13">VECTOR_JUSTICE (ATTITUDE_EQUITY_FUNDING)</row>
+    <row label="r14">VECTOR_INDUSTRY (ATTITUDE_INFLUENCE)</row>
+    <col label="c1">PUNCH</col>
+    <col label="c2">Mean</col>
+    <col label="c3">Sigma</col>
+    <col label="c4">Z-Score</col>
+  </text>
+
+  <suspend/>
+
+  <note>===================== DEM CENTROID MODEL + SOFTMAX =====================</note>
+  <exec cond="1==2">
+import math
+
+def centroidDistance(resp_answers, segment_coeff):
+    return sum((a - c)**2 for a, c in zip(resp_answers, segment_coeff))
+
+def centroidAllSegments(answers, centroid_matrix):
+    num_segments = len(centroid_matrix[0])
+    d2_list = []
+    for c in range(num_segments):
+        segment_col = [row[c] for row in centroid_matrix]
+        d2_list.append(centroidDistance(answers, segment_col))
+    return d2_list
+
+p.dem_z = [float(XDEM_SEG.rows[i].c4.val) for i in range(10)]
+p.dem_z.append(float(XDEM_SEG.r13.c4.val))
+p.dem_z.append(float(XDEM_SEG.r14.c4.val))
+
+dem_centroids = [
+    [-0.5135, -0.1429, -0.3291, 0.544, 0.9293, -0.3204],
+    [-0.039, -0.8206, -0.544, 0.1583, 0.6292, 0.8164],
+    [-0.4356, -0.3798, -0.3126, 1.1914, 0.6485, -0.4382],
+    [0.4891, -0.5913, 0.7544, 0.2422, -0.1966, -0.7195],
+    [0.5194, 0.2926, 0.2316, 0.1168, -1.3929, 0.1419],
+    [-0.1269, -0.1611, 0.5696, -0.2886, -0.2956, 0.2223],
+    [0.257, 0.8708, -0.2005, -0.5704, -0.3712, -0.1654],
+    [0.4032, -0.1316, 0.0902, -0.9386, -0.1134, 0.547],
+    [-0.7075, 1.0908, -0.1312, 0.2406, 0.0411, -0.5795],
+    [0.1626, -0.2097, -0.1184, -0.7095, 0.2866, 0.5285],
+    [0.7218, 0.4355, -0.4757, -0.3332, -0.4753, 0.2212],
+    [0.7961, 0.1727, 0.0062, -0.267, -0.5004, -0.0547]
+]
+
+p.dem_d2 = centroidAllSegments(p.dem_z, dem_centroids)
+
+p.dem_exp = [math.exp(-d/2.0) for d in p.dem_d2]
+dem_exp_sum = sum(p.dem_exp)
+p.dem_prob = [(e/dem_exp_sum)*100.0 for e in p.dem_exp]
+
+for i in range(6):
+    XDEM_SOFTMAX.rows[i].c1.val = round(p.dem_d2[i], 4)
+    XDEM_SOFTMAX.rows[i].c2.val = round(p.dem_exp[i], 6)
+    XDEM_SOFTMAX.rows[i].c3.val = round(p.dem_prob[i], 2)
+
+sorted_probs = sorted(enumerate(p.dem_prob), key=lambda x: -x[1])
+XDEM_SEG_FINAL_1.val = XDEM_SEG_FINAL_1.rows[sorted_probs[0][0]].index
+XDEM_SEG_FINAL_2.val = XDEM_SEG_FINAL_2.rows[sorted_probs[1][0]].index
+
+gap = sorted_probs[0][1] - sorted_probs[1][1]
+XDEM_CONFIDENCE.r1.val = round(sorted_probs[0][1], 2)
+XDEM_CONFIDENCE.r2.val = round(sorted_probs[1][1], 2)
+XDEM_CONFIDENCE.r3.val = round(gap, 2)
+entropy_val = -sum((pr/100.0)*math.log(pr/100.0+1e-12) for pr in p.dem_prob)
+XDEM_CONFIDENCE.r4.val = round(entropy_val, 4)
+  </exec>
+
+  <text 
+   label="XDEM_SOFTMAX"
+   randomize="0"
+   size="40"
+   where="execute,survey,report">
+    <title>HIDDEN: DEM Softmax Probabilities</title>
+    <row label="r1">11. Universal Care Progressives (UCP)</row>
+    <row label="r2">12. Faith and Justice Progressives (FJP)</row>
+    <row label="r3">13. Health Care Protectionists (HCP)</row>
+    <row label="r4">14. Health Abundance Democrats (HAD)</row>
+    <row label="r5">15. Health Care Incrementalists (HCI)</row>
+    <row label="r6">16. Global Health Institutionalists (GHI)</row>
+    <col label="c1">D-Squared</col>
+    <col label="c2">exp(-D2/2)</col>
+    <col label="c3">Probability %</col>
+  </text>
+
+  <suspend/>
+
+  <radio 
+   label="XDEM_SEG_FINAL_1"
+   optional="1"
+   randomize="0"
+   where="execute,survey,report">
+    <title>CENTROID+SOFTMAX - DEM SEGMENTS - First Maximum</title>
+    <row label="r1">11. Universal Care Progressives (UCP)</row>
+    <row label="r2">12. Faith and Justice Progressives (FJP)</row>
+    <row label="r3">13. Health Care Protectionists (HCP)</row>
+    <row label="r4">14. Health Abundance Democrats (HAD)</row>
+    <row label="r5">15. Health Care Incrementalists (HCI)</row>
+    <row label="r6">16. Global Health Institutionalists (GHI)</row>
+  </radio>
+
+  <suspend/>
+
+  <radio 
+   label="XDEM_SEG_FINAL_2"
+   optional="1"
+   randomize="0"
+   where="execute,survey,report">
+    <title>CENTROID+SOFTMAX - DEM SEGMENTS - Second Maximum</title>
+    <row label="r1">11. Universal Care Progressives (UCP)</row>
+    <row label="r2">12. Faith and Justice Progressives (FJP)</row>
+    <row label="r3">13. Health Care Protectionists (HCP)</row>
+    <row label="r4">14. Health Abundance Democrats (HAD)</row>
+    <row label="r5">15. Health Care Incrementalists (HCI)</row>
+    <row label="r6">16. Global Health Institutionalists (GHI)</row>
+  </radio>
+
+  <suspend/>
+
+  <text 
+   label="XDEM_CONFIDENCE"
+   where="execute,survey,report">
+    <title>HIDDEN: DEM Confidence Metrics</title>
+    <row label="r1">Top Segment Probability %</row>
+    <row label="r2">Second Segment Probability %</row>
+    <row label="r3">Probability Gap (P1-P2)</row>
+    <row label="r4">Entropy</row>
+  </text>
+
+  <suspend/>
+
+  <note>MaxDiff Indices Template --End DEM--</note></block>
+
+<suspend/>
+
+<note>===================== PAGE GROUP 3 -- GOP MaxDiff Block =====================</note>
+<block label="b12" cond="TYPING_MODULE.r1 or TYPING_MODULE.r3">
+  <note>MaxDiff Indices Template --Start GOP--</note>
+  <exec when="init">
+QMD3_md = setupMaxDiffFile("GOPDesign.dat")
+  </exec>
+
+  <exec>
+p.maxdiff1 = []
+  </exec>
+
+  <suspend/>
+
+  <quota label="quo2" overquota="noqual" sheet="GOP Quota"/>
+
+  <suspend/>
+
+  <number 
+   label="QMD3_Version"
+   size="3"
+   verify="range(1,100)"
+   where="execute,survey,report">
+    <title>QMD3 - MaxDiff Version</title>
+    <exec>
+for x in p.markers:
+    if "/GOP Quota/GOP_" in x:
+        QMD3_Version.val = int(x.split("_")[-1])
+        break
+    </exec>
+
+  </number>
+
+  <suspend/>
+
+  <exec>
+p.startTime = timeSpent()
+  </exec>
+
+  <suspend/>
+
+  <note>GOP MaxDiff Loop: 12 items, 4 per task, 12 tasks</note>
+  <loop label="QMD3_md_loop" vars="task">
+    <title>QMD3 - GOP MaxDiff Loop</title>
+    <block label="QMD3_md_block" randomize="1">
+      <radio 
+     label="QGOP_[loopvar: task]"
+     adim="cols"
+     grouping="cols"
+     shuffle="rows"
+     ss:listDisplay="0"
+     ss:questionClassNames="QMD3_maxdiff"
+     unique="1">
+        <title>Select the one statement that sounds MOST like your own point of view (on the left), and the statement that sounds LEAST like you (on the right)</title>
+        <exec>
+setupMaxDiffItemsI( QMD3_md, "v%d_t%d" % (QMD3_Version.val, [loopvar: task]), QGOP_[loopvar: task])
+p.MDcount = str(QMD3_md_loop_expanded.order.index([loopvar: task]-1)+1)
+        </exec>
+
+        <col label="best"><strong>sounds MOST like me</strong></col>
+        <col label="worst"><strong>sounds LEAST like me</strong></col>
+        <row label="item1">Government should stay small but defend marriage, family life, and personal responsibility.</row>
+        <row label="item2">Big pharma and big agribusiness can’t be trusted; local food and local control are healthier.</row>
+        <row label="item3">Drug and hospital prices are crushing people. I don’t care who fixes it—just bring costs down.</row>
+        <row label="item4">Small-town hospitals keep closing. Government must improve access to care for rural America.</row>
+        <row label="item5">Vaccines are unsafe, full stop. No one should be forced or pressured to take them.</row>
+        <row label="item6">MMy body, my choice—whether mandates, supplements, or experimental drugs. Government should butt out.</row>
+        <row label="item7">MModern medicine ignores the whole person. Natural and alternative therapies deserve equal respect and coverage.</row>
+        <row label="item8">Clean, whole-food living—not pills—keeps us healthy. The system ignores it because there’s no profit in it.</row>
+        <row label="item9">Human beings thrive on meat-heavy, low-carb diets. Government guidelines are junk science.</row>
+        <row label="item10">We must protect U.S. patients, workers, and supply chains first. Foreign competition and immigration come second.</row>
+        <row label="item11">Free markets work best, but I defer to FDA and CDC experts on safety and innovation.</row>
+        <row label="item12">Competition—private insurance, transparent prices, fewer rules—is the key to cheaper, better care.</row>
+        <style mode="before" name="question.header"><![CDATA[
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&amp;family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
+<style type="text/css">
+    body, .survey-body, .main-content { background: #F5F2ED !important; }
+    .QMD3_maxdiff .question-text { display: none !important; }
+    .QMD3_maxdiff .comment { display: none !important; }
+    .nextPage, .button { display: none !important; }
+    /* hide native rendering until JS rebuilds it */
+    .QMD3_maxdiff .survey-questions-container,
+    .QMD3_maxdiff table,
+    .QMD3_maxdiff .col-legend-group,
+    .QMD3_maxdiff .grouping-box { visibility: hidden; height: 0; overflow: hidden; }
+    .QMD3_maxdiff .md-custom-ui { visibility: visible; height: auto; overflow: visible; }
+
+    /* --- custom MaxDiff UI --- */
+    .md-custom-ui { max-width: 640px; margin: 0 auto; }
+    .md-header-row { display: flex; justify-content: space-between; padding: 0 8px 8px; }
+    .md-header-row span { font-family: Inter,sans-serif; font-size: 10px; font-weight: 800;
+        letter-spacing: .06em; text-transform: uppercase; }
+    .md-header-most { color: #6B7F4E; }
+    .md-header-least { color: #C62828; }
+    .md-row { display: flex; align-items: center; padding: 12px 4px;
+        border-bottom: 1px solid #EDE9E3; gap: 10px; }
+    .md-row:last-child { border-bottom: none; }
+    .md-row-text { flex: 1; font-family: Fraunces,Georgia,serif; font-size: 16px;
+        color: #333; line-height: 1.5; text-align: center; padding: 0 8px; }
+    .md-row:hover { background: rgba(0,0,0,.03); border-radius: 8px; }
+    .md-row.md-has-best { background: rgba(107,127,78,.08); border-radius: 8px; }
+    .md-row.md-has-worst { background: rgba(198,40,40,.06); border-radius: 8px; }
+
+    /* spherical radio buttons */
+    .md-radio { -webkit-appearance: none; -moz-appearance: none; appearance: none;
+        width: 44px; height: 44px; min-width: 44px; border-radius: 50%;
+        border: 2px solid #C5C0B8;
+        background: radial-gradient(circle at 35% 35%, #FAFAFA, #E8E4DE);
+        box-shadow: 0 2px 6px rgba(0,0,0,.12), inset 0 1px 2px rgba(255,255,255,.6);
+        cursor: pointer; transition: all .2s ease; outline: none; }
+    .md-radio:hover { border-color: #999;
+        box-shadow: 0 3px 10px rgba(0,0,0,.18), inset 0 1px 2px rgba(255,255,255,.6);
+        transform: scale(1.08); }
+    .md-radio.md-best-checked {
+        background: radial-gradient(circle at 35% 35%, #8CAF6B, #5A7E3A);
+        border-color: #4A6E2A;
+        box-shadow: 0 3px 10px rgba(90,126,58,.4), inset 0 1px 3px rgba(255,255,255,.3); }
+    .md-radio.md-worst-checked {
+        background: radial-gradient(circle at 35% 35%, #E05555, #C62828);
+        border-color: #A01E1E;
+        box-shadow: 0 3px 10px rgba(198,40,40,.4), inset 0 1px 3px rgba(255,255,255,.3); }
+</style>
+<div style="padding:0 16px;">
+  <div style="background:#fff;border:unset;border-radius:10px;padding:unset;margin-bottom:unset;">
+    <div style="font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:#888;margin-bottom:6px;text-align:right;">
+      Card ${p.MDcount} of ${len(QMD3_md_loop_expanded.order)}
+    </div>
+    <div style="font-family:Fraunces,Georgia,serif;font-size:17px;font-weight:700;color:#333;line-height:1.42;margin-bottom:8px;">
+      From the set of short statements expressing different points of view about politics, culture and health.
+    </div>
+    <div style="font-size:13px;color:#555;text-align:center;margin-bottom:14px;line-height:1.5;">
+      <span style="color:#6B7F4E;font-weight:700;">&#x2B05;</span>
+      Select one statement that sounds MOST like your own point of view, and
+      the one statement that sounds LEAST like you
+      <span style="color:#C62828;font-weight:700;">&#x27A1;</span>
+    </div>
+]]></style>
+        <style name="question.top-legend"><![CDATA[
+\@if ec.simpleList
+    $(legends)
+\@else
+    <$(tag) class="maxdiff-header-legend row row-col-legends row-col-legends-top ${"mobile-top-row-legend " if mobileOnly else ""}${"GtTenColumns " if ec.colCount > 10 else ""}colCount-$(colCount)">
+        ${"%s%s" % (legends.split("</th>")[0],"</th>")}
+       $(left)
+        ${"%s%s" % (legends.split("</th>")[1],"</th>")}
+    </$(tag)>
+    \@if not simple
+  </tbody>
+  <tbody>
+    \@endif
+\@endif
+]]></style>
+        <style name="question.row"><![CDATA[
+\@if ec.simpleList
+    $(elements)
+\@else
+    <$(tag) class="maxdiff-row row row-elements $(style) colCount-$(colCount)">
+        ${"%s%s" % (elements.split("</td>")[0],"</td>")}
+        $(left)
+        ${"%s%s" % (elements.split("</td>")[1],"</td>")}
+    </$(tag)>
+\@endif
+]]></style>
+        <style mode="after" name="question.footer"><![CDATA[
+</div>
+  <div style="text-align:center;padding:24px 0 16px;">
+    <button type="button" id="md-continue-btn"
+            style="background:#6B7F4E;color:#fff;border:none;border-radius:24px;padding:14px 36px;font-family:Inter,sans-serif;font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;cursor:pointer;opacity:.4;pointer-events:none;">
+      CONTINUE &gt;
+    </button>
+  </div>
+  <div style="position:fixed;bottom:0;left:0;right:0;z-index:100;background:#F5F2ED;border-top:1px solid #E0DCD6;padding:10px 20px;text-align:center;font-size:10px;color:#AAA;font-family:Inter,sans-serif;line-height:1.4;">
+    Your responses are held strictly confidential.
+    See our <a href="#" style="color:#6B7F4E;text-decoration:none;">Privacy Policy</a>
+    and commitment to research ethics and integrity.
+  </div>
+</div>
+<script>
+(function(){
+  var q = document.querySelector('.QMD3_maxdiff');
+  if(!q) return;
+
+  /* find all native radio inputs grouped by column (best/worst) */
+  var bestRadios = [].slice.call(q.querySelectorAll('input[type="radio"][name*="_best_"],input[type="radio"][name*=".best."],input[type="radio"][name*="c1"]'));
+  var worstRadios = [].slice.call(q.querySelectorAll('input[type="radio"][name*="_worst_"],input[type="radio"][name*=".worst."],input[type="radio"][name*="c2"]'));
+
+  /* fallback: if can't find by name pattern, find by grouping structure */
+  if(!bestRadios.length || !worstRadios.length){
+    var allRadios = [].slice.call(q.querySelectorAll('input[type="radio"]'));
+    /* group by name attribute */
+    var groups = {};
+    allRadios.forEach(function(r){ (groups[r.name] = groups[r.name]||[]).push(r); });
+    var gnames = Object.keys(groups);
+    console.log('[MD-GOP] radio groups found:', gnames);
+    if(gnames.length >= 2){
+      /* first group = best, second = worst */
+      bestRadios = groups[gnames[0]];
+      worstRadios = groups[gnames[1]];
+    }
+  }
+
+  if(!bestRadios.length || !worstRadios.length){
+    console.warn('[MD-GOP] could not find best/worst radios');
+    return;
+  }
+
+  console.log('[MD-GOP] best:', bestRadios.length, 'worst:', worstRadios.length);
+
+  /* extract item labels from the native rendering */
+  var items = [];
+  bestRadios.forEach(function(r,i){
+    /* find the label/text near this radio */
+    var row = r.closest('tr, .row-element, .row, label, li, div.element');
+    var text = '';
+    if(row){
+      var legend = row.querySelector('th.row-legend, .row-legend-text, .row-legend, .text');
+      text = legend ? legend.textContent.trim() : '';
+      if(!text){
+        /* try sibling text or parent text minus the radio */
+        var clone = row.cloneNode(true);
+        var inputs = clone.querySelectorAll('input');
+        inputs.forEach(function(inp){ inp.remove(); });
+        text = clone.textContent.trim();
+      }
+    }
+    if(!text) text = 'Statement '+(i+1);
+    /* strip Decipher row labels like [item8] */
+    text = text.replace(/^\s*\[item\d+\]\s*/i, '');
+    items.push(text);
+  });
+
+  /* build custom UI */
+  var wrap = document.createElement('div');
+  wrap.className = 'md-custom-ui';
+  wrap.innerHTML = '<div class="md-header-row">' +
+    '<span class="md-header-most">MOST<br>LIKE ME</span>' +
+    '<span class="md-header-least">LEAST<br>LIKE ME</span></div>';
+
+  var bestSel = -1, worstSel = -1;
+
+  function updateUI(){
+    var rows = wrap.querySelectorAll('.md-row');
+    var allBest = wrap.querySelectorAll('.md-radio-best');
+    var allWorst = wrap.querySelectorAll('.md-radio-worst');
+    for(var i=0;i<rows.length;i++){
+      rows[i].classList.remove('md-has-best','md-has-worst');
+      allBest[i].classList.remove('md-best-checked');
+      allWorst[i].classList.remove('md-worst-checked');
+      if(i===bestSel){ rows[i].classList.add('md-has-best'); allBest[i].classList.add('md-best-checked'); }
+      if(i===worstSel){ rows[i].classList.add('md-has-worst'); allWorst[i].classList.add('md-worst-checked'); }
+    }
+    /* enable continue only when both selected */
+    var btn = document.getElementById('md-continue-btn');
+    if(btn){
+      if(bestSel>=0 && worstSel>=0){ btn.style.opacity='1'; btn.style.pointerEvents='auto'; }
+      else { btn.style.opacity='.4'; btn.style.pointerEvents='none'; }
+    }
+  }
+
+  items.forEach(function(txt,i){
+    var row = document.createElement('div');
+    row.className = 'md-row';
+    row.innerHTML = '<button type="button" class="md-radio md-radio-best" data-idx="'+i+'"></button>' +
+      '<div class="md-row-text">'+txt+'</div>' +
+      '<button type="button" class="md-radio md-radio-worst" data-idx="'+i+'"></button>';
+    wrap.appendChild(row);
+  });
+
+  /* click handlers */
+  wrap.addEventListener('click', function(e){
+    var btn = e.target.closest('.md-radio');
+    if(!btn) return;
+    var idx = parseInt(btn.getAttribute('data-idx'),10);
+    if(btn.classList.contains('md-radio-best')){
+      if(idx===worstSel) return; /* can't pick same row */
+      bestSel = (bestSel===idx) ? -1 : idx;
+      /* sync to native radio */
+      if(bestSel>=0 && bestRadios[bestSel]){ bestRadios[bestSel].checked=true; bestRadios[bestSel].click(); }
+    } else {
+      if(idx===bestSel) return;
+      worstSel = (worstSel===idx) ? -1 : idx;
+      if(worstSel>=0 && worstRadios[worstSel]){ worstRadios[worstSel].checked=true; worstRadios[worstSel].click(); }
+    }
+    updateUI();
+  });
+
+  /* insert custom UI before the native question */
+  q.insertBefore(wrap, q.firstChild);
+
+  /* continue button */
+  var btn = document.getElementById('md-continue-btn');
+  if(btn){
+    btn.addEventListener('click', function(){
+      if(bestSel<0||worstSel<0) return;
+      var nxt = document.querySelector('.nextPage, .button[type="submit"], input[type="submit"]');
+      if(!nxt) nxt = document.querySelector('.button, input.button');
+      if(nxt){
+        nxt.setAttribute('style','display:block !important;visibility:hidden;position:absolute;left:-9999px;');
+        nxt.click();
+      } else {
+        var form = document.querySelector('form');
+        if(form) form.submit();
+      }
+    });
+  }
+})();
+</script>
+]]></style>
+      </radio>
+
+      <suspend/>
+    </block>
+
+    <looprow label="1">
+      <loopvar name="task">1</loopvar>
+    </looprow>
+
+    <looprow label="2">
+      <loopvar name="task">2</loopvar>
+    </looprow>
+
+    <looprow label="3">
+      <loopvar name="task">3</loopvar>
+    </looprow>
+
+    <looprow label="4">
+      <loopvar name="task">4</loopvar>
+    </looprow>
+
+    <looprow label="5">
+      <loopvar name="task">5</loopvar>
+    </looprow>
+
+    <looprow label="6">
+      <loopvar name="task">6</loopvar>
+    </looprow>
+
+    <looprow label="7">
+      <loopvar name="task">7</loopvar>
+    </looprow>
+
+    <looprow label="8">
+      <loopvar name="task">8</loopvar>
+    </looprow>
+
+    <looprow label="9">
+      <loopvar name="task">9</loopvar>
+    </looprow>
+
+    <looprow label="10">
+      <loopvar name="task">10</loopvar>
+    </looprow>
+
+    <looprow label="11">
+      <loopvar name="task">11</loopvar>
+    </looprow>
+
+    <looprow label="12">
+      <loopvar name="task">12</loopvar>
+    </looprow>
+  </loop>
+
+  <float 
+   label="QMD3_Timer"
+   size="15"
+   where="execute,survey,report">
+    <title>QMD3 - GOP MaxDiff Timer (Minutes)</title>
+    <exec>
+QMD3_Timer.val = (timeSpent() - p.startTime) / 60.0
+    </exec>
+
+  </float>
+
+  <note>MaxDiff Indices Template --End GOP Loop--</note>
+  <suspend/>
+
+  <note>===================== GOP B-W SCORING =====================</note>
+  <text 
+   label="QMD3"
+   size="3"
+   where="execute,survey,report">
+    <title>Hidden: GOP MaxDiff B-W Matrix</title>
+    <exec>
+p.sum=[]
+groupSize = 4
+groups = [p.maxdiff1[i:i+groupSize] for i in range(0, len(p.maxdiff1), groupSize)]
+for col in range(0, 12):
+    rowsForColumn = groups[col]
+    for r in rowsForColumn:
+        rowNum = int(r)-1
+        QMD3.rows[rowNum][col].val=0
+for i in range(0,12):
+	best = "QGOP_{}".format(i+1)
+	worst = "QGOP_{}".format(i+1)
+	best1=allQuestions[best].best.val
+	worst1=allQuestions[worst].worst.val
+	QMD3.rows[best1][i].val=1
+	QMD3.rows[worst1][i].val=-1
+for i in QMD3.rows:
+	a=0
+	for j in range(12):
+		if QMD3[i][j].val!=None:
+			a1=QMD3[i][j].val
+			a+=int(a1)
+	QMD3[i].c13.val=a
+    </exec>
+
+    <row label="r1">Government should stay small but defend marriage, family life, and personal responsibility.</row>
+    <row label="r2">Big pharma and big agribusiness can’t be trusted; local food and local control are healthier.</row>
+    <row label="r3">Drug and hospital prices are crushing people. I don’t care who fixes it—just bring costs down.</row>
+    <row label="r4">Small-town hospitals keep closing. Government must improve access to care for rural America.</row>
+    <row label="r5">Vaccines are unsafe, full stop. No one should be forced or pressured to take them.</row>
+    <row label="r6">My body, my choice—whether mandates, supplements, or experimental drugs. Government should butt out.</row>
+    <row label="r7">Modern medicine ignores the whole person. Natural and alternative therapies deserve equal respect and coverage.</row>
+    <row label="r8">Clean, whole-food living—not pills—keeps us healthy. The system ignores it because there’s no profit in it.</row>
+    <row label="r9">Human beings thrive on meat-heavy, low-carb diets. Government guidelines are junk science.</row>
+    <row label="r10">We must protect U.S. patients, workers, and supply chains first. Foreign competition and immigration come second.</row>
+    <row label="r11">Free markets work best, but I defer to FDA and CDC experts on safety and innovation.</row>
+    <row label="r12">Competition—private insurance, transparent prices, fewer rules—is the key to cheaper, better care.</row>
+    <col label="c1">QGOP_1</col>
+    <col label="c2">QGOP_2</col>
+    <col label="c3">QGOP_3</col>
+    <col label="c4">QGOP_4</col>
+    <col label="c5">QGOP_5</col>
+    <col label="c6">QGOP_6</col>
+    <col label="c7">QGOP_7</col>
+    <col label="c8">QGOP_8</col>
+    <col label="c9">QGOP_9</col>
+    <col label="c10">QGOP_10</col>
+    <col label="c11">QGOP_11</col>
+    <col label="c12">QGOP_12</col>
+    <col label="c13">Row Total</col>
+  </text>
+
+  <suspend/>
+
+  <note>===================== GOP Z-SCORING =====================</note>
+  <text 
+   label="XGOP_SEG"
+   size="25"
+   where="execute,survey,report">
+    <title>HIDDEN: XGOP_SEG (Z-Scores)</title>
+    <exec>
+GOP_U = [0.22251, 0.034617, 0.476305, -0.07664, -0.98778, 0.026842, -0.37542, 0.619956, -0.85117, 0.776564, -0.39097, 0.525176]
+GOP_S = [1.788406, 1.540211, 1.862495, 1.702904, 2.127103, 1.901242, 1.907928, 1.787279, 1.775616, 1.828781, 1.902662, 1.797109]
+GOP_MAX_F = []
+
+for i in XGOP_SEG.rows:
+	i.c1.val=QMD3[i].c13.val
+	GOP_MAX_F.append(float(QMD3[i].c13.val))
+for i in range(12):
+	XGOP_SEG.rows[i].c2.val = GOP_U[i]
+for i in range(12):
+	XGOP_SEG.rows[i].c3.val = GOP_S[i]
+for i in range(12):
+	XGOP_SEG.rows[i].c4.val = (GOP_MAX_F[i] - GOP_U[i])/GOP_S[i]
+    </exec>
+
+    <row label="r1">Government should stay small but defend marriage, family life, and personal responsibility.</row>
+    <row label="r2">Big pharma and big agribusiness can’t be trusted; local food and local control are healthier.</row>
+    <row label="r3">Drug and hospital prices are crushing people. I don’t care who fixes it—just bring costs down.</row>
+    <row label="r4">Small-town hospitals keep closing. Government must improve access to care for rural America.</row>
+    <row label="r5">Vaccines are unsafe, full stop. No one should be forced or pressured to take them.</row>
+    <row label="r6">My body, my choice—whether mandates, supplements, or experimental drugs. Government should butt out.</row>
+    <row label="r7">Modern medicine ignores the whole person. Natural and alternative therapies deserve equal respect and coverage.</row>
+    <row label="r8">Clean, whole-food living—not pills—keeps us healthy. The system ignores it because there’s no profit in it.</row>
+    <row label="r9">Human beings thrive on meat-heavy, low-carb diets. Government guidelines are junk science.</row>
+    <row label="r10">We must protect U.S. patients, workers, and supply chains first. Foreign competition and immigration come second.</row>
+    <row label="r11">Free markets work best, but I defer to FDA and CDC experts on safety and innovation.</row>
+    <row label="r12">Competition—private insurance, transparent prices, fewer rules—is the key to cheaper, better care.</row>
+    <col label="c1">PUNCH</col>
+    <col label="c2">Mean</col>
+    <col label="c3">Sigma</col>
+    <col label="c4">Z-Score</col>
+  </text>
+
+  <suspend/>
+
+  <note>===================== GOP CENTROID MODEL + SOFTMAX =====================</note>
+  <exec>
+import math
+
+def centroidDistance(resp_answers, segment_coeff):
+    return sum((a - c)**2 for a, c in zip(resp_answers, segment_coeff))
+
+def centroidAllSegments(answers, centroid_matrix):
+    num_segments = len(centroid_matrix[0])
+    d2_list = []
+    for c in range(num_segments):
+        segment_col = [row[c] for row in centroid_matrix]
+        d2_list.append(centroidDistance(answers, segment_col))
+    return d2_list
+
+p.gop_z = [float(x) for x in XGOP_SEG.c4.values]
+
+gop_centroids = [
+    [0.2, 0.0096, 0.9146, -0.1336, -0.6956, 0.5846, 0.4648, -0.2554, -0.739, -0.8787],
+    [-0.0608, 0.0308, -0.5647, 0.0053, 0.7257, -0.0362, 0.0185, -0.4401, 0.1704, 0.6758],
+    [-0.0633, 0.67, -0.4791, -0.3529, 0.712, -0.2058, -0.5104, -0.4564, 0.3953, 0.0561],
+    [0.8912, 0.4863, -0.2283, 0.1686, 0.9888, -0.7418, -0.9072, 0.1943, -0.1989, -0.4581],
+    [0.1561, -0.7521, -0.6867, 0.6036, -0.1513, -0.0754, 0.8258, 0.3333, -0.0793, 1.0337],
+    [-0.6021, 0.1277, -0.2994, 0.0551, 0.2664, -0.4837, -0.1493, 0.1478, 0.5757, 0.4379],
+    [-0.1778, -0.9908, -0.8135, 0.233, -0.1464, 0.0851, 0.236, 0.9657, 0.3877, 0.9297],
+    [-0.7705, -0.2343, -0.3477, -1.0279, -0.572, 0.6932, 0.1564, 0.2632, 0.5845, 0.5142],
+    [0.1964, -0.5763, 0.0446, 1.363, -0.0369, -0.4206, 0.9004, 0.2931, -0.5885, 0.1112],
+    [-0.3176, 0.7097, 0.4794, -0.8491, -0.2762, 0.4546, -0.4476, -0.8232, 0.3467, -0.4787],
+    [0.5922, 0.291, 1.1052, 0.6792, 0.0203, -0.5188, -0.4748, 0.0904, -0.7155, -1.192],
+    [-0.0166, 0.3879, 0.9236, -0.8652, -0.687, 0.6888, -0.2467, -0.4652, -0.1536, -0.8748]
+]
+
+p.gop_d2 = centroidAllSegments(p.gop_z, gop_centroids)
+
+p.gop_exp = [math.exp(-d/2.0) for d in p.gop_d2]
+gop_exp_sum = sum(p.gop_exp)
+p.gop_prob = [(e/gop_exp_sum)*100.0 for e in p.gop_exp]
+
+for i in range(10):
+    XGOP_SOFTMAX.rows[i].c1.val = round(p.gop_d2[i], 4)
+    XGOP_SOFTMAX.rows[i].c2.val = round(p.gop_exp[i], 6)
+    XGOP_SOFTMAX.rows[i].c3.val = round(p.gop_prob[i], 2)
+
+sorted_probs = sorted(enumerate(p.gop_prob), key=lambda x: -x[1])
+XGOP_SEG_FINAL_1.val = XGOP_SEG_FINAL_1.rows[sorted_probs[0][0]].index
+XGOP_SEG_FINAL_2.val = XGOP_SEG_FINAL_2.rows[sorted_probs[1][0]].index
+
+gap = sorted_probs[0][1] - sorted_probs[1][1]
+XGOP_CONFIDENCE.r1.val = round(sorted_probs[0][1], 2)
+XGOP_CONFIDENCE.r2.val = round(sorted_probs[1][1], 2)
+XGOP_CONFIDENCE.r3.val = round(gap, 2)
+entropy_val = -sum((pr/100.0)*math.log(pr/100.0+1e-12) for pr in p.gop_prob)
+XGOP_CONFIDENCE.r4.val = round(entropy_val, 4)
+  </exec>
+
+  <text 
+   label="XGOP_SOFTMAX"
+   randomize="0"
+   size="40"
+   where="execute,survey,report">
+    <title>HIDDEN: GOP Softmax Probabilities</title>
+    <row label="r1">1. Trust-the-Science Pragmatists (TSP)</row>
+    <row label="r2">2. Consumer Empowerment Champions (CEC)</row>
+    <row label="r3">3. Traditional Conservatives (TC)</row>
+    <row label="r4">4. Health Futurist (HF)</row>
+    <row label="r5">5. Price Populists (PP)</row>
+    <row label="r6">6. Wellness Evangelists (WE)</row>
+    <row label="r7">7. Paleo Freedom Fighters (PFF)</row>
+    <row label="r8">8. Holistic Health Naturalists (HHN)</row>
+    <row label="r9">9. Medical Freedom Libertarians (MFL)</row>
+    <row label="r10">10. Vaccine Skeptics (VS)</row>
+    <col label="c1">D-Squared</col>
+    <col label="c2">exp(-D2/2)</col>
+    <col label="c3">Probability %</col>
+  </text>
+
+  <suspend/>
+
+  <radio 
+   label="XGOP_SEG_FINAL_1"
+   optional="1"
+   randomize="0"
+   where="execute,survey,report">
+    <title>CENTROID+SOFTMAX - GOP SEGMENTS - First Maximum</title>
+    <row label="r1">1. Trust-the-Science Pragmatists (TSP)</row>
+    <row label="r2">2. Consumer Empowerment Champions (CEC)</row>
+    <row label="r3">3. Traditional Conservatives (TC)</row>
+    <row label="r4">4. Health Futurist (HF)</row>
+    <row label="r5">5. Price Populists (PP)</row>
+    <row label="r6">6. Wellness Evangelists (WE)</row>
+    <row label="r7">7. Paleo Freedom Fighters (PFF)</row>
+    <row label="r8">8. Holistic Health Naturalists (HHN)</row>
+    <row label="r9">9. Medical Freedom Libertarians (MFL)</row>
+    <row label="r10">10. Vaccine Skeptics (VS)</row>
+  </radio>
+
+  <suspend/>
+
+  <radio 
+   label="XGOP_SEG_FINAL_2"
+   optional="1"
+   randomize="0"
+   where="execute,survey,report">
+    <title>CENTROID+SOFTMAX - GOP SEGMENTS - Second Maximum</title>
+    <row label="r1">1. Trust-the-Science Pragmatists (TSP)</row>
+    <row label="r2">2. Consumer Empowerment Champions (CEC)</row>
+    <row label="r3">3. Traditional Conservatives (TC)</row>
+    <row label="r4">4. Health Futurist (HF)</row>
+    <row label="r5">5. Price Populists (PP)</row>
+    <row label="r6">6. Wellness Evangelists (WE)</row>
+    <row label="r7">7. Paleo Freedom Fighters (PFF)</row>
+    <row label="r8">8. Holistic Health Naturalists (HHN)</row>
+    <row label="r9">9. Medical Freedom Libertarians (MFL)</row>
+    <row label="r10">10. Vaccine Skeptics (VS)</row>
+  </radio>
+
+  <suspend/>
+
+  <text 
+   label="XGOP_CONFIDENCE"
+   where="execute,survey,report">
+    <title>HIDDEN: GOP Confidence Metrics</title>
+    <row label="r1">Top Segment Probability %</row>
+    <row label="r2">Second Segment Probability %</row>
+    <row label="r3">Probability Gap (P1-P2)</row>
+    <row label="r4">Entropy</row>
+  </text>
+
+  <suspend/>
+
+  <note>MaxDiff Indices Template --End GOP--</note></block>
+
+<suspend/>
+
+<note>===================== FINAL SEGMENT ASSIGNMENT =====================</note>
+<radio 
+  label="XSEG_ASSIGNED"
+  optional="1"
+  where="execute,survey,report">
+  <title>Final Segment Assignment (1-16)</title>
+  <comment>GOP Segments (1-10), DEM Segments (11-16)</comment>
+  <exec>
+if XGOP_SEG_FINAL_1.any:
+    XSEG_ASSIGNED.val = XGOP_SEG_FINAL_1.val
+elif XDEM_SEG_FINAL_1.any:
+    XSEG_ASSIGNED.val = XDEM_SEG_FINAL_1.val + 10
+  </exec>
+
+  <row label="r1">1. Trust-the-Science Pragmatists (TSP)</row>
+  <row label="r2">2. Consumer Empowerment Champions (CEC)</row>
+  <row label="r3">3. Traditional Conservatives (TC)</row>
+  <row label="r4">4. Health Futurist (HF)</row>
+  <row label="r5">5. Price Populists (PP)</row>
+  <row label="r6">6. Wellness Evangelists (WE)</row>
+  <row label="r7">7. Paleo Freedom Fighters (PFF)</row>
+  <row label="r8">8. Holistic Health Naturalists (HHN)</row>
+  <row label="r9">9. Medical Freedom Libertarians (MFL)</row>
+  <row label="r10">10. Vaccine Skeptics (VS)</row>
+  <row label="r11">11. Universal Care Progressives (UCP)</row>
+  <row label="r12">12. Faith and Justice Progressives (FJP)</row>
+  <row label="r13">13. Health Care Protectionists (HCP)</row>
+  <row label="r14">14. Health Abundance Democrats (HAD)</row>
+  <row label="r15">15. Health Care Incrementalists (HCI)</row>
+  <row label="r16">16. Global Health Institutionalists (GHI)</row>
+</radio>
+
+<suspend/>
+
+<style name="respview.client.css" with="qvector4"><![CDATA[
+<style>
+
+.fir-icon {
+  width: unset;
+  height: unset;
+}
+
+.grid.grid-table-mode.setWidth {
+  max-width: 600px;
+}
+
+.grid-table-mode .nonempty {
+  border: unset;
+}
+
+.col-legend {
+  background-color: unset;
+}
+
+input[type="radio"] + .fir-icon svg {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  //border: 2px solid #C5C0B8;
+  //background: radial-gradient(circle at 35% 35%, #FAFAFA, #E8E4DE);
+  box-shadow: 0 2px 6px rgba(0,0,0,.12), inset 0 1px 2px rgba(255,255,255,.6);
+  cursor: pointer;
+  transition: all .2s ease;
+  outline: none;
+}
+
+
+.fir-icon svg:hover {
+  transform: scale(1.08);
+}
+
+  /* --- HHIX106 color mapping: c1 = red, c4 = gray, c7 = red --- */
+
+  /* Neutralize earlier global overrides just for this question */
+  #question_qvector4 .fir-icon.selected .rounded .fir-selected,
+  #question_qvector4 .fir-icon.selected .square  .fir-selected {
+    /* Let column-specific rules below control the color */
+    fill: inherit !important;
+  }
+
+  /* Smooth transition for hover preview */
+  #question_qvector4 .fir-selected {
+    transition: fill .15s ease;
+  }
+
+  /* Column 1 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c1"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c1"]:hover               .fir-selected {
+    fill: #C62828 !important;
+  }
+  
+  /* Column 2 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c2"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c2"]:hover               .fir-selected {
+    fill: #EF5350 !important;
+  }
+  
+  /* Column 3 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c3"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c3"]:hover               .fir-selected {
+    fill: #F6A6A6 !important;
+  }
+
+  /* Column 4 (Neutral/Unsure) -> GRAY when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c4"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c4"]:hover               .fir-selected {
+    fill: #BDBDBD !important;
+  }
+
+  /* Column 5 (Neutral/Unsure) -> GRAY when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c5"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c5"]:hover               .fir-selected {
+    fill: #A5D6A7 !important;
+  }
+  
+   /* Column 5 (Neutral/Unsure) -> GRAY when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c6"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c6"]:hover               .fir-selected {
+    fill: #66BB6A !important;
+  }
+  
+  /* Column 7 (Strongly Agree / last) -> RED when selected or hovered */
+  #question_qvector4 td[headers~="qvector4_c7"] .fir-icon.selected .fir-selected,
+  #question_qvector4 td[headers~="qvector4_c7"]:hover               .fir-selected {
+    fill: #2E7D32 !important;
+  }
+
+
+    </style>
+]]></style>
+<radio 
+  label="qvector4"
+  surveyDisplay="desktop">
+  <title>Tell us how much you agree or disagree with these statements</title>
+  <comment>Tap where you fall on each statement...</comment>
+  <row label="r1">The federal government should invest extra funds in communities of color that have suffered historic health injustices, even if it means higher taxes</row>
+  <row label="r2">Big corporations have too much influence over public health policies</row>
+  <col label="c1"><span style="color: #cc0000;">Strongly<br /> Disagree<br /></span></col>
+  <col label="c2">&amp;nbsp;</col>
+  <col label="c3">&amp;nbsp;</col>
+  <col label="c4"><span style="color: #737374;">Neutral/<br /> Unsure<br /></span></col>
+  <col label="c5">&amp;nbsp;</col>
+  <col label="c6">&amp;nbsp;</col>
+  <col label="c7"><span style="color: #40921e;">Strongly<br /> Agree<br /></span></col>
+</radio>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="cm1,cm2,cm3,QMD1_intro2"><![CDATA[
+<style>
+.question-text, .ParaText {
+    padding: 0 15%;
+}
+</style>
+]]></style>
+<html label="cm1" where="survey">People shape decisions in different ways. The questions that follow help us understand how you tend to engage and where your influence shows up. At the end of the survey, we’ll share a snapshot of your influence profile.</html>
+
+<suspend/>
+
+<style name="respview.client.css" with="qinf360_eliteup,qinf360_recruitup,qinf360_orglat,qinf360_medialat,qinf360_down,qinf360_none" wrap="ready"><![CDATA[
+#question_text_qinf360_eliteup,#question_text_qinf360_recruitup,#question_text_qinf360_orglat,#question_text_qinf360_medialat,#question_text_qinf360_down,#question_text_text_qinf360_none
+{
+display: none !important;
+}
+]]></style>
+<style name="respview.client.js" with="qinf360_none" wrap="ready"><![CDATA[
+jQuery('#question_qinf360_eliteup, #question_qinf360_recruitup, #question_qinf360_orglat, #question_qinf360_medialat, #question_qinf360_down, #question_qinf360_none').hide();
+
+
+
+jQuery("#question_text_qinf360_eliteup, \
+#question_text_qinf360_recruitup, \
+#question_text_qinf360_orglat, \
+#question_text_qinf360_medialat, \
+#question_text_qinf360_down, \
+#question_text_qinf360_none, \
+#comment_qinf360_intro").hide();
+
+setInterval(function () {
+
+  jQuery("input[id='ans21436.0.0']").is(":checked")
+    ? jQuery('#question_qinf360_eliteup').show()
+    : jQuery('#question_qinf360_eliteup').hide();
+
+  jQuery("input[id='ans21436.0.1']").is(":checked")
+    ? jQuery('#question_qinf360_recruitup').show()
+    : jQuery('#question_qinf360_recruitup').hide();
+
+  jQuery("input[id='ans21436.0.2']").is(":checked")
+    ? jQuery('#question_qinf360_orglat').show()
+    : jQuery('#question_qinf360_orglat').hide();
+
+  jQuery("input[id='ans21436.0.3']").is(":checked")
+    ? jQuery('#question_qinf360_medialat').show()
+    : jQuery('#question_qinf360_medialat').hide();
+
+  jQuery("input[id='ans21436.0.4']").is(":checked")
+    ? jQuery('#question_qinf360_down').show()
+    : jQuery('#question_qinf360_down').hide();
+
+  jQuery(
+    "input[id='ans21436.0.0'], \
+     input[id='ans21436.0.1'], \
+     input[id='ans21436.0.2'], \
+     input[id='ans21436.0.3'], \
+     input[id='ans21436.0.4']"
+  ).is(":checked")
+    ? jQuery('#question_qinf360_none, #comment_qinf360_intro').show()
+    : jQuery('#question_qinf360_none, #comment_qinf360_intro').hide(); 
+    
+
+}, 100);
+
+
+
+// r1 Sub-question list (keep as-is if you plan to add more later)
+var qinf360_eliteup = ['qinf360_eliteup'];
+var qinf360r1 = jQuery("input[id='ans21436.0.0']");
+// When the main question (qinf360r1) is NOT checked, uncheck all sub-battery items.
+// When it IS checked, do nothing.
+qinf360r1.on('change', function () {
+  if (!jQuery(this).is(':checked')) {
+    jQuery.each(qinf360_eliteup, function (i, qid) {
+      jQuery('#question_' + qid + ' input[type="checkbox"]:checked')
+        .prop('checked', false)
+        .trigger('change');
+    });
+  }
+});
+
+// r2 Sub-question list (keep as-is if you plan to add more later)
+var qinf360_recruitup = ['qinf360_recruitup'];
+var qinf360r2 = jQuery("input[id='ans21436.0.1']");
+// When the main question (qinf360r2) is NOT checked, uncheck all sub-battery items.
+// When it IS checked, do nothing.
+qinf360r2.on('change', function () {
+  if (!jQuery(this).is(':checked')) {
+    jQuery.each(qinf360_recruitup, function (i, qid) {
+      jQuery('#question_' + qid + ' input[type="checkbox"]:checked')
+        .prop('checked', false)
+        .trigger('change');
+    });
+  }
+});
+
+
+// r3 Sub-question list (keep as-is if you plan to add more later)
+var qinf360_orglat = ['qinf360_orglat'];
+var qinf360r3 = jQuery("input[id='ans21436.0.2']");
+// When the main question (qinf360r3) is NOT checked, uncheck all sub-battery items.
+// When it IS checked, do nothing.
+qinf360r3.on('change', function () {
+  if (!jQuery(this).is(':checked')) {
+    jQuery.each(qinf360_orglat, function (i, qid) {
+      jQuery('#question_' + qid + ' input[type="checkbox"]:checked')
+        .prop('checked', false)
+        .trigger('change');
+    });
+  }
+});
+
+// r4 Sub-question list (keep as-is if you plan to add more later)
+var qinf360_medialat = ['qinf360_medialat'];
+var qinf360r4 = jQuery("input[id='ans21436.0.3']");
+// When the main question (qinf360r3) is NOT checked, uncheck all sub-battery items.
+// When it IS checked, do nothing.
+qinf360r3.on('change', function () {
+  if (!jQuery(this).is(':checked')) {
+    jQuery.each(qinf360_medialat, function (i, qid) {
+      jQuery('#question_' + qid + ' input[type="checkbox"]:checked')
+        .prop('checked', false)
+        .trigger('change');
+    });
+  }
+});
+
+// r5 Sub-question list (keep as-is if you plan to add more later)
+var qinf360_down = ['qinf360_down'];
+var qinf360r5 = jQuery("input[id='ans21436.0.4']");
+// When the main question (qinf360r3) is NOT checked, uncheck all sub-battery items.
+// When it IS checked, do nothing.
+qinf360r3.on('change', function () {
+  if (!jQuery(this).is(':checked')) {
+    jQuery.each(qinf360_down, function (i, qid) {
+      jQuery('#question_' + qid + ' input[type="checkbox"]:checked')
+        .prop('checked', false)
+        .trigger('change');
+    });
+  }
+});
+
+  var subQs = ['qinf360_eliteup','qinf360_recruitup','qinf360_orglat','qinf360_medialat','qinf360_down'];
+
+  var noneBoxPre = jQuery("input[id='ans21436.0.6']")
+  var noneBox = jQuery('#question_qinf360_none input[type="checkbox"]');
+  
+  // When "noneBoxPre - None of these" is checked, uncheck all sub-battery items
+  noneBoxPre.on('change', function() {
+    if (jQuery(this).is(':checked')) {
+      jQuery('#question_qinf360_none input[type="checkbox"]').prop('checked', false).trigger('change');
+      jQuery.each(subQs, function(i, qid) {
+        jQuery('#question_' + qid + ' input[type="checkbox"]:checked').each(function() {
+          jQuery(this).prop('checked', false).trigger('change');
+        });
+      });
+    }
+  });
+  
+  // When "noneBox - None of these" is checked, uncheck all sub-battery items
+  noneBox.on('change', function() {
+    if (jQuery(this).is(':checked')) {
+      jQuery.each(subQs, function(i, qid) {
+        jQuery('#question_' + qid + ' input[type="checkbox"]:checked').each(function() {
+          jQuery(this).prop('checked', false).trigger('change');
+        });
+      });
+    }
+  });
+
+  // When any sub-battery item is checked, uncheck "None of these"
+  jQuery.each(subQs, function(i, qid) {
+    jQuery('#question_' + qid).on('change', 'input[type="checkbox"]', function() {
+      if (jQuery(this).is(':checked') && noneBox.is(':checked')) {
+        noneBox.prop('checked', false).trigger('change');
+      }
+    });
+  });
+  
+  
+ jQuery(
+  "input[id^='ans21436.0.']"
+).on('change', function () {
+
+  if (
+    jQuery("input[id^='ans21436.0.']").filter(':checked').length === 0
+  ) {
+    jQuery('#question_qinf360_none input[type="checkbox"]')
+      .prop('checked', false)
+      .trigger('change');
+  }
+
+});
+]]></style>
+<checkbox 
+  label="qinf360"
+  atleast="1"
+  keepWith="qinf360_eliteup,qinf360_recruitup,qinf360_orglat,qinf360_medialat,qinf360_down,qinf360_none">
+  <title>How have you made your voice heard?</title>
+  <comment>Select all that apply. At the end, you'll see your Influence Compass.</comment>
+  <validate>
+if (qinf360.r1 or qinf360.r2 or qinf360.r3 or qinf360.r4 or qinf360.r5) and not(qinf360_eliteup.any) and not(qinf360_recruitup.any) and not(qinf360_orglat.any) and not(qinf360_medialat.any) and not(qinf360_down.any) and not(qinf360_none.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1" groups="g1">I've worked inside government, held office, or staffed those who do</row>
+  <row label="r2" groups="g1">I've helped decide who runs for office or who gets hired in political or government roles</row>
+  <row label="r3" groups="g1">I advise organizations, sit on boards, or have testified on policy matters</row>
+  <row label="r4" groups="g1">I've written, spoken publicly, or published on issues</row>
+  <row label="r5" groups="g1">I've organized people, worked campaigns, or rallied others to action</row>
+  <row label="r6" groups="g1">I vote, follow current events, and stay involved in my community</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<html label="qinf360_intro" where="survey"><h1 class="question-text">Which of these have you done?</h1>
+  <h2 class="instruction-text">Select all that apply</h2></html>
+
+<checkbox 
+  label="qinf360_eliteup"
+  keepWith="qinf360,qinf360_recruitup,qinf360_orglat,qinf360_medialat,qinf360_down,qinf360_none"
+  optional="1">
+  <title>qinf360_eliteup</title>
+  <row label="r1">Held elected office</row>
+  <row label="r2">Been a paid staffer or advisor to an elected official or gov't agency</row>
+  <row label="r3">Held an elected or appointed role in a party committee</row>
+  <row label="r4">Contacted an elected official or their staff</row>
+</checkbox>
+
+<checkbox 
+  label="qinf360_recruitup"
+  keepWith="qinf360,qinf360_eliteup,qinf360_orglat,qinf360_medialat,qinf360_down,qinf360_none"
+  optional="1">
+  <title>qinf360_recruitup</title>
+  <row label="r1">Helped recruit a candidate to run for public office</row>
+  <row label="r2">Helped recruit staff for a political campaign, office of an elected official, or other political appointee</row>
+</checkbox>
+
+<checkbox 
+  label="qinf360_orglat"
+  keepWith="qinf360,qinf360_eliteup,qinf360_recruitup,qinf360_medialat,qinf360_down,qinf360_none"
+  optional="1">
+  <title>qinf360_orglat</title>
+  <row label="r1">Met (in person or video) with congressional, agency, or state legislative staff</row>
+  <row label="r2">Sat on the board or executive committee of any health, policy, or business association</row>
+  <row label="r3">Worked with or advised a Washington-based organization (think tank, patient advocacy group, trade association)</row>
+  <row label="r4">Testified or submitted written comments to a state legislative or Congressional committee</row>
+</checkbox>
+
+<checkbox 
+  label="qinf360_medialat"
+  keepWith="qinf360,qinf360_eliteup,qinf360_recruitup,qinf360_orglat,qinf360_down,qinf360_none"
+  optional="1">
+  <title>qinf360_medialat</title>
+  <row label="r1">Spoke at a public meeting, podcast, webinar, church or civic group on a health topic</row>
+  <row label="r2">Wrote an article, blog post, Substack, or op-ed on an issue</row>
+</checkbox>
+
+<checkbox 
+  label="qinf360_down"
+  keepWith="qinf360,qinf360_eliteup,qinf360_recruitup,qinf360_orglat,qinf360_medialat,qinf360_none"
+  optional="1">
+  <title>qinf360_down</title>
+  <row label="r1">Volunteered on a political campaign</row>
+  <row label="r2">Organized an event or rally on any issue</row>
+</checkbox>
+
+<checkbox 
+  label="qinf360_none"
+  keepWith="qinf360,qinf360_eliteup,qinf360_recruitup,qinf360_orglat,qinf360_medialat,qinf360_down"
+  optional="1">
+  <title>qinf360_none</title>
+  <row label="r1" exclusive="1"><span class="NoneOfThese">None of these</span></row>
+  <row label="rNIU" cond="1==2"><span class="NoneOfThese">NIU</span></row>
+</checkbox>
+
+<suspend/>
+
+<checkbox 
+  label="qlowinf"
+  atleast="1">
+  <title>In the past 12 months, have you taken any of the following actions related to a public policy issue?</title>
+  <row label="r1" groups="g1">Signed a petition</row>
+  <row label="r2" groups="g1">Attended a meeting</row>
+  <row label="r3" groups="g1">Donated money</row>
+  <row label="r7" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<suspend/>
+
+<radio 
+  label="qtot_followers"
+  atm1d:large_maxWidth="180px"
+  atm1d:large_minWidth="180px"
+  atm1d:showInput="0"
+  atm1d:small_minWidth="100%"
+  atm1d:viewMode="tiled"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Across all your public social-media accounts about how many followers or subscribers do you have in total?</title>
+  <comment>Including from X/Twitter, Instagram, TikTok, Facebook pages, Substack, podcast, YouTube, etc</comment>
+  <row label="r1">0 None</row>
+  <row label="r2">&amp;lt;500</row>
+  <row label="r3">500 - 2,000</row>
+  <row label="r4">2,000 - 10,000</row>
+  <row label="r5"><div style="width:150px">10,000 - 50,000</div></row>
+  <row label="r6">50,000 +</row>
+</radio>
+
+<suspend/>
+
+<radio 
+  label="qsocialinfluence"
+  cardrating:btnlayout="tiled"
+  cardrating:lrg_maxwidth="100px"
+  cardrating:progress="0"
+  fir="off"
+  grouping="rows"
+  uses="cardrating.1">
+  <title>How many times over the past 30 days have you…</title>
+  <comment>Across any social media platform you use (Facebook, X, LinkedIn, TikTok, or others), Approximately how many times have you done any of the following to advocate on a public policy issue?</comment>
+  <col label="c1">Never</col>
+  <col label="c2">Not in the past 30 days</col>
+  <col label="c3">One time</col>
+  <col label="c4">2 - 4 times</col>
+  <col label="c5">5 + times</col>
+  <row label="r1"><b>Created an original post or video</b></row>
+  <row label="r2"><b>Shared or reposted content</b></row>
+  <row label="r3"><b>Commented or replied to posts</b></row>
+</radio>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="qmaha_aware"><![CDATA[
+<style>
+
+
+
+/* Hide the native radio but keep it functional for the <label for="…"> */
+input[id="ans22330.0.9"] {
+  position: absolute !important;
+  opacity: 0 !important;
+  width: 0 !important;
+  height: 0 !important;
+  pointer-events: none; /* optional: prevents stray clicks on the invisible input */
+}
+
+/* Hide the adjacent FIR custom icon for this specific radio */
+input[id="ans22330.0.9"] + span.fir-icon {
+  display: none !important;
+}
+
+#question_qmaha_percep .cell-sub-wrapper:has(input[id='ans22330.0.9']:checked) .cell-text label .NoneOfThese {
+  background: #6B7F4E !important;
+  color: #fff !important;
+  border-color: #6B7F4E !important;
+}
+
+
+/* qmaha_impression css */
+
+.fir-icon {
+  width: unset;
+  height: unset;
+}
+
+.grid.grid-table-mode.setWidth {
+  max-width: 600px;
+}
+
+.grid-table-mode .nonempty {
+  border: unset;
+}
+
+.col-legend {
+  background-color: unset;
+}
+
+#question_qmaha_impression input[type="radio"] + span.fir-icon svg {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 44px;
+  height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  /* border: 2px solid #C5C0B8; */
+  /* background: radial-gradient(circle at 35% 35%, #FAFAFA, #E8E4DE); */
+  box-shadow: 0 2px 6px rgba(0,0,0,.12), inset 0 1px 2px rgba(255,255,255,.6);
+  cursor: pointer;
+  transition: all .2s ease;
+  outline: none;
+}
+
+#question_qmaha_impression .fir-icon svg:hover {
+  transform: scale(1.08);
+}
+
+  /* --- HHIX106 color mapping: c1 = red, c4 = gray, c7 = red --- */
+
+  /* Neutralize earlier global overrides just for this question */
+  #question_qmaha_impression .fir-icon.selected .rounded .fir-selected,
+  #question_qmaha_impression .fir-icon.selected .square  .fir-selected {
+    /* Let column-specific rules below control the color */
+    fill: inherit !important;
+  }
+
+  /* Smooth transition for hover preview */
+  #question_qmaha_impression .fir-selected {
+    transition: fill .15s ease;
+  }
+
+  /* Column 1 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qmaha_impression td[headers~="qmaha_impression_c1"] .fir-icon.selected .fir-selected,
+  #question_qmaha_impression td[headers~="qmaha_impression_c1"]:hover               .fir-selected {
+    fill: #C62828 !important;
+  }
+  
+  /* Column 2 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qmaha_impression td[headers~="qmaha_impression_c2"] .fir-icon.selected .fir-selected,
+  #question_qmaha_impression td[headers~="qmaha_impression_c2"]:hover               .fir-selected {
+    fill: #EF5350 !important;
+  }
+  
+  /* Column 3 (Strongly Disagree) -> RED when selected or hovered */
+  #question_qmaha_impression td[headers~="qmaha_impression_c3"] .fir-icon.selected .fir-selected,
+  #question_qmaha_impression td[headers~="qmaha_impression_c3"]:hover               .fir-selected {
+    fill: #BDBDBD !important;
+  }
+
+  /* Column 4 (Neutral/Unsure) -> GRAY when selected or hovered */
+  #question_qmaha_impression td[headers~="qmaha_impression_c4"] .fir-icon.selected .fir-selected,
+  #question_qmaha_impression td[headers~="qmaha_impression_c4"]:hover               .fir-selected {
+    fill: #66BB6A !important;
+  }
+
+  /* Column 5 (Neutral/Unsure) -> GRAY when selected or hovered */
+  #question_qmaha_impression td[headers~="qmaha_impression_c5"] .fir-icon.selected .fir-selected,
+  #question_qmaha_impression td[headers~="qmaha_impression_c5"]:hover               .fir-selected {
+    fill: #2E7D32 !important;
+  }
+
+    </style>
+]]></style>
+<style mode="after" name="respview.client.js" with="qmaha_aware" wrap="ready"><![CDATA[
+// Hide initially
+jQuery('#question_qmaha_percep').hide();
+jQuery('#question_qmaha_impression').hide();
+jQuery('#question_qmaha_id').hide();
+jQuery('#question_qmaha_idx99').hide();
+
+/* qmaha_percep showing conditions if qmaha_aware is answered */
+
+// Cache selectors
+const $awareRadios   = jQuery("#question_qmaha_aware input[type='radio']");
+const $awareChecks   = jQuery("#question_qmaha_awarex99 input[type='checkbox']");
+const $percepBlock   = jQuery('#question_qmaha_percep');
+const $percepRadios1 = $percepBlock.find('input[type="radio"]'); // distinct var name
+
+// Helper to update visibility
+function updatePercepVisibility() {
+  // true if any 'aware' radio OR any 'awarex99' checkbox is checked
+  //const anyChecked = $awareRadios.is(':checked') || $awareChecks.is(':checked');
+  //Updated for r1 - Very Familiar, r2 - Somewhat Familiar, r3 - Aware, but not sure what it means
+  const anyChecked =
+    jQuery("#question_qmaha_aware input[id='ans22297.0.0']").is(':checked') ||
+    jQuery("#question_qmaha_aware input[id='ans22297.0.1']").is(':checked') ||
+    jQuery("#question_qmaha_aware input[id='ans22297.0.2']").is(':checked');
+    
+  // Show/hide target section
+  $percepBlock.toggle(anyChecked);
+
+  // If nothing is checked upstream, clear percep radios and notify listeners
+  if (!anyChecked) {
+    $percepRadios1.prop('checked', false).trigger('change');
+  }
+}
+
+// 1) Set the correct state once on load (covers pre-checked cases)
+jQuery(updatePercepVisibility);
+
+// 2) Toggle on change (event delegation for dynamic elements)
+jQuery(document).on(
+  'change',
+  "#question_qmaha_aware input[type='radio'], #question_qmaha_awarex99 input[type='checkbox']",
+  updatePercepVisibility
+);
+
+// Disable/enable aware radios based on awarex99 checkbox; clear radios when checkbox is checked
+jQuery(document).on('change', "#question_qmaha_awarex99 input[type='checkbox']", function () {
+  const isChecked = jQuery(this).is(":checked");
+  const $awareRadioInputs = jQuery('#question_qmaha_aware input[type="radio"]');
+
+  if (isChecked) {
+    $awareRadioInputs.prop("checked", false).trigger("change");
+    $awareRadioInputs.prop("disabled", true);
+  } else {
+    $awareRadioInputs.prop("disabled", false);
+  }
+
+  // After toggling disabled/checked states, ensure percep visibility is accurate
+  updatePercepVisibility();
+});
+
+
+/* qmaha_impression showing conditions if qmaha_percep is answered */
+
+// Cache selectors
+const $percepRadios2     = jQuery("#question_qmaha_percep input[type='radio']"); // distinct var name
+const $impressionBlock   = jQuery('#question_qmaha_impression');
+const $impressionRadios  = $impressionBlock.find('input[type="radio"]');
+
+// Helper to update visibility
+function updateImpressionVisibility() {
+  const anyChecked = $percepRadios2.is(':checked');
+
+  // Show/hide the impression block
+  $impressionBlock.toggle(anyChecked);
+
+  // If none of the percep radios are checked, clear impression radios and notify
+  if (!anyChecked) {
+    $impressionRadios.prop("checked", false).trigger("change");
+  }
+}
+
+// 1) Set correct state once on load (handles pre-checked radios)
+jQuery(updateImpressionVisibility);
+
+// 2) Toggle on radio change (event delegation-safe)
+jQuery(document).on(
+  'change',
+  "#question_qmaha_percep input[type='radio']",
+  updateImpressionVisibility
+);
+
+
+/* question_qmaha_id showing conditions if qmaha_impression is answered */
+
+// Cache selectors
+const $impressionRadios2 = jQuery("#question_qmaha_impression input[type='radio']"); // distinct var name
+const $qmahaIdBlock      = jQuery('#question_qmaha_id');
+const $qmahaIdxBlock     = jQuery('#question_qmaha_idx99'); // added
+
+const $qmahaIdRadios     = $qmahaIdBlock.find('input[type="radio"]');
+const $qmahaIdCheckbox     = $qmahaIdBlock.find('input[type="radio"]');
+
+// Helper to update visibility
+function updateQmahaIdVisibility() {
+  const anyChecked = $impressionRadios2.is(':checked');
+
+  // Show/hide the qmaha_id and qmaha_idx99 blocks
+  $qmahaIdBlock.toggle(anyChecked);
+  $qmahaIdxBlock.toggle(anyChecked); // added
+
+  // If none of the impression radios are checked, clear qmaha_id radios and notify
+  if (!anyChecked) {
+    $qmahaIdRadios.prop("checked", false).trigger("change");
+	$qmahaIdCheckbox.prop("checked", false).trigger("change");
+  }
+}
+
+// 1) Set correct state once on load (handles pre-checked radios)
+jQuery(updateQmahaIdVisibility);
+
+// 2) Toggle on radio change (event delegation-safe)
+jQuery(document).on(
+  'change',
+  "#question_qmaha_impression input[type='radio']",
+  updateQmahaIdVisibility
+);
+
+
+// Disable/enable aware radios based on qmaha_idx99 checkbox; clear radios when checkbox is checked
+jQuery(document).on('change', "#question_qmaha_idx99 input[type='checkbox']", function () {
+  const isChecked2 = jQuery(this).is(":checked");
+  const $awareRadioInputs2 = jQuery('#question_qmaha_id input[type="radio"]');
+
+  if (isChecked2) {
+    $awareRadioInputs2.prop("checked", false).trigger("change");
+    $awareRadioInputs2.prop("disabled", true);
+  } else {
+    $awareRadioInputs2.prop("disabled", false);
+  }
+
+  // After toggling disabled/checked states, ensure percep visibility is accurate
+  updateQmahaIdVisibility();
+});
+]]></style>
+<radio 
+  label="qmaha_aware"
+  atm1d:large_maxWidth="110px"
+  atm1d:large_minWidth="100px"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  keepWith="qmaha_awarex99,qmaha_percep,qmaha_impression,qmaha_id,qmaha_idx99"
+  optional="1"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>How familiar are you with the term ‘MAHA’ (Make America Healthy Again)?</title>
+  <comment>Select one</comment>
+  <validate>
+if not(qmaha_aware.any) and not(qmaha_awarex99.any):
+	error(res.sys_noAnswerSelected)
+	
+elif (qmaha_aware.r1 or qmaha_aware.r2 or qmaha_aware.r3) and not(qmaha_percep.any and qmaha_impression.any and (qmaha_id.any or qmaha_idx99.any)):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1">Very Familiar</row>
+  <row label="r2">Somewhat Familiar</row>
+  <row label="r3">Aware, but not sure what it means</row>
+  <row label="r4">Heard of it, but know nothing about it</row>
+  <row label="r5">Never heard of it</row>
+</radio>
+
+<checkbox 
+  label="qmaha_awarex99"
+  keepWith="qmaha_aware,qmaha_percep,qmaha_impression,qmaha_id,qmaha_idx99">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<radio 
+  label="qmaha_percep"
+  keepWith="qmaha_aware,qmaha_awarex99,qmaha_impression,qmaha_id,qmaha_idx99"
+  optional="1">
+  <title>When you hear the term MAHA, what does it most closely represent to you?</title>
+  <comment>Select one</comment>
+  <row label="r1" groups="g1">A movement focused on food quality, nutrition, and chronic disease</row>
+  <row label="r2" groups="g1">A broader critique of drug and food companies, and the health system</row>
+  <row label="r3" groups="g1">A political slogan more than a real movement</row>
+  <row label="r4" groups="g1">A personal health or lifestyle philosophy</row>
+  <row label="r5" groups="g1">A fringe or extreme health movement</row>
+  <row label="r6" groups="g1">The movement around Robert F. Kennedy, Jr.</row>
+  <row label="r7" groups="g1">The health movement led by Donald Trump</row>
+  <row label="r8" groups="g1">Something unclear or hard to define</row>
+  <row label="r9" groups="g1" open="1" openSize="25" randomize="0">Something else</row>
+  <row label="r10" groups="g2"><span class="NoneOfThese">Not Sure</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</radio>
+
+<radio 
+  label="qmaha_impression"
+  colLegend="bottom"
+  keepWith="qmaha_aware,qmaha_awarex99,qmaha_percep,qmaha_id,qmaha_idx99"
+  optional="1"
+  surveyDisplay="desktop">
+  <title>Overall, what is your impression of the MAHA movement or idea?</title>
+  <col label="c1"><span style="color: #cc0000;">VERY<br /> Unfavorable</span></col>
+  <col label="c2"><span style="color: #cc0000;">Somewhat<br /> Unfavorable</span></col>
+  <col label="c3"><span style="color: #737374;">Neutral/<br /> Unsure</span></col>
+  <col label="c4"><span style="color: #40921e;">Somewhat<br /> Favorable</span></col>
+  <col label="c5"><span style="color: #40921e;">VERY<br /> Favorable</span></col>
+</radio>
+
+<radio 
+  label="qmaha_id"
+  keepWith="qmaha_aware,qmaha_awarex99,qmaha_percep,qmaha_impression,qmaha_idx99"
+  optional="1">
+  <title>Which best describes your relationship to the MAHA label?</title>
+  <comment>Select one</comment>
+  <row label="r1">I am a member of the national organization</row>
+  <row label="r2">I strongly identify with it</row>
+  <row label="r3">I somewhat identify with it</row>
+  <row label="r4">I agree with some of the ideas, but wouldn’t identify with it</row>
+  <row label="r5">I’ve heard of it, but don’t relate to it</row>
+  <row label="r6">I disagree with it</row>
+  <row label="r7">I’m unfamiliar with it</row>
+</radio>
+
+<checkbox 
+  label="qmaha_idx99"
+  keepWith="qmaha_aware,qmaha_awarex99,qmaha_percep,qmaha_impression,qmaha_id">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.js" with="cm2" wrap="ready"><![CDATA[
+document.getElementById('btn_continue').setAttribute('value', 'ALMOST DONE');
+]]></style>
+<html label="cm2" where="survey">We promise this is the last stretch. <br /><br />Just a few background questions so we can see how different walks of life connect with different ways of thinking.</html>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="d2"><![CDATA[
+<style>
+
+
+fieldset.atm1d .answers > div > div {
+  border: unset !important;
+    margin: 10px 10px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans22753.0.0"] {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #2E7D32 !important;
+    color: #FFF !important;
+    font-size: 30px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans22753.0.1"] {
+	width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #C62828 !important;
+    color: #FFF !important;
+    font-size: 30px;
+}
+
+
+.showInput_0:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0,0,0,.18);
+}
+
+
+/* Apply box-shadow ONLY when the radio is selected */
+input[type="radio"]:checked + .showInputParent_0 label {
+  box-shadow: 0 0 0 4px rgba(107, 127, 78, .35), 
+              0 3px 10px rgba(0, 0, 0, .15);
+}
+
+    </style>
+]]></style>
+<radio 
+  label="d2"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  keepWith="d2x99"
+  optional="1"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Are you of Hispanic or Latino background?</title>
+  <validate>
+if not(d2.any) and not(d2x99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1">✓</row>
+  <row label="r2">✕</row>
+</radio>
+
+<checkbox 
+  label="d2x99"
+  keepWith="d2">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<radio 
+  label="d3">
+  <title>Which best describes your race?
+</title>
+  <row label="r1">White</row>
+  <row label="r2">Black</row>
+  <row label="r3">Asian</row>
+  <row label="r4" open="1" openSize="25" randomize="0">Other</row>
+</radio>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="VET"><![CDATA[
+<style>
+
+
+
+
+fieldset.atm1d .answers > div > div {
+  border: unset !important;
+  margin: 10px 10px;
+}
+
+/*
+fieldset.atm1d .answers > div label[for="ans19043.0.0"] {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background-image: url("https://emea.focusvision.com/survey/selfserve/21a7/260129/Salute.png");
+    //background: #2E7D32 !important;
+    color: #fff !important;
+    font-size: 10px;
+}
+*/
+
+
+fieldset.atm1d .answers > div label[for="ans19043.0.0"], fieldset.atm1d .answers > div label[for="ans19043.0.1"] {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #2E7D32 !important;
+    color: #FFF !important;
+    font-size: 30px;
+}
+
+fieldset.atm1d .answers > div label[for="ans19043.0.2"] {
+	width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #C62828 !important;
+    color: #FFF !important;
+    font-size: 30px;
+    margin-left: 50px;
+}
+
+
+.showInput_0:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0,0,0,.18);
+}
+
+
+/* Apply box-shadow ONLY when the radio is selected */
+input[type="radio"]:checked + .showInputParent_0 label {
+  box-shadow: 0 0 0 4px rgba(107, 127, 78, .35), 
+              0 3px 10px rgba(0, 0, 0, .15);
+}
+
+.appended {
+text-align: center;
+padding-left: 74px;
+}
+
+.appendedx1 {
+text-align: center;
+padding-left: 5px;
+}
+    </style>
+]]></style>
+<style name="respview.client.js" with="VET" wrap="ready"><![CDATA[
+jQuery('label[for="ans19043.0.0"]').parent().after('<div class="appendedx1">YES - <br/>ACTIVE<br/> DUTY</div>');
+jQuery('label[for="ans19043.0.1"]').parent().after('<div class="appendedx1">YES -<br/> VETERAN</div>');
+jQuery('label[for="ans19043.0.2"]').parent().after('<div class="appended">NO</div>');
+
+
+setInterval(function () {
+  const isChecked = jQuery("input[type='checkbox']").is(":checked");
+
+  if (isChecked) {
+    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
+    jQuery('input[type="radio"]').prop("disabled", true);
+  } else {
+    jQuery('input[type="radio"]').prop("disabled", false);
+  }
+}, 100);
+]]></style>
+<radio 
+  label="VET"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  keepWith="VETx99"
+  optional="1"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Have you ever served on active duty in the U.S. Armed Forces, Reserves, or National Guard?</title>
+  <validate>
+if not(VET.any) and not(VETx99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1">✓</row>
+  <row label="r2">✓</row>
+  <row label="r3">✕</row>
+</radio>
+
+<checkbox 
+  label="VETx99"
+  keepWith="VET">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="UNION"><![CDATA[
+<style>
+
+
+fieldset.atm1d .answers > div > div {
+  border: unset !important;
+    margin: 10px 10px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans19057.0.0"] {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #2E7D32 !important;
+    color: #FFF !important;
+    font-size: 30px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans19057.0.1"] {
+	width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #C62828 !important;
+    color: #FFF !important;
+    font-size: 30px;
+}
+
+
+.showInput_0:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0,0,0,.18);
+}
+
+
+/* Apply box-shadow ONLY when the radio is selected */
+input[type="radio"]:checked + .showInputParent_0 label {
+  box-shadow: 0 0 0 4px rgba(107, 127, 78, .35), 
+              0 3px 10px rgba(0, 0, 0, .15);
+}
+
+.appended {
+padding-left: 25px;
+}
+
+    </style>
+]]></style>
+<style name="respview.client.js" with="UNION" wrap="ready"><![CDATA[
+jQuery('label[for="ans19057.0.0"]').parent().after('<div class="appended"><center>YES</center></div>');
+jQuery('label[for="ans19057.0.1"]').parent().after('<div class="appended">NO</div>');
+
+
+setInterval(function () {
+  const isChecked = jQuery("input[type='checkbox']").is(":checked");
+
+  if (isChecked) {
+    jQuery('input[type="radio"]').prop("checked", false).trigger("change");
+    jQuery('input[type="radio"]').prop("disabled", true);
+  } else {
+    jQuery('input[type="radio"]').prop("disabled", false);
+  }
+}, 100);
+]]></style>
+<radio 
+  label="UNION"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  keepWith="UNIONx99"
+  optional="1"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Are you currently, or have you ever been, part of a labor union?</title>
+  <validate>
+if not(UNION.any) and not(UNIONx99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1">✓</row>
+  <row label="r3">✕</row>
+</radio>
+
+<checkbox 
+  label="UNIONx99"
+  keepWith="UNION">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<radio 
+  label="edu"
+  atm1d:large_maxWidth="180px"
+  atm1d:large_minWidth="180px"
+  atm1d:showInput="0"
+  atm1d:small_minWidth="100%"
+  atm1d:viewMode="tiled"
+  keepWith="edux99"
+  optional="1"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Please indicate the highest level of school you completed or the highest degree you have received…</title>
+  <validate>
+if not(edu.any) and not(edux99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <row label="r1">Did not finish high school</row>
+  <row label="r2">High school diploma or GED</row>
+  <row label="r3">Some college credit, no degree</row>
+  <row label="r4">Trade/technical/vocational training</row>
+  <row label="r5">Associate’s degree</row>
+  <row label="r6">Bachelor’s degree</row>
+  <row label="r7">Master’s degree</row>
+  <row label="r8">Professional degree (JD, MD)</row>
+  <row label="r9">Doctorate degree (PhD)</row>
+</radio>
+
+<checkbox 
+  label="edux99"
+  keepWith="edu">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<select 
+  label="REL"
+  keepWith="RELx99"
+  optional="1">
+  <title>What is your present religion, if any?</title>
+  <validate>
+if not(REL.any) and not(RELx99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <choice label="ch1">Protestant</choice>
+  <choice label="ch2">Roman Catholic</choice>
+  <choice label="ch3">LDS/Mormon</choice>
+  <choice label="ch4">Orthodox, such as Greek or Russian Orthodox</choice>
+  <choice label="ch5">Jewish</choice>
+  <choice label="ch6">Muslim</choice>
+  <choice label="ch7">Buddhist</choice>
+  <choice label="ch8">Hindu</choice>
+  <choice label="ch9">Atheist</choice>
+  <choice label="ch10">Agnostic</choice>
+  <choice label="ch11">Something else</choice>
+  <choice label="ch12">Nothing in particular</choice>
+</select>
+
+<checkbox 
+  label="RELx99"
+  keepWith="REL">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="evangel"><![CDATA[
+<style>
+
+
+fieldset.atm1d .answers > div > div {
+  border: unset !important;
+    margin: 10px 10px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans22832.0.0"] {
+    width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #2E7D32 !important;
+    color: #FFF !important;
+    font-size: 15px;
+}
+
+
+fieldset.atm1d .answers > div label[for="ans22832.0.1"] {
+	width: 78px;
+    height: 78px;
+    border-radius: 50%;
+    background: #C62828 !important;
+    color: #FFF !important;
+    font-size: 15px;
+}
+
+
+.showInput_0:hover {
+    transform: scale(1.06);
+    box-shadow: 0 5px 16px rgba(0,0,0,.18);
+}
+
+
+/* Apply box-shadow ONLY when the radio is selected */
+input[type="radio"]:checked + .showInputParent_0 label {
+  box-shadow: 0 0 0 4px rgba(107, 127, 78, .35), 
+              0 3px 10px rgba(0, 0, 0, .15);
+}
+
+    </style>
+]]></style>
+<radio 
+  label="evangel"
+  cond="REL.ch1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Would you describe yourself a born-again or evangelical Christian, or not?</title>
+  <row label="r1">YES</row>
+  <row label="r2">NO</row>
+</radio>
+
+<suspend/>
+
+<select 
+  label="income"
+  keepWith="incomeX99"
+  optional="1">
+  <title>Last year – that is, in 2025 – what was your total family income from all sources, before taxes…</title>
+  <validate>
+if not(income.any) and not(incomeX99.any):
+	error(res.sys_noAnswerSelected)
+  </validate>
+
+  <choice label="ch1">Less than $10,000</choice>
+  <choice label="ch2">$10,000 – $19,999</choice>
+  <choice label="ch3">$20,000 – $29,999</choice>
+  <choice label="ch4">$30,000 – $39,999</choice>
+  <choice label="ch5">$40,000 – $49,999</choice>
+  <choice label="ch6">$50,000 – $59,999</choice>
+  <choice label="ch7">$60,000 – $69,999</choice>
+  <choice label="ch8">$70,000 – $79,999</choice>
+  <choice label="ch9">$80,000 – $89,999</choice>
+  <choice label="ch10">$90,000 – $99,999</choice>
+  <choice label="ch11">$100,000 – $124,999</choice>
+  <choice label="ch12">$125,000 – $149,999</choice>
+  <choice label="ch13">$150,000 – $199,999</choice>
+  <choice label="ch14">$200,000 – $499,999</choice>
+  <choice label="ch15">$500,000 or more</choice>
+</select>
+
+<checkbox 
+  label="incomeX99"
+  keepWith="income">
+  <title>New Multi-Select Question</title>
+  <row label="r1">Prefer not to respond</row>
+</checkbox>
+
+<suspend/>
+
+<text 
+  label="optin_email"
+  optional="0"
+  ss:listDisplay="0"
+  verify="email">
+  <title>Please share your email address to see which PRISM segment you are most closely aligned with.</title>
+  <comment>Email address:</comment>
+</text>
+
+<suspend/>
+
+<term label="te1" cond="1">This text will appear in the Response Summary</term>
+
+<suspend/>
+
+<html label="cm3" where="survey"><p>To help us better understand how people encounter and engage with information about health, this section asks about the media, platforms, and voices that shape your information environment.</p>
+<p></p>
+<div></div>
+<p><br />These questions help us understand where you go for information, who you trust, and how different sources influence the way you think about health and healthcare.</p></html>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="HHIX100"><![CDATA[
+<style>
+
+.cell-sub-column {
+  vertical-align: top;
+}
+
+    </style>
+]]></style>
+<checkbox 
+  label="HHIX100"
+  atleast="1">
+  <title>Which of the following do you use to get health or political information? Select all that apply.</title>
+  <comment>Include any platform you use at least occasionally — it doesn't have to be your main source.</comment>
+  <row label="r1" groups="g1"><strong>Podcasts <br /></strong>Audio shows you stream or download</row>
+  <row label="r2" groups="g1"><strong>YouTube</strong><br />Video content on YouTube</row>
+  <row label="r3" groups="g1"><strong>Facebook</strong><br />Posts, groups, or pages on Facebook</row>
+  <row label="r4" groups="g1"><strong>X (Twitter)</strong><br />Posts and threads on X</row>
+  <row label="r5" groups="g1"><strong>Instagram</strong><br />Posts, reels, or stories on Instagram</row>
+  <row label="r6" groups="g1"><strong>TikTok</strong><br />Short videos on TikTok</row>
+  <row label="r7" groups="g1"><strong>Substack or email newsletters</strong><br />Newsletters delivered by email</row>
+  <row label="r8" groups="g1"><strong>Online news sites and blogs</strong><br />Websites, news sites, or blogs</row>
+  <row label="r9" groups="g1"><strong>Rumble or alternative video platforms</strong><br />Rumble, Odysee, Brighteon, or similar</row>
+  <row label="r10" groups="g1"><strong>Telegram or Signal channels</strong><br />Channels or groups on Telegram or Signal Cable or broadcast TV</row>
+  <row label="r11" groups="g1"><strong>Cable news or broadcast TV programs</strong></row>
+  <row label="r12" groups="g1"><strong>Radio or talk radio</strong><br />AM/FM radio, satellite radio, or talk radio shows</row>
+  <row label="r99" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="HHIX101"><![CDATA[
+<style>
+
+label:has(.NoneOfThese) {
+  border: none !important;        /* or border-color: transparent !important; */
+  box-shadow: none !important;    /* optional: clear any shadows that look like borders */
+}
+
+fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfThese){
+    border: none !important;
+    background-color: unset  !important;
+    border-color: unset !important;
+    color: unset !important;
+}
+
+
+fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfThese) .NoneOfThese {
+	border-color: #6B7F4E;
+    background: #6B7F4E;
+    color: #fff;
+	
+}
+
+
+    </style>
+]]></style>
+<checkbox 
+  label="HHIX101"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of the following <u>topics</u> do you follow for health or political information? Tap on all that apply.</title>
+  <comment>Think about the sources, podcasts, newsletters, or social accounts you follow regularly.</comment>
+  <row label="r1" groups="g1">Political news and<br /> commentary</row>
+  <row label="r2" groups="g1">Health policy<br /> (Insurance, drug prices, Medical reform)</row>
+  <row label="r3" groups="g1">Medicare and senior<br /> health issues</row>
+  <row label="r4" groups="g1">Natural and<br /> alternative health</row>
+  <row label="r5" groups="g1">Nutrition and diet</row>
+  <row label="r6" groups="g1">Supplements and<br /> vitamins</row>
+  <row label="r7" groups="g1">Vaccines and<br /> immunization</row>
+  <row label="r8" groups="g1">Fitness and physical<br /> performance</row>
+  <row label="r9" groups="g1">Longevity and anti<br />-aging</row>
+  <row label="r10" groups="g1">Science and medical<br /> research</row>
+  <row label="r11" groups="g1">Faith and values</row>
+  <row label="r12" groups="g1">Worker and<br /> economic issues</row>
+  <row label="r13" groups="g1">Health technology<br /> and innovation</row>
+  <row label="r14" groups="g1">Environmental and<br /> climate health</row>
+  <row label="r99" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="HHIX102"><![CDATA[
+<style>
+
+[data-label="c1"] {
+  background-color: #D0D0D0 !important;
+}
+
+[data-label="c2"] {
+  background-color: #E5E5E5 !important;
+}
+
+[data-label="c3"] {
+  background-color: #F2F2ED !important;
+}
+
+[data-label="c4"] {
+  background-color: #DBEBC7 !important;
+}
+
+[data-label="c5"] {
+  background-color: #C6E2A3 !important;
+}
+
+[data-label="c6"] {
+  background-color: #2E7D32 !important;
+}
+
+    </style>
+]]></style>
+<radio 
+  label="HHIX102"
+  cardrating:btnlayout="tiled"
+  cardrating:progress="0"
+  fir="off"
+  grouping="rows"
+  uses="cardrating.1">
+  <title>When was the last time you used this source for news and information on this topic?</title>
+  <comment>if you’ve never heard of it before, don’t worry – you’re definitely not alone. The next source slides in as soon as you answer. No time to waste - keep swiping!</comment>
+  <col label="c1">Never<br /> heard of it</col>
+  <col label="c2">Never<br /> used it</col>
+  <col label="c3">Over a<br /> year ago</col>
+  <col label="c4">Past<br /> year</col>
+  <col label="c5">Past<br /> month</col>
+  <col label="c6">Past<br /> week</col>
+  <row label="r1">CHOP Vaccine Education Center</row>
+  <row label="r2">Functional Medicine for Life</row>
+</radio>
+
+<suspend/>
+
+<style name="respview.client.js" with="HHIX103,HHIX103x99" wrap="ready"><![CDATA[
+//jQuery(document).on("change", "input[type='checkbox']", function () {
+
+ setInterval(function () {
+ 
+ if($ ("div[class*='sq-cardrating-widget']").attr("data-atend") == "true")
+              $ ("#btn_continue").click();
+ 
+  const isChecked = jQuery("input[type='checkbox']").is(":checked");
+
+  if (isChecked) {
+    console.log("Checked");
+    // <li> doesn't support the boolean 'disabled' property.
+    // Use a data flag + CSS pointer blocking.
+    jQuery("li.sq-cardrating-button.sq-cardrating-relative.ui-droppable")
+      .attr("data-disabled", "true")
+      .css({ pointerEvents: "none", opacity: 0.5 });
+  } else {
+    console.log("Not Checked");
+    jQuery("li.sq-cardrating-button.sq-cardrating-relative.ui-droppable")
+      .attr("data-disabled", "false")
+      .css({ pointerEvents: "", opacity: 1 });
+  }
+}, 100);
+]]></style>
+<radio 
+  label="HHIX103"
+  cardrating:btnlayout="tiled"
+  cardrating:progress="0"
+  fir="off"
+  grouping="rows"
+  keepWith="HHIX103x99"
+  optional="1"
+  uses="cardrating.1">
+  <title>Which publication or site should we have asked about?</title>
+  <comment>&amp;nbsp;&amp;nbsp;</comment>
+  <col label="c1">Never heard<br /> of it</col>
+  <col label="c2">Never used<br /> it</col>
+  <col label="c3">Over a year<br /> ago</col>
+  <col label="c4">Past year</col>
+  <col label="c5">Past month</col>
+  <col label="c6">Past week</col>
+  <row label="r1">Nourishing Traditions (Sally Fallon)</row>
+  <row label="r2">&amp;gt;&amp;gt;</row>
+</radio>
+
+<checkbox 
+  label="HHIX103x99"
+  keepWith="HHIX103">
+  <title>New Multi-Select Question</title>
+  <row label="r1" cond="1==2">None</row>
+  <row label="r99" exclusive="1"><span class="NoneOfThese">Not Sure</span></row>
+</checkbox>
+
+<suspend/>
+
+<style mode="after" name="respview.client.css" with="HHIX104"><![CDATA[
+<style>
+
+[for="ans19320.0.30"] {
+  border: unset !important;
+}
+
+
+/* applied when checkbox is checked */
+label[for="ans19320.0.30"].is-checked {
+  border-color: #6B7F4E !important;
+  background: #6B7F4E !important;
+  color: #fff !important;
+}
+
+
+label:has(.NoneOfThese) {
+  border: none !important;        /* or border-color: transparent !important; */
+  box-shadow: none !important;    /* optional: clear any shadows that look like borders */
+}
+
+fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfThese){
+    border: none !important;
+    background-color: unset  !important;
+    border-color: unset !important;
+    color: unset !important;
+}
+
+
+fieldset.atm1d .answers>div input[type=checkbox]:checked~div>label:has(.NoneOfThese) .NoneOfThese {
+	border-color: #6B7F4E;
+    background: #6B7F4E;
+    color: #fff;
+	
+}
+
+    </style>
+]]></style>
+<checkbox 
+  label="HHIX104"
+  atleast="1"
+  atm1d:showInput="0"
+  atm1d:viewMode="tiled"
+  fir="off"
+  ss:listDisplay="1"
+  uses="atm1d.11">
+  <title>Which of the following voices or creators do you follow on this topic?</title>
+  <comment>Scan the list and tap on any that you know and follow, no matter how often</comment>
+  <row label="r1" groups="g1">Andy Slavitt</row>
+  <row label="r2" groups="g1">Farzad Mostashari</row>
+  <row label="r3" groups="g1">Zeke Emanuel</row>
+  <row label="r4" groups="g1">Dave deBronkart (ePatient)</row>
+  <row label="r5" groups="g1">AARP</row>
+  <row label="r6" groups="g1">Andy Slavitt</row>
+  <row label="r7" groups="g1">Andy Slavitt</row>
+  <row label="r8" groups="g1">Andy Slavitt</row>
+  <row label="r9" groups="g1">Andy Slavitt</row>
+  <row label="r10" groups="g1">Andy Slavitt</row>
+  <row label="r11" groups="g1">Andy Slavitt</row>
+  <row label="r12" groups="g1">Andy Slavitt</row>
+  <row label="r13" groups="g1">Andy Slavitt</row>
+  <row label="r14" groups="g1">Andy Slavitt</row>
+  <row label="r15" groups="g1">Andy Slavitt</row>
+  <row label="r16" groups="g1">Andy Slavitt</row>
+  <row label="r17" groups="g1">Andy Slavitt</row>
+  <row label="r18" groups="g1">Andy Slavitt</row>
+  <row label="r19" groups="g1">Andy Slavitt</row>
+  <row label="r20" groups="g1">Andy Slavitt</row>
+  <row label="r21" groups="g1">Andy Slavitt</row>
+  <row label="r22" groups="g1">Andy Slavitt</row>
+  <row label="r23" groups="g1">Andy Slavitt</row>
+  <row label="r24" groups="g1">Andy Slavitt</row>
+  <row label="r25" groups="g1">Andy Slavitt</row>
+  <row label="r26" groups="g1">Andy Slavitt</row>
+  <row label="r27" groups="g1">Andy Slavitt</row>
+  <row label="r28" groups="g1">Andy Slavitt</row>
+  <row label="r29" groups="g1">Andy Slavitt</row>
+  <row label="r30" groups="g1">Andy Slavitt</row>
+  <row label="r31" exclusive="1" groups="g2" randomize="0"><span class="NoneOfThese">None of these</span></row>
+  <group label="g1" builder:axis="row" builder:default="1" where="none">no group</group>
+  <group label="g2" builder:axis="row">&amp;nbsp;&amp;nbsp;</group>
+</checkbox>
+
+<suspend/>
+
+<textarea 
+  label="HHIX105"
+  height="2"
+  optional="0"
+  width="50">
+  <title>Which voices or creators did we forget to include?</title>
+</textarea>
+
+<suspend/>
+</survey>
