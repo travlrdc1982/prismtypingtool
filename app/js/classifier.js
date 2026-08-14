@@ -1,82 +1,14 @@
-// ═══════════════════════════════════════════════════════════════
-// PRISM TYPING TOOL — Segment Classification Engine
-//
-// Classifies respondents into one of 16 PRISM segments using:
-// 1. MaxDiff Best-Worst scores → z-scored dimensions
-// 2. Attitude battery scores → additional z-scored dimensions
-// 3. Euclidean distance to pre-computed segment centroids
-// 4. Softmax probability assignment
-// ═══════════════════════════════════════════════════════════════
-
-const GOP_CENTROIDS = {
-  TSP: [ 0.85, 0.30,-0.60,-0.80, 0.10, 0.55,-0.90,-0.70,-0.65,-0.95, 0.90, 0.70,  0.71, 0.26,-0.26,-0.11, 0.45,-0.30],
-  CEC: [ 0.25, 0.80,-0.20,-0.50, 0.60, 0.30,-0.40,-0.30,-0.45,-0.55, 0.20, 0.35,  0.57, 0.07,-0.07, 0.05, 0.30,-0.15],
-  TC:  [-0.10, 0.50, 0.85,-0.30,-0.20, 0.20,-0.35,-0.40,-0.30,-0.45, 0.10, 0.15,  0.94, 0.04, 0.29,-0.20, 0.25,-0.10],
-  WE:  [-0.40,-0.30, 0.60, 0.80,-0.10,-0.25, 0.30, 0.40, 0.35,-0.10,-0.55,-0.30, -0.11,-0.43, 0.10, 0.50,-0.10, 0.45],
-  PP:  [ 0.15, 0.25,-0.30,-0.40, 0.85,-0.15,-0.20,-0.10, 0.20,-0.30, 0.60,-0.10,  0.07, 0.07, 0.00, 0.00, 0.10, 0.15],
-  HF:  [ 0.40, 0.10,-0.50,-0.60,-0.10, 0.90,-0.35,-0.55,-0.30,-0.40, 0.45, 0.85,  0.67, 0.16, 0.15,-0.45, 0.90,-0.20],
-  PFF: [-0.70,-0.50,-0.15, 0.30,-0.05,-0.10, 0.85, 0.35, 0.55, 0.50,-0.60,-0.20, -0.75,-0.68, 0.65, 0.55,-0.15, 0.75],
-  HHN: [-0.30,-0.20,-0.25, 0.45,-0.05, 0.10, 0.25, 0.85, 0.30, 0.40,-0.30, 0.05, -0.28,-0.23, 0.30, 0.85, 0.10, 0.35],
-  MFL: [-0.25,-0.20,-0.10, 0.25, 0.10,-0.05, 0.40, 0.20, 0.80, 0.25,-0.15,-0.10, -0.12,-0.35, 0.25, 0.30,-0.05, 0.80],
-  VS:  [-0.65,-0.55,-0.20, 0.15,-0.15,-0.30, 0.70, 0.30, 0.50, 0.90,-0.45,-0.40, -0.70,-0.93, 0.80, 0.40,-0.30, 0.60],
-};
-
-const DEM_CENTROIDS = {
-  UCP: [ 0.85, 0.30,-0.20, -0.40, -0.55,  0.15, 0.70,  0.45, 0.20,  0.50,  0.80, 0.65,-0.70, 0.20, 0.40,-0.50],
-  FJP: [ 0.30, 0.85, 0.10, -0.10, -0.30,  0.25, 0.20,  0.70, 0.40,  0.35,  0.50, 0.30,-0.25, 0.15, 0.80, 0.30],
-  HCP: [-0.10, 0.20, 0.80,  0.15,  0.10, -0.15, 0.50,  0.25, 0.15,  0.45,  0.40, 0.55,-0.10,-0.10, 0.25,-0.20],
-  HAD: [-0.30,-0.15,-0.25,  0.85,  0.20,  0.35,-0.40, -0.30, 0.50, -0.25, -0.20,-0.35, 0.55, 0.30,-0.30, 0.70],
-  HCI: [-0.45,-0.30, 0.15,  0.40,  0.80,  0.10,-0.55, -0.40, 0.30, -0.15, -0.10,-0.20, 0.80, 0.20,-0.15, 0.60],
-  GHI: [ 0.15, 0.10,-0.20,  0.30, -0.10,  0.85, 0.10,  0.20, 0.65,  0.25,  0.55, 0.15,-0.35, 0.85, 0.30, 0.80],
-};
-
-const GOP_NORM = {
-  md: Array(12).fill(null).map(() => [0.0, 1.0]),
-  att: [[3.50,0.95],[3.75,0.90],[3.80,1.20],[3.60,1.10],[4.20,0.85],[4.40,0.80]],
-};
-const DEM_NORM = {
-  md: Array(10).fill(null).map(() => [0.0, 1.0]),
-  att: [[4.80,1.15],[4.60,1.00],[3.50,1.20],[4.30,1.05],[4.10,1.15],[4.70,0.90]],
-};
-
-function computeMaxDiffScores(responses, numItems) {
-  const scores = new Array(numItems).fill(0);
-  for (const task of responses) {
-    if (task.best !== null) scores[task.best - 1] += 1;
-    if (task.worst !== null) scores[task.worst - 1] -= 1;
-  }
-  return scores;
-}
-function zScore(value, mean, std) { return std === 0 ? 0 : (value - mean) / std; }
-function euclideanDist(a, b) { let s=0; for(let i=0;i<a.length;i++) s+=(a[i]-b[i])**2; return Math.sqrt(s); }
-function softmax(distances) {
-  const nd=distances.map(d=>-d/2.0), mx=Math.max(...nd), ex=nd.map(d=>Math.exp(d-mx)), s=ex.reduce((a,b)=>a+b,0);
-  return ex.map(e=>e/s);
-}
-
-export function classify(responses) {
-  const { party, maxdiffResponses, attitudeResponses } = responses;
-  return (party==="GOP"||party==="IND_GOP") ? classifyGOP(maxdiffResponses,attitudeResponses) : classifyDEM(maxdiffResponses,attitudeResponses);
-}
-
-function classifyGOP(mdR, attR) {
-  const mdS=computeMaxDiffScores(mdR,12), zS=[];
-  for(let i=0;i<12;i++) zS.push(zScore(mdS[i],GOP_NORM.md[i][0],GOP_NORM.md[i][1]));
-  const ak=["pharma_trust","govt_trust","vax_safety","natural_med","innovation","autonomy"];
-  for(let i=0;i<ak.length;i++) zS.push(zScore(attR[ak[i]]||4,GOP_NORM.att[i][0],GOP_NORM.att[i][1]));
-  const sc=Object.keys(GOP_CENTROIDS), ds=sc.map(c=>euclideanDist(zS,GOP_CENTROIDS[c])), ps=softmax(ds);
-  const mi=ps.indexOf(Math.max(...ps)), r=sc.map((c,i)=>({code:c,probability:ps[i],distance:ds[i]}));
-  r.sort((a,b)=>b.probability-a.probability);
-  return {segment:sc[mi],probability:ps[mi],allProbabilities:r,zScores:zS};
-}
-
-function classifyDEM(mdR, attR) {
-  const mdS=computeMaxDiffScores(mdR,10), zS=[];
-  for(let i=0;i<10;i++) zS.push(zScore(mdS[i],DEM_NORM.md[i][0],DEM_NORM.md[i][1]));
-  const ak=["m4a_support","corp_blame","incremental","global_health","equity","institution_trust"];
-  for(let i=0;i<ak.length;i++) zS.push(zScore(attR[ak[i]]||4,DEM_NORM.att[i][0],DEM_NORM.att[i][1]));
-  const sc=Object.keys(DEM_CENTROIDS), ds=sc.map(c=>euclideanDist(zS,DEM_CENTROIDS[c])), ps=softmax(ds);
-  const mi=ps.indexOf(Math.max(...ps)), r=sc.map((c,i)=>({code:c,probability:ps[i],distance:ds[i]}));
-  r.sort((a,b)=>b.probability-a.probability);
-  return {segment:sc[mi],probability:ps[mi],allProbabilities:r,zScores:zS};
-}
+export function classify(responses){
+const{party,maxdiffResponses,attitudeResponses}=responses;
+if(party==="GOP"||party==="IND_GOP")return classifyGOP(maxdiffResponses,attitudeResponses);
+return classifyDEM(maxdiffResponses,attitudeResponses);}
+const GOP_CENTROIDS={TSP:[.85,.3,-.6,-.8,.1,.55,-.9,-.7,-.65,-.95,.9,.7,.71,.26,-.26,-.11,.45,-.3],CEC:[.25,.8,-.2,-.5,.6,.3,-.4,-.3,-.45,-.55,.2,.35,.57,.07,-.07,.05,.3,-.15],TC:[-.1,.5,.85,-.3,-.2,.2,-.35,-.4,-.3,-.45,.1,.15,.94,.04,.29,-.2,.25,-.1],WE:[-.4,-.3,.6,.8,-.1,-.25,.3,.4,.35,-.1,-.55,-.3,-.11,-.43,.1,.5,-.1,.45],PP:[.15,.25,-.3,-.4,.85,-.15,-.2,-.1,.2,-.3,.6,-.1,.07,.07,0,0,.1,.15],HF:[.4,.1,-.5,-.6,-.1,.9,-.35,-.55,-.3,-.4,.45,.85,.67,.16,.15,-.45,.9,-.2],PFF:[-.7,-.5,-.15,.3,-.05,-.1,.85,.35,.55,.5,-.6,-.2,-.75,-.68,.65,.55,-.15,.75],HHN:[-.3,-.2,-.25,.45,-.05,.1,.25,.85,.3,.4,-.3,.05,-.28,-.23,.3,.85,.1,.35],MFL:[-.25,-.2,-.1,.25,.1,-.05,.4,.2,.8,.25,-.15,-.1,-.12,-.35,.25,.3,-.05,.8],VS:[-.65,-.55,-.2,.15,-.15,-.3,.7,.3,.5,.9,-.45,-.4,-.7,-.93,.8,.4,-.3,.6]};
+const DEM_CENTROIDS={UCP:[.85,.3,-.2,-.4,-.55,.15,.7,.45,.2,.5,.8,.65,-.7,.2,.4,-.5],FJP:[.3,.85,.1,-.1,-.3,.25,.2,.7,.4,.35,.5,.3,-.25,.15,.8,.3],HCP:[-.1,.2,.8,.15,.1,-.15,.5,.25,.15,.45,.4,.55,-.1,-.1,.25,-.2],HAD:[-.3,-.15,-.25,.85,.2,.35,-.4,-.3,.5,-.25,-.2,-.35,.55,.3,-.3,.7],HCI:[-.45,-.3,.15,.4,.8,.1,-.55,-.4,.3,-.15,-.1,-.2,.8,.2,-.15,.6],GHI:[.15,.1,-.2,.3,-.1,.85,.1,.2,.65,.25,.55,.15,-.35,.85,.3,.8]};
+const GOP_NORM={md:Array(12).fill(null).map(()=>[0,1]),att:[[3.5,.95],[3.75,.9],[3.8,1.2],[3.6,1.1],[4.2,.85],[4.4,.8]]};
+const DEM_NORM={md:Array(10).fill(null).map(()=>[0,1]),att:[[4.8,1.15],[4.6,1],[3.5,1.2],[4.3,1.05],[4.1,1.15],[4.7,.9]]};
+function computeMaxDiffScores(r,n){const s=new Array(n).fill(0);for(const t of r){if(t.best!==null)s[t.best-1]+=1;if(t.worst!==null)s[t.worst-1]-=1;}return s;}
+function zScore(v,m,s){return s===0?0:(v-m)/s;}
+function euclideanDist(a,b){let s=0;for(let i=0;i<a.length;i++)s+=(a[i]-b[i])**2;return Math.sqrt(s);}
+function softmax(d){const n=d.map(x=>-x/2),mx=Math.max(...n),e=n.map(x=>Math.exp(x-mx)),s=e.reduce((a,b)=>a+b,0);return e.map(x=>x/s);}
+function classifyGOP(md,att){const sc=computeMaxDiffScores(md,12),z=[];for(let i=0;i<12;i++)z.push(zScore(sc[i],GOP_NORM.md[i][0],GOP_NORM.md[i][1]));const ak=["pharma_trust","govt_trust","vax_safety","natural_med","innovation","autonomy"];for(let i=0;i<ak.length;i++)z.push(zScore(att[ak[i]]||4,GOP_NORM.att[i][0],GOP_NORM.att[i][1]));const codes=Object.keys(GOP_CENTROIDS),dist=codes.map(c=>euclideanDist(z,GOP_CENTROIDS[c])),pr=softmax(dist),mx=pr.indexOf(Math.max(...pr)),res=codes.map((c,i)=>({code:c,probability:pr[i],distance:dist[i]}));res.sort((a,b)=>b.probability-a.probability);return{segment:codes[mx],probability:pr[mx],allProbabilities:res,zScores:z};}
+function classifyDEM(md,att){const sc=computeMaxDiffScores(md,10),z=[];for(let i=0;i<10;i++)z.push(zScore(sc[i],DEM_NORM.md[i][0],DEM_NORM.md[i][1]));const ak=["m4a_support","corp_blame","incremental","global_health","equity","institution_trust"];for(let i=0;i<ak.length;i++)z.push(zScore(att[ak[i]]||4,DEM_NORM.att[i][0],DEM_NORM.att[i][1]));const codes=Object.keys(DEM_CENTROIDS),dist=codes.map(c=>euclideanDist(z,DEM_CENTROIDS[c])),pr=softmax(dist),mx=pr.indexOf(Math.max(...pr)),res=codes.map((c,i)=>({code:c,probability:pr[i],distance:dist[i]}));res.sort((a,b)=>b.probability-a.probability);return{segment:codes[mx],probability:pr[mx],allProbabilities:res,zScores:z};}
